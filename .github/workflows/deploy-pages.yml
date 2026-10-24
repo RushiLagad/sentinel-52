@@ -1,4 +1,7 @@
-﻿name: Deploy app to GitHub Pages
+# Place this file at .github/workflows/deploy-pages.yml in the repository.
+# It ships under docs/ because .github/ cannot be written by the remote file tools.
+
+name: Deploy app to GitHub Pages
 
 on:
   push:

@@ -1,0 +1,15 @@
+# Normalise line endings so the three of us can work on different machines
+# without the diff filling up with whitespace-only changes.
+* text=auto eol=lf
+
+# These must keep CRLF to run correctly on Windows.
+*.ps1  text eol=crlf
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+
+# Never touch these.
+*.png     binary
+*.jpg     binary
+*.parquet binary
+*.xlsx    binary
+*.zip     binary
