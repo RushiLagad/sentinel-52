@@ -1,0 +1,871 @@
+{
+ "data": {
+  "samples": 325123,
+  "sal_tested": 324923,
+  "sal_positive": 37685,
+  "sal_isolates": 37695,
+  "campy_isolates": 35662,
+  "cecal_samples": 72151,
+  "establishments": 8188,
+  "posted_category_rows": 1089,
+  "date_min": "2013-10-01",
+  "date_max": "2026-06-30",
+  "fiscal_years": [
+   2014,
+   2026
+  ],
+  "establishments_ever_sampled": 1409,
+  "establishments_per_fy": {
+   "2014": 171,
+   "2015": 558,
+   "2016": 551,
+   "2017": 687,
+   "2018": 1005,
+   "2019": 1024,
+   "2020": 602,
+   "2021": 607,
+   "2022": 602,
+   "2023": 613,
+   "2024": 618,
+   "2025": 786,
+   "2026": 750
+  },
+  "vaccine_only_positives": 196,
+  "directory_match_pct_fy2024plus": 100.0,
+  "positives_with_serotype_pct": 99.97
+ },
+ "routine_positivity_pct": {
+  "chicken_carcass": {
+   "2017": 5.44,
+   "2021": 4.35,
+   "2025": 5.46,
+   "2026": 4.74
+  },
+  "chicken_parts": {
+   "2017": 15.16,
+   "2021": 7.61,
+   "2025": 8.68,
+   "2026": 8.05
+  },
+  "comminuted_chicken": {
+   "2017": 27.6,
+   "2021": 26.46,
+   "2025": 34.03,
+   "2026": 36.99
+  },
+  "comminuted_turkey": {
+   "2017": 11.61,
+   "2021": 15.47,
+   "2025": 20.16,
+   "2026": 16.52
+  },
+  "turkey_carcass": {
+   "2017": 0.63,
+   "2021": 0.47,
+   "2025": 0.41,
+   "2026": 0.56
+  }
+ },
+ "chicken_serotype_share_routine_pct": {
+  "2015": {
+   "Enteritidis": 18.7,
+   "Infantis": 3.5,
+   "Kentucky": 40.1,
+   "Typhimurium": 11.9
+  },
+  "2021": {
+   "Enteritidis": 16.7,
+   "Infantis": 33.8,
+   "Kentucky": 28.4,
+   "Typhimurium": 7.3
+  },
+  "2026": {
+   "Enteritidis": 22.8,
+   "Infantis": 36.1,
+   "Kentucky": 16.6,
+   "Typhimurium": 10.2
+  }
+ },
+ "month_range_pct": {
+  "chicken_carcass": [
+   4.01,
+   5.36
+  ],
+  "chicken_parts": [
+   8.99,
+   10.09
+  ],
+  "comminuted_chicken": [
+   23.31,
+   30.74
+  ],
+  "turkey_carcass": [
+   0.34,
+   0.91
+  ],
+  "comminuted_turkey": [
+   13.31,
+   19.08
+  ]
+ },
+ "persistence_next_year_pct": {
+  "chicken_carcass": {
+   "bottom_fifth": 2.6,
+   "top_fifth": 9.9,
+   "spearman": 0.405,
+   "pairs": 1592
+  },
+  "chicken_parts": {
+   "bottom_fifth": 4.5,
+   "top_fifth": 14.6,
+   "spearman": 0.453,
+   "pairs": 2156
+  },
+  "comminuted_chicken": {
+   "bottom_fifth": 9.7,
+   "top_fifth": 47.4,
+   "spearman": 0.708,
+   "pairs": 338
+  },
+  "turkey_carcass": {
+   "bottom_fifth": 0.3,
+   "top_fifth": 1.2,
+   "spearman": 0.316,
+   "pairs": 325
+  },
+  "comminuted_turkey": {
+   "bottom_fifth": 7.8,
+   "top_fifth": 29.0,
+   "spearman": 0.54,
+   "pairs": 284
+  }
+ },
+ "comminuted_chicken_mix_check": {
+  "all_plants_pct": {
+   "2021": 26.5,
+   "2022": 23.9,
+   "2023": 28.4,
+   "2024": 31.3,
+   "2025": 34.0,
+   "2026": 37.0
+  },
+  "fixed_panel_pct": {
+   "2021": 30.9,
+   "2022": 26.4,
+   "2023": 29.6,
+   "2024": 27.0,
+   "2025": 29.0,
+   "2026": 32.9
+  },
+  "fixed_panel_plants": 19,
+  "plants_sampled": {
+   "2022": 66,
+   "2023": 73,
+   "2024": 74,
+   "2025": 153,
+   "2026": 141
+  },
+  "samples_per_plant": {
+   "2022": 26.5,
+   "2023": 25.6,
+   "2024": 14.5,
+   "2025": 8.2,
+   "2026": 8.9
+  }
+ },
+ "category_validation": {
+  "2020-12-26": {
+   "posted_rows": 834,
+   "joined": 832,
+   "match_pct": 99.64,
+   "cat3_recovered": "99/99",
+   "false_cat3": 0,
+   "naive_percent_rule_match_pct": 86.3,
+   "naive_false_cat3": 36
+  },
+  "2023-09-30": {
+   "posted_rows": 855,
+   "joined": 855,
+   "match_pct": 99.77,
+   "cat3_recovered": "108/108",
+   "false_cat3": 0,
+   "naive_percent_rule_match_pct": 85.38,
+   "naive_false_cat3": 49
+  },
+  "2026-06-27": {
+   "posted_rows": 1077,
+   "joined": 1077,
+   "match_pct": 99.81,
+   "cat3_recovered": "94/95",
+   "false_cat3": 0,
+   "naive_percent_rule_match_pct": 87.93,
+   "naive_false_cat3": 39
+  },
+  "overall": {
+   "joined": 2764,
+   "match": 2757,
+   "match_pct": 99.75
+  }
+ },
+ "latest_posting": {
+  "window": "for Sample Collection Period August 31, 2025 through August 29, 2026",
+  "categories": {
+   "1": 503,
+   "NA": 369,
+   "2": 119,
+   "3": 98
+  },
+  "category3_by_size": {
+   "Large": {
+    "cat3": 22,
+    "rated": 326,
+    "pct": 6.7
+   },
+   "Small": {
+    "cat3": 61,
+    "rated": 335,
+    "pct": 18.2
+   },
+   "Very Small": {
+    "cat3": 15,
+    "rated": 59,
+    "pct": 25.4
+   }
+  },
+  "arkansas": {
+   "rows": 54,
+   "establishments": 35,
+   "categories": {
+    "1": 44,
+    "2": 5,
+    "NA": 3,
+    "3": 2
+   }
+  },
+  "chicken_carcass_cat3_by_size": {
+   "Large": "1 of 131",
+   "Small": "11 of 43",
+   "Very Small": "8 of 13"
+  }
+ },
+ "early_warning_h6": {
+  "task": {
+   "train_rows": 38642,
+   "train_positive_pct": 8.22,
+   "train_last_window_end": "2022-06-25",
+   "test_rows": 15443,
+   "test_positive_pct": 6.34,
+   "test_window_ends": [
+    "2024-01-27",
+    "2025-12-27"
+   ],
+   "test_units": 798,
+   "test_new_failures": 979
+  },
+  "transition_pct": {
+   "1": {
+    "1": 83.3,
+    "2": 10.8,
+    "3": 1.3,
+    "NA": 4.6
+   },
+   "2": {
+    "1": 40.4,
+    "2": 43.6,
+    "3": 13.7,
+    "NA": 2.3
+   },
+   "3": {
+    "1": 7.9,
+    "2": 21.5,
+    "3": 64.8,
+    "NA": 5.8
+   }
+  },
+  "metrics": {
+   "currently Category 2 (flag)": {
+    "auroc": 0.808,
+    "avg_precision": 0.19,
+    "recall_top10pct": 0.316,
+    "precision_top10pct": 0.199
+   },
+   "trailing 52-week rate": {
+    "auroc": 0.893,
+    "avg_precision": 0.376,
+    "recall_top10pct": 0.564,
+    "precision_top10pct": 0.355
+   },
+   "positives to spare (fewest first)": {
+    "auroc": 0.898,
+    "avg_precision": 0.341,
+    "recall_top10pct": 0.596,
+    "precision_top10pct": 0.375
+   },
+   "binomial projection": {
+    "auroc": 0.917,
+    "avg_precision": 0.479,
+    "recall_top10pct": 0.66,
+    "precision_top10pct": 0.415
+   },
+   "logistic regression": {
+    "auroc": 0.924,
+    "avg_precision": 0.507,
+    "recall_top10pct": 0.663,
+    "precision_top10pct": 0.417
+   },
+   "gradient boosting, no projection feature": {
+    "auroc": 0.919,
+    "avg_precision": 0.456,
+    "recall_top10pct": 0.636,
+    "precision_top10pct": 0.4
+   },
+   "gradient boosting": {
+    "auroc": 0.926,
+    "avg_precision": 0.489,
+    "recall_top10pct": 0.672,
+    "precision_top10pct": 0.423
+   }
+  },
+  "bootstrap_ci": {
+   "auroc_proj": {
+    "lo": 0.903,
+    "median": 0.918,
+    "hi": 0.931
+   },
+   "auroc_lr": {
+    "lo": 0.912,
+    "median": 0.924,
+    "hi": 0.935
+   },
+   "auroc_gb": {
+    "lo": 0.913,
+    "median": 0.926,
+    "hi": 0.938
+   },
+   "ap_proj": {
+    "lo": 0.411,
+    "median": 0.481,
+    "hi": 0.545
+   },
+   "ap_lr": {
+    "lo": 0.442,
+    "median": 0.508,
+    "hi": 0.563
+   },
+   "ap_gb": {
+    "lo": 0.419,
+    "median": 0.492,
+    "hi": 0.553
+   },
+   "d_auroc_gb": {
+    "lo": 0.002,
+    "median": 0.009,
+    "hi": 0.016
+   },
+   "d_ap_gb": {
+    "lo": -0.027,
+    "median": 0.011,
+    "hi": 0.047
+   },
+   "d_auroc_lr": {
+    "lo": 0.002,
+    "median": 0.007,
+    "hi": 0.013
+   },
+   "d_ap_lr": {
+    "lo": -0.001,
+    "median": 0.027,
+    "hi": 0.057
+   }
+  },
+  "bootstrap_establishments": 578,
+  "watch_lists": {
+   "category_2_flag": {
+    "share_of_rated_units_pct": 23.6,
+    "precision_pct": 21.9,
+    "recall_pct": 81.3
+   },
+   "projection_same_size": {
+    "share_of_rated_units_pct": 23.6,
+    "precision_pct": 23.6,
+    "recall_pct": 87.7
+   },
+   "projection_top10pct": {
+    "share_of_rated_units_pct": 10.1,
+    "precision_pct": 41.5,
+    "recall_pct": 66.0
+   }
+  },
+  "lead_time": {
+   "new_category3_entries": 257,
+   "distinct_establishments": 160,
+   "entered_from_unrated": 28,
+   "onset_window_ends": [
+    "2024-07-27",
+    "2026-06-27"
+   ],
+   "on_list_at_least_k_months_before_pct": {
+    "category_2_flag": {
+     "1": 87.5,
+     "2": 76.3,
+     "3": 70.0,
+     "4": 63.8,
+     "5": 53.7,
+     "6": 42.0
+    },
+    "projection_same_size": {
+     "1": 89.5,
+     "2": 81.7,
+     "3": 76.3,
+     "4": 68.1,
+     "5": 58.8,
+     "6": 46.3
+    },
+    "projection_top10pct": {
+     "1": 86.0,
+     "2": 73.2,
+     "3": 62.6,
+     "4": 52.5,
+     "5": 41.2,
+     "6": 26.8
+    }
+   }
+  },
+  "median_units_per_month": {
+   "rated_1_or_2": 641.0,
+   "category_2_flag": 154.0,
+   "projection_top10pct": 65.0
+  }
+ },
+ "early_warning_h3": {
+  "task": {
+   "train_rows": 40552,
+   "train_positive_pct": 4.86,
+   "train_last_window_end": "2022-09-24",
+   "test_rows": 17343,
+   "test_positive_pct": 3.71,
+   "test_window_ends": [
+    "2024-01-27",
+    "2026-03-28"
+   ],
+   "test_units": 805,
+   "test_new_failures": 644
+  },
+  "auroc": {
+   "currently Category 2 (flag)": 0.853,
+   "trailing 52-week rate": 0.923,
+   "positives to spare (fewest first)": 0.937,
+   "binomial projection": 0.947,
+   "logistic regression": 0.933,
+   "gradient boosting, no projection feature": 0.946,
+   "gradient boosting": 0.956
+  },
+  "bootstrap_ci": {
+   "auroc_proj": {
+    "lo": 0.933,
+    "median": 0.946,
+    "hi": 0.957
+   },
+   "auroc_gb": {
+    "lo": 0.947,
+    "median": 0.956,
+    "hi": 0.963
+   },
+   "d_auroc_gb": {
+    "lo": 0.002,
+    "median": 0.009,
+    "hi": 0.019
+   }
+  }
+ },
+ "early_warning_h12": {
+  "task": {
+   "train_rows": 34767,
+   "train_positive_pct": 13.94,
+   "train_last_window_end": "2021-12-25",
+   "test_rows": 11699,
+   "test_positive_pct": 10.76,
+   "test_window_ends": [
+    "2024-01-27",
+    "2025-06-28"
+   ],
+   "test_units": 773,
+   "test_new_failures": 1259
+  },
+  "auroc": {
+   "currently Category 2 (flag)": 0.721,
+   "trailing 52-week rate": 0.824,
+   "positives to spare (fewest first)": 0.821,
+   "binomial projection": 0.836,
+   "logistic regression": 0.853,
+   "gradient boosting, no projection feature": 0.857,
+   "gradient boosting": 0.859
+  },
+  "bootstrap_ci": {
+   "auroc_proj": {
+    "lo": 0.811,
+    "median": 0.834,
+    "hi": 0.858
+   },
+   "auroc_gb": {
+    "lo": 0.833,
+    "median": 0.858,
+    "hi": 0.877
+   },
+   "d_auroc_gb": {
+    "lo": 0.006,
+    "median": 0.023,
+    "hi": 0.038
+   }
+  }
+ },
+ "hazard": {
+  "fsis_calls_overall": {
+   "isolates": 6385,
+   "fy_range": [
+    2024,
+    2026
+   ],
+   "chicken_mdr3_pct": 34.6,
+   "turkey_mdr3_pct": 15.3,
+   "class_resistance_pct": {
+    "penicillins": 9.1,
+    "beta_lactam_inhibitor_combos": 2.7,
+    "cephems": 8.1,
+    "aminoglycosides": 14.4,
+    "macrolides": 0.0,
+    "phenicols": 8.2,
+    "quinolones": 45.7,
+    "folate_pathway": 37.6,
+    "tetracyclines": 52.1,
+    "carbapenems": 0.0,
+    "polymyxins": 0.0
+   }
+  },
+  "by_serotype": {
+   "chicken|Infantis": {
+    "isolates": 1996,
+    "mdr3_pct": 86.2,
+    "ceftriaxone_r_pct": 15.2
+   },
+   "chicken|Enteritidis": {
+    "isolates": 1270,
+    "mdr3_pct": 0.4,
+    "ceftriaxone_r_pct": 0.1
+   },
+   "chicken|Kentucky": {
+    "isolates": 1259,
+    "mdr3_pct": 3.3,
+    "ceftriaxone_r_pct": 2.9
+   },
+   "chicken|Typhimurium": {
+    "isolates": 538,
+    "mdr3_pct": 40.3,
+    "ceftriaxone_r_pct": 24.9
+   },
+   "chicken|Schwarzengrund": {
+    "isolates": 277,
+    "mdr3_pct": 0.0,
+    "ceftriaxone_r_pct": 0.0
+   },
+   "chicken|Typhimurium - Possible Vaccine Strain": {
+    "isolates": 117,
+    "mdr3_pct": 0.0,
+    "ceftriaxone_r_pct": 0.0
+   },
+   "chicken|Alachua": {
+    "isolates": 96,
+    "mdr3_pct": 1.0,
+    "ceftriaxone_r_pct": 1.0
+   },
+   "chicken|Hadar": {
+    "isolates": 48,
+    "mdr3_pct": 0.0,
+    "ceftriaxone_r_pct": 0.0
+   },
+   "turkey|Agona": {
+    "isolates": 86,
+    "mdr3_pct": 7.0,
+    "ceftriaxone_r_pct": 1.2
+   },
+   "turkey|Hadar": {
+    "isolates": 86,
+    "mdr3_pct": 2.3,
+    "ceftriaxone_r_pct": 0.0
+   },
+   "turkey|Schwarzengrund": {
+    "isolates": 78,
+    "mdr3_pct": 16.7,
+    "ceftriaxone_r_pct": 14.1
+   },
+   "turkey|Infantis": {
+    "isolates": 32,
+    "mdr3_pct": 87.5,
+    "ceftriaxone_r_pct": 31.2
+   }
+  },
+  "cfu_by_class": [
+   {
+    "product_class": "chicken_carcass",
+    "positives_with_cfu": 1628,
+    "ge10_pct": 15.4,
+    "routine_positives": 1781,
+    "cfu_coverage_pct": 91.4
+   },
+   {
+    "product_class": "chicken_parts",
+    "positives_with_cfu": 3767,
+    "ge10_pct": 14.7,
+    "routine_positives": 4612,
+    "cfu_coverage_pct": 81.7
+   },
+   {
+    "product_class": "comminuted_chicken",
+    "positives_with_cfu": 1366,
+    "ge10_pct": 7.2,
+    "routine_positives": 1757,
+    "cfu_coverage_pct": 77.7
+   },
+   {
+    "product_class": "comminuted_turkey",
+    "positives_with_cfu": 579,
+    "ge10_pct": 2.2,
+    "routine_positives": 766,
+    "cfu_coverage_pct": 75.6
+   }
+  ],
+  "cfu_coverage": {
+   "first_count_by_class": {
+    "chicken_carcass": "2022-08-09",
+    "chicken_parts": "2023-01-30",
+    "comminuted_chicken": "2023-02-27",
+    "comminuted_turkey": "2023-04-05"
+   },
+   "all_classes_from": "2023-04-05",
+   "last_count_date": "2026-04-28",
+   "coverage_pct_all_classes_from_to_last_count": 94.9,
+   "positives_in_that_span": 7207,
+   "routine_positives_after_last_count": 447,
+   "last_collection_date": "2026-06-30",
+   "routine_negatives_with_a_count": 16,
+   "followup_positives_with_a_count_pct": 0.4,
+   "by_quarter_pct": {
+    "2022Q3": 24.5,
+    "2022Q4": 18.9,
+    "2023Q1": 57.7,
+    "2023Q2": 96.2,
+    "2023Q3": 94.0,
+    "2023Q4": 97.1,
+    "2024Q1": 95.4,
+    "2024Q2": 88.2,
+    "2024Q3": 93.2,
+    "2024Q4": 93.6,
+    "2025Q1": 94.5,
+    "2025Q2": 96.1,
+    "2025Q3": 93.8,
+    "2025Q4": 99.1,
+    "2026Q1": 96.2,
+    "2026Q2": 26.4
+   }
+  },
+  "proposed_2024_product_standard": {
+   "definition": "Salmonella at or above 10 CFU per mL or g AND a listed serotype (chicken: Enteritidis, Typhimurium, I 4,[5],12:i:-; comminuted turkey: Hadar, Typhimurium, Muenchen)",
+   "collected": [
+    "2022-08-09",
+    "2026-04-28"
+   ],
+   "by_group": [
+    {
+     "group": "chicken_carcass",
+     "positives_with_count_and_serotype": 1705,
+     "ge10_pct": 15.3,
+     "listed_serotype_pct": 22.8,
+     "both_pct": 4.6,
+     "both_n": 79
+    },
+    {
+     "group": "chicken_parts",
+     "positives_with_count_and_serotype": 3764,
+     "ge10_pct": 14.7,
+     "listed_serotype_pct": 34.5,
+     "both_pct": 5.7,
+     "both_n": 214
+    },
+    {
+     "group": "comminuted_chicken",
+     "positives_with_count_and_serotype": 1366,
+     "ge10_pct": 7.2,
+     "listed_serotype_pct": 33.0,
+     "both_pct": 1.5,
+     "both_n": 21
+    },
+    {
+     "group": "comminuted_turkey",
+     "positives_with_count_and_serotype": 578,
+     "ge10_pct": 2.2,
+     "listed_serotype_pct": 23.9,
+     "both_pct": 0.5,
+     "both_n": 3
+    },
+    {
+     "group": "all_chicken",
+     "positives_with_count_and_serotype": 6835,
+     "ge10_pct": 13.4,
+     "listed_serotype_pct": 31.3,
+     "both_pct": 4.6,
+     "both_n": 314
+    }
+   ],
+   "chicken_with_resistance_calls": {
+    "positives": 5151,
+    "fy_range": [
+     2024,
+     2026
+    ],
+    "mdr3_pct": 34.3,
+    "would_have_met_pct": 4.9,
+    "mdr3_pct_among_met": 13.1,
+    "mdr3_pct_among_not_met": 35.4,
+    "mdr3_positives": 1768,
+    "mdr3_positives_that_met_pct": 1.9,
+    "mdr3_positives_that_met_n": 33,
+    "mdr3_positives_that_are_infantis_pct": 85.3,
+    "mdr3_positives_at_ge10_pct": 14.6,
+    "mdr3_positives_with_listed_serotype_pct": 11.6
+   }
+  },
+  "fsis_indicator": {
+   "serotypes": [
+    "Enteritidis",
+    "Infantis",
+    "Typhimurium"
+   ],
+   "fsis_stated_baseline_pct": 4.22,
+   "fsis_target_cut_by_fy": {
+    "2022": 0.02,
+    "2023": 0.04,
+    "2024": 0.06,
+    "2025": 0.08,
+    "2026": 0.1
+   },
+   "baseline_recomputed": {
+    "fy": [
+     2020,
+     2021
+    ],
+    "indicator_positives": 2421,
+    "samples": 57660,
+    "pct": 4.2
+   },
+   "pct_by_fy": {
+    "2015": 3.65,
+    "2016": 4.07,
+    "2017": 4.49,
+    "2018": 4.82,
+    "2019": 4.08,
+    "2020": 4.15,
+    "2021": 4.25,
+    "2022": 4.06,
+    "2023": 5.03,
+    "2024": 4.77,
+    "2025": 5.4,
+    "2026": 5.78
+   },
+   "fsis_target_pct_by_fy": {
+    "2022": 4.14,
+    "2023": 4.05,
+    "2024": 3.97,
+    "2025": 3.88,
+    "2026": 3.8
+   },
+   "change_vs_recomputed_baseline_pct": {
+    "2022": -3.3,
+    "2023": 19.7,
+    "2024": 13.5,
+    "2025": 28.6,
+    "2026": 37.6
+   },
+   "pct_at_fy2020_21_product_mix": {
+    "2020": 4.16,
+    "2021": 4.24,
+    "2022": 4.16,
+    "2023": 5.07,
+    "2024": 5.1,
+    "2025": 5.62,
+    "2026": 5.71
+   },
+   "fixed_panel": {
+    "units": 561,
+    "establishments": 384,
+    "rule": "plant and product class with at least 10 routine samples in every fiscal year from FY2020",
+    "pct_by_fy": {
+     "2020": 3.68,
+     "2021": 3.66,
+     "2022": 3.41,
+     "2023": 4.37,
+     "2024": 4.22,
+     "2025": 4.64,
+     "2026": 4.76
+    },
+    "baseline_fy2020_21_pct": 3.67,
+    "change_vs_panel_baseline_pct": {
+     "2022": -6.9,
+     "2023": 19.1,
+     "2024": 15.1,
+     "2025": 26.4,
+     "2026": 29.8
+    }
+   },
+   "pct_oct_to_jun_only": {
+    "2020": 4.33,
+    "2021": 4.32,
+    "2022": 4.12,
+    "2023": 5.08,
+    "2024": 4.93,
+    "2025": 5.46,
+    "2026": 5.78
+   },
+   "pct_with_possible_vaccine_strains": {
+    "2020": 4.15,
+    "2021": 4.25,
+    "2022": 4.07,
+    "2023": 5.13,
+    "2024": 4.9,
+    "2025": 5.61,
+    "2026": 6.0
+   },
+   "chicken_samples_pct_by_serotype": {
+    "Enteritidis": {
+     "2021": 1.32,
+     "2025": 1.84,
+     "2026": 2.03
+    },
+    "Infantis": {
+     "2021": 2.66,
+     "2025": 3.04,
+     "2026": 3.21
+    },
+    "Typhimurium": {
+     "2021": 0.58,
+     "2025": 0.83,
+     "2026": 0.91
+    }
+   },
+   "last_fy_is_partial": true
+  },
+  "heuristic_vs_fsis_mdr_agree_pct": 97.0
+ },
+ "cecal_young_chicken": {
+  "samples": 9026,
+  "carcass_plants_routine": 261,
+  "carcass_plants_with_cecal_samples": 239,
+  "plants_sampled_per_fy_since_2021": [
+   142,
+   160
+  ],
+  "samples_per_sampled_plant_per_fy_since_2021": [
+   4.2,
+   5.3
+  ]
+ }
+}

@@ -1,0 +1,23 @@
+# Source and built data are rebuildable; see README
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+analysis/outputs/*.parquet
+*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Node / app
+node_modules/
+app/dist/
+app/.vite/
+
+# OS
+.DS_Store
+Thumbs.db

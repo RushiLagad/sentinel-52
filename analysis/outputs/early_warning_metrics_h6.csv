@@ -1,0 +1,8 @@
+scorer,auroc,avg_precision,recall_top10pct,precision_top10pct,brier
+currently Category 2 (flag),0.808,0.19,0.316,0.199,
+trailing 52-week rate,0.893,0.376,0.564,0.355,
+positives to spare (fewest first),0.898,0.341,0.596,0.375,
+binomial projection,0.917,0.479,0.66,0.415,0.0426
+logistic regression,0.924,0.507,0.663,0.417,0.0412
+"gradient boosting, no projection feature",0.919,0.456,0.636,0.4,0.0431
+gradient boosting,0.926,0.489,0.672,0.423,0.0417

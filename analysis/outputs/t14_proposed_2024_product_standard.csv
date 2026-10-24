@@ -1,0 +1,6 @@
+group,positives_with_count_and_serotype,ge10_pct,listed_serotype_pct,both_pct,both_n
+chicken_carcass,1705,15.3,22.8,4.6,79
+chicken_parts,3764,14.7,34.5,5.7,214
+comminuted_chicken,1366,7.2,33.0,1.5,21
+comminuted_turkey,578,2.2,23.9,0.5,3
+all_chicken,6835,13.4,31.3,4.6,314

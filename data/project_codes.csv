@@ -1,0 +1,35 @@
+Project Code,Project Name,Start Date,End Date,Notes
+HC_CH_CARC01,HACCP: Verification for young chicken carcasses,2015-05-06,,
+HC_TU_CARC01,HACCP: Verification for young turkey carcasses,2015-05-06,,
+HC_CH_COM01,Sampling for ground and other comminuted chicken (not mechanically separated),2015-05-29,,
+HC_TU_COM01,Sampling for ground and other comminuted turkey (not mechanically separated),2015-05-29,,
+HC_CPT_LBW01,"Sampling for chicken parts – legs, breasts, and wings",2015-03-26,,
+F_CH_CARC01,Follow-up sampling of chicken carcasses,2017-01-24,,
+F_CPT_LBW01,"Follow-up sampling of chicken parts – legs, breasts, wings",2018-05-08,,
+F_CH_COM01,Follow-up sampling of comminuted chicken,2018-05-01,,
+F_TU_CARC01,Follow-up sampling of turkey carcasses,2017-06-29,,
+F_TU_COM01,Follow-up sampling of comminuted turkey,2018-04-30,,
+EX_CHCAR_RH1,Exploratory Young Chicken Carcass Rehang Sampling,2022-04-27,2022-11-30,
+NRTE_EXP_CH,NRTE Comminuted Poultry Exploratory Sampling Program – Chicken,2013-05-28,2015-06-01,
+NRTE_EXP_TU,NRTE Comminuted Poultry Exploratory Sampling Program – Turkeys,2013-05-30,2015-05-30,
+EXP_CH_MSK01,Exploratory Sampling for Mechanically Separated Chicken,2015-06-02,,Project was suspended in FY24
+EXP_TU_MSK01,Exploratory Sampling for Mechanically Separated Turkey,2015-06-02,,Project was suspended in FY24
+EXP_CPT_QH01,Exploratory Sampling for Chicken Parts - Quarter and Half Carcasses,2016-11-02,,Project was suspended in FY24
+EXP_CPT_OT01,Exploratory Sampling for Chicken Parts - Other Parts,2016-11-02,2020-03-31,
+RE_CH_CARC01,Religious Exempt Sampling for Chicken Carcasses,2017-07-11,2019-07-17,
+LO_CH_CARC01,Very Low Volume Sampling for Chicken Carcasses,2017-07-06,2019-07-24,
+LO_TU_CARC01,Very Low Volume Sampling for Turkey Carcasses,2017-07-19,2019-07-23,
+LO_CH_COM01,Very Low Volume Sampling for Ground and Other Comminuted Chicken (not Mechanically Separated),2017-07-06,2019-07-30,
+LO_TU_COM01,Very Low Volume Sampling for Ground and Other Comminuted Turkey (not Mechanically Separated),2017-06-29,2019-07-26,
+LO_CH_MSK01,Very Low Volume Sampling for Mechanically Separated Chicken,2018-03-13,2019-07-12,
+LO_CPT_LBW01,"Very Low Volume Sampling for Raw Chicken Parts - Legs, Breast, Wings",2017-06-28,2019-07-30,
+LO_CPT_QH01,Very Low Volume Sampling for Chicken Parts - Quarters/Halves,2017-07-05,2019-07-28,
+LO_CPT_OT01,Very Low Volume Sampling for Raw Chicken Parts - Other Parts,2017-07-06,2019-07-25,
+SPECPGM_02,Special Program - Intensified Sampling of Chicken Products - Salmonella Heidelberg Illnesses,2013-09-09,2014-11-13,"Each project beginning with SPECPGM was initiated for its own purpose, such as sampling in establishment A because of an outbreak in 2015"
+SPECPGM_02B,Intensified Sampling at Establishments Associated with PFGE Matches to Outbreak Strains,2014-08-11,2015-01-06,"Each project beginning with SPECPGM was initiated for its own purpose, such as sampling in establishment A because of an outbreak in 2015"
+SPECPGM_05,Stuffed Chicken Outbreak Sampling - Product (includes finished and comminuted source product),2015-08-17,2015-09-16,"Each project beginning with SPECPGM was initiated for its own purpose, such as sampling in establishment A because of an outbreak in 2015"
+SPECPGM_05E,Stuffed Chicken Outbreak Sampling - Environmental (Food-Contact) Swab**,2015-08-18,2015-09-16,"Each project beginning with SPECPGM was initiated for its own purpose, such as sampling in establishment A because of an outbreak in 2015"
+SPECPGM_06,Stuffed Chicken Outbreak Sampling - Product (Includes Finished and Comminuted Source Products),2015-08-17,2016-03-03,"Each project beginning with SPECPGM was initiated for its own purpose, such as sampling in establishment A because of an outbreak in 2015"
+SPECPGM_06E,Stuffed Chicken Outbreak Sampling - Environmental (Food-Contact) Swab**,2015-08-17,2015-11-17,"Each project beginning with SPECPGM was initiated for its own purpose, such as sampling in establishment A because of an outbreak in 2015"
+SPECPGM_07,Turkey Carcass Sponge Sampling - In-Plant Trial,2016-11-09,2016-11-16,"Each project beginning with SPECPGM was initiated for its own purpose, such as sampling in establishment A because of an outbreak in 2015"
+SPECPGM_RTEP,Special Program Sampling - Ready to Eat Product,2017-02-15,2017-04-05,"Each project beginning with SPECPGM was initiated for its own purpose, such as sampling in establishment A because of an outbreak in 2015"

@@ -1,0 +1,19 @@
+product_class,haccp_size,n,pos,pct,establishments
+chicken_carcass,Large,27466,922,3.36,139
+chicken_carcass,Small,5827,582,9.99,54
+chicken_carcass,Very Small,1295,276,21.31,33
+chicken_carcass,unknown,7,1,14.29,1
+chicken_parts,Large,29190,2001,6.86,170
+chicken_parts,Small,21330,2216,10.39,402
+chicken_parts,Very Small,4223,389,9.21,155
+chicken_parts,unknown,27,6,22.22,4
+comminuted_chicken,Large,1580,498,31.52,18
+comminuted_chicken,Small,3634,1147,31.56,141
+comminuted_chicken,Very Small,236,112,47.46,56
+comminuted_turkey,Large,2254,522,23.16,18
+comminuted_turkey,Small,1992,239,12.0,54
+comminuted_turkey,Very Small,33,5,15.15,11
+turkey_carcass,Large,2215,11,0.5,23
+turkey_carcass,Small,1199,2,0.17,17
+turkey_carcass,Very Small,48,0,0.0,3
+turkey_carcass,unknown,3,0,0.0,1

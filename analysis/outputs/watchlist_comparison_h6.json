@@ -1,0 +1,63 @@
+{
+ "horizon_months": 6,
+ "rows": 15443,
+ "events": 979,
+ "category2_list_share_pct": 23.6,
+ "lists": {
+  "category_2_flag": {
+   "share_of_rated_units_pct": 23.6,
+   "precision_pct": 21.9,
+   "recall_pct": 81.3
+  },
+  "projection_same_size": {
+   "share_of_rated_units_pct": 23.6,
+   "precision_pct": 23.6,
+   "recall_pct": 87.7
+  },
+  "projection_top10pct": {
+   "share_of_rated_units_pct": 10.1,
+   "precision_pct": 41.5,
+   "recall_pct": 66.0
+  }
+ },
+ "lead_time": {
+  "new_category3_entries": 257,
+  "distinct_establishments": 160,
+  "entered_from_unrated": 28,
+  "onset_window_ends": [
+   "2024-07-27",
+   "2026-06-27"
+  ],
+  "on_list_at_least_k_months_before_pct": {
+   "category_2_flag": {
+    "1": 87.5,
+    "2": 76.3,
+    "3": 70.0,
+    "4": 63.8,
+    "5": 53.7,
+    "6": 42.0
+   },
+   "projection_same_size": {
+    "1": 89.5,
+    "2": 81.7,
+    "3": 76.3,
+    "4": 68.1,
+    "5": 58.8,
+    "6": 46.3
+   },
+   "projection_top10pct": {
+    "1": 86.0,
+    "2": 73.2,
+    "3": 62.6,
+    "4": 52.5,
+    "5": 41.2,
+    "6": 26.8
+   }
+  }
+ },
+ "median_units_per_month": {
+  "rated_1_or_2": 641.0,
+  "category_2_flag": 154.0,
+  "projection_top10pct": 65.0
+ }
+}

@@ -1,0 +1,13 @@
+species,serotype_clean,isolates,mdr3_pct,ceftriaxone_r_pct,quinolone_r_pct,tetracycline_r_pct,no_resistance_pct
+chicken,Infantis,1996,86.2,15.2,99.0,81.6,0.9
+chicken,Enteritidis,1270,0.4,0.1,69.2,0.6,30.5
+chicken,Kentucky,1259,3.3,2.9,0.0,60.4,38.2
+chicken,Typhimurium,538,40.3,24.9,0.2,93.9,5.9
+chicken,Schwarzengrund,277,0.0,0.0,0.0,0.7,99.3
+chicken,Typhimurium - Possible Vaccine Strain,117,0.0,0.0,0.0,0.0,100.0
+chicken,Alachua,96,1.0,1.0,0.0,62.5,36.5
+chicken,Hadar,48,0.0,0.0,0.0,83.3,16.7
+turkey,Agona,86,7.0,1.2,0.0,37.2,59.3
+turkey,Hadar,86,2.3,0.0,1.2,93.0,7.0
+turkey,Schwarzengrund,78,16.7,14.1,0.0,50.0,46.2
+turkey,Infantis,32,87.5,31.2,87.5,75.0,9.4

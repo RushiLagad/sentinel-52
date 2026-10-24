@@ -1,0 +1,58 @@
+col_name,col_desc,col_type
+form_id,The form number used to uniquely identify a specific sample.,character varying
+sample_number,The number used to uniquely identify a sample within the form_id. A single form_id can have multiple sample numbers depending on the types of tests performed.,integer
+establishment_id,"A unique numeric identifier that is used to identify an establishment across data datasets in the FSIS databases. 
+ This data can be combined with other FSIS datasets using the establishment_id variable. Please note that other FSIS datasets may represent this variable as EstablishmentID with capital letters and no underscores.",integer
+establishment_number,"A letter/number combination identifying each establishment. Establishment numbers may be reused over time; therefore, we recommend relying on the establishment_id to merge data from different datasets. Please note that other FSIS datasets may represent this variable as EstablishmentNumber with capital letters and no underscores. 
+ Each establishment is assigned a number for each FSIS grant of inspection that is currently active or that may have been active in the past. Each number is preceded by a variable prefix to indicate the type of grant (M = Meat, P = Poultry, I = Imports, G = Eggs, V = Voluntary). 
+  Some establishment numbers also have a suffix letter. These letters indicate different establishments. 
+ Establishments with multiple numbers have multiple grants of inspection. When this happens, the different numbers are joined with a '+'.  
+ Examples:  M1234 - The prefix 'M' indicates that the establishment has a meat grant or had a meat grant in the past. The '1234' is the numerical portion that goes with the meat grant; P1234 - The prefix 'P' indicates that the establishment has a poultry grant or had a poultry grant in the past. The '1234' is the numerical portion that goes with the poultry grant; Note: If an establishment has more than one grant, the numerical portions may be the same, but that is not required. If establishment M234 has/had a poultry grant as well, the poultry number might be P234, but it could be a different number. If M234 has/had a poultry number that is different than P234, (e.g. M234+P567), then P234 is available and could be the number of a different establishment; and M1234A and M1234B would be different establishments because they have different suffixes. 
+ Establishment numbers are found on package labels.",character varying
+establishment_name,The name of an establishment on its FSIS grant of inspection.,character varying
+establishment_state,The state where the establishment is located.,character varying
+project_code,A short name given to easily identify an FSIS sampling project.,character varying
+project_name,The name of the FSIS sampling project.,character varying
+collection_date,The date the FSIS inspector collected the sample at the FSIS-regulated establishment.,date
+sample_source_name,The animal or product from which the sample was obtained.,character varying
+product_type,"The specific part type collected, as entered by the inspection personnel collecting the sample (e.g., leg, quarter-carcass, livers, gizzards, hearts, and necks). This field is only applicable for the following projects: 
+ EXP_CPT_OT01
+ EXP_CPT_QH01
+ F_CH_COM01 
+ F_CPT_LBW01 
+ F_TU_COM01  
+ HC_CH_COM01 
+ HC_CPT_LBW01 
+ HC_TU_COM01  
+ LO_CH_COM01 
+ LO_CPT_LBW01 
+ LO_CPT_OT01 
+ LO_CPT_QH01 
+ LO_TU_COM01 
+ NRTE_EXP_CH 
+ NRTE_EXP_TU 
+ SPECPGM_02 
+ SPECPGM_02B 
+ SPECPGM_05 
+ SPECPGM_06",character varying
+not_analyzed,Indicates if the corresponding sample was unable to be analyzed. A value of '00' indicates the sample was analyzed.,character varying
+not_analyzed_explain,The reason explaining why a sample was not analyzed.,character varying
+salmonella_sp_analysis,Microbiology Test: The result of the analysis for Salmonella in the sample. Negative indicates Salmonella was not found in the sample. Positive indicates Salmonella was found in the sample.,character varying
+salmonella_sp_analysis_canceled,Indicates if the corresponding test was canceled. The value will be the reason for the cancellation.,character varying
+salmonellae_mpn_g,Microbiology Test (Unit: per gram) - Result of the analysis to estimate the population density of viable Salmonella. Results are reported as an estimate of the most probable number (MPN/g) of observed positive growth responses in a standard dilution series of sample inoculum. Salmonella MPN was discontinued in March 2020.,character varying
+salmonellae_mpn_g_canceled,Indicates if the corresponding test was canceled. The value will be the reason for the cancellation.,character varying
+salmonellae_mpn_combination,Microbiology Test (5 sets of 3 tubes): Result of the analysis to estimate the population density of viable Salmonella. Results are reported as the number of tubes that were observed to have positive growth responses in a standard dilution series of sample inoculum placed into a set number of culture media tubes. Salmonella most probable number (MPN) was discontinued in March 2020.,character varying
+salmonella_quantitative_cfu_g,Microbiology Test (Unit: per gram): Result of the PCR method analysis to determine the amount of Salmonella in a sample that has been confirmed positive for Salmonella; reported as a quantitative result in Colony Forming Units (CFUs) per Gram.,character varying
+salmonella_quantitative_cfu_ml,Microbiology Test (Unit: per ml): Result of the PCR method analysis to determine the amount of Salmonella in a sample that has been confirmed positive for Salmonella; reported as a quantitative result in Colony Forming Units (CFUs) per Milliliter.,character varying
+salmonella_mpn_qualitative,"Microbiology Test: Qualitative result of the analysis to estimate the population density of viable Salmonella. Salmonella most probable number (MPN) was discontinued in March 2020. 
+ Positive = observed growth responses in at least one culture tube of a standard dilution series of the sample inoculum. 
+ Negative = no growth observed.",character varying
+campylobacter_analysis_1ml,Microbiology Test: The result of the analysis for Campylobacter species in the sample that was tested using the direct plate method. Negative indicates Campylobacter was not found in the sample. Positive indicates Campylobacter was found in the sample.,character varying
+campylobacter_analysis_1ml_canceled,Indicates if the corresponding test was canceled. The value will be the reason for the cancellation.,character varying
+campylobacter_analysis_30ml,Microbiology Test: The result of the analysis for Campylobacter species in the sample that was tested using the enrichment method. Negative indicates Campylobacter was not found in the sample. Positive indicates Campylobacter was found in the sample.,character varying
+campylobacter_analysis_30ml_canceled,Indicates if the corresponding test was canceled. The value will be the reason for the cancellation.,character varying
+aerobic_plate_count_mpn_ml,Bacterial enumeration result (Unit: per mL): Result of the analysis to estimate the total viable aerobic bacteria count determined using the Tempo instrument. Results are reported as an estimate of the most probable number (MPN/mL) of observed positive growth responses in a standard dilution series of sample inoculum.,character varying
+enterobacteriaceae_mpn_ml,Bacterial enumeration result (Unit: per mL). Result of the analysis to estimate the total viable Enterobacteriaceae bacteria determined using the Tempo instrument. Results are reported as an estimate of the most probable number (MPN/mL) of observed positive growth responses in a standard dilution series of sample inoculum.,character varying
+aerobic_plate_count_mpn_100_sq_cm,"Bacterial enumeration result (Unit: per 100 cm2): Result of the analysis for enumeration of total viable aerobic bacteria count as determined using the Tempo instrument. Results are reported as an estimate of the most probable number of observed positive growth responses in a standard dilution series of sample inoculum. In this case, the sample was collected by swabbing a 100 square centimeter surface area.",character varying
+enterobacteriaceae_mpn_100_sq_cm,"Bacterial enumeration result (Unit: per 100 cm2): Result of the analysis for enumeration of total viable Enterobacteriaceae bacteria count as determined using the Tempo instrument. Results are reported as an estimate of the most probable number of observed positive growth responses in a standard dilution series of sample inoculum. In this case, the sample was collected by swabbing a 100 square centimeter surface area.",character varying
+aerobic_plate_count_mpn_g,Bacterial enumeration result (Unit: per gram): Result of the analysis to estimate the total viable aerobic bacteria count determined using the Tempo instrument. Results are reported as an estimate of the most probable number (MPN/g) of observed positive growth responses in a standard dilution series of sample inoculum.,character varying

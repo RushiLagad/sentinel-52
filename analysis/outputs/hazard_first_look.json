@@ -1,0 +1,630 @@
+{
+ "by_serotype_fy2023plus": [
+  {
+   "species": "chicken",
+   "serotype_clean": "Infantis",
+   "isolates": 2731,
+   "mdr3_pct": 87.2,
+   "ctxm65_pct": 17.4,
+   "quinolone_marker_pct": 98.9,
+   "median_classes": 4.0
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Kentucky",
+   "isolates": 1877,
+   "mdr3_pct": 2.7,
+   "ctxm65_pct": 0.3,
+   "quinolone_marker_pct": 0.0,
+   "median_classes": 2.0
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Enteritidis",
+   "isolates": 1712,
+   "mdr3_pct": 0.4,
+   "ctxm65_pct": 0.0,
+   "quinolone_marker_pct": 63.8,
+   "median_classes": 1.0
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Typhimurium",
+   "isolates": 788,
+   "mdr3_pct": 42.4,
+   "ctxm65_pct": 0.0,
+   "quinolone_marker_pct": 0.3,
+   "median_classes": 2.0
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Schwarzengrund",
+   "isolates": 359,
+   "mdr3_pct": 0.3,
+   "ctxm65_pct": 0.0,
+   "quinolone_marker_pct": 0.0,
+   "median_classes": 1.0
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Typhimurium - Possible Vaccine Strain",
+   "isolates": 144,
+   "mdr3_pct": 0.0,
+   "ctxm65_pct": 0.0,
+   "quinolone_marker_pct": 0.0,
+   "median_classes": 0.0
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Alachua",
+   "isolates": 120,
+   "mdr3_pct": 62.5,
+   "ctxm65_pct": 0.0,
+   "quinolone_marker_pct": 0.0,
+   "median_classes": 3.0
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Hadar",
+   "isolates": 56,
+   "mdr3_pct": 1.8,
+   "ctxm65_pct": 0.0,
+   "quinolone_marker_pct": 0.0,
+   "median_classes": 2.0
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Hadar",
+   "isolates": 139,
+   "mdr3_pct": 14.4,
+   "ctxm65_pct": 0.0,
+   "quinolone_marker_pct": 0.7,
+   "median_classes": 2.0
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Schwarzengrund",
+   "isolates": 96,
+   "mdr3_pct": 30.2,
+   "ctxm65_pct": 11.5,
+   "quinolone_marker_pct": 0.0,
+   "median_classes": 0.0
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Infantis",
+   "isolates": 58,
+   "mdr3_pct": 89.7,
+   "ctxm65_pct": 44.8,
+   "quinolone_marker_pct": 93.1,
+   "median_classes": 5.0
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Typhimurium",
+   "isolates": 30,
+   "mdr3_pct": 26.7,
+   "ctxm65_pct": 0.0,
+   "quinolone_marker_pct": 0.0,
+   "median_classes": 2.0
+  }
+ ],
+ "chicken_mdr_by_fy": [
+  {
+   "fy": 2019,
+   "isolates": 1259,
+   "mdr3_pct": 29.8,
+   "ctxm65_pct": 11.4
+  },
+  {
+   "fy": 2020,
+   "isolates": 2105,
+   "mdr3_pct": 29.2,
+   "ctxm65_pct": 11.7
+  },
+  {
+   "fy": 2021,
+   "isolates": 2029,
+   "mdr3_pct": 35.3,
+   "ctxm65_pct": 9.7
+  },
+  {
+   "fy": 2022,
+   "isolates": 1909,
+   "mdr3_pct": 33.3,
+   "ctxm65_pct": 9.3
+  },
+  {
+   "fy": 2023,
+   "isolates": 2296,
+   "mdr3_pct": 34.4,
+   "ctxm65_pct": 7.6
+  },
+  {
+   "fy": 2024,
+   "isolates": 2031,
+   "mdr3_pct": 33.3,
+   "ctxm65_pct": 5.2
+  },
+  {
+   "fy": 2025,
+   "isolates": 2175,
+   "mdr3_pct": 36.9,
+   "ctxm65_pct": 5.7
+  },
+  {
+   "fy": 2026,
+   "isolates": 1624,
+   "mdr3_pct": 38.1,
+   "ctxm65_pct": 4.7
+  }
+ ],
+ "heuristic_check": [
+  {
+   "class": "beta_lactam",
+   "isolates": 6369,
+   "fsis_wgs_resistant": 580,
+   "heuristic_has_gene": 592,
+   "agree_pct": 99.8
+  },
+  {
+   "class": "tetracycline",
+   "isolates": 6369,
+   "fsis_wgs_resistant": 3321,
+   "heuristic_has_gene": 3325,
+   "agree_pct": 99.9
+  },
+  {
+   "class": "sulfonamide",
+   "isolates": 6369,
+   "fsis_wgs_resistant": 2302,
+   "heuristic_has_gene": 2307,
+   "agree_pct": 99.9
+  },
+  {
+   "class": "aminoglycoside",
+   "isolates": 6369,
+   "fsis_wgs_resistant": 918,
+   "heuristic_has_gene": 3310,
+   "agree_pct": 62.3
+  },
+  {
+   "class": "phenicol",
+   "isolates": 6369,
+   "fsis_wgs_resistant": 525,
+   "heuristic_has_gene": 531,
+   "agree_pct": 99.9
+  }
+ ],
+ "fsis_calls_by_serotype": [
+  {
+   "species": "chicken",
+   "serotype_clean": "Infantis",
+   "isolates": 1996,
+   "mdr3_pct": 86.2,
+   "ceftriaxone_r_pct": 15.2,
+   "quinolone_r_pct": 99.0,
+   "tetracycline_r_pct": 81.6,
+   "no_resistance_pct": 0.9
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Enteritidis",
+   "isolates": 1270,
+   "mdr3_pct": 0.4,
+   "ceftriaxone_r_pct": 0.1,
+   "quinolone_r_pct": 69.2,
+   "tetracycline_r_pct": 0.6,
+   "no_resistance_pct": 30.5
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Kentucky",
+   "isolates": 1259,
+   "mdr3_pct": 3.3,
+   "ceftriaxone_r_pct": 2.9,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 60.4,
+   "no_resistance_pct": 38.2
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Typhimurium",
+   "isolates": 538,
+   "mdr3_pct": 40.3,
+   "ceftriaxone_r_pct": 24.9,
+   "quinolone_r_pct": 0.2,
+   "tetracycline_r_pct": 93.9,
+   "no_resistance_pct": 5.9
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Schwarzengrund",
+   "isolates": 277,
+   "mdr3_pct": 0.0,
+   "ceftriaxone_r_pct": 0.0,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 0.7,
+   "no_resistance_pct": 99.3
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Typhimurium - Possible Vaccine Strain",
+   "isolates": 117,
+   "mdr3_pct": 0.0,
+   "ceftriaxone_r_pct": 0.0,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 0.0,
+   "no_resistance_pct": 100.0
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Alachua",
+   "isolates": 96,
+   "mdr3_pct": 1.0,
+   "ceftriaxone_r_pct": 1.0,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 62.5,
+   "no_resistance_pct": 36.5
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Hadar",
+   "isolates": 48,
+   "mdr3_pct": 0.0,
+   "ceftriaxone_r_pct": 0.0,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 83.3,
+   "no_resistance_pct": 16.7
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Agona",
+   "isolates": 86,
+   "mdr3_pct": 7.0,
+   "ceftriaxone_r_pct": 1.2,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 37.2,
+   "no_resistance_pct": 59.3
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Hadar",
+   "isolates": 86,
+   "mdr3_pct": 2.3,
+   "ceftriaxone_r_pct": 0.0,
+   "quinolone_r_pct": 1.2,
+   "tetracycline_r_pct": 93.0,
+   "no_resistance_pct": 7.0
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Schwarzengrund",
+   "isolates": 78,
+   "mdr3_pct": 16.7,
+   "ceftriaxone_r_pct": 14.1,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 50.0,
+   "no_resistance_pct": 46.2
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Infantis",
+   "isolates": 32,
+   "mdr3_pct": 87.5,
+   "ceftriaxone_r_pct": 31.2,
+   "quinolone_r_pct": 87.5,
+   "tetracycline_r_pct": 75.0,
+   "no_resistance_pct": 9.4
+  }
+ ],
+ "fsis_calls_overall": {
+  "isolates": 6385,
+  "fy_range": [
+   2024,
+   2026
+  ],
+  "chicken_mdr3_pct": 34.6,
+  "turkey_mdr3_pct": 15.3,
+  "class_resistance_pct": {
+   "penicillins": 9.1,
+   "beta_lactam_inhibitor_combos": 2.7,
+   "cephems": 8.1,
+   "aminoglycosides": 14.4,
+   "macrolides": 0.0,
+   "phenicols": 8.2,
+   "quinolones": 45.7,
+   "folate_pathway": 37.6,
+   "tetracyclines": 52.1,
+   "carbapenems": 0.0,
+   "polymyxins": 0.0
+  }
+ },
+ "heuristic_vs_fsis_mdr_agree_pct": 97.0,
+ "cfu_by_class": [
+  {
+   "product_class": "chicken_carcass",
+   "positives_with_cfu": 1628,
+   "ge10_pct": 15.4,
+   "routine_positives": 1781,
+   "cfu_coverage_pct": 91.4
+  },
+  {
+   "product_class": "chicken_parts",
+   "positives_with_cfu": 3767,
+   "ge10_pct": 14.7,
+   "routine_positives": 4612,
+   "cfu_coverage_pct": 81.7
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "positives_with_cfu": 1366,
+   "ge10_pct": 7.2,
+   "routine_positives": 1757,
+   "cfu_coverage_pct": 77.7
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "positives_with_cfu": 579,
+   "ge10_pct": 2.2,
+   "routine_positives": 766,
+   "cfu_coverage_pct": 75.6
+  }
+ ],
+ "cfu_by_serotype": [
+  {
+   "serotype_clean": "Agona",
+   "n": 90,
+   "ge10_pct": 4.4
+  },
+  {
+   "serotype_clean": "Enteritidis",
+   "n": 1412,
+   "ge10_pct": 15.8
+  },
+  {
+   "serotype_clean": "Hadar",
+   "n": 148,
+   "ge10_pct": 6.8
+  },
+  {
+   "serotype_clean": "Infantis",
+   "n": 2286,
+   "ge10_pct": 13.6
+  },
+  {
+   "serotype_clean": "Kentucky",
+   "n": 1603,
+   "ge10_pct": 10.4
+  },
+  {
+   "serotype_clean": "Schwarzengrund",
+   "n": 369,
+   "ge10_pct": 12.2
+  },
+  {
+   "serotype_clean": "Typhimurium",
+   "n": 674,
+   "ge10_pct": 12.3
+  }
+ ],
+ "cfu_coverage": {
+  "first_count_by_class": {
+   "chicken_carcass": "2022-08-09",
+   "chicken_parts": "2023-01-30",
+   "comminuted_chicken": "2023-02-27",
+   "comminuted_turkey": "2023-04-05"
+  },
+  "all_classes_from": "2023-04-05",
+  "last_count_date": "2026-04-28",
+  "coverage_pct_all_classes_from_to_last_count": 94.9,
+  "positives_in_that_span": 7207,
+  "routine_positives_after_last_count": 447,
+  "last_collection_date": "2026-06-30",
+  "routine_negatives_with_a_count": 16,
+  "followup_positives_with_a_count_pct": 0.4,
+  "by_quarter_pct": {
+   "2022Q3": 24.5,
+   "2022Q4": 18.9,
+   "2023Q1": 57.7,
+   "2023Q2": 96.2,
+   "2023Q3": 94.0,
+   "2023Q4": 97.1,
+   "2024Q1": 95.4,
+   "2024Q2": 88.2,
+   "2024Q3": 93.2,
+   "2024Q4": 93.6,
+   "2025Q1": 94.5,
+   "2025Q2": 96.1,
+   "2025Q3": 93.8,
+   "2025Q4": 99.1,
+   "2026Q1": 96.2,
+   "2026Q2": 26.4
+  }
+ },
+ "proposed_2024_product_standard": {
+  "definition": "Salmonella at or above 10 CFU per mL or g AND a listed serotype (chicken: Enteritidis, Typhimurium, I 4,[5],12:i:-; comminuted turkey: Hadar, Typhimurium, Muenchen)",
+  "collected": [
+   "2022-08-09",
+   "2026-04-28"
+  ],
+  "by_group": [
+   {
+    "group": "chicken_carcass",
+    "positives_with_count_and_serotype": 1705,
+    "ge10_pct": 15.3,
+    "listed_serotype_pct": 22.8,
+    "both_pct": 4.6,
+    "both_n": 79
+   },
+   {
+    "group": "chicken_parts",
+    "positives_with_count_and_serotype": 3764,
+    "ge10_pct": 14.7,
+    "listed_serotype_pct": 34.5,
+    "both_pct": 5.7,
+    "both_n": 214
+   },
+   {
+    "group": "comminuted_chicken",
+    "positives_with_count_and_serotype": 1366,
+    "ge10_pct": 7.2,
+    "listed_serotype_pct": 33.0,
+    "both_pct": 1.5,
+    "both_n": 21
+   },
+   {
+    "group": "comminuted_turkey",
+    "positives_with_count_and_serotype": 578,
+    "ge10_pct": 2.2,
+    "listed_serotype_pct": 23.9,
+    "both_pct": 0.5,
+    "both_n": 3
+   },
+   {
+    "group": "all_chicken",
+    "positives_with_count_and_serotype": 6835,
+    "ge10_pct": 13.4,
+    "listed_serotype_pct": 31.3,
+    "both_pct": 4.6,
+    "both_n": 314
+   }
+  ],
+  "chicken_with_resistance_calls": {
+   "positives": 5151,
+   "fy_range": [
+    2024,
+    2026
+   ],
+   "mdr3_pct": 34.3,
+   "would_have_met_pct": 4.9,
+   "mdr3_pct_among_met": 13.1,
+   "mdr3_pct_among_not_met": 35.4,
+   "mdr3_positives": 1768,
+   "mdr3_positives_that_met_pct": 1.9,
+   "mdr3_positives_that_met_n": 33,
+   "mdr3_positives_that_are_infantis_pct": 85.3,
+   "mdr3_positives_at_ge10_pct": 14.6,
+   "mdr3_positives_with_listed_serotype_pct": 11.6
+  }
+ },
+ "fsis_indicator": {
+  "serotypes": [
+   "Enteritidis",
+   "Infantis",
+   "Typhimurium"
+  ],
+  "fsis_stated_baseline_pct": 4.22,
+  "fsis_target_cut_by_fy": {
+   "2022": 0.02,
+   "2023": 0.04,
+   "2024": 0.06,
+   "2025": 0.08,
+   "2026": 0.1
+  },
+  "baseline_recomputed": {
+   "fy": [
+    2020,
+    2021
+   ],
+   "indicator_positives": 2421,
+   "samples": 57660,
+   "pct": 4.2
+  },
+  "pct_by_fy": {
+   "2015": 3.65,
+   "2016": 4.07,
+   "2017": 4.49,
+   "2018": 4.82,
+   "2019": 4.08,
+   "2020": 4.15,
+   "2021": 4.25,
+   "2022": 4.06,
+   "2023": 5.03,
+   "2024": 4.77,
+   "2025": 5.4,
+   "2026": 5.78
+  },
+  "fsis_target_pct_by_fy": {
+   "2022": 4.14,
+   "2023": 4.05,
+   "2024": 3.97,
+   "2025": 3.88,
+   "2026": 3.8
+  },
+  "change_vs_recomputed_baseline_pct": {
+   "2022": -3.3,
+   "2023": 19.7,
+   "2024": 13.5,
+   "2025": 28.6,
+   "2026": 37.6
+  },
+  "pct_at_fy2020_21_product_mix": {
+   "2020": 4.16,
+   "2021": 4.24,
+   "2022": 4.16,
+   "2023": 5.07,
+   "2024": 5.1,
+   "2025": 5.62,
+   "2026": 5.71
+  },
+  "fixed_panel": {
+   "units": 561,
+   "establishments": 384,
+   "rule": "plant and product class with at least 10 routine samples in every fiscal year from FY2020",
+   "pct_by_fy": {
+    "2020": 3.68,
+    "2021": 3.66,
+    "2022": 3.41,
+    "2023": 4.37,
+    "2024": 4.22,
+    "2025": 4.64,
+    "2026": 4.76
+   },
+   "baseline_fy2020_21_pct": 3.67,
+   "change_vs_panel_baseline_pct": {
+    "2022": -6.9,
+    "2023": 19.1,
+    "2024": 15.1,
+    "2025": 26.4,
+    "2026": 29.8
+   }
+  },
+  "pct_oct_to_jun_only": {
+   "2020": 4.33,
+   "2021": 4.32,
+   "2022": 4.12,
+   "2023": 5.08,
+   "2024": 4.93,
+   "2025": 5.46,
+   "2026": 5.78
+  },
+  "pct_with_possible_vaccine_strains": {
+   "2020": 4.15,
+   "2021": 4.25,
+   "2022": 4.07,
+   "2023": 5.13,
+   "2024": 4.9,
+   "2025": 5.61,
+   "2026": 6.0
+  },
+  "chicken_samples_pct_by_serotype": {
+   "Enteritidis": {
+    "2021": 1.32,
+    "2025": 1.84,
+    "2026": 2.03
+   },
+   "Infantis": {
+    "2021": 2.66,
+    "2025": 3.04,
+    "2026": 3.21
+   },
+   "Typhimurium": {
+    "2021": 0.58,
+    "2025": 0.83,
+    "2026": 0.91
+   }
+  },
+  "last_fy_is_partial": true
+ }
+}

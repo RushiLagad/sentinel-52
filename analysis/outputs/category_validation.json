@@ -1,0 +1,248 @@
+{
+ "2020-12-26": {
+  "file": "posted_categories_202101.csv",
+  "window_text": "for Sample Collection Period December 29, 2019 through December 26, 2020",
+  "percent_rule_all_positives": {
+   "posted_rows": 834,
+   "joined": 832,
+   "posted_only": 2,
+   "rebuilt_only": 2,
+   "match": 718,
+   "match_pct": 86.3,
+   "rated_rows": 717,
+   "rated_match_pct": 84.24,
+   "posted_cat3": 99,
+   "posted_cat3_rebuilt_cat3": 99,
+   "rebuilt_cat3_not_posted_cat3": 36
+  },
+  "posted_rule_all_positives": {
+   "posted_rows": 834,
+   "joined": 832,
+   "posted_only": 2,
+   "rebuilt_only": 2,
+   "match": 829,
+   "match_pct": 99.64,
+   "rated_rows": 717,
+   "rated_match_pct": 99.72,
+   "posted_cat3": 99,
+   "posted_cat3_rebuilt_cat3": 99,
+   "rebuilt_cat3_not_posted_cat3": 0
+  },
+  "posted_rule_excl_vaccine": {
+   "posted_rows": 834,
+   "joined": 832,
+   "posted_only": 2,
+   "rebuilt_only": 2,
+   "match": 829,
+   "match_pct": 99.64,
+   "rated_rows": 717,
+   "rated_match_pct": 99.72,
+   "posted_cat3": 99,
+   "posted_cat3_rebuilt_cat3": 99,
+   "rebuilt_cat3_not_posted_cat3": 0
+  },
+  "final_rule": {
+   "posted_rows": 834,
+   "joined": 832,
+   "posted_only": 2,
+   "rebuilt_only": 2,
+   "match": 829,
+   "match_pct": 99.64,
+   "rated_rows": 717,
+   "rated_match_pct": 99.72,
+   "posted_cat3": 99,
+   "posted_cat3_rebuilt_cat3": 99,
+   "rebuilt_cat3_not_posted_cat3": 0
+  },
+  "crosstab_final": {
+   "1": {
+    "1": 477,
+    "2": 1,
+    "3": 0,
+    "NA": 0
+   },
+   "2": {
+    "1": 1,
+    "2": 139,
+    "3": 0,
+    "NA": 0
+   },
+   "3": {
+    "1": 0,
+    "2": 0,
+    "3": 99,
+    "NA": 0
+   },
+   "NA": {
+    "1": 1,
+    "2": 0,
+    "3": 0,
+    "NA": 114
+   }
+  }
+ },
+ "2023-09-30": {
+  "file": "posted_categories_202310.csv",
+  "window_text": "for Sample Collection Period October 2, 2022 through September 30, 2023",
+  "percent_rule_all_positives": {
+   "posted_rows": 855,
+   "joined": 855,
+   "posted_only": 0,
+   "rebuilt_only": 3,
+   "match": 730,
+   "match_pct": 85.38,
+   "rated_rows": 756,
+   "rated_match_pct": 83.47,
+   "posted_cat3": 108,
+   "posted_cat3_rebuilt_cat3": 108,
+   "rebuilt_cat3_not_posted_cat3": 49
+  },
+  "posted_rule_all_positives": {
+   "posted_rows": 855,
+   "joined": 855,
+   "posted_only": 0,
+   "rebuilt_only": 3,
+   "match": 853,
+   "match_pct": 99.77,
+   "rated_rows": 756,
+   "rated_match_pct": 99.74,
+   "posted_cat3": 108,
+   "posted_cat3_rebuilt_cat3": 108,
+   "rebuilt_cat3_not_posted_cat3": 0
+  },
+  "posted_rule_excl_vaccine": {
+   "posted_rows": 855,
+   "joined": 855,
+   "posted_only": 0,
+   "rebuilt_only": 3,
+   "match": 851,
+   "match_pct": 99.53,
+   "rated_rows": 756,
+   "rated_match_pct": 99.47,
+   "posted_cat3": 108,
+   "posted_cat3_rebuilt_cat3": 104,
+   "rebuilt_cat3_not_posted_cat3": 0
+  },
+  "final_rule": {
+   "posted_rows": 855,
+   "joined": 855,
+   "posted_only": 0,
+   "rebuilt_only": 3,
+   "match": 853,
+   "match_pct": 99.77,
+   "rated_rows": 756,
+   "rated_match_pct": 99.74,
+   "posted_cat3": 108,
+   "posted_cat3_rebuilt_cat3": 108,
+   "rebuilt_cat3_not_posted_cat3": 0
+  },
+  "crosstab_final": {
+   "1": {
+    "1": 462,
+    "2": 2,
+    "3": 0,
+    "NA": 0
+   },
+   "2": {
+    "1": 0,
+    "2": 184,
+    "3": 0,
+    "NA": 0
+   },
+   "3": {
+    "1": 0,
+    "2": 0,
+    "3": 108,
+    "NA": 0
+   },
+   "NA": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "NA": 99
+   }
+  }
+ },
+ "2026-06-27": {
+  "file": "posted_categories_202608.csv",
+  "window_text": "for Sample Collection Period June 29, 2025 through June 27, 2026",
+  "percent_rule_all_positives": {
+   "posted_rows": 1077,
+   "joined": 1077,
+   "posted_only": 0,
+   "rebuilt_only": 10,
+   "match": 947,
+   "match_pct": 87.93,
+   "rated_rows": 722,
+   "rated_match_pct": 81.99,
+   "posted_cat3": 95,
+   "posted_cat3_rebuilt_cat3": 95,
+   "rebuilt_cat3_not_posted_cat3": 39
+  },
+  "posted_rule_all_positives": {
+   "posted_rows": 1077,
+   "joined": 1077,
+   "posted_only": 0,
+   "rebuilt_only": 10,
+   "match": 1065,
+   "match_pct": 98.89,
+   "rated_rows": 722,
+   "rated_match_pct": 98.34,
+   "posted_cat3": 95,
+   "posted_cat3_rebuilt_cat3": 94,
+   "rebuilt_cat3_not_posted_cat3": 1
+  },
+  "posted_rule_excl_vaccine": {
+   "posted_rows": 1077,
+   "joined": 1077,
+   "posted_only": 0,
+   "rebuilt_only": 10,
+   "match": 1075,
+   "match_pct": 99.81,
+   "rated_rows": 722,
+   "rated_match_pct": 99.72,
+   "posted_cat3": 95,
+   "posted_cat3_rebuilt_cat3": 94,
+   "rebuilt_cat3_not_posted_cat3": 0
+  },
+  "final_rule": {
+   "posted_rows": 1077,
+   "joined": 1077,
+   "posted_only": 0,
+   "rebuilt_only": 10,
+   "match": 1075,
+   "match_pct": 99.81,
+   "rated_rows": 722,
+   "rated_match_pct": 99.72,
+   "posted_cat3": 95,
+   "posted_cat3_rebuilt_cat3": 94,
+   "rebuilt_cat3_not_posted_cat3": 0
+  },
+  "crosstab_final": {
+   "1": {
+    "1": 493,
+    "2": 1,
+    "3": 0,
+    "NA": 0
+   },
+   "2": {
+    "1": 0,
+    "2": 133,
+    "3": 0,
+    "NA": 0
+   },
+   "3": {
+    "1": 0,
+    "2": 1,
+    "3": 94,
+    "NA": 0
+   },
+   "NA": {
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "NA": 355
+   }
+  }
+ }
+}

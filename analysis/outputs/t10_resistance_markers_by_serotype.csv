@@ -1,0 +1,13 @@
+species,serotype_clean,isolates,mdr3_pct,ctxm65_pct,quinolone_marker_pct,median_classes
+chicken,Infantis,2731,87.2,17.4,98.9,4.0
+chicken,Kentucky,1877,2.7,0.3,0.0,2.0
+chicken,Enteritidis,1712,0.4,0.0,63.8,1.0
+chicken,Typhimurium,788,42.4,0.0,0.3,2.0
+chicken,Schwarzengrund,359,0.3,0.0,0.0,1.0
+chicken,Typhimurium - Possible Vaccine Strain,144,0.0,0.0,0.0,0.0
+chicken,Alachua,120,62.5,0.0,0.0,3.0
+chicken,Hadar,56,1.8,0.0,0.0,2.0
+turkey,Hadar,139,14.4,0.0,0.7,2.0
+turkey,Schwarzengrund,96,30.2,11.5,0.0,0.0
+turkey,Infantis,58,89.7,44.8,93.1,5.0
+turkey,Typhimurium,30,26.7,0.0,0.0,2.0

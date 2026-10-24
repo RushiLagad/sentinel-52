@@ -1,0 +1,757 @@
+{
+ "routine_pct_by_fy": {
+  "2015": {
+   "chicken_carcass": 1.78,
+   "chicken_parts": 24.52,
+   "comminuted_chicken": 27.86,
+   "turkey_carcass": 1.01,
+   "comminuted_turkey": 16.61
+  },
+  "2016": {
+   "chicken_carcass": 3.36,
+   "chicken_parts": 18.56,
+   "comminuted_chicken": 29.06,
+   "turkey_carcass": 1.0,
+   "comminuted_turkey": 14.76
+  },
+  "2017": {
+   "chicken_carcass": 5.44,
+   "chicken_parts": 15.16,
+   "comminuted_chicken": 27.6,
+   "turkey_carcass": 0.63,
+   "comminuted_turkey": 11.61
+  },
+  "2018": {
+   "chicken_carcass": 5.3,
+   "chicken_parts": 13.7,
+   "comminuted_chicken": 26.87,
+   "turkey_carcass": 0.72,
+   "comminuted_turkey": 15.75
+  },
+  "2019": {
+   "chicken_carcass": 4.61,
+   "chicken_parts": 9.12,
+   "comminuted_chicken": 24.91,
+   "turkey_carcass": 0.65,
+   "comminuted_turkey": 19.46
+  },
+  "2020": {
+   "chicken_carcass": 4.71,
+   "chicken_parts": 8.33,
+   "comminuted_chicken": 24.2,
+   "turkey_carcass": 1.1,
+   "comminuted_turkey": 16.21
+  },
+  "2021": {
+   "chicken_carcass": 4.35,
+   "chicken_parts": 7.61,
+   "comminuted_chicken": 26.46,
+   "turkey_carcass": 0.47,
+   "comminuted_turkey": 15.47
+  },
+  "2022": {
+   "chicken_carcass": 4.14,
+   "chicken_parts": 7.63,
+   "comminuted_chicken": 23.9,
+   "turkey_carcass": 0.37,
+   "comminuted_turkey": 14.73
+  },
+  "2023": {
+   "chicken_carcass": 5.35,
+   "chicken_parts": 8.54,
+   "comminuted_chicken": 28.36,
+   "turkey_carcass": 0.32,
+   "comminuted_turkey": 17.66
+  },
+  "2024": {
+   "chicken_carcass": 4.93,
+   "chicken_parts": 8.31,
+   "comminuted_chicken": 31.34,
+   "turkey_carcass": 0.31,
+   "comminuted_turkey": 16.98
+  },
+  "2025": {
+   "chicken_carcass": 5.46,
+   "chicken_parts": 8.68,
+   "comminuted_chicken": 34.03,
+   "turkey_carcass": 0.41,
+   "comminuted_turkey": 20.16
+  },
+  "2026": {
+   "chicken_carcass": 4.74,
+   "chicken_parts": 8.05,
+   "comminuted_chicken": 36.99,
+   "turkey_carcass": 0.56,
+   "comminuted_turkey": 16.52
+  }
+ },
+ "chicken_serotype_share_routine": {
+  "2015": {
+   "Enteritidis": 18.7,
+   "Infantis": 3.5,
+   "Kentucky": 40.1,
+   "Typhimurium": 11.9
+  },
+  "2016": {
+   "Enteritidis": 23.9,
+   "Infantis": 4.7,
+   "Kentucky": 34.3,
+   "Typhimurium": 13.1
+  },
+  "2017": {
+   "Enteritidis": 24.3,
+   "Infantis": 12.5,
+   "Kentucky": 33.2,
+   "Typhimurium": 8.7
+  },
+  "2018": {
+   "Enteritidis": 23.9,
+   "Infantis": 19.4,
+   "Kentucky": 29.7,
+   "Typhimurium": 7.4
+  },
+  "2019": {
+   "Enteritidis": 20.5,
+   "Infantis": 26.1,
+   "Kentucky": 29.1,
+   "Typhimurium": 6.2
+  },
+  "2020": {
+   "Enteritidis": 20.0,
+   "Infantis": 27.5,
+   "Kentucky": 29.0,
+   "Typhimurium": 6.9
+  },
+  "2021": {
+   "Enteritidis": 16.7,
+   "Infantis": 33.8,
+   "Kentucky": 28.4,
+   "Typhimurium": 7.3
+  },
+  "2022": {
+   "Enteritidis": 17.0,
+   "Infantis": 31.4,
+   "Kentucky": 29.4,
+   "Typhimurium": 10.3
+  },
+  "2023": {
+   "Enteritidis": 19.1,
+   "Infantis": 31.9,
+   "Kentucky": 26.9,
+   "Typhimurium": 10.8
+  },
+  "2024": {
+   "Enteritidis": 21.9,
+   "Infantis": 32.2,
+   "Kentucky": 25.1,
+   "Typhimurium": 8.3
+  },
+  "2025": {
+   "Enteritidis": 20.9,
+   "Infantis": 34.6,
+   "Kentucky": 22.0,
+   "Typhimurium": 9.4
+  },
+  "2026": {
+   "Enteritidis": 22.8,
+   "Infantis": 36.1,
+   "Kentucky": 16.6,
+   "Typhimurium": 10.2
+  }
+ },
+ "month_range_pct": {
+  "chicken_carcass": [
+   4.01,
+   5.36
+  ],
+  "chicken_parts": [
+   8.99,
+   10.09
+  ],
+  "comminuted_chicken": [
+   23.31,
+   30.74
+  ],
+  "turkey_carcass": [
+   0.34,
+   0.91
+  ],
+  "comminuted_turkey": [
+   13.31,
+   19.08
+  ]
+ },
+ "persistence": [
+  {
+   "product_class": "chicken_carcass",
+   "pairs": 1592,
+   "spearman": 0.405,
+   "next_pct_bottom_fifth": 2.6,
+   "next_pct_middle": 3.6,
+   "next_pct_top_fifth": 9.9,
+   "next_pct_all": 4.4
+  },
+  {
+   "product_class": "chicken_parts",
+   "pairs": 2156,
+   "spearman": 0.453,
+   "next_pct_bottom_fifth": 4.5,
+   "next_pct_middle": 7.6,
+   "next_pct_top_fifth": 14.6,
+   "next_pct_all": 8.2
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "pairs": 338,
+   "spearman": 0.708,
+   "next_pct_bottom_fifth": 9.7,
+   "next_pct_middle": 23.7,
+   "next_pct_top_fifth": 47.4,
+   "next_pct_all": 25.6
+  },
+  {
+   "product_class": "turkey_carcass",
+   "pairs": 325,
+   "spearman": 0.316,
+   "next_pct_bottom_fifth": 0.3,
+   "next_pct_middle": 0.4,
+   "next_pct_top_fifth": 1.2,
+   "next_pct_all": 0.5
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "pairs": 284,
+   "spearman": 0.54,
+   "next_pct_bottom_fifth": 7.8,
+   "next_pct_middle": 14.7,
+   "next_pct_top_fifth": 29.0,
+   "next_pct_all": 17.0
+  }
+ ],
+ "fixed_panel": [
+  {
+   "product_class": "chicken_carcass",
+   "fy": 2021,
+   "all_est": 208,
+   "all_n": 9666,
+   "all_pct": 4.3,
+   "panel_est": 175,
+   "panel_n": 8923,
+   "panel_pct": 3.9
+  },
+  {
+   "product_class": "chicken_carcass",
+   "fy": 2022,
+   "all_est": 206,
+   "all_n": 9652,
+   "all_pct": 4.1,
+   "panel_est": 175,
+   "panel_n": 8893,
+   "panel_pct": 3.8
+  },
+  {
+   "product_class": "chicken_carcass",
+   "fy": 2023,
+   "all_est": 213,
+   "all_n": 9725,
+   "all_pct": 5.3,
+   "panel_est": 175,
+   "panel_n": 8975,
+   "panel_pct": 4.9
+  },
+  {
+   "product_class": "chicken_carcass",
+   "fy": 2024,
+   "all_est": 211,
+   "all_n": 9638,
+   "all_pct": 4.9,
+   "panel_est": 175,
+   "panel_n": 8968,
+   "panel_pct": 4.4
+  },
+  {
+   "product_class": "chicken_carcass",
+   "fy": 2025,
+   "all_est": 209,
+   "all_n": 8885,
+   "all_pct": 5.5,
+   "panel_est": 175,
+   "panel_n": 8383,
+   "panel_pct": 4.9
+  },
+  {
+   "product_class": "chicken_carcass",
+   "fy": 2026,
+   "all_est": 201,
+   "all_n": 6347,
+   "all_pct": 4.7,
+   "panel_est": 175,
+   "panel_n": 5981,
+   "panel_pct": 4.2
+  },
+  {
+   "product_class": "chicken_parts",
+   "fy": 2021,
+   "all_est": 480,
+   "all_n": 14086,
+   "all_pct": 7.6,
+   "panel_est": 333,
+   "panel_n": 11760,
+   "panel_pct": 7.3
+  },
+  {
+   "product_class": "chicken_parts",
+   "fy": 2022,
+   "all_est": 482,
+   "all_n": 14393,
+   "all_pct": 7.6,
+   "panel_est": 333,
+   "panel_n": 11778,
+   "panel_pct": 7.1
+  },
+  {
+   "product_class": "chicken_parts",
+   "fy": 2023,
+   "all_est": 489,
+   "all_n": 14629,
+   "all_pct": 8.5,
+   "panel_est": 333,
+   "panel_n": 11987,
+   "panel_pct": 8.0
+  },
+  {
+   "product_class": "chicken_parts",
+   "fy": 2024,
+   "all_est": 493,
+   "all_n": 14737,
+   "all_pct": 8.3,
+   "panel_est": 333,
+   "panel_n": 11993,
+   "panel_pct": 8.1
+  },
+  {
+   "product_class": "chicken_parts",
+   "fy": 2025,
+   "all_est": 638,
+   "all_n": 14673,
+   "all_pct": 8.7,
+   "panel_est": 333,
+   "panel_n": 11841,
+   "panel_pct": 8.5
+  },
+  {
+   "product_class": "chicken_parts",
+   "fy": 2026,
+   "all_est": 614,
+   "all_n": 10731,
+   "all_pct": 8.1,
+   "panel_est": 333,
+   "panel_n": 8656,
+   "panel_pct": 7.8
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "fy": 2021,
+   "all_est": 72,
+   "all_n": 2037,
+   "all_pct": 26.5,
+   "panel_est": 19,
+   "panel_n": 945,
+   "panel_pct": 30.9
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "fy": 2022,
+   "all_est": 66,
+   "all_n": 1749,
+   "all_pct": 23.9,
+   "panel_est": 19,
+   "panel_n": 823,
+   "panel_pct": 26.4
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "fy": 2023,
+   "all_est": 73,
+   "all_n": 1869,
+   "all_pct": 28.4,
+   "panel_est": 19,
+   "panel_n": 854,
+   "panel_pct": 29.6
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "fy": 2024,
+   "all_est": 74,
+   "all_n": 1072,
+   "all_pct": 31.3,
+   "panel_est": 19,
+   "panel_n": 474,
+   "panel_pct": 27.0
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "fy": 2025,
+   "all_est": 153,
+   "all_n": 1252,
+   "all_pct": 34.0,
+   "panel_est": 19,
+   "panel_n": 655,
+   "panel_pct": 29.0
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "fy": 2026,
+   "all_est": 141,
+   "all_n": 1257,
+   "all_pct": 37.0,
+   "panel_est": 19,
+   "panel_n": 683,
+   "panel_pct": 32.9
+  },
+  {
+   "product_class": "turkey_carcass",
+   "fy": 2021,
+   "all_est": 42,
+   "all_n": 1710,
+   "all_pct": 0.5,
+   "panel_est": 28,
+   "panel_n": 1341,
+   "panel_pct": 0.5
+  },
+  {
+   "product_class": "turkey_carcass",
+   "fy": 2022,
+   "all_est": 43,
+   "all_n": 1624,
+   "all_pct": 0.4,
+   "panel_est": 28,
+   "panel_n": 1327,
+   "panel_pct": 0.3
+  },
+  {
+   "product_class": "turkey_carcass",
+   "fy": 2023,
+   "all_est": 43,
+   "all_n": 1564,
+   "all_pct": 0.3,
+   "panel_est": 28,
+   "panel_n": 1293,
+   "panel_pct": 0.1
+  },
+  {
+   "product_class": "turkey_carcass",
+   "fy": 2024,
+   "all_est": 41,
+   "all_n": 640,
+   "all_pct": 0.3,
+   "panel_est": 28,
+   "panel_n": 517,
+   "panel_pct": 0.2
+  },
+  {
+   "product_class": "turkey_carcass",
+   "fy": 2025,
+   "all_est": 40,
+   "all_n": 729,
+   "all_pct": 0.4,
+   "panel_est": 28,
+   "panel_n": 601,
+   "panel_pct": 0.3
+  },
+  {
+   "product_class": "turkey_carcass",
+   "fy": 2026,
+   "all_est": 37,
+   "all_n": 532,
+   "all_pct": 0.6,
+   "panel_est": 28,
+   "panel_n": 460,
+   "panel_pct": 0.2
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "fy": 2021,
+   "all_est": 47,
+   "all_n": 1396,
+   "all_pct": 15.5,
+   "panel_est": 25,
+   "panel_n": 1088,
+   "panel_pct": 15.9
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "fy": 2022,
+   "all_est": 44,
+   "all_n": 1263,
+   "all_pct": 14.7,
+   "panel_est": 25,
+   "panel_n": 1045,
+   "panel_pct": 15.6
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "fy": 2023,
+   "all_est": 40,
+   "all_n": 1246,
+   "all_pct": 17.7,
+   "panel_est": 25,
+   "panel_n": 1029,
+   "panel_pct": 19.1
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "fy": 2024,
+   "all_est": 47,
+   "all_n": 913,
+   "all_pct": 17.0,
+   "panel_est": 25,
+   "panel_n": 733,
+   "panel_pct": 17.7
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "fy": 2025,
+   "all_est": 70,
+   "all_n": 1121,
+   "all_pct": 20.2,
+   "panel_est": 25,
+   "panel_n": 941,
+   "panel_pct": 21.3
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "fy": 2026,
+   "all_est": 58,
+   "all_n": 999,
+   "all_pct": 16.5,
+   "panel_est": 25,
+   "panel_n": 886,
+   "panel_pct": 16.8
+  }
+ ],
+ "by_size": [
+  {
+   "product_class": "chicken_carcass",
+   "haccp_size": "Large",
+   "n": 27466,
+   "pos": 922,
+   "pct": 3.36,
+   "establishments": 139
+  },
+  {
+   "product_class": "chicken_carcass",
+   "haccp_size": "Small",
+   "n": 5827,
+   "pos": 582,
+   "pct": 9.99,
+   "establishments": 54
+  },
+  {
+   "product_class": "chicken_carcass",
+   "haccp_size": "Very Small",
+   "n": 1295,
+   "pos": 276,
+   "pct": 21.31,
+   "establishments": 33
+  },
+  {
+   "product_class": "chicken_carcass",
+   "haccp_size": "unknown",
+   "n": 7,
+   "pos": 1,
+   "pct": 14.29,
+   "establishments": 1
+  },
+  {
+   "product_class": "chicken_parts",
+   "haccp_size": "Large",
+   "n": 29190,
+   "pos": 2001,
+   "pct": 6.86,
+   "establishments": 170
+  },
+  {
+   "product_class": "chicken_parts",
+   "haccp_size": "Small",
+   "n": 21330,
+   "pos": 2216,
+   "pct": 10.39,
+   "establishments": 402
+  },
+  {
+   "product_class": "chicken_parts",
+   "haccp_size": "Very Small",
+   "n": 4223,
+   "pos": 389,
+   "pct": 9.21,
+   "establishments": 155
+  },
+  {
+   "product_class": "chicken_parts",
+   "haccp_size": "unknown",
+   "n": 27,
+   "pos": 6,
+   "pct": 22.22,
+   "establishments": 4
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "haccp_size": "Large",
+   "n": 1580,
+   "pos": 498,
+   "pct": 31.52,
+   "establishments": 18
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "haccp_size": "Small",
+   "n": 3634,
+   "pos": 1147,
+   "pct": 31.56,
+   "establishments": 141
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "haccp_size": "Very Small",
+   "n": 236,
+   "pos": 112,
+   "pct": 47.46,
+   "establishments": 56
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "haccp_size": "Large",
+   "n": 2254,
+   "pos": 522,
+   "pct": 23.16,
+   "establishments": 18
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "haccp_size": "Small",
+   "n": 1992,
+   "pos": 239,
+   "pct": 12.0,
+   "establishments": 54
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "haccp_size": "Very Small",
+   "n": 33,
+   "pos": 5,
+   "pct": 15.15,
+   "establishments": 11
+  },
+  {
+   "product_class": "turkey_carcass",
+   "haccp_size": "Large",
+   "n": 2215,
+   "pos": 11,
+   "pct": 0.5,
+   "establishments": 23
+  },
+  {
+   "product_class": "turkey_carcass",
+   "haccp_size": "Small",
+   "n": 1199,
+   "pos": 2,
+   "pct": 0.17,
+   "establishments": 17
+  },
+  {
+   "product_class": "turkey_carcass",
+   "haccp_size": "Very Small",
+   "n": 48,
+   "pos": 0,
+   "pct": 0.0,
+   "establishments": 3
+  },
+  {
+   "product_class": "turkey_carcass",
+   "haccp_size": "unknown",
+   "n": 3,
+   "pos": 0,
+   "pct": 0.0,
+   "establishments": 1
+  }
+ ],
+ "top_states": [
+  {
+   "establishment_state": "GA",
+   "establishments": 56,
+   "n": 4786,
+   "pos": 369,
+   "pct": 7.7
+  },
+  {
+   "establishment_state": "AR",
+   "establishments": 35,
+   "n": 3928,
+   "pos": 215,
+   "pct": 5.5
+  },
+  {
+   "establishment_state": "TX",
+   "establishments": 60,
+   "n": 3693,
+   "pos": 313,
+   "pct": 8.5
+  },
+  {
+   "establishment_state": "AL",
+   "establishments": 29,
+   "n": 3692,
+   "pos": 186,
+   "pct": 5.0
+  },
+  {
+   "establishment_state": "CA",
+   "establishments": 115,
+   "n": 3523,
+   "pos": 399,
+   "pct": 11.3
+  },
+  {
+   "establishment_state": "NC",
+   "establishments": 23,
+   "n": 3086,
+   "pos": 190,
+   "pct": 6.2
+  },
+  {
+   "establishment_state": "MS",
+   "establishments": 19,
+   "n": 2442,
+   "pos": 133,
+   "pct": 5.4
+  },
+  {
+   "establishment_state": "NY",
+   "establishments": 78,
+   "n": 1532,
+   "pos": 182,
+   "pct": 11.9
+  },
+  {
+   "establishment_state": "SC",
+   "establishments": 15,
+   "n": 1299,
+   "pos": 148,
+   "pct": 11.4
+  },
+  {
+   "establishment_state": "VA",
+   "establishments": 11,
+   "n": 1232,
+   "pos": 125,
+   "pct": 10.1
+  }
+ ],
+ "totals": {
+  "samples_with_result": 324923,
+  "positives": 37685,
+  "routine_samples": 281625,
+  "establishments": 1409
+ }
+}

@@ -1,0 +1,377 @@
+{
+ "horizon_months": 12,
+ "panel_rows": 197109,
+ "units": 1629,
+ "month_ends": 121,
+ "first_window_end": "2016-06-25",
+ "last_window_end": "2026-06-27",
+ "transition_pct": {
+  "1": {
+   "1": 73.5,
+   "2": 13.8,
+   "3": 4.1,
+   "NA": 8.6
+  },
+  "2": {
+   "1": 54.7,
+   "2": 27.5,
+   "3": 12.1,
+   "NA": 5.7
+  },
+  "3": {
+   "1": 18.7,
+   "2": 20.9,
+   "3": 49.6,
+   "NA": 10.9
+  }
+ },
+ "task": {
+  "train_rows": 34767,
+  "train_positive_pct": 13.94,
+  "train_last_window_end": "2021-12-25",
+  "test_rows": 11699,
+  "test_positive_pct": 10.76,
+  "test_window_ends": [
+   "2024-01-27",
+   "2025-06-28"
+  ],
+  "test_units": 773,
+  "test_new_failures": 1259
+ },
+ "features_dropped_empty_in_training": [
+  "cfu_ge10_share"
+ ],
+ "features": [
+  "n52",
+  "pos52",
+  "rate52",
+  "n13",
+  "pos13",
+  "rate13",
+  "n26",
+  "pos26",
+  "rate26",
+  "trend13",
+  "rate_prev",
+  "rate_all",
+  "spare3",
+  "spare3_frac",
+  "is_cat2",
+  "months_cat3_prev24",
+  "campy_rate52",
+  "other_rate52",
+  "in_followup",
+  "followup_n52",
+  "share_infantis",
+  "share_enteritidis",
+  "share_typhimurium",
+  "share_kentucky",
+  "size_small",
+  "size_very_small",
+  "npis",
+  "slaughter_volume_category",
+  "processing_volume_category",
+  "month",
+  "class_rate52",
+  "projection_logit",
+  "cls_chicken_carcass",
+  "cls_turkey_carcass",
+  "cls_comminuted_chicken",
+  "cls_comminuted_turkey",
+  "cls_chicken_parts"
+ ],
+ "metrics": [
+  {
+   "scorer": "currently Category 2 (flag)",
+   "auroc": 0.721,
+   "avg_precision": 0.219,
+   "recall_top10pct": 0.237,
+   "precision_top10pct": 0.254,
+   "brier": null
+  },
+  {
+   "scorer": "trailing 52-week rate",
+   "auroc": 0.824,
+   "avg_precision": 0.403,
+   "recall_top10pct": 0.418,
+   "precision_top10pct": 0.447,
+   "brier": null
+  },
+  {
+   "scorer": "positives to spare (fewest first)",
+   "auroc": 0.821,
+   "avg_precision": 0.364,
+   "recall_top10pct": 0.436,
+   "precision_top10pct": 0.466,
+   "brier": null
+  },
+  {
+   "scorer": "binomial projection",
+   "auroc": 0.836,
+   "avg_precision": 0.456,
+   "recall_top10pct": 0.458,
+   "precision_top10pct": 0.489,
+   "brier": 0.0751
+  },
+  {
+   "scorer": "logistic regression",
+   "auroc": 0.853,
+   "avg_precision": 0.481,
+   "recall_top10pct": 0.466,
+   "precision_top10pct": 0.498,
+   "brier": 0.0731
+  },
+  {
+   "scorer": "gradient boosting, no projection feature",
+   "auroc": 0.857,
+   "avg_precision": 0.456,
+   "recall_top10pct": 0.451,
+   "precision_top10pct": 0.482,
+   "brier": 0.0743
+  },
+  {
+   "scorer": "gradient boosting",
+   "auroc": 0.859,
+   "avg_precision": 0.474,
+   "recall_top10pct": 0.463,
+   "precision_top10pct": 0.495,
+   "brier": 0.0736
+  }
+ ],
+ "cat2_flag": {
+  "flagged_pct": 24.3,
+  "precision": 0.283,
+  "recall": 0.638
+ },
+ "by_class": [
+  {
+   "product_class": "chicken_carcass",
+   "rows": 3095,
+   "new_failures": 218,
+   "base_pct": 7.04,
+   "auroc_projection": 0.817,
+   "auroc_gb": 0.89,
+   "ap_projection": 0.284,
+   "ap_gb": 0.387
+  },
+  {
+   "product_class": "chicken_parts",
+   "rows": 7236,
+   "new_failures": 827,
+   "base_pct": 11.43,
+   "auroc_projection": 0.82,
+   "auroc_gb": 0.831,
+   "ap_projection": 0.455,
+   "ap_gb": 0.454
+  },
+  {
+   "product_class": "comminuted_chicken",
+   "rows": 445,
+   "new_failures": 126,
+   "base_pct": 28.31,
+   "auroc_projection": 0.859,
+   "auroc_gb": 0.82,
+   "ap_projection": 0.741,
+   "ap_gb": 0.659
+  },
+  {
+   "product_class": "comminuted_turkey",
+   "rows": 380,
+   "new_failures": 86,
+   "base_pct": 22.63,
+   "auroc_projection": 0.786,
+   "auroc_gb": 0.851,
+   "ap_projection": 0.513,
+   "ap_gb": 0.615
+  }
+ ],
+ "calibration_gb": [
+  {
+   "bin": 0,
+   "mean_pred": 0.002,
+   "observed": 0.0,
+   "n": 1170
+  },
+  {
+   "bin": 1,
+   "mean_pred": 0.0073,
+   "observed": 0.0137,
+   "n": 1170
+  },
+  {
+   "bin": 2,
+   "mean_pred": 0.0153,
+   "observed": 0.0239,
+   "n": 1170
+  },
+  {
+   "bin": 3,
+   "mean_pred": 0.0276,
+   "observed": 0.0179,
+   "n": 1170
+  },
+  {
+   "bin": 4,
+   "mean_pred": 0.0423,
+   "observed": 0.0265,
+   "n": 1170
+  },
+  {
+   "bin": 5,
+   "mean_pred": 0.0626,
+   "observed": 0.0513,
+   "n": 1169
+  },
+  {
+   "bin": 6,
+   "mean_pred": 0.0957,
+   "observed": 0.0752,
+   "n": 1170
+  },
+  {
+   "bin": 7,
+   "mean_pred": 0.1526,
+   "observed": 0.1299,
+   "n": 1170
+  },
+  {
+   "bin": 8,
+   "mean_pred": 0.2592,
+   "observed": 0.2385,
+   "n": 1170
+  },
+  {
+   "bin": 9,
+   "mean_pred": 0.5546,
+   "observed": 0.4991,
+   "n": 1170
+  }
+ ],
+ "importance_top": [
+  {
+   "feature": "projection_logit",
+   "ap_drop": 0.2498
+  },
+  {
+   "feature": "slaughter_volume_category",
+   "ap_drop": 0.0208
+  },
+  {
+   "feature": "other_rate52",
+   "ap_drop": 0.0147
+  },
+  {
+   "feature": "rate_all",
+   "ap_drop": 0.0118
+  },
+  {
+   "feature": "cls_turkey_carcass",
+   "ap_drop": 0.0116
+  },
+  {
+   "feature": "share_infantis",
+   "ap_drop": 0.0092
+  },
+  {
+   "feature": "campy_rate52",
+   "ap_drop": 0.0092
+  },
+  {
+   "feature": "n52",
+   "ap_drop": 0.0085
+  },
+  {
+   "feature": "rate26",
+   "ap_drop": 0.008
+  },
+  {
+   "feature": "cls_comminuted_turkey",
+   "ap_drop": 0.0075
+  },
+  {
+   "feature": "class_rate52",
+   "ap_drop": 0.0072
+  },
+  {
+   "feature": "rate_prev",
+   "ap_drop": 0.0064
+  }
+ ],
+ "bootstrap_ci": {
+  "auroc_proj": {
+   "lo": 0.811,
+   "median": 0.834,
+   "hi": 0.858
+  },
+  "auroc_lr": {
+   "lo": 0.823,
+   "median": 0.851,
+   "hi": 0.87
+  },
+  "auroc_gb": {
+   "lo": 0.833,
+   "median": 0.858,
+   "hi": 0.877
+  },
+  "ap_proj": {
+   "lo": 0.398,
+   "median": 0.458,
+   "hi": 0.511
+  },
+  "ap_lr": {
+   "lo": 0.423,
+   "median": 0.479,
+   "hi": 0.532
+  },
+  "ap_gb": {
+   "lo": 0.41,
+   "median": 0.475,
+   "hi": 0.535
+  },
+  "d_auroc_gb": {
+   "lo": 0.006,
+   "median": 0.023,
+   "hi": 0.038
+  },
+  "d_ap_gb": {
+   "lo": -0.028,
+   "median": 0.018,
+   "hi": 0.059
+  },
+  "d_auroc_lr": {
+   "lo": 0.004,
+   "median": 0.016,
+   "hi": 0.028
+  },
+  "d_ap_lr": {
+   "lo": -0.012,
+   "median": 0.022,
+   "hi": 0.062
+  }
+ },
+ "bootstrap_establishments": 559,
+ "lead_time": {
+  "new_failures": 191,
+  "from_unrated_NA": 21,
+  "projection_top10pct": {
+   "on_list_at_least_1_month_before_pct": 87.4,
+   "at_least_3_months_before_pct": 73.3,
+   "at_least_12_months_before_pct": 16.2
+  },
+  "gradient_boosting_top10pct": {
+   "on_list_at_least_1_month_before_pct": 84.3,
+   "at_least_3_months_before_pct": 69.6,
+   "at_least_12_months_before_pct": 16.8
+  },
+  "category2_flag": {
+   "on_list_at_least_1_month_before_pct": 88.0,
+   "at_least_3_months_before_pct": 76.4,
+   "at_least_12_months_before_pct": 28.3
+  }
+ },
+ "watch_list_size_per_month": {
+  "units_rated_1_or_2_median": 641.0,
+  "top10pct_median": 65.0,
+  "category2_median": 154.0
+ }
+}

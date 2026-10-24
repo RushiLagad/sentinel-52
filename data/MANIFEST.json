@@ -1,0 +1,225 @@
+{
+  "bundle": "fsis_sensd_raw_2026-10-09.zip",
+  "assembled_utc": "2026-10-09T16:57:30.357Z",
+  "source_site": "https://www.fsis.usda.gov",
+  "note": "Original FSIS files, byte-for-byte unmodified, stored without recompression. MANIFEST.json is the only added file.",
+  "files": [
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2014.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2014.zip",
+      "bytes": 739249,
+      "sha256": "1fd3e0cd3d09640168d0f984bb227b6d77f33bbf773f29c1841bc321778b9a02",
+      "last_modified": "Fri, 03 Apr 2026 15:26:19 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2015.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2015.zip",
+      "bytes": 1019574,
+      "sha256": "f405b1ebb328ec8c5b6629389a2ee3ee5b06e4d49420d499a32a4e6dc650365f",
+      "last_modified": "Fri, 03 Apr 2026 15:25:50 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2016.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2016.zip",
+      "bytes": 1511696,
+      "sha256": "f0f871c8f3a9097ad34aecbde55563f63855473d7a68228ce59627bd8ac62407",
+      "last_modified": "Fri, 03 Apr 2026 15:28:00 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2017.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2017.zip",
+      "bytes": 1662965,
+      "sha256": "feef32f1761a9dc590465de2c06df204a7bf7881e0aac73623bec425149f830a",
+      "last_modified": "Fri, 03 Apr 2026 15:24:48 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2018.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2018.zip",
+      "bytes": 2251135,
+      "sha256": "483d069c71450854f7ca5610fb098d7d3016cb2dc699605032a7f622da96bd65",
+      "last_modified": "Fri, 03 Apr 2026 15:24:24 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2019.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2019.zip",
+      "bytes": 2877823,
+      "sha256": "fb75287a07e3c5cd980724675a8c8e65061ab8d384e5dc604baf5cb32482eafb",
+      "last_modified": "Fri, 03 Apr 2026 15:23:59 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2020.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2020.zip",
+      "bytes": 3098375,
+      "sha256": "e63123948ef109d4a02d24a03a10398b9ae217394b852ad36dd977528a26c160",
+      "last_modified": "Fri, 03 Apr 2026 15:23:16 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2021.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2021.zip",
+      "bytes": 2956096,
+      "sha256": "d7d2214ed00f9476c9967dbadb04bdc96907667e47a0f075c01050523d50e1d8",
+      "last_modified": "Fri, 03 Apr 2026 15:22:33 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2022.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2022.zip",
+      "bytes": 3598784,
+      "sha256": "cb53c004144010b3330d9f64932ada1c472889e8336200e29b2b1cd9038c8714",
+      "last_modified": "Fri, 03 Apr 2026 15:22:09 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2023.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2023.zip",
+      "bytes": 3573789,
+      "sha256": "0059938f4348d34e4de643bba03dd541a49097788bda4f64fbe5c0c6e83548e6",
+      "last_modified": "Fri, 03 Apr 2026 15:21:49 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2024.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2024.zip",
+      "bytes": 2387163,
+      "sha256": "3e253d6d1a1e74244ad5dac59cb76ae01383f87dcb51f6481ba3f90da417dcf9",
+      "last_modified": "Fri, 03 Apr 2026 15:21:22 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2025.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2025.zip",
+      "bytes": 2447110,
+      "sha256": "6c92d40a374304c19e39fad0acb4d6126962c9036fba2c78ad394be0a0fe6beb",
+      "last_modified": "Fri, 03 Apr 2026 15:20:54 GMT"
+    },
+    {
+      "path": "raw_poultry/raw_poultry_sampling_data_fy2026.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/raw_poultry_sampling_data_fy2026.zip",
+      "bytes": 1842373,
+      "sha256": "7fcc11df8891e7417e53cfd2f7fd9a7b72e1bc09a1fd8ea20c0aa9874f1440f2",
+      "last_modified": "Fri, 02 Oct 2026 15:41:06 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2014.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2014.zip",
+      "bytes": 1644549,
+      "sha256": "d71f303fe8cfb8ecb8d406b105d5d2ae3b90000c3a33731fd971ea900f6b8a97",
+      "last_modified": "Fri, 03 Apr 2026 14:53:56 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2015.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2015.zip",
+      "bytes": 1772021,
+      "sha256": "4e6df38356568fa743463a170a6874e595b2c4d4926c0d709a5a81a50c43a539",
+      "last_modified": "Fri, 03 Apr 2026 14:53:36 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2016.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2016.zip",
+      "bytes": 2006643,
+      "sha256": "5384268edb7fb5e8d6f21e31299311ea4a283423b550c62a4774139e08344d6c",
+      "last_modified": "Fri, 03 Apr 2026 14:53:14 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2017.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2017.zip",
+      "bytes": 2409619,
+      "sha256": "08b7f50604ad6b324fb50210d96655b916324fce916f338fb6fa3d83c5d8b70a",
+      "last_modified": "Fri, 03 Apr 2026 14:52:54 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2018.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2018.zip",
+      "bytes": 2811475,
+      "sha256": "91eef4b1149be02be2a412405a16da72a6e6274d71181ef17cc53e0c84a36984",
+      "last_modified": "Fri, 03 Apr 2026 14:52:36 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2019.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2019.zip",
+      "bytes": 2736770,
+      "sha256": "8b3e4c6c8f980c5cec434739815aa231b2a3805c53189977bbffbf28dfcde1e2",
+      "last_modified": "Fri, 03 Apr 2026 14:52:18 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2020.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2020.zip",
+      "bytes": 2229103,
+      "sha256": "d6ba50f49c76618ef127d3663cd81b051b426ccd94464e2f7ddaafd3626fe2bb",
+      "last_modified": "Fri, 03 Apr 2026 14:52:04 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2021.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2021.zip",
+      "bytes": 2681758,
+      "sha256": "fb6481ceab2d211ca20e8fc7b3c16b231aa25c76cbe63448f2226bf3f3485d6c",
+      "last_modified": "Fri, 03 Apr 2026 14:51:52 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2022.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2022.zip",
+      "bytes": 2643589,
+      "sha256": "e3278ec9761ee40aed76cacc2351f0f10f51a075dd15d6b6e4b321d037dbc72e",
+      "last_modified": "Fri, 03 Apr 2026 14:51:21 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2023.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2023.zip",
+      "bytes": 2389548,
+      "sha256": "85a210ea34104847a3f7a7002caf9458346522e2c71d1eed774037071c4328f2",
+      "last_modified": "Fri, 03 Apr 2026 14:51:05 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2024.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2024.zip",
+      "bytes": 2586273,
+      "sha256": "f16a5f109b855138d612ebae9e3489d86688b1369cc7186f633e20196b6cc3b3",
+      "last_modified": "Fri, 03 Apr 2026 14:50:47 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2025.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2025.zip",
+      "bytes": 2033432,
+      "sha256": "80f476fe7ac5a98838cebcd5cd4202a19339b4fa8f04746b0328cd936683d607",
+      "last_modified": "Fri, 03 Apr 2026 14:50:25 GMT"
+    },
+    {
+      "path": "narms_cecal/fsis_narms_cecal_sampling_fy2026.zip",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/fsis_narms_cecal_sampling_fy2026.zip",
+      "bytes": 1287496,
+      "sha256": "fa0dce64b843b56b73008b8b162f1984c33374a2539694a9e10485f6a5230b26",
+      "last_modified": "Fri, 02 Oct 2026 15:44:00 GMT"
+    },
+    {
+      "path": "establishments/MPI_Directory_by_Establishment_Number.csv",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/MPI_Directory_by_Establishment_Number.csv",
+      "bytes": 1776867,
+      "sha256": "7df39fec073bc7a9fa07bc21f0bb5c71408740cce25039df99c48aa3d3f0c669",
+      "last_modified": "Tue, 06 Oct 2026 14:54:07 GMT"
+    },
+    {
+      "path": "establishments/Dataset_Establishment_Demographic_Data.csv",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/Dataset_Establishment_Demographic_Data.csv",
+      "bytes": 2876172,
+      "sha256": "d00931a25669bceb3198f6b33e4ebe8cdb63fc1a816cd41b68aa198511252db3",
+      "last_modified": "Tue, 06 Oct 2026 14:52:26 GMT"
+    },
+    {
+      "path": "establishments/MPI_Inactive_Directory_by_Establishment_Number.csv",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/MPI_Inactive_Directory_by_Establishment_Number.csv",
+      "bytes": 207856,
+      "sha256": "16db6e079318ef04110033c6cde069218187099ae208ff08968ed39b3daa0bee",
+      "last_modified": "Tue, 06 Oct 2026 14:55:58 GMT"
+    },
+    {
+      "path": "salmonella_categories/Dataset_EstablishmentCategories_202609_0.xlsx",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/Dataset_EstablishmentCategories_202609_0.xlsx",
+      "bytes": 67770,
+      "sha256": "3068316e24f89550d9d23b8ee898268208bf5769ec26d576676147bf0a76dbf8",
+      "last_modified": "Fri, 02 Oct 2026 14:51:20 GMT"
+    },
+    {
+      "path": "salmonella_categories/Dataset_EstablishmentCategoriesAggregate_202609_0.xlsx",
+      "source_url": "https://www.fsis.usda.gov/sites/default/files/media_file/documents/Dataset_EstablishmentCategoriesAggregate_202609_0.xlsx",
+      "bytes": 24232,
+      "sha256": "1c74e0f45888e7f8dca31db351860d21972b8d875487c9fee4f77b465c52386e",
+      "last_modified": "Fri, 02 Oct 2026 14:50:51 GMT"
+    }
+  ]
+}
