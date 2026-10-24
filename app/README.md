@@ -18,8 +18,10 @@ Two reasons:
 
 Target stack: React + Vite, deployed to GitHub Pages via a workflow that is already written.
 
-**First thing to do in this repo:** move `docs/deploy-pages.yml` to `.github/workflows/deploy-pages.yml`.
-It could not be delivered at that path directly. It expects the app at `app/` with its build output in `app/dist`.
+The workflow is written but **not active**, and the repo has no `.github/workflows/` on purpose:
+a Pages workflow with no app to build just fails on every push. When the app exists, move
+`docs/pages-workflow-for-later.yml` to `.github/workflows/deploy-pages.yml` and turn on
+Settings > Pages > Source > GitHub Actions. It expects the app at `app/` building to `app/dist`.
 
 Set `base` in `vite.config.js` to `'/<repo-name>/'` or Pages will serve a blank page from a path that
 does not resolve.

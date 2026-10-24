@@ -1,0 +1,69 @@
+# NOT ACTIVE. This file does nothing where it sits.
+# When the app exists, move it to .github/workflows/deploy-pages.yml and enable
+# Settings > Pages > Source > GitHub Actions. Until then there is nothing to build.
+
+name: Deploy app to GitHub Pages
+
+# The app does not exist yet. Until app/package.json lands, the build job is skipped
+# rather than failing, so pushes stay green and nobody gets failure emails.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      has_app: ${{ steps.detect.outputs.has_app }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: detect
+        run: |
+          if [ -f app/package.json ]; then
+            echo "has_app=true" >> "$GITHUB_OUTPUT"
+            echo "Found app/package.json, building the site."
+          else
+            echo "has_app=false" >> "$GITHUB_OUTPUT"
+            echo "No app/package.json yet. Skipping the Pages build."
+          fi
+
+  build:
+    needs: check
+    if: needs.check.outputs.has_app == 'true'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: app/dist
+
+  deploy:
+    needs: [check, build]
+    if: needs.check.outputs.has_app == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
