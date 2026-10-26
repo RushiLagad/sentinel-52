@@ -1,0 +1,25 @@
+{
+ "source": "NOAA NCEI Climate Data Online v2",
+ "api": "https://www.ncei.noaa.gov/cdo-web/api/v2/data",
+ "dataset": "GSOM",
+ "datatypes": [
+  "TAVG",
+  "TMAX",
+  "PRCP"
+ ],
+ "units": "metric",
+ "licence": "US federal government public domain; free token required",
+ "window": [
+  "2013-10-01",
+  "2026-09-30"
+ ],
+ "states_requested": 49,
+ "states_with_data": 49,
+ "rows": 7644,
+ "median_stations_per_state_month": 8.0,
+ "stations_per_state_requested": 8,
+ "stations_selected_total": 332,
+ "station_selection": "highest CDO datacoverage among stations whose record spans the whole window, ties broken by station id; deterministic and listed in noaa_stations_used.csv",
+ "failures": [],
+ "limitation": "Station-panel average, not an area-weighted state mean. Long-record stations skew toward airports and larger towns. Adequate as a monthly state covariate; not adequate for a climatological claim."
+}

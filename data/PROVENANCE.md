@@ -271,3 +271,60 @@ product text as described below.
 - `field_related_to_outbreak` is FSIS's own published flag on a recall notice. It is public record and
   distinct from the sampling-data restriction, which forbids *us* inferring outbreak links from
   sampling results. We report the flag as published and infer nothing from it.
+
+---
+
+## 9. NOAA / NCEI Climate Data Online
+
+| Field | Value |
+|---|---|
+| **Source** | NOAA National Centers for Environmental Information, Climate Data Online v2 |
+| **URL** | `https://www.ncei.noaa.gov/cdo-web/api/v2/data`, dataset `GSOM` (Global Summary of the Month) |
+| **Access date** | 2026-10-26 |
+| **Licence** | US federal government public domain. A free token is required; it is read from the `NOAA_CDO_TOKEN` environment variable and never committed. |
+| **Geographic coverage** | 49 places: the 47 US states plus Guam and Puerto Rico that hold FSIS-sampled poultry establishments |
+| **Time coverage** | 2013-10-01 to 2026-09-30, matching FY2014 onward in the sampling panel |
+| **Update frequency** | Monthly, with a reporting lag |
+| **Variables** | TAVG, TMAX, PRCP, metric units |
+| **Fetched by** | `analysis/scripts/11_fetch_noaa.py` |
+| **Cached at** | `data/noaa/noaa_state_month.csv`, `data/noaa/noaa_stations_used.csv` |
+
+### Decision value
+
+Salmonella positivity in the sampling data already varies by month of year. Climate is the mechanism
+that seasonality stands in for, and the brief requires the source. Whether it adds predictive value
+beyond month-of-year is an open question answered by the ablation, not assumed here.
+
+### Why 49 and not 50
+
+The state list is derived from `establishment_state` in the sampling panel, not hardcoded. **Alaska,
+Montana and North Dakota have zero FSIS poultry samples across the whole FY2014-FY2026 record**, so
+there is no establishment for a climate covariate to attach to. Guam and Puerto Rico do have
+establishments and are included.
+
+### Transformations applied
+
+For each state, the **8 stations with the highest CDO `datacoverage` whose record spans the full
+window** are selected, ties broken by station id so the choice is deterministic and reproducible.
+Monthly values are averaged across that panel. Every station used is listed in
+`noaa_stations_used.csv`.
+
+Result: 7,644 state-months, median 8 stations per state-month, all 49 places returning data, no
+failed fetches.
+
+### Known limitations
+
+- **This is a station-panel average, not an area-weighted state mean.** Long-record stations skew
+  toward airports and larger towns. Adequate as a monthly state-level covariate on a 52-week sampling
+  window; it would not support a climatological claim, and none is made.
+- **Panel depth is uneven, and one case matters.** Every major poultry state has the full 8 stations:
+  GA, AR, AL, NC, CA, TX and MS, together 54 percent of routine sampling. But **Delaware, 2.3 percent
+  of routine sampling across 8 plants on Delmarva, has only 2 stations**, and Maryland has 4. Any
+  state-level climate effect is measured least precisely in exactly that broiler region. States with
+  thin panels that do not matter for poultry: Hawaii 1, Rhode Island 1, Puerto Rico 1, Connecticut 2,
+  New Hampshire 3.
+- A state-level monthly covariate is coarse against an establishment-level weekly process. It cannot
+  capture conditions at a plant, only the broad seasonal environment around it.
+- **Prior expectation, recorded before the result:** `05d_ablation.py` already finds month-of-year
+  within noise for this outcome, so climate may well add little. The brief requires the source, not
+  that the source helps. Report its marginal value honestly either way.
