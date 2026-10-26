@@ -9,6 +9,10 @@ Team Sentinel-52, NAFSI Hub Student Data Challenge Fall 2026, Sens-D track
 Members: Rushikesh Lagad (University of Arkansas), Sambhavi Patel (University of Arkansas),
 Naisargi Modha (Northeastern University). Submission deadline 2026-11-02, 16:00 US Central.
 
+> **Read "The actual brief" at the end of this file first.** The framing in the next section was
+> written before the organizers published the challenge brief on 2026-10-26 and aims at the wrong
+> user. The evidence in it is still correct; the intended audience is not.
+
 ## What this project is about
 
 US poultry plants are graded by FSIS on **how often** Salmonella is found in their products, and not
@@ -123,3 +127,78 @@ Reading's 135 hospitalizations are 98.5 percent from one 2017 multistate raw-tur
 Typhimurium's 22 are from one outbreak, Infantis's 31 are 80.6 percent from one. Enteritidis at 27.0
 percent is the only poultry serotype whose burden rests on a broad base. Never quote any of these
 figures without the single-outbreak share beside it.
+
+---
+
+# The actual brief, published 2026-10-26
+
+Full extraction in `docs/CHALLENGE_BRIEF.md`; the source is a Google Doc linked by Pedro Ramonetti
+Vega. That file is a **summary, not the organizers' verbatim words**, and must be checked against the
+original before the report is written.
+
+## The question we are actually answering
+
+> How can a **supply-chain actor** anticipate emerging food-safety risk and make proactive decisions
+> that protect health while preserving food availability, supporting food security, and minimizing
+> avoidable food loss?
+
+**Not a regulator.** Everything written before 2026-10-26 assumed one. The chosen actor is a
+**regional food bank**, because the brief's three secondary objectives are that actor's mission
+rather than its side constraints, and because the safety-against-availability conflict the brief asks
+us to surface is its daily job. This choice is the team's to revisit.
+
+## Required, and currently missing
+
+Treat these as gaps to close, not options:
+
+- **NOAA/NCEI Climate Data Online.** Required. Needs a free API token in `NOAA_CDO_TOKEN`.
+- **FSIS recalls and public health alerts.** Required, and distinct from the sampling data we have.
+- **At least two team-added datasets**, one covering food security, vulnerability, supply chain,
+  animal health, environmental exposure or infrastructure. Chosen: CDC/ATSDR SVI and USDA food access.
+- **Calibration.** We report discrimination only. A score used to hold food must be calibrated.
+- **Ablation** giving the marginal value of each added source.
+- **Three scenarios minimum**, compared against a rule-based policy.
+- **A food-security or equity objective**, with a check on whether holds fall disproportionately on
+  high-need communities.
+- **Avoidable food loss**, in the same units as missed risk where possible.
+- **A One Health system map.**
+
+## Guardrails from the organizers, non-negotiable
+
+1. **Never label a food, establishment or shipment "safe" or "unsafe" on the model alone.** Not in the
+   UI, not in a variable name, not in report prose. This is testable and should be tested.
+2. The tool is a **prototype**: not a regulatory determination, not an outbreak declaration, not a
+   substitute for epidemiologic investigation. Say so in the interface, not only the report.
+3. **High-consequence actions require human review** and a statement of the evidence that would
+   change them. Nothing auto-executes.
+4. Expose uncertainty, provenance and the driving signals on every recommendation.
+5. **Test whether recommendations unfairly disadvantage high-need communities**, and report the
+   result whichever way it falls.
+
+## Where the marks are
+
+Data science rigor 25 · operational decision support 25 · One Health integration 20 · Kiro 15 ·
+team science, reproducibility and communication 15.
+
+Our existing strength is concentrated in the first. The second and third are where the work is.
+
+## The inventory is synthetic, and that must never blur
+
+A food bank's lot-level inventory is not public and we have none. `14_build_synthetic_inventory.py`
+generates it from a seeded, documented procedure over real establishments.
+
+Every risk claim rests on real data. Every claim denominated in pounds rests on a simulation. Label
+simulated figures as simulated in the UI, the data dictionary, provenance and the report. A judge who
+mistakes our inventory for real has been misled by us, and preventing that is a correctness
+requirement, not a disclaimer.
+
+## Data handling, unchanged and still binding
+
+The organizers emailed a NORS extract and an FSIS RTE sample file under a no-redistribution
+condition. **Neither is in this repository and no script reads them.** NORS comes from the public CDC
+endpoint via `09_fetch_nors.py`. If a result can only be produced from the emailed file, it does not
+go in the submission.
+
+The FSIS licence separately forbids linking establishments to illness outbreaks. Every FSIS-to-NORS
+join stays at serotype and year. No establishment identifier may enter outcome-layer code. Treat this
+as a property worth a test, not a preference.

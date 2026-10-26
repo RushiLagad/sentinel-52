@@ -212,3 +212,12 @@ misallocates attention by construction.
    food category at all, so poultry-attributed burden is a floor rather than an estimate.
 8. THE SYSTEM SHALL NOT present any establishment alongside any outbreak. All joins are at serotype
    and year, as the FSIS data licence requires.
+
+---
+
+> **SUPERSEDED 2026-10-26.** Written before the challenge brief was published, from the track title
+> alone. It aimed the tool at a regulator allocating inspection capacity; the brief asks for a
+> supply-chain actor. Replaced by `.kiro/specs/onehealth-decision-support/`.
+>
+> Kept rather than deleted because the brief asks how the work evolved, and a tidied history would
+> misrepresent that. The model, validation and evidence requirements here carried over almost intact.
