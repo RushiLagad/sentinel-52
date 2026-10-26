@@ -155,7 +155,10 @@ Treat these as gaps to close, not options:
 - **FSIS recalls and public health alerts.** Required, and distinct from the sampling data we have.
 - **At least two team-added datasets**, one covering food security, vulnerability, supply chain,
   animal health, environmental exposure or infrastructure. Chosen: CDC/ATSDR SVI and USDA food access.
-- **Calibration.** We report discrimination only. A score used to hold food must be calibrated.
+- **Calibration, partly done.** Brier scores exist for every probability scorer (0.0412 to 0.0431)
+  and a decile reliability table exists for gradient boosting, which tracks well. Still missing: the
+  same table for the **binomial projection**, which is the default scorer and therefore the one that
+  actually has to be calibrated, and a reliability figure for the report.
 - **Ablation** giving the marginal value of each added source.
 - **Three scenarios minimum**, compared against a rule-based policy.
 - **A food-security or equity objective**, with a check on whether holds fall disproportionately on

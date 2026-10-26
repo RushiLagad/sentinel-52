@@ -144,7 +144,8 @@ Work that has to change:
 - **The user.** Everything was framed for a regulator allocating inspections. It must be a
   supply-chain actor.
 - **Missing required data:** NOAA/NCEI climate, FSIS recalls and alerts, and two team-added datasets
-- **Missing analysis:** calibration, ablation for marginal data value, two more scenarios
+- **Missing analysis:** reliability for the default scorer and a reliability figure (Brier and a
+  gradient-boosting table already exist), the leave-one-source-out ablation, two more scenarios
 - **Missing objective:** food security, equity, and avoidable food loss appear nowhere yet
 - **Missing artifact:** the One Health system map
 - **App structure:** the five named components above, with human review built in

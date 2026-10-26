@@ -200,8 +200,10 @@ the communities that can least replace it.
 
 1. THE SYSTEM SHALL use the **transparent binomial projection** as the default scorer, with the
    integrated model available and both intervals shown when switching.
-2. THE SYSTEM SHALL report discrimination (AUROC, average precision) **and calibration** (calibration
-   curve and Brier score). Calibration is currently missing from the pipeline and must be added.
+2. THE SYSTEM SHALL report discrimination (AUROC, average precision) **and calibration** (reliability
+   curve and Brier score) for whichever scorer is displayed. Brier and a gradient-boosting reliability
+   table already exist in `05_early_warning_baseline.py`; the projection scorer's reliability table and
+   a reliability figure do not.
 3. THE SYSTEM SHALL use time-aware validation: training strictly before the test window.
 4. THE SYSTEM SHALL report an **ablation** giving the marginal contribution of each added source
    (climate, serotype burden, vulnerability, recalls) over the FSIS-only baseline.

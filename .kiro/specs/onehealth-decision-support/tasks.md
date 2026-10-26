@@ -50,8 +50,9 @@ The gaps are not equal. Ranked by marks at risk against effort:
 
 - [ ] **2.1** `15_risk_model.py`: extend the existing early-warning features with climate, serotype
   burden, recall history and destination vulnerability. _(T2, R8)_
-- [ ] **2.2** Add **calibration**: reliability curve and Brier score on the time-aware split, for both
-  the transparent projection and the integrated model. Currently missing entirely. _(T2, R8.2)_
+- [ ] **2.2** Finish **calibration**. Brier per scorer and a gradient-boosting decile table already
+  exist. Add the same reliability table for the **binomial projection** (the default scorer) and a
+  reliability figure for the report. _(T2, R8.2)_
 - [ ] **2.3** Add the **ablation**: drop each added source singly, report ΔAUROC and ΔAP with
   establishment-clustered bootstrap intervals. Keep sources whose effect is within noise in the table
   and say so. _(T2 marginal value, T5 ablation, R8.4)_

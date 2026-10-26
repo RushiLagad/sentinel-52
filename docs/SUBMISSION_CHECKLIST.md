@@ -60,8 +60,9 @@ fix landing at 16:01 CT ends the entry.
       *Actor chosen (regional food bank, justified in the spec). Map and three datasets outstanding.*
 - [ ] **T2 Build and validate a risk model** — transparent baseline, integrated model, time-aware
       validation, discrimination **and calibration**, uncertainty, **marginal value of added data**.
-      *Baseline, integrated model, time-aware validation and bootstrap uncertainty done.
-      Calibration and ablation missing.*
+      *Baseline, integrated model, time-aware validation, bootstrap uncertainty and Brier scores done,
+      with a gradient-boosting reliability table. Missing: reliability for the projection scorer, a
+      reliability figure, and the leave-one-source-out ablation.*
 - [ ] **T3 Convert predictions to decisions** — feasible actions, constraints, **food-security or
       equity objective**, comparison against a rule-based policy, **three or more scenarios**, human
       review for high-consequence actions.

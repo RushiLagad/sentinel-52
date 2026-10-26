@@ -1,0 +1,176 @@
+{
+ "horizon_months": 12,
+ "test_rows": 11699,
+ "test_base_rate": 0.1076,
+ "test_window_ends": [
+  "2024-01-27",
+  "2025-06-28"
+ ],
+ "bins": 10,
+ "scorers": {
+  "projection": {
+   "label": "Binomial projection",
+   "brier": 0.0751,
+   "ece": 0.0199,
+   "mean_prediction": 0.0998,
+   "base_rate": 0.1076,
+   "mean_pred_minus_base": -0.0078,
+   "top_bin_predicted": 0.5377,
+   "top_bin_observed": 0.4932,
+   "reliability": [
+    {
+     "bin": 0,
+     "mean_pred": 0.0,
+     "observed": 0.0051,
+     "n": 1170,
+     "gap": 0.0051
+    },
+    {
+     "bin": 1,
+     "mean_pred": 0.0007,
+     "observed": 0.0179,
+     "n": 1170,
+     "gap": 0.0172
+    },
+    {
+     "bin": 2,
+     "mean_pred": 0.0024,
+     "observed": 0.0274,
+     "n": 1170,
+     "gap": 0.025
+    },
+    {
+     "bin": 3,
+     "mean_pred": 0.0069,
+     "observed": 0.0265,
+     "n": 1170,
+     "gap": 0.0196
+    },
+    {
+     "bin": 4,
+     "mean_pred": 0.0159,
+     "observed": 0.0547,
+     "n": 1170,
+     "gap": 0.0388
+    },
+    {
+     "bin": 5,
+     "mean_pred": 0.0309,
+     "observed": 0.0419,
+     "n": 1169,
+     "gap": 0.011
+    },
+    {
+     "bin": 6,
+     "mean_pred": 0.0618,
+     "observed": 0.0829,
+     "n": 1170,
+     "gap": 0.0211
+    },
+    {
+     "bin": 7,
+     "mean_pred": 0.1176,
+     "observed": 0.1179,
+     "n": 1170,
+     "gap": 0.0004
+    },
+    {
+     "bin": 8,
+     "mean_pred": 0.2246,
+     "observed": 0.2085,
+     "n": 1170,
+     "gap": -0.0161
+    },
+    {
+     "bin": 9,
+     "mean_pred": 0.5377,
+     "observed": 0.4932,
+     "n": 1170,
+     "gap": -0.0445
+    }
+   ]
+  },
+  "gb": {
+   "label": "Gradient boosting",
+   "brier": 0.0736,
+   "ece": 0.0173,
+   "mean_prediction": 0.1219,
+   "base_rate": 0.1076,
+   "mean_pred_minus_base": 0.0143,
+   "top_bin_predicted": 0.5546,
+   "top_bin_observed": 0.4991,
+   "reliability": [
+    {
+     "bin": 0,
+     "mean_pred": 0.002,
+     "observed": 0.0,
+     "n": 1170,
+     "gap": -0.002
+    },
+    {
+     "bin": 1,
+     "mean_pred": 0.0073,
+     "observed": 0.0137,
+     "n": 1170,
+     "gap": 0.0064
+    },
+    {
+     "bin": 2,
+     "mean_pred": 0.0153,
+     "observed": 0.0239,
+     "n": 1170,
+     "gap": 0.0087
+    },
+    {
+     "bin": 3,
+     "mean_pred": 0.0276,
+     "observed": 0.0179,
+     "n": 1170,
+     "gap": -0.0097
+    },
+    {
+     "bin": 4,
+     "mean_pred": 0.0423,
+     "observed": 0.0265,
+     "n": 1170,
+     "gap": -0.0158
+    },
+    {
+     "bin": 5,
+     "mean_pred": 0.0626,
+     "observed": 0.0513,
+     "n": 1169,
+     "gap": -0.0113
+    },
+    {
+     "bin": 6,
+     "mean_pred": 0.0957,
+     "observed": 0.0752,
+     "n": 1170,
+     "gap": -0.0205
+    },
+    {
+     "bin": 7,
+     "mean_pred": 0.1526,
+     "observed": 0.1299,
+     "n": 1170,
+     "gap": -0.0227
+    },
+    {
+     "bin": 8,
+     "mean_pred": 0.2592,
+     "observed": 0.2385,
+     "n": 1170,
+     "gap": -0.0208
+    },
+    {
+     "bin": 9,
+     "mean_pred": 0.5546,
+     "observed": 0.4991,
+     "n": 1170,
+     "gap": -0.0555
+    }
+   ]
+  }
+ }
+}

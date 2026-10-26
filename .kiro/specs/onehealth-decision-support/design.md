@@ -105,9 +105,12 @@ The existing early-warning work carries over and is the backbone of Task 2.
 
 ### What must be added
 
-**Calibration.** Currently absent and explicitly required. Reliability curve plus Brier score, on the
-same time-aware split. A score used to hold food must be calibrated, not merely well-ranked: "30
-percent" has to mean something to the person deciding.
+**Calibration.** Partly present and explicitly required. Brier is already computed per scorer and a
+decile reliability table exists for gradient boosting, tracking closely at the top decile (0.432
+predicted against 0.426 observed). What is missing is the same table for the **binomial projection**,
+which is the default scorer and therefore the one that has to be calibrated, plus a reliability figure
+for the report. A score used to hold food must be calibrated, not merely well-ranked: "30 percent"
+has to mean something to the person deciding.
 
 **Ablation.** One row per added source, dropped singly from the full model, reporting the change in
 AUROC and average precision with establishment-clustered intervals. This satisfies both Task 2's
