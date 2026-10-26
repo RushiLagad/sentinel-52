@@ -205,3 +205,29 @@ go in the submission.
 The FSIS licence separately forbids linking establishments to illness outbreaks. Every FSIS-to-NORS
 join stays at serotype and year. No establishment identifier may enter outcome-layer code. Treat this
 as a property worth a test, not a preference.
+
+## What the ablation found, 2026-10-26
+
+`05d_ablation.py`, leave-one-group-out on the integrated model, establishment-clustered intervals.
+Three things matter and most do not:
+
+- **The binomial projection is the single most valuable feature.** Dropping it costs more AUROC than
+  dropping the entire sampling-history group at 3 and 6 months (-0.0095 and -0.0075). The transparent
+  arithmetic is not a baseline the model beats, it is the signal the model leans on.
+- **Everything beyond basic FSIS sampling and category position buys under 0.01 AUROC** in total
+  (-0.0074 at both 3 and 6 months, within noise at 12).
+- **Serotype detail adds nothing predictive, at any horizon.** Dropping it is within noise every time
+  and sometimes slightly improves the model.
+
+That last one reads like a contradiction of the project's thesis and is not. The FSIS category is a
+count of positives and is blind to which serotype they were, so serotype cannot help predict it.
+Serotype governs **consequence**, which is what the NORS layer measures, not **compliance**. Say it
+that way in the report: serotype carries information the current system does not use, and its absence
+from a count-based prediction is evidence for that claim rather than against it.
+
+At 3 months, dropping the CFU enumeration group **improves** the model (+0.0031 AUROC, distinguishable
+from zero). Report it. A source that hurts is a result.
+
+Implication for Phase 1: month-of-year is already within noise, so NOAA climate may add little to this
+particular outcome. It is still required by the brief and still goes in. Report its marginal value
+honestly rather than implying it helped.

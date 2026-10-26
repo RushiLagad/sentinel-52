@@ -46,6 +46,7 @@ def main() -> None:
     for h in hs:
         run(str(S / "05_early_warning_baseline.py"), "--data", PROC, "--out", "outputs", "--horizon", h)
         run(str(S / "05c_calibration.py"), "--out", "outputs", "--horizon", h)
+        run(str(S / "05d_ablation.py"), "--data", PROC, "--out", "outputs", "--horizon", h)
     run(str(S / "05b_watchlist_comparison.py"), "--data", PROC, "--out", "outputs", "--horizon", hs[0])
     run(str(S / "06_hazard_first_look.py"), "--data", PROC, "--out", "outputs")
     run(str(S / "07_figures.py"), "--data", PROC, "--out", "outputs")

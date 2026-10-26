@@ -1,0 +1,14 @@
+{
+ "source": "https://www.fsis.usda.gov/fsis/api/recall/v/1",
+ "licence": "US federal government public domain; no key or registration required",
+ "records_returned": 2032,
+ "after_dedupe_and_year_filter": 2032,
+ "from_year": 2014,
+ "poultry_or_salmonella": 563,
+ "poultry_title_only": 499,
+ "salmonella_mentioned": 100,
+ "with_recoverable_establishment_mark": 206,
+ "establishment_mark_recovery_pct": 36.6,
+ "outbreak_related_true": 10,
+ "limitation": "field_establishment holds company names, not establishment numbers. Numbers are recovered from USDA marks in the product text and are absent for most records, so recall-to-plant linkage is partial."
+}

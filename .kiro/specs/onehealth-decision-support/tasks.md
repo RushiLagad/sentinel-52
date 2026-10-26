@@ -31,8 +31,13 @@ The gaps are not equal. Ranked by marks at risk against effort:
 - [ ] **1.1** `11_fetch_noaa.py`. NOAA/NCEI CDO daily summaries for the states holding the poultry
   establishments in the panel. Token from `NOAA_CDO_TOKEN`, never committed; fail with a message
   naming the variable. Cache aggregates under `data/noaa/`. _(T1, brief-required)_
-- [ ] **1.2** `12_fetch_fsis_recalls.py`. FSIS Recall and Public Health Alert API. One row per recall
-  with establishment, date, product, reason, class. _(T1, brief-required)_
+- [x] **1.2** **Done.** `12_fetch_fsis_recalls.py` against `fsis.usda.gov/fsis/api/recall/v/1`, no key
+  needed. Emits all recalls and a poultry-or-Salmonella subset, with risk level, class, reason,
+  outbreak flag and states. **Run it to populate `data/fsis_recalls/`** — the container this was
+  written in cannot reach fsis.usda.gov, so the cache is not committed yet.
+  Known limitation, documented in PROVENANCE: `field_establishment` is a company name, not an
+  establishment number. Numbers come from USDA marks in the product text and are recoverable for only
+  36.6 percent of relevant recalls (206 of 563). _(T1, brief-required)_
 - [ ] **1.3** `13_fetch_vulnerability.py`. CDC/ATSDR SVI by county, and USDA food-access measures.
   Both public, both documented. _(T1, team-added, satisfies the vulnerability and food-security
   requirement)_
@@ -53,9 +58,11 @@ The gaps are not equal. Ranked by marks at risk against effort:
 - [ ] **2.2** Finish **calibration**. Brier per scorer and a gradient-boosting decile table already
   exist. Add the same reliability table for the **binomial projection** (the default scorer) and a
   reliability figure for the report. _(T2, R8.2)_
-- [ ] **2.3** Add the **ablation**: drop each added source singly, report ΔAUROC and ΔAP with
-  establishment-clustered bootstrap intervals. Keep sources whose effect is within noise in the table
-  and say so. _(T2 marginal value, T5 ablation, R8.4)_
+- [x] **2.3** **Ablation done** for the sources we currently hold: `05d_ablation.py`, leave-one-group-out
+  over ten source groups, ΔAUROC and ΔAP with establishment-clustered bootstrap intervals, at horizons
+  3, 6 and 12. Groups whose effect is within noise are kept in the table and labelled. **Extend `GROUPS`
+  in that script when climate, recalls, SVI and food access land in Phase 1** — the table grows without
+  any other change. _(T2 marginal value, T5 ablation, R8.4)_
 - [ ] **2.4** Confirm the transparent projection stays the default scorer and the gap to the
   integrated model is reported with both intervals. _(R8.1)_
 
@@ -130,3 +137,12 @@ superseded `.kiro/specs/watchlist-app/` spec, and this spec.
 
 Everything from Phase 1 onward is intended to be built through Kiro from this spec. Entries below as
 `**(manual)** <file> — <what and why>`.
+
+- **(manual)** `analysis/scripts/05c_calibration.py` — reliability tables and figure. Written by hand
+  on 2026-10-26, before Kiro was set up on this machine.
+- **(manual)** `analysis/scripts/05d_ablation.py` — leave-one-group-out ablation. Same reason.
+- **(manual)** `analysis/scripts/12_fetch_fsis_recalls.py` — FSIS recall fetcher. Written by hand
+  because the endpoint, field schema and establishment-mark format had to be probed against the live
+  API first, and the mark-extraction regex was validated against observed strings before the script
+  was written. The regex self-test cases in that session are reproduced as assertions in the
+  docstring's limitation note.

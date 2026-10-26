@@ -226,3 +226,48 @@ analysis depends on. The emailed extract was used only as a private cross-check 
 to reproduce any result.
 
 The FSIS attachment is a 20-row schema sample rather than a dataset, and contains no analysable data.
+
+---
+
+## 8. FSIS Recalls and Public Health Alerts
+
+| Field | Value |
+|---|---|
+| **Source** | USDA FSIS Recall and Public Health Alert API |
+| **URL** | `https://www.fsis.usda.gov/fsis/api/recall/v/1` |
+| **Access date** | 2026-10-26 |
+| **Licence** | US federal government public domain. No key, no registration. |
+| **Geographic coverage** | United States, distribution states listed per recall |
+| **Time coverage** | Full archive; this project uses 2014 onward to match the sampling panel |
+| **Update frequency** | Continuous, as recalls and alerts are issued |
+| **Fetched by** | `analysis/scripts/12_fetch_fsis_recalls.py` |
+| **Cached at** | `data/fsis_recalls/` |
+
+### Decision value
+
+A recall is a fact about product already in commerce, not a prediction. In the decision layer a recall
+touching held stock outranks any model score, which is why it sits at the top of the alert queue
+rather than being folded into a risk number.
+
+### Transformations applied
+
+Full archive retrieved as one JSON array (about 2,000 records). HTML entities decoded, whitespace
+normalised, duplicates dropped on recall number, date and title. Two flags derived: poultry mentioned
+in the title, and Salmonella mentioned in reason, title or summary. Establishment marks extracted from
+product text as described below.
+
+### Known limitations
+
+- **`field_establishment` holds company names, not establishment numbers**, so it does not join to the
+  sampling panel. Establishment numbers appear only inside the product text, as USDA marks of
+  inspection ("EST. P-50784", "EST. 18004", "Est. 45640", "EST. P 20935A"). The fetch script extracts
+  and normalises them.
+- **Recovery is partial.** Of 563 poultry-or-Salmonella recalls from 2014 on, **206, or 36.6 percent,
+  carry a recoverable mark** (measured by `12_fetch_fsis_recalls.py` on 2026-10-26). The remainder cannot be tied to a plant from this feed at all. Any
+  statement about recall history per establishment is therefore a lower bound, and the application
+  must not present an establishment with no linked recall as one that has never been recalled.
+- A single recall can carry several marks, because one notice may cover product from several plants.
+- Ten of the 563 relevant recalls carry FSIS's own `related_to_outbreak` flag set to true.
+- `field_related_to_outbreak` is FSIS's own published flag on a recall notice. It is public record and
+  distinct from the sampling-data restriction, which forbids *us* inferring outbreak links from
+  sampling results. We report the flag as published and infer nothing from it.

@@ -1,0 +1,208 @@
+{
+ "horizon_months": 12,
+ "train_rows": 34767,
+ "test_rows": 11699,
+ "test_establishments": 559,
+ "test_base_rate": 0.1076,
+ "features_used": 37,
+ "features_dropped_no_signal_in_training": [
+  "cfu_ge10_share"
+ ],
+ "full_model": {
+  "auroc": 0.8514,
+  "avg_precision": 0.4544
+ },
+ "bootstrap_resamples": 300,
+ "ablations": [
+  {
+   "dropped": "sampling_history",
+   "n_features_dropped": 13,
+   "auroc": 0.8393,
+   "d_auroc": -0.012,
+   "d_auroc_ci": {
+    "lo": -0.0207,
+    "median": -0.0118,
+    "hi": -0.001
+   },
+   "avg_precision": 0.4498,
+   "d_avg_precision": -0.0047,
+   "d_avg_precision_ci": {
+    "lo": -0.0269,
+    "median": -0.005,
+    "hi": 0.0157
+   },
+   "auroc_change_distinguishable_from_zero": true
+  },
+  {
+   "dropped": "standard_position",
+   "n_features_dropped": 4,
+   "auroc": 0.8492,
+   "d_auroc": -0.0022,
+   "d_auroc_ci": {
+    "lo": -0.0076,
+    "median": -0.0022,
+    "hi": 0.0031
+   },
+   "avg_precision": 0.4552,
+   "d_avg_precision": 0.0008,
+   "d_avg_precision_ci": {
+    "lo": -0.0126,
+    "median": 0.0002,
+    "hi": 0.0163
+   },
+   "auroc_change_distinguishable_from_zero": false
+  },
+  {
+   "dropped": "projection",
+   "n_features_dropped": 1,
+   "auroc": 0.8493,
+   "d_auroc": -0.0021,
+   "d_auroc_ci": {
+    "lo": -0.0076,
+    "median": -0.0022,
+    "hi": 0.0027
+   },
+   "avg_precision": 0.4401,
+   "d_avg_precision": -0.0143,
+   "d_avg_precision_ci": {
+    "lo": -0.0303,
+    "median": -0.0142,
+    "hi": 0.0
+   },
+   "auroc_change_distinguishable_from_zero": false
+  },
+  {
+   "dropped": "serotype_detail",
+   "n_features_dropped": 4,
+   "auroc": 0.8486,
+   "d_auroc": -0.0028,
+   "d_auroc_ci": {
+    "lo": -0.0086,
+    "median": -0.0032,
+    "hi": 0.0034
+   },
+   "avg_precision": 0.4585,
+   "d_avg_precision": 0.004,
+   "d_avg_precision_ci": {
+    "lo": -0.0146,
+    "median": 0.0027,
+    "hi": 0.0221
+   },
+   "auroc_change_distinguishable_from_zero": false
+  },
+  {
+   "dropped": "other_pathogens",
+   "n_features_dropped": 2,
+   "auroc": 0.8483,
+   "d_auroc": -0.0031,
+   "d_auroc_ci": {
+    "lo": -0.0136,
+    "median": -0.0036,
+    "hi": 0.0078
+   },
+   "avg_precision": 0.4642,
+   "d_avg_precision": 0.0098,
+   "d_avg_precision_ci": {
+    "lo": -0.0203,
+    "median": 0.0083,
+    "hi": 0.035
+   },
+   "auroc_change_distinguishable_from_zero": false
+  },
+  {
+   "dropped": "followup_program",
+   "n_features_dropped": 2,
+   "auroc": 0.8536,
+   "d_auroc": 0.0022,
+   "d_auroc_ci": {
+    "lo": -0.0001,
+    "median": 0.0022,
+    "hi": 0.0048
+   },
+   "avg_precision": 0.4597,
+   "d_avg_precision": 0.0052,
+   "d_avg_precision_ci": {
+    "lo": -0.0036,
+    "median": 0.0056,
+    "hi": 0.014
+   },
+   "auroc_change_distinguishable_from_zero": false
+  },
+  {
+   "dropped": "establishment_profile",
+   "n_features_dropped": 5,
+   "auroc": 0.8534,
+   "d_auroc": 0.002,
+   "d_auroc_ci": {
+    "lo": -0.0065,
+    "median": 0.002,
+    "hi": 0.0109
+   },
+   "avg_precision": 0.4722,
+   "d_avg_precision": 0.0178,
+   "d_avg_precision_ci": {
+    "lo": -0.0063,
+    "median": 0.0175,
+    "hi": 0.0413
+   },
+   "auroc_change_distinguishable_from_zero": false
+  },
+  {
+   "dropped": "seasonality",
+   "n_features_dropped": 1,
+   "auroc": 0.8519,
+   "d_auroc": 0.0005,
+   "d_auroc_ci": {
+    "lo": -0.0026,
+    "median": 0.0006,
+    "hi": 0.0036
+   },
+   "avg_precision": 0.4627,
+   "d_avg_precision": 0.0083,
+   "d_avg_precision_ci": {
+    "lo": -0.0003,
+    "median": 0.0081,
+    "hi": 0.016
+   },
+   "auroc_change_distinguishable_from_zero": false
+  },
+  {
+   "dropped": "product_class",
+   "n_features_dropped": 5,
+   "auroc": 0.852,
+   "d_auroc": 0.0007,
+   "d_auroc_ci": {
+    "lo": -0.0024,
+    "median": 0.0005,
+    "hi": 0.0032
+   },
+   "avg_precision": 0.4643,
+   "d_avg_precision": 0.0098,
+   "d_avg_precision_ci": {
+    "lo": -0.0057,
+    "median": 0.0096,
+    "hi": 0.0227
+   },
+   "auroc_change_distinguishable_from_zero": false
+  },
+  {
+   "dropped": "ALL_beyond_fsis_core",
+   "n_features_dropped": 20,
+   "auroc": 0.8501,
+   "d_auroc": -0.0013,
+   "d_auroc_ci": {
+    "lo": -0.0159,
+    "median": -0.0023,
+    "hi": 0.0125
+   },
+   "avg_precision": 0.4675,
+   "d_avg_precision": 0.0131,
+   "d_avg_precision_ci": {
+    "lo": -0.0276,
+    "median": 0.011,
+    "hi": 0.0494
+   },
+   "auroc_change_distinguishable_from_zero": false
+  }
+ ]
+}
