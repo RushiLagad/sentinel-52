@@ -1,0 +1,97 @@
+year,cat,sero,nb,ill,hosp,dth
+2014,Chicken,Carmel,1,33,1,0
+2014,Chicken,Enteritidis,5,45,8,0
+2014,Chicken,Enteritidis;Enteritidis,1,18,1,0
+2014,Chicken,Heidelberg,2,55,6,0
+2014,Chicken,Infantis,1,2,1,0
+2014,Chicken,Oranienburg,1,4,0,0
+2014,Chicken,Thompson,2,93,7,0
+2014,Eggs,Enteritidis,2,22,3,0
+2014,Turkey,Enteritidis,1,7,2,0
+2014,Turkey,Javiana,1,20,1,0
+2015,Chicken,Braenderup,1,10,0,0
+2015,Chicken,Derby,1,3,0,0
+2015,Chicken,Enteritidis,5,41,10,0
+2015,Chicken,Enteritidis;Typhimurium;O157:H7,1,10,1,0
+2015,Chicken,Muenchen,1,3,0,0
+2015,Chicken,,1,6,0,0
+2015,Eggs,Enteritidis,4,28,3,0
+2015,Eggs,Oranienburg;Oranienburg,1,46,13,0
+2015,Turkey,Enteritidis,2,37,0,0
+2015,Turkey,"I 4,[5],12:i:-",1,10,0,0
+2015,Turkey,Reading,1,4,0,0
+2016,Chicken,Enteritidis,1,9,0,0
+2016,Chicken,Enteritidis;Enteritidis;Enteritidis,1,93,2,0
+2016,Chicken,Heidelberg,1,9,1,0
+2016,Chicken,"I 4,[5],12:i:-",1,64,16,0
+2016,Chicken,Muenchen,1,2,2,1
+2016,Chicken,Norwich,1,10,1,0
+2016,Chicken,Saintpaul,1,70,12,0
+2016,Chicken,Thompson,1,47,6,0
+2016,Chicken,,1,12,2,0
+2016,Eggs,Enteritidis,2,106,7,0
+2016,Eggs,Enteritidis;Enteritidis;Muenchen,1,35,1,0
+2016,Eggs,Oranienburg,1,8,2,0
+2016,Eggs,Typhimurium,1,7,0,0
+2016,Turkey,Enteritidis;Enteritidis,1,30,3,0
+2016,Turkey,Reading,1,13,0,0
+2017,Chicken,Anatum,1,4,0,0
+2017,Chicken,Enteritidis,7,190,3,0
+2017,Chicken,Heidelberg,1,33,9,0
+2017,Chicken,"I 4,[5],12:i:-",2,31,15,1
+2017,Chicken,Infantis,1,66,0,0
+2017,Eggs,Braenderup,1,45,11,0
+2017,Eggs,Enteritidis,4,36,9,1
+2017,Turkey,Enteritidis,2,580,12,0
+2017,Turkey,Reading,1,358,133,1
+2018,Chicken,Blockley,1,51,7,0
+2018,Chicken,Braenderup,1,70,16,0
+2018,Chicken,Enteritidis,6,59,17,0
+2018,Chicken,Enteritidis;Thompson,1,94,5,0
+2018,Chicken,Heidelberg,1,2,0,0
+2018,Chicken,"I 4,[5],12:i:-",1,8,1,0
+2018,Chicken,Infantis,1,129,25,1
+2018,Chicken,Paratyphi B,1,7,3,0
+2018,Chicken,Typhimurium,1,85,22,0
+2018,Eggs,Braenderup,1,13,2,0
+2018,Eggs,Enteritidis,1,45,12,0
+2018,Eggs,unknown,1,2,0,0
+2018,Other Poultry,London,1,14,1,0
+2018,Turkey,Hadar,1,17,8,0
+2018,Turkey,"I 4,[5],12:i:-",1,3,0,0
+2018,Turkey,Newport,1,9,1,0
+2018,Turkey,Schwarzengrund,1,7,1,0
+2019,Chicken,Blockley,1,95,3,0
+2019,Chicken,Enteritidis,8,198,55,0
+2019,Chicken,Enteritidis;Infantis,1,40,1,0
+2019,Chicken,Heidelberg,1,28,10,1
+2019,Chicken,Infantis,1,14,5,0
+2019,Chicken,Thompson,1,15,2,0
+2019,Eggs,Enteritidis,3,27,3,0
+2019,Turkey,Anatum,1,8,1,0
+2019,Turkey,Enteritidis,1,4,0,0
+2019,Turkey,Reading;unknown,1,9,2,0
+2019,Turkey,,1,2,2,0
+2020,Chicken,Enteritidis,4,66,26,0
+2020,Eggs,Enteritidis,1,7,2,0
+2020,Eggs,unknown,1,2,2,0
+2020,Turkey,Hadar,1,34,4,0
+2021,Chicken,Braenderup,1,10,2,0
+2021,Chicken,Enteritidis,2,123,13,0
+2021,Chicken,Enteritidis;Enteritidis,1,50,14,0
+2021,Chicken,Infantis;Schwarzengrund;Typhimurium,1,3,0,0
+2021,Eggs,Enteritidis,1,2,0,0
+2021,Turkey,Enteritidis,2,9,3,0
+2021,Turkey,unknown,1,27,2,0
+2022,Chicken,Enteritidis,6,332,27,0
+2022,Chicken,Heidelberg,1,3,1,0
+2022,Chicken,Sandiego,1,3,0,0
+2022,Eggs,Enteritidis,1,9,3,1
+2022,Turkey,Enteritidis,1,3,0,0
+2022,Turkey,"I 4,[5],12:i:-",1,25,2,0
+2023,Chicken,Enteritidis,2,83,1,0
+2023,Chicken,Johannesburg,1,11,0,0
+2023,Chicken,Thompson,1,19,2,0
+2023,Eggs,Enteritidis,3,41,6,0
+2023,Eggs,Enteritidis;Enteritidis,1,11,1,0
+2023,Other Poultry,,1,3,0,0

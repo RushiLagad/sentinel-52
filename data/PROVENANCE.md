@@ -171,3 +171,58 @@ is **inferred from FSIS's tables and not found in FSIS documentation**: when a 5
 fewer samples than the performance standard's sample set, the allowed number of positives is the
 standard scaled to the samples actually taken and rounded up. It is empirical. Any downstream result
 that depends on a rebuilt category inherits that assumption.
+
+---
+
+## 7. CDC National Outbreak Reporting System (NORS)
+
+| Field | Value |
+|---|---|
+| **Source** | CDC, National Outbreak Reporting System, public open-data release |
+| **URL** | https://data.cdc.gov/dataset/NORS/5xkq-dg7x (API: `data.cdc.gov/resource/5xkq-dg7x.json`) |
+| **Access date** | 2026-10-26 |
+| **Licence** | US federal government public-domain data, published on CDC's open data portal. No registration or agreement required. |
+| **Geographic coverage** | United States, by state; multistate outbreaks are reported as "Multistate". Excludes outbreaks with exposure outside the US and cruise ships with international ports of call. |
+| **Time coverage** | 1971 to 2023 in the public release. This project uses 2014 to 2023, the window that overlaps FSIS sampling. |
+| **Update frequency** | Annual. Final data lag 12 to 18 months after the reporting year, so recent years are under-reported and records can be revised after close-out. |
+| **Fetched by** | `analysis/scripts/09_fetch_nors.py` |
+| **Cached at** | `data/nors/nors_poultry_serotype_year.csv`, `data/nors/nors_salmonella_attribution.csv` |
+
+### Transformations applied
+
+Server-side aggregation through the Socrata API: Salmonella foodborne outbreaks, 2014 to 2023,
+grouped by year, IFSAC food category and serotype. Only aggregate counts are retrieved; no
+individual outbreak records are stored in this repository.
+
+Multi-serotype outbreaks appear in NORS as semicolon-joined strings. These are attributed to the
+first listed serotype rather than counted once per serotype, which would double-count illnesses.
+Composite rows are 9 of the poultry set and 5.4 percent of poultry hospitalizations; both figures
+are reported in `burden_weighting.json` rather than left implicit.
+
+### Known limitations
+
+- Outbreak-associated illness is a small and biased subset of all salmonellosis. Most cases are
+  sporadic and never enter NORS. Burden figures here are therefore a floor on harm, not an estimate
+  of it.
+- IFSAC food attribution is absent for a large share of outbreaks. Across Salmonella foodborne
+  outbreaks 2014 to 2023, 710 of 1,284 carry no IFSAC category, covering 1,891 of 5,846
+  hospitalizations, which is 32.3 percent. Poultry-attributed burden is consequently a floor.
+- Counts per serotype are small, and single large outbreaks dominate several of them. Every burden
+  figure in this project is reported alongside the share contributed by its largest single outbreak.
+- The public release ends at 2023 while FSIS sampling runs to FY2026, so the two series do not cover
+  the same final years.
+
+### A note on the dataset circulated by the organisers
+
+On 2026-10-26 the challenge organisers emailed participants a NORS extract and an FSIS
+ready-to-eat sampling file, stating that the data was conditionally granted for the challenge and
+asking that it not be shared outside the team.
+
+**Neither file is in this repository and neither is read by any script here.** This project uses the
+public CDC endpoint instead, for two reasons: the submission requires a public repository that judges
+can reproduce from, which a redistribution restriction would prevent; and the public release carries
+`ifsac_category`, the standardized food attribution that the emailed flat file lacks and that this
+analysis depends on. The emailed extract was used only as a private cross-check and is not required
+to reproduce any result.
+
+The FSIS attachment is a 20-row schema sample rather than a dataset, and contains no analysable data.

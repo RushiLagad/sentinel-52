@@ -1,0 +1,27 @@
+serotype,nb,ill,hosp,dth,largest_row_hosp,pct_hosp_from_largest_row,in_fsis_kpi
+Enteritidis,62,2121,204,0,55,27.0,True
+Reading,4,384,135,1,133,98.5,False
+"I 4,[5],12:i:-",7,141,34,1,16,47.1,False
+Infantis,5,214,31,1,25,80.6,True
+Heidelberg,7,130,27,1,10,37.0,False
+Typhimurium,1,85,22,0,22,100.0,True
+Braenderup,3,90,18,0,16,88.9,False
+Thompson,5,174,17,0,7,41.2,False
+Saintpaul,1,70,12,0,12,100.0,False
+Hadar,2,51,12,0,8,66.7,False
+Blockley,2,146,10,0,7,70.0,False
+unspecified,4,23,4,0,2,50.0,False
+Paratyphi B,1,7,3,0,3,100.0,False
+unknown,1,27,2,0,2,100.0,False
+Muenchen,2,5,2,1,2,100.0,False
+Javiana,1,20,1,0,1,100.0,False
+Anatum,2,12,1,0,1,100.0,False
+Carmel,1,33,1,0,1,100.0,False
+Schwarzengrund,1,7,1,0,1,100.0,False
+London,1,14,1,0,1,100.0,False
+Newport,1,9,1,0,1,100.0,False
+Norwich,1,10,1,0,1,100.0,False
+Derby,1,3,0,0,0,,False
+Johannesburg,1,11,0,0,0,,False
+Oranienburg,1,4,0,0,0,,False
+Sandiego,1,3,0,0,0,,False

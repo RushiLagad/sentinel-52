@@ -1,0 +1,213 @@
+{
+ "poultry_meat_totals": {
+  "outbreaks": 119,
+  "illnesses": 3794,
+  "hospitalizations": 540,
+  "deaths": 5,
+  "years": [
+   2014,
+   2023
+  ],
+  "composite_rows": 9,
+  "composite_hosp_pct": 5.4
+ },
+ "top_serotypes_by_hospitalizations": [
+  {
+   "serotype": "Enteritidis",
+   "outbreaks": 62,
+   "illnesses": 2121,
+   "hospitalizations": 204,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 27.0,
+   "in_fsis_kpi": true
+  },
+  {
+   "serotype": "Reading",
+   "outbreaks": 4,
+   "illnesses": 384,
+   "hospitalizations": 135,
+   "deaths": 1,
+   "pct_hosp_from_largest_row": 98.5,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "I 4,[5],12:i:-",
+   "outbreaks": 7,
+   "illnesses": 141,
+   "hospitalizations": 34,
+   "deaths": 1,
+   "pct_hosp_from_largest_row": 47.1,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Infantis",
+   "outbreaks": 5,
+   "illnesses": 214,
+   "hospitalizations": 31,
+   "deaths": 1,
+   "pct_hosp_from_largest_row": 80.6,
+   "in_fsis_kpi": true
+  },
+  {
+   "serotype": "Heidelberg",
+   "outbreaks": 7,
+   "illnesses": 130,
+   "hospitalizations": 27,
+   "deaths": 1,
+   "pct_hosp_from_largest_row": 37.0,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Typhimurium",
+   "outbreaks": 1,
+   "illnesses": 85,
+   "hospitalizations": 22,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 100.0,
+   "in_fsis_kpi": true
+  },
+  {
+   "serotype": "Braenderup",
+   "outbreaks": 3,
+   "illnesses": 90,
+   "hospitalizations": 18,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 88.9,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Thompson",
+   "outbreaks": 5,
+   "illnesses": 174,
+   "hospitalizations": 17,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 41.2,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Saintpaul",
+   "outbreaks": 1,
+   "illnesses": 70,
+   "hospitalizations": 12,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 100.0,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Hadar",
+   "outbreaks": 2,
+   "illnesses": 51,
+   "hospitalizations": 12,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 66.7,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Blockley",
+   "outbreaks": 2,
+   "illnesses": 146,
+   "hospitalizations": 10,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 70.0,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "unspecified",
+   "outbreaks": 4,
+   "illnesses": 23,
+   "hospitalizations": 4,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 50.0,
+   "in_fsis_kpi": false
+  }
+ ],
+ "policy_comparison": [
+  {
+   "species": "Chicken",
+   "total_hospitalizations": 362,
+   "framework_2024_serotypes": [
+    "Enteritidis",
+    "I 4,[5],12:i:-",
+    "Typhimurium"
+   ],
+   "framework_2024_hospitalizations": 238,
+   "framework_2024_share_pct": 65.7,
+   "fsis_kpi_hospitalizations": 237,
+   "fsis_kpi_share_pct": 65.5,
+   "highest_burden_serotype": "Enteritidis",
+   "highest_burden_hospitalizations": 184,
+   "highest_burden_on_either_list": true
+  },
+  {
+   "species": "Turkey",
+   "total_hospitalizations": 177,
+   "framework_2024_serotypes": [
+    "Hadar",
+    "Muenchen",
+    "Typhimurium"
+   ],
+   "framework_2024_hospitalizations": 12,
+   "framework_2024_share_pct": 6.8,
+   "fsis_kpi_hospitalizations": 20,
+   "fsis_kpi_share_pct": 11.3,
+   "highest_burden_serotype": "Reading",
+   "highest_burden_hospitalizations": 135,
+   "highest_burden_on_either_list": false
+  }
+ ],
+ "prevalence_vs_burden_chicken": {
+  "latest_fy": 2026,
+  "first_fy": 2015,
+  "rows": [
+   {
+    "serotype": "Infantis",
+    "fsis_share_of_serotyped_chicken_isolates_pct_latest_fy": 36.1,
+    "fsis_share_pct_first_fy": 3.5,
+    "nors_chicken_outbreaks": 5,
+    "nors_chicken_hospitalizations": 31,
+    "in_fsis_kpi": true
+   },
+   {
+    "serotype": "Enteritidis",
+    "fsis_share_of_serotyped_chicken_isolates_pct_latest_fy": 22.8,
+    "fsis_share_pct_first_fy": 18.7,
+    "nors_chicken_outbreaks": 52,
+    "nors_chicken_hospitalizations": 184,
+    "in_fsis_kpi": true
+   },
+   {
+    "serotype": "Kentucky",
+    "fsis_share_of_serotyped_chicken_isolates_pct_latest_fy": 16.6,
+    "fsis_share_pct_first_fy": 40.1,
+    "nors_chicken_outbreaks": 0,
+    "nors_chicken_hospitalizations": 0,
+    "in_fsis_kpi": false
+   },
+   {
+    "serotype": "Typhimurium",
+    "fsis_share_of_serotyped_chicken_isolates_pct_latest_fy": 10.2,
+    "fsis_share_pct_first_fy": 11.9,
+    "nors_chicken_outbreaks": 1,
+    "nors_chicken_hospitalizations": 22,
+    "in_fsis_kpi": true
+   }
+  ]
+ },
+ "attribution_completeness": {
+  "all_salmonella_foodborne_outbreaks": 1284,
+  "all_hospitalizations": 5846,
+  "unattributed_outbreaks": 710,
+  "unattributed_hospitalizations": 1891,
+  "unattributed_hosp_pct": 32.3,
+  "poultry_meat_hospitalizations": 540,
+  "poultry_meat_hosp_pct": 9.2,
+  "note": "Most Salmonella foodborne outbreaks carry no IFSAC food category, so poultry-attributed burden is a floor, not an estimate of poultry's true contribution."
+ },
+ "caveats": [
+  "Joins are at serotype and year only. No establishment is linked to any outbreak, as the FSIS data licence requires.",
+  "Outbreak-associated illness is a small, biased subset of salmonellosis; most cases are sporadic and absent from NORS.",
+  "Public NORS currently ends at 2023 while FSIS sampling runs to FY2026, so the two series do not cover the same final years.",
+  "Counts are small. Single large outbreaks dominate several serotypes, which is why pct_hosp_from_largest_row is reported alongside every total.",
+  "NORS records can be revised after close-out, and recent years are under-reported because final data lag 12 to 18 months."
+ ]
+}

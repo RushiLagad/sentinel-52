@@ -85,3 +85,41 @@ The supporting evidence, all recomputed from the public FSIS files in this repo:
   on surface `#fcfcfb`. One measure per axis, never a dual axis, legend whenever two or more series.
 - Any file containing code you generated carries a header noting it was AI-assisted, consistent with
   the existing scripts, and substantial manual edits to generated code get disclosed in the README.
+
+## Data handling, added 2026-10-26
+
+The organisers emailed a NORS extract and an FSIS ready-to-eat sample file under a condition that
+they not be shared outside the team. This repository is public.
+
+**Hard rule: neither file, nor anything derived row-by-row from them, goes into this repository.**
+NORS is fetched from CDC's public endpoint by `09_fetch_nors.py` instead. The emailed extract is a
+private cross-check only. If a result can only be produced from the emailed file, it does not go in
+the submission, because a judge could not reproduce it and we would be redistributing restricted data
+to do so.
+
+The FSIS licence separately forbids linking establishments to illness outbreaks. Every FSIS-to-NORS
+join is at serotype and year. No establishment identifier is ever carried into outcome-layer code,
+and no output places a plant name beside an outbreak. Treat this as a correctness property worth a
+test, not a style preference.
+
+## What the evidence now says
+
+Prevalence in the supply does not rank with human burden, and this is the project's central finding:
+
+- Kentucky is 16.6 percent of serotyped FSIS chicken isolates and carries zero outbreak-associated
+  hospitalizations in NORS across 2014 to 2023.
+- Infantis is 36.1 percent, up from 3.5 percent, and carries 31.
+- Enteritidis is 22.8 percent and carries 184 across 62 outbreaks.
+
+For chicken, FSIS's own lists are well aimed: the 2024 proposed framework serotypes capture 65.7
+percent of chicken-attributed hospitalizations. For turkey they are not: the framework serotypes
+capture 6.8 percent, and the highest-burden turkey serotype, Reading, is on neither the framework
+list nor the FY2022-26 indicator.
+
+State that asymmetry honestly in both directions. The chicken finding supports FSIS's choices and
+should be reported as such; a critique that only reports the turkey half would be selective.
+
+Reading's 135 hospitalizations are 98.5 percent from one 2017 multistate raw-turkey outbreak.
+Typhimurium's 22 are from one outbreak, Infantis's 31 are 80.6 percent from one. Enteritidis at 27.0
+percent is the only poultry serotype whose burden rests on a broad base. Never quote any of these
+figures without the single-outbreak share beside it.
