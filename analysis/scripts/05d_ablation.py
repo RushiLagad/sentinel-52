@@ -155,14 +155,21 @@ def main() -> None:
             # the interval straddling zero is the honest read, not a p-value
             "auroc_change_distinguishable_from_zero": not (d_auc["lo"] <= 0 <= d_auc["hi"]),
         }
+        # "distinguishable" alone is ambiguous: dropping a group can measurably HELP,
+        # which means the group was injecting noise, not carrying signal. Say which.
+        if not row["auroc_change_distinguishable_from_zero"]:
+            row["verdict"] = "within noise"
+        elif row["d_auroc"] < 0:
+            row["verdict"] = "carries signal"
+        else:
+            row["verdict"] = "adds noise (model is better without it)"
         res["ablations"].append(row)
         print(f"  drop {name:<24} AUROC {auc:.4f} ({auc-auc_full:+.4f})  "
-              f"AP {apr:.4f} ({apr-ap_full:+.4f})  "
-              f"{'distinguishable' if row['auroc_change_distinguishable_from_zero'] else 'within noise'}")
+              f"AP {apr:.4f} ({apr-ap_full:+.4f})  {row['verdict']}")
 
     tab = pd.DataFrame([{k: r[k] for k in ("dropped", "n_features_dropped", "auroc", "d_auroc",
                                            "avg_precision", "d_avg_precision",
-                                           "auroc_change_distinguishable_from_zero")}
+                                           "auroc_change_distinguishable_from_zero", "verdict")}
                         for r in res["ablations"]])
     tab["d_auroc_lo"] = [r["d_auroc_ci"]["lo"] for r in res["ablations"]]
     tab["d_auroc_hi"] = [r["d_auroc_ci"]["hi"] for r in res["ablations"]]

@@ -123,18 +123,18 @@
   },
   {
    "scorer": "gradient boosting, no projection feature",
-   "auroc": 0.857,
-   "avg_precision": 0.456,
-   "recall_top10pct": 0.451,
-   "precision_top10pct": 0.482,
-   "brier": 0.0743
+   "auroc": 0.856,
+   "avg_precision": 0.455,
+   "recall_top10pct": 0.45,
+   "precision_top10pct": 0.481,
+   "brier": 0.0746
   },
   {
    "scorer": "gradient boosting",
-   "auroc": 0.859,
-   "avg_precision": 0.474,
-   "recall_top10pct": 0.463,
-   "precision_top10pct": 0.495,
+   "auroc": 0.86,
+   "avg_precision": 0.476,
+   "recall_top10pct": 0.459,
+   "precision_top10pct": 0.491,
    "brier": 0.0736
   }
  ],
@@ -150,9 +150,9 @@
    "new_failures": 218,
    "base_pct": 7.04,
    "auroc_projection": 0.817,
-   "auroc_gb": 0.89,
+   "auroc_gb": 0.891,
    "ap_projection": 0.284,
-   "ap_gb": 0.387
+   "ap_gb": 0.389
   },
   {
    "product_class": "chicken_parts",
@@ -160,9 +160,9 @@
    "new_failures": 827,
    "base_pct": 11.43,
    "auroc_projection": 0.82,
-   "auroc_gb": 0.831,
+   "auroc_gb": 0.833,
    "ap_projection": 0.455,
-   "ap_gb": 0.454
+   "ap_gb": 0.456
   },
   {
    "product_class": "comminuted_chicken",
@@ -170,9 +170,9 @@
    "new_failures": 126,
    "base_pct": 28.31,
    "auroc_projection": 0.859,
-   "auroc_gb": 0.82,
+   "auroc_gb": 0.823,
    "ap_projection": 0.741,
-   "ap_gb": 0.659
+   "ap_gb": 0.655
   },
   {
    "product_class": "comminuted_turkey",
@@ -180,121 +180,121 @@
    "new_failures": 86,
    "base_pct": 22.63,
    "auroc_projection": 0.786,
-   "auroc_gb": 0.851,
+   "auroc_gb": 0.852,
    "ap_projection": 0.513,
-   "ap_gb": 0.615
+   "ap_gb": 0.621
   }
  ],
  "calibration_gb": [
   {
    "bin": 0,
-   "mean_pred": 0.002,
+   "mean_pred": 0.0021,
    "observed": 0.0,
    "n": 1170
   },
   {
    "bin": 1,
-   "mean_pred": 0.0073,
-   "observed": 0.0137,
+   "mean_pred": 0.0074,
+   "observed": 0.0154,
    "n": 1170
   },
   {
    "bin": 2,
-   "mean_pred": 0.0153,
-   "observed": 0.0239,
+   "mean_pred": 0.016,
+   "observed": 0.0188,
    "n": 1170
   },
   {
    "bin": 3,
-   "mean_pred": 0.0276,
-   "observed": 0.0179,
+   "mean_pred": 0.0287,
+   "observed": 0.0154,
    "n": 1170
   },
   {
    "bin": 4,
-   "mean_pred": 0.0423,
-   "observed": 0.0265,
+   "mean_pred": 0.0439,
+   "observed": 0.0333,
    "n": 1170
   },
   {
    "bin": 5,
-   "mean_pred": 0.0626,
+   "mean_pred": 0.0648,
    "observed": 0.0513,
    "n": 1169
   },
   {
    "bin": 6,
-   "mean_pred": 0.0957,
-   "observed": 0.0752,
+   "mean_pred": 0.0987,
+   "observed": 0.0786,
    "n": 1170
   },
   {
    "bin": 7,
-   "mean_pred": 0.1526,
-   "observed": 0.1299,
+   "mean_pred": 0.1558,
+   "observed": 0.1231,
    "n": 1170
   },
   {
    "bin": 8,
-   "mean_pred": 0.2592,
-   "observed": 0.2385,
+   "mean_pred": 0.265,
+   "observed": 0.2444,
    "n": 1170
   },
   {
    "bin": 9,
-   "mean_pred": 0.5546,
-   "observed": 0.4991,
+   "mean_pred": 0.5638,
+   "observed": 0.4957,
    "n": 1170
   }
  ],
  "importance_top": [
   {
    "feature": "projection_logit",
-   "ap_drop": 0.2498
+   "ap_drop": 0.2539
   },
   {
    "feature": "slaughter_volume_category",
-   "ap_drop": 0.0208
+   "ap_drop": 0.021
   },
   {
    "feature": "other_rate52",
-   "ap_drop": 0.0147
-  },
-  {
-   "feature": "rate_all",
-   "ap_drop": 0.0118
+   "ap_drop": 0.0151
   },
   {
    "feature": "cls_turkey_carcass",
-   "ap_drop": 0.0116
+   "ap_drop": 0.0131
+  },
+  {
+   "feature": "rate_all",
+   "ap_drop": 0.0119
+  },
+  {
+   "feature": "rate26",
+   "ap_drop": 0.0096
   },
   {
    "feature": "share_infantis",
    "ap_drop": 0.0092
   },
   {
-   "feature": "campy_rate52",
-   "ap_drop": 0.0092
-  },
-  {
-   "feature": "n52",
-   "ap_drop": 0.0085
-  },
-  {
-   "feature": "rate26",
-   "ap_drop": 0.008
-  },
-  {
    "feature": "cls_comminuted_turkey",
-   "ap_drop": 0.0075
+   "ap_drop": 0.009
   },
   {
    "feature": "class_rate52",
+   "ap_drop": 0.0074
+  },
+  {
+   "feature": "months_cat3_prev24",
    "ap_drop": 0.0072
   },
   {
-   "feature": "rate_prev",
-   "ap_drop": 0.0064
+   "feature": "n52",
+   "ap_drop": 0.0063
+  },
+  {
+   "feature": "campy_rate52",
+   "ap_drop": 0.0051
   }
  ],
  "bootstrap_ci": {
@@ -309,9 +309,9 @@
    "hi": 0.87
   },
   "auroc_gb": {
-   "lo": 0.833,
-   "median": 0.858,
-   "hi": 0.877
+   "lo": 0.834,
+   "median": 0.86,
+   "hi": 0.878
   },
   "ap_proj": {
    "lo": 0.398,
@@ -324,19 +324,19 @@
    "hi": 0.532
   },
   "ap_gb": {
-   "lo": 0.41,
-   "median": 0.475,
-   "hi": 0.535
+   "lo": 0.416,
+   "median": 0.477,
+   "hi": 0.534
   },
   "d_auroc_gb": {
-   "lo": 0.006,
-   "median": 0.023,
-   "hi": 0.038
+   "lo": 0.007,
+   "median": 0.024,
+   "hi": 0.039
   },
   "d_ap_gb": {
    "lo": -0.028,
-   "median": 0.018,
-   "hi": 0.059
+   "median": 0.02,
+   "hi": 0.062
   },
   "d_auroc_lr": {
    "lo": 0.004,
@@ -359,8 +359,8 @@
    "at_least_12_months_before_pct": 16.2
   },
   "gradient_boosting_top10pct": {
-   "on_list_at_least_1_month_before_pct": 84.3,
-   "at_least_3_months_before_pct": 69.6,
+   "on_list_at_least_1_month_before_pct": 83.2,
+   "at_least_3_months_before_pct": 68.1,
    "at_least_12_months_before_pct": 16.8
   },
   "category2_flag": {

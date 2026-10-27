@@ -4,5 +4,5 @@ trailing 52-week rate,0.893,0.376,0.564,0.355,
 positives to spare (fewest first),0.898,0.341,0.596,0.375,
 binomial projection,0.917,0.479,0.66,0.415,0.0426
 logistic regression,0.924,0.507,0.663,0.417,0.0412
-"gradient boosting, no projection feature",0.919,0.456,0.636,0.4,0.0431
-gradient boosting,0.926,0.489,0.672,0.423,0.0417
+"gradient boosting, no projection feature",0.919,0.461,0.638,0.402,0.043
+gradient boosting,0.925,0.48,0.667,0.42,0.042

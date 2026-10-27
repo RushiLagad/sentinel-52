@@ -124,18 +124,18 @@
   {
    "scorer": "gradient boosting, no projection feature",
    "auroc": 0.919,
-   "avg_precision": 0.456,
-   "recall_top10pct": 0.636,
-   "precision_top10pct": 0.4,
-   "brier": 0.0431
+   "avg_precision": 0.461,
+   "recall_top10pct": 0.638,
+   "precision_top10pct": 0.402,
+   "brier": 0.043
   },
   {
    "scorer": "gradient boosting",
-   "auroc": 0.926,
-   "avg_precision": 0.489,
-   "recall_top10pct": 0.672,
-   "precision_top10pct": 0.423,
-   "brier": 0.0417
+   "auroc": 0.925,
+   "avg_precision": 0.48,
+   "recall_top10pct": 0.667,
+   "precision_top10pct": 0.42,
+   "brier": 0.042
   }
  ],
  "cat2_flag": {
@@ -152,7 +152,7 @@
    "auroc_projection": 0.9,
    "auroc_gb": 0.932,
    "ap_projection": 0.3,
-   "ap_gb": 0.36
+   "ap_gb": 0.348
   },
   {
    "product_class": "chicken_parts",
@@ -160,9 +160,9 @@
    "new_failures": 643,
    "base_pct": 6.71,
    "auroc_projection": 0.916,
-   "auroc_gb": 0.92,
+   "auroc_gb": 0.918,
    "ap_projection": 0.493,
-   "ap_gb": 0.504
+   "ap_gb": 0.495
   },
   {
    "product_class": "comminuted_chicken",
@@ -170,9 +170,9 @@
    "new_failures": 106,
    "base_pct": 19.59,
    "auroc_projection": 0.893,
-   "auroc_gb": 0.904,
+   "auroc_gb": 0.901,
    "ap_projection": 0.671,
-   "ap_gb": 0.711
+   "ap_gb": 0.714
   },
   {
    "product_class": "comminuted_turkey",
@@ -182,7 +182,7 @@
    "auroc_projection": 0.866,
    "auroc_gb": 0.891,
    "ap_projection": 0.49,
-   "ap_gb": 0.552
+   "ap_gb": 0.532
   }
  ],
  "calibration_gb": [
@@ -206,26 +206,26 @@
   },
   {
    "bin": 3,
-   "mean_pred": 0.0034,
-   "observed": 0.0013,
+   "mean_pred": 0.0035,
+   "observed": 0.0019,
    "n": 1544
   },
   {
    "bin": 4,
-   "mean_pred": 0.0074,
-   "observed": 0.0039,
+   "mean_pred": 0.0076,
+   "observed": 0.0032,
    "n": 1545
   },
   {
    "bin": 5,
-   "mean_pred": 0.0151,
-   "observed": 0.0097,
+   "mean_pred": 0.015,
+   "observed": 0.0091,
    "n": 1544
   },
   {
    "bin": 6,
-   "mean_pred": 0.0279,
-   "observed": 0.0233,
+   "mean_pred": 0.0275,
+   "observed": 0.0246,
    "n": 1544
   },
   {
@@ -236,65 +236,65 @@
   },
   {
    "bin": 8,
-   "mean_pred": 0.1321,
-   "observed": 0.1192,
+   "mean_pred": 0.134,
+   "observed": 0.1218,
    "n": 1544
   },
   {
    "bin": 9,
-   "mean_pred": 0.4319,
-   "observed": 0.4259,
+   "mean_pred": 0.4342,
+   "observed": 0.4227,
    "n": 1545
   }
  ],
  "importance_top": [
   {
    "feature": "projection_logit",
-   "ap_drop": 0.3758
+   "ap_drop": 0.3653
   },
   {
    "feature": "rate_all",
-   "ap_drop": 0.027
+   "ap_drop": 0.0274
   },
   {
    "feature": "cls_turkey_carcass",
-   "ap_drop": 0.0093
-  },
-  {
-   "feature": "class_rate52",
-   "ap_drop": 0.0092
-  },
-  {
-   "feature": "other_rate52",
-   "ap_drop": 0.0081
-  },
-  {
-   "feature": "rate_prev",
-   "ap_drop": 0.0052
+   "ap_drop": 0.0103
   },
   {
    "feature": "share_infantis",
-   "ap_drop": 0.005
+   "ap_drop": 0.0068
+  },
+  {
+   "feature": "class_rate52",
+   "ap_drop": 0.0065
+  },
+  {
+   "feature": "rate_prev",
+   "ap_drop": 0.0063
   },
   {
    "feature": "spare3",
-   "ap_drop": 0.0043
-  },
-  {
-   "feature": "n52",
-   "ap_drop": 0.0043
+   "ap_drop": 0.0053
   },
   {
    "feature": "months_cat3_prev24",
-   "ap_drop": 0.0035
+   "ap_drop": 0.0048
+  },
+  {
+   "feature": "other_rate52",
+   "ap_drop": 0.0044
+  },
+  {
+   "feature": "n52",
+   "ap_drop": 0.0042
   },
   {
    "feature": "pos13",
-   "ap_drop": 0.003
+   "ap_drop": 0.0028
   },
   {
    "feature": "spare3_frac",
-   "ap_drop": 0.0028
+   "ap_drop": 0.0027
   }
  ],
  "bootstrap_ci": {
@@ -309,9 +309,9 @@
    "hi": 0.935
   },
   "auroc_gb": {
-   "lo": 0.913,
-   "median": 0.926,
-   "hi": 0.938
+   "lo": 0.912,
+   "median": 0.925,
+   "hi": 0.937
   },
   "ap_proj": {
    "lo": 0.411,
@@ -324,19 +324,19 @@
    "hi": 0.563
   },
   "ap_gb": {
-   "lo": 0.419,
-   "median": 0.492,
-   "hi": 0.553
+   "lo": 0.409,
+   "median": 0.483,
+   "hi": 0.543
   },
   "d_auroc_gb": {
-   "lo": 0.002,
-   "median": 0.009,
+   "lo": 0.0,
+   "median": 0.008,
    "hi": 0.016
   },
   "d_ap_gb": {
-   "lo": -0.027,
-   "median": 0.011,
-   "hi": 0.047
+   "lo": -0.036,
+   "median": 0.003,
+   "hi": 0.041
   },
   "d_auroc_lr": {
    "lo": 0.002,
@@ -359,9 +359,9 @@
    "at_least_6_months_before_pct": 26.8
   },
   "gradient_boosting_top10pct": {
-   "on_list_at_least_1_month_before_pct": 86.4,
-   "at_least_3_months_before_pct": 65.0,
-   "at_least_6_months_before_pct": 29.6
+   "on_list_at_least_1_month_before_pct": 85.2,
+   "at_least_3_months_before_pct": 63.4,
+   "at_least_6_months_before_pct": 27.2
   },
   "category2_flag": {
    "on_list_at_least_1_month_before_pct": 87.5,

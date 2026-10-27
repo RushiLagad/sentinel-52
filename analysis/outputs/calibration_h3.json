@@ -93,12 +93,12 @@
   "gb": {
    "label": "Gradient boosting",
    "brier": 0.0276,
-   "ece": 0.0222,
-   "mean_prediction": 0.0593,
+   "ece": 0.0213,
+   "mean_prediction": 0.0585,
    "base_rate": 0.0371,
-   "mean_pred_minus_base": 0.0222,
-   "top_bin_predicted": 0.4412,
-   "top_bin_observed": 0.3055,
+   "mean_pred_minus_base": 0.0213,
+   "top_bin_predicted": 0.4369,
+   "top_bin_observed": 0.3032,
    "reliability": [
     {
      "bin": 0,
@@ -123,52 +123,52 @@
     },
     {
      "bin": 3,
-     "mean_pred": 0.001,
+     "mean_pred": 0.0009,
      "observed": 0.0,
      "n": 1734,
-     "gap": -0.001
+     "gap": -0.0009
     },
     {
      "bin": 4,
      "mean_pred": 0.0024,
-     "observed": 0.0012,
+     "observed": 0.0006,
      "n": 1735,
-     "gap": -0.0013
+     "gap": -0.0018
     },
     {
      "bin": 5,
-     "mean_pred": 0.0054,
+     "mean_pred": 0.0053,
      "observed": 0.0017,
      "n": 1734,
-     "gap": -0.0037
+     "gap": -0.0036
     },
     {
      "bin": 6,
-     "mean_pred": 0.0118,
-     "observed": 0.0012,
+     "mean_pred": 0.0116,
+     "observed": 0.0017,
      "n": 1734,
-     "gap": -0.0107
+     "gap": -0.0099
     },
     {
      "bin": 7,
-     "mean_pred": 0.0302,
+     "mean_pred": 0.0297,
      "observed": 0.0138,
      "n": 1734,
-     "gap": -0.0164
+     "gap": -0.0158
     },
     {
      "bin": 8,
-     "mean_pred": 0.1003,
-     "observed": 0.0479,
+     "mean_pred": 0.097,
+     "observed": 0.0502,
      "n": 1734,
-     "gap": -0.0525
+     "gap": -0.0469
     },
     {
      "bin": 9,
-     "mean_pred": 0.4412,
-     "observed": 0.3055,
+     "mean_pred": 0.4369,
+     "observed": 0.3032,
      "n": 1735,
-     "gap": -0.1357
+     "gap": -0.1338
     }
    ]
   }

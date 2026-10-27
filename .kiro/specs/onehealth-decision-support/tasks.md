@@ -28,9 +28,12 @@ The gaps are not equal. Ranked by marks at risk against effort:
 
 ## Phase 1: close the data gaps (T1, days 1-2)
 
-- [ ] **1.1** `11_fetch_noaa.py`. NOAA/NCEI CDO daily summaries for the states holding the poultry
-  establishments in the panel. Token from `NOAA_CDO_TOKEN`, never committed; fail with a message
-  naming the variable. Cache aggregates under `data/noaa/`. _(T1, brief-required)_
+- [x] **1.1** **Done.** `11_fetch_noaa.py` against NOAA/NCEI CDO, dataset GSOM (monthly, not daily).
+  Token from `NOAA_CDO_TOKEN`, never committed. Per state it selects the 8 best-covered stations whose
+  record spans the window, deterministically, and averages them; the panel is listed in
+  `noaa_stations_used.csv`. Result: 7,644 state-months across 49 places, no failed fetches.
+  Caveat in PROVENANCE: Delaware has only 2 stations despite being 2.3% of routine sampling.
+  _(T1, brief-required)_
 - [x] **1.2** **Done.** `12_fetch_fsis_recalls.py` against `fsis.usda.gov/fsis/api/recall/v/1`, no key
   needed. Emits all recalls and a poultry-or-Salmonella subset, with risk level, class, reason,
   outbreak flag and states. **Run it to populate `data/fsis_recalls/`** — the container this was
@@ -41,9 +44,13 @@ The gaps are not equal. Ranked by marks at risk against effort:
 - [ ] **1.3** `13_fetch_vulnerability.py`. CDC/ATSDR SVI by county, and USDA food-access measures.
   Both public, both documented. _(T1, team-added, satisfies the vulnerability and food-security
   requirement)_
-- [ ] **1.4** `14_build_synthetic_inventory.py`. Seeded, documented generator: lots tied to real
-  establishments, plausible quantities, perishability windows, destination counties. **Every output
-  column carries a synthetic flag.** _(T1)_
+- [x] **1.4** **Done.** `14_build_synthetic_inventory.py`, deterministic given `--seed`. Actor is a
+  regional Arkansas food bank. Supplier panel is stratified **per product class** so all five FSIS
+  standards appear; taking the top plants overall gave an almost pure chicken panel and left turkey
+  untestable. Output: ~1,880 lots, every row `is_synthetic = True`, assumptions and distortions in
+  `data/inventory/ASSUMPTIONS.json` and PROVENANCE section 10.
+  The panel joins to 101 real establishment-by-product postings, 18 of them Category 3, so the
+  decision layer acts on real risk signal. _(T1)_
 - [ ] **1.5** Extend `data/PROVENANCE.md` with all four, including the synthetic generator's
   assumptions stated as assumptions. _(T1, deliverable 4)_
 - [ ] **1.6** Regenerate `data/DATA_DICTIONARY.md`. _(deliverable 4)_
@@ -55,9 +62,11 @@ The gaps are not equal. Ranked by marks at risk against effort:
 
 - [ ] **2.1** `15_risk_model.py`: extend the existing early-warning features with climate, serotype
   burden, recall history and destination vulnerability. _(T2, R8)_
-- [ ] **2.2** Finish **calibration**. Brier per scorer and a gradient-boosting decile table already
-  exist. Add the same reliability table for the **binomial projection** (the default scorer) and a
-  reliability figure for the report. _(T2, R8.2)_
+- [x] **2.2** **Done.** `05c_calibration.py` emits reliability tables and a figure for both scorers at
+  horizons 3, 6 and 12. Result worth carrying into the report: the projection is the **worse**
+  calibrated of the two (ECE 0.0092 against 0.0045), under-stating risk across the lower deciles and
+  over-stating it at the top, and it emits exactly zero for 74 test rows of which 2 failed.
+  _(T2, R8.2)_
 - [x] **2.3** **Ablation done** for the sources we currently hold: `05d_ablation.py`, leave-one-group-out
   over ten source groups, ΔAUROC and ΔAP with establishment-clustered bootstrap intervals, at horizons
   3, 6 and 12. Groups whose effect is within noise are kept in the table and labelled. **Extend `GROUPS`

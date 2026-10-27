@@ -315,15 +315,15 @@
    },
    "gradient boosting, no projection feature": {
     "auroc": 0.919,
-    "avg_precision": 0.456,
-    "recall_top10pct": 0.636,
-    "precision_top10pct": 0.4
+    "avg_precision": 0.461,
+    "recall_top10pct": 0.638,
+    "precision_top10pct": 0.402
    },
    "gradient boosting": {
-    "auroc": 0.926,
-    "avg_precision": 0.489,
-    "recall_top10pct": 0.672,
-    "precision_top10pct": 0.423
+    "auroc": 0.925,
+    "avg_precision": 0.48,
+    "recall_top10pct": 0.667,
+    "precision_top10pct": 0.42
    }
   },
   "bootstrap_ci": {
@@ -338,9 +338,9 @@
     "hi": 0.935
    },
    "auroc_gb": {
-    "lo": 0.913,
-    "median": 0.926,
-    "hi": 0.938
+    "lo": 0.912,
+    "median": 0.925,
+    "hi": 0.937
    },
    "ap_proj": {
     "lo": 0.411,
@@ -353,19 +353,19 @@
     "hi": 0.563
    },
    "ap_gb": {
-    "lo": 0.419,
-    "median": 0.492,
-    "hi": 0.553
+    "lo": 0.409,
+    "median": 0.483,
+    "hi": 0.543
    },
    "d_auroc_gb": {
-    "lo": 0.002,
-    "median": 0.009,
+    "lo": 0.0,
+    "median": 0.008,
     "hi": 0.016
    },
    "d_ap_gb": {
-    "lo": -0.027,
-    "median": 0.011,
-    "hi": 0.047
+    "lo": -0.036,
+    "median": 0.003,
+    "hi": 0.041
    },
    "d_auroc_lr": {
     "lo": 0.002,
@@ -457,7 +457,7 @@
    "positives to spare (fewest first)": 0.937,
    "binomial projection": 0.947,
    "logistic regression": 0.933,
-   "gradient boosting, no projection feature": 0.946,
+   "gradient boosting, no projection feature": 0.949,
    "gradient boosting": 0.956
   },
   "bootstrap_ci": {
@@ -467,14 +467,14 @@
     "hi": 0.957
    },
    "auroc_gb": {
-    "lo": 0.947,
+    "lo": 0.946,
     "median": 0.956,
-    "hi": 0.963
+    "hi": 0.962
    },
    "d_auroc_gb": {
-    "lo": 0.002,
+    "lo": 0.001,
     "median": 0.009,
-    "hi": 0.019
+    "hi": 0.018
    }
   }
  },
@@ -498,8 +498,8 @@
    "positives to spare (fewest first)": 0.821,
    "binomial projection": 0.836,
    "logistic regression": 0.853,
-   "gradient boosting, no projection feature": 0.857,
-   "gradient boosting": 0.859
+   "gradient boosting, no projection feature": 0.856,
+   "gradient boosting": 0.86
   },
   "bootstrap_ci": {
    "auroc_proj": {
@@ -508,14 +508,14 @@
     "hi": 0.858
    },
    "auroc_gb": {
-    "lo": 0.833,
-    "median": 0.858,
-    "hi": 0.877
+    "lo": 0.834,
+    "median": 0.86,
+    "hi": 0.878
    },
    "d_auroc_gb": {
-    "lo": 0.006,
-    "median": 0.023,
-    "hi": 0.038
+    "lo": 0.007,
+    "median": 0.024,
+    "hi": 0.039
    }
   }
  },
