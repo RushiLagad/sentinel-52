@@ -118,6 +118,7 @@ def main() -> None:
     run(str(S / "06_hazard_first_look.py"), "--data", PROC, "--out", "outputs")
     run(str(S / "07_figures.py"), "--data", PROC, "--out", "outputs")
     run(str(S / "08_key_numbers.py"), "--data", PROC, "--out", "outputs")
+    run(str(S / "18_figure_system_map.py"), "--out", "outputs")
 
     # The decision layer needs the county vulnerability file, which comes from
     # 13_fetch_vulnerability.py and needs the network. Skipped with a reason

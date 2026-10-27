@@ -54,7 +54,12 @@ The gaps are not equal. Ranked by marks at risk against effort:
 - [ ] **1.5** Extend `data/PROVENANCE.md` with all four, including the synthetic generator's
   assumptions stated as assumptions. _(T1, deliverable 4)_
 - [ ] **1.6** Regenerate `data/DATA_DICTIONARY.md`. _(deliverable 4)_
-- [ ] **1.7** Draw the One Health system map as a figure for the report. Structure is in `design.md`.
+- [x] **1.7** **Done.** `18_figure_system_map.py` draws it as `fig6_one_health_system_map.png`, in the
+  same palette and pixel convention as `07_figures.py` so the figures read as one set. Three things
+  the figure is responsible for: which domain each dataset belongs to, which two arrows carry the
+  argument (climate into production, illness burden into population vulnerability), and the arrow we
+  refuse to draw. Establishment-to-illness is drawn as a crossed dashed link with the reason on it,
+  rather than being silently absent, so a reader who looks for it finds it labelled.
   _(T1, explicitly required)_
 - [ ] **1.8** Write the decision statement into the README. Draft is in `requirements.md`. _(T1)_
 
