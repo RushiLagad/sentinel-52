@@ -1,0 +1,281 @@
+{
+ "meta": {
+  "produced_by": "analysis/scripts/17_build_app_data.py",
+  "generated_utc": "2026-10-27T17:44:50+00:00",
+  "schema_version": "1.0.0",
+  "payload": "equity",
+  "sources": [
+   {
+    "file": "analysis/outputs/decision_layer_h3.json",
+    "sha256_8": "0bda86be",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t20_scenarios_h3.csv",
+    "sha256_8": "a7c475da",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t21_equity_by_svi_quartile_h3.csv",
+    "sha256_8": "28024418",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t22_frontier_h3.csv",
+    "sha256_8": "b490e6c7",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t23_lot_actions_h3.csv",
+    "sha256_8": "91857195",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/early_warning_summary_h3.json",
+    "sha256_8": "c63735e9",
+    "modified_utc": "2026-10-27T17:28:05+00:00"
+   },
+   {
+    "file": "analysis/outputs/calibration_h3.json",
+    "sha256_8": "2fb741fc",
+    "modified_utc": "2026-10-27T17:28:06+00:00"
+   },
+   {
+    "file": "analysis/outputs/early_warning_test_scores_h3.parquet",
+    "sha256_8": "193b4332",
+    "modified_utc": "2026-10-27T17:28:01+00:00"
+   },
+   {
+    "file": "analysis/outputs/hazard_first_look.json",
+    "sha256_8": "00e2408b",
+    "modified_utc": "2026-10-27T17:29:43+00:00"
+   },
+   {
+    "file": "analysis/outputs/key_numbers.json",
+    "sha256_8": "a8ff9386",
+    "modified_utc": "2026-10-27T17:29:45+00:00"
+   },
+   {
+    "file": "data/fsis_recalls/fsis_recalls_poultry_salmonella.csv",
+    "sha256_8": "40d572b1",
+    "modified_utc": "2026-10-26T22:10:17+00:00"
+   }
+  ],
+  "synthetic": true,
+  "synthetic_note": "Lots, pounds, destinations and shelf life are simulated by 14_build_synthetic_inventory.py. Risk scores, FSIS categories and outcomes are real. No figure here measures a real food bank.",
+  "horizon_months": 3
+ },
+ "quartiles": [
+  {
+   "svi_quartile": "Q1 least vulnerable",
+   "scenario": "rule_based_category",
+   "lots": 471,
+   "pounds_offered": 830288.5,
+   "pounds_distributed": 518247.1,
+   "pounds_withheld": 312041.4,
+   "withheld_pct": 37.58,
+   "share_of_all_distribution_pct": 25.56,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q2",
+   "scenario": "rule_based_category",
+   "lots": 631,
+   "pounds_offered": 1086128.1,
+   "pounds_distributed": 650858.8,
+   "pounds_withheld": 435269.3,
+   "withheld_pct": 40.08,
+   "share_of_all_distribution_pct": 32.1,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q3",
+   "scenario": "rule_based_category",
+   "lots": 398,
+   "pounds_offered": 679431.8,
+   "pounds_distributed": 447028.9,
+   "pounds_withheld": 232402.9,
+   "withheld_pct": 34.21,
+   "share_of_all_distribution_pct": 22.05,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q4 most vulnerable",
+   "scenario": "rule_based_category",
+   "lots": 380,
+   "pounds_offered": 655732.5,
+   "pounds_distributed": 411160.2,
+   "pounds_withheld": 244572.3,
+   "withheld_pct": 37.3,
+   "share_of_all_distribution_pct": 20.28,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q1 least vulnerable",
+   "scenario": "conservative",
+   "lots": 471,
+   "pounds_offered": 830288.5,
+   "pounds_distributed": 691613.4,
+   "pounds_withheld": 138675.1,
+   "withheld_pct": 16.7,
+   "share_of_all_distribution_pct": 25.58,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q2",
+   "scenario": "conservative",
+   "lots": 631,
+   "pounds_offered": 1086128.1,
+   "pounds_distributed": 870264.6,
+   "pounds_withheld": 215863.5,
+   "withheld_pct": 19.87,
+   "share_of_all_distribution_pct": 32.19,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q3",
+   "scenario": "conservative",
+   "lots": 398,
+   "pounds_offered": 679431.8,
+   "pounds_distributed": 582753.5,
+   "pounds_withheld": 96678.3,
+   "withheld_pct": 14.23,
+   "share_of_all_distribution_pct": 21.55,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q4 most vulnerable",
+   "scenario": "conservative",
+   "lots": 380,
+   "pounds_offered": 655732.5,
+   "pounds_distributed": 559096.7,
+   "pounds_withheld": 96635.8,
+   "withheld_pct": 14.74,
+   "share_of_all_distribution_pct": 20.68,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q1 least vulnerable",
+   "scenario": "capacity_matched",
+   "lots": 471,
+   "pounds_offered": 830288.5,
+   "pounds_distributed": 669009.4,
+   "pounds_withheld": 161279.1,
+   "withheld_pct": 19.42,
+   "share_of_all_distribution_pct": 25.69,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q2",
+   "scenario": "capacity_matched",
+   "lots": 631,
+   "pounds_offered": 1086128.1,
+   "pounds_distributed": 844336.4,
+   "pounds_withheld": 241791.7,
+   "withheld_pct": 22.26,
+   "share_of_all_distribution_pct": 32.43,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q3",
+   "scenario": "capacity_matched",
+   "lots": 398,
+   "pounds_offered": 679431.8,
+   "pounds_distributed": 559928.6,
+   "pounds_withheld": 119503.2,
+   "withheld_pct": 17.59,
+   "share_of_all_distribution_pct": 21.5,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q4 most vulnerable",
+   "scenario": "capacity_matched",
+   "lots": 380,
+   "pounds_offered": 655732.5,
+   "pounds_distributed": 530620.5,
+   "pounds_withheld": 125112.0,
+   "withheld_pct": 19.08,
+   "share_of_all_distribution_pct": 20.38,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q1 least vulnerable",
+   "scenario": "food_security_weighted",
+   "lots": 471,
+   "pounds_offered": 830288.5,
+   "pounds_distributed": 669009.4,
+   "pounds_withheld": 161279.1,
+   "withheld_pct": 19.42,
+   "share_of_all_distribution_pct": 25.54,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q2",
+   "scenario": "food_security_weighted",
+   "lots": 631,
+   "pounds_offered": 1086128.1,
+   "pounds_distributed": 844336.4,
+   "pounds_withheld": 241791.7,
+   "withheld_pct": 22.26,
+   "share_of_all_distribution_pct": 32.23,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q3",
+   "scenario": "food_security_weighted",
+   "lots": 398,
+   "pounds_offered": 679431.8,
+   "pounds_distributed": 560733.7,
+   "pounds_withheld": 118698.1,
+   "withheld_pct": 17.47,
+   "share_of_all_distribution_pct": 21.4,
+   "pounds_are_synthetic": true
+  },
+  {
+   "svi_quartile": "Q4 most vulnerable",
+   "scenario": "food_security_weighted",
+   "lots": 380,
+   "pounds_offered": 655732.5,
+   "pounds_distributed": 545818.0,
+   "pounds_withheld": 109914.5,
+   "withheld_pct": 16.76,
+   "share_of_all_distribution_pct": 20.83,
+   "pounds_are_synthetic": true
+  }
+ ],
+ "disparity": [
+  {
+   "scenario": "rule_based_category",
+   "withheld_pct_most_vulnerable": 37.3,
+   "withheld_pct_least_vulnerable": 37.58,
+   "difference_pct_points": -0.28,
+   "hold_threshold": null,
+   "direction": "no material difference"
+  },
+  {
+   "scenario": "conservative",
+   "withheld_pct_most_vulnerable": 14.74,
+   "withheld_pct_least_vulnerable": 16.7,
+   "difference_pct_points": -1.96,
+   "hold_threshold": 0.05,
+   "direction": "falls harder on low-need counties"
+  },
+  {
+   "scenario": "capacity_matched",
+   "withheld_pct_most_vulnerable": 19.08,
+   "withheld_pct_least_vulnerable": 19.42,
+   "difference_pct_points": -0.34,
+   "hold_threshold": 0.01,
+   "direction": "no material difference"
+  },
+  {
+   "scenario": "food_security_weighted",
+   "withheld_pct_most_vulnerable": 16.76,
+   "withheld_pct_least_vulnerable": 19.42,
+   "difference_pct_points": -2.66,
+   "hold_threshold": 0.01,
+   "direction": "falls harder on low-need counties"
+  }
+ ],
+ "note": "Vulnerability is CDC/ATSDR SVI 2022 at county level. The USDA food-access layer is not in: the Census API key was rejected, so this is SVI alone. County is a coarse proxy for a service area."
+}

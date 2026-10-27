@@ -1,0 +1,16 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "H2 Regenerate the data dictionary on a schema change",
+      "description": "data/DATA_DICTIONARY.md documents every column of every built table and marks which descriptions come from FSIS and which are our own derivations. It is a named submission deliverable, and it goes stale the moment a build script adds or renames a column. An agent action rather than a command because deciding whether an edit actually changed a schema, and writing an honest description of a new column, is not something a script can do.",
+      "trigger": "PostFileSave",
+      "matcher": "analysis[/\\\\]scripts[/\\\\](02_build_tables|fsis_categories)\\.py$",
+      "action": {
+        "type": "agent",
+        "prompt": "A build script was just edited. Determine whether it changed the schema of any table written to data/processed: a column added, removed, renamed, or changed in dtype or units. If nothing changed, say so and stop. If something changed, update data/DATA_DICTIONARY.md for exactly those columns, keeping the existing convention that each entry states whether the description is FSIS's own or this project's derivation. Do not rewrite entries you did not need to touch, and do not invent a description for a column whose meaning is not clear from the code: flag it for a human instead."
+      },
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+ "meta": {
+  "produced_by": "analysis/scripts/17_build_app_data.py",
+  "generated_utc": "2026-10-27T17:44:50+00:00",
+  "schema_version": "1.0.0",
+  "payload": "burden",
+  "sources": [
+   {
+    "file": "analysis/outputs/hazard_first_look.json",
+    "sha256_8": "00e2408b",
+    "modified_utc": "2026-10-27T17:29:43+00:00"
+   },
+   {
+    "file": "analysis/outputs/burden_weighting.json",
+    "sha256_8": "15a40f68",
+    "modified_utc": "2026-10-26T16:52:06+00:00"
+   }
+  ],
+  "joined_at": "serotype and year only, never establishment"
+ },
+ "serotypes": [],
+ "resistance_by_serotype": [
+  {
+   "species": "chicken",
+   "serotype_clean": "Infantis",
+   "isolates": 1996,
+   "mdr3_pct": 86.2,
+   "ceftriaxone_r_pct": 15.2,
+   "quinolone_r_pct": 99.0,
+   "tetracycline_r_pct": 81.6,
+   "no_resistance_pct": 0.9
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Enteritidis",
+   "isolates": 1270,
+   "mdr3_pct": 0.4,
+   "ceftriaxone_r_pct": 0.1,
+   "quinolone_r_pct": 69.2,
+   "tetracycline_r_pct": 0.6,
+   "no_resistance_pct": 30.5
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Kentucky",
+   "isolates": 1259,
+   "mdr3_pct": 3.3,
+   "ceftriaxone_r_pct": 2.9,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 60.4,
+   "no_resistance_pct": 38.2
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Typhimurium",
+   "isolates": 538,
+   "mdr3_pct": 40.3,
+   "ceftriaxone_r_pct": 24.9,
+   "quinolone_r_pct": 0.2,
+   "tetracycline_r_pct": 93.9,
+   "no_resistance_pct": 5.9
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Schwarzengrund",
+   "isolates": 277,
+   "mdr3_pct": 0.0,
+   "ceftriaxone_r_pct": 0.0,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 0.7,
+   "no_resistance_pct": 99.3
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Typhimurium - Possible Vaccine Strain",
+   "isolates": 117,
+   "mdr3_pct": 0.0,
+   "ceftriaxone_r_pct": 0.0,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 0.0,
+   "no_resistance_pct": 100.0
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Alachua",
+   "isolates": 96,
+   "mdr3_pct": 1.0,
+   "ceftriaxone_r_pct": 1.0,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 62.5,
+   "no_resistance_pct": 36.5
+  },
+  {
+   "species": "chicken",
+   "serotype_clean": "Hadar",
+   "isolates": 48,
+   "mdr3_pct": 0.0,
+   "ceftriaxone_r_pct": 0.0,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 83.3,
+   "no_resistance_pct": 16.7
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Agona",
+   "isolates": 86,
+   "mdr3_pct": 7.0,
+   "ceftriaxone_r_pct": 1.2,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 37.2,
+   "no_resistance_pct": 59.3
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Hadar",
+   "isolates": 86,
+   "mdr3_pct": 2.3,
+   "ceftriaxone_r_pct": 0.0,
+   "quinolone_r_pct": 1.2,
+   "tetracycline_r_pct": 93.0,
+   "no_resistance_pct": 7.0
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Schwarzengrund",
+   "isolates": 78,
+   "mdr3_pct": 16.7,
+   "ceftriaxone_r_pct": 14.1,
+   "quinolone_r_pct": 0.0,
+   "tetracycline_r_pct": 50.0,
+   "no_resistance_pct": 46.2
+  },
+  {
+   "species": "turkey",
+   "serotype_clean": "Infantis",
+   "isolates": 32,
+   "mdr3_pct": 87.5,
+   "ceftriaxone_r_pct": 31.2,
+   "quinolone_r_pct": 87.5,
+   "tetracycline_r_pct": 75.0,
+   "no_resistance_pct": 9.4
+  }
+ ],
+ "note": "Illness burden comes from CDC NORS and is joined to FSIS sampling at serotype and year. No establishment appears in this payload, by design and by automated check (G1)."
+}

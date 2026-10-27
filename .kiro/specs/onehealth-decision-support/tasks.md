@@ -120,9 +120,16 @@ The gaps are not equal. Ranked by marks at risk against effort:
 
 ## Phase 4: the app, through Kiro (T4, days 4-6)
 
-- [ ] **4.1** `17_build_app_data.py` -> `app/public/data/*.json`, each with a `meta` block naming
-  source files and generation time. Assert no establishment identifier appears in any illness-joined
-  output, and fail the build if one does. _(R9, guardrail)_
+- [x] **4.1** **Done.** `17_build_app_data.py` writes eight payloads to `app/public/data/`, each with
+  a `meta` block naming every source file, its SHA-256 prefix and its modification time. The app
+  computes nothing: a figure not in these files cannot appear in the interface.
+  It also carries the guardrails as executable checks, and `--check` re-runs them without writing,
+  which is what hooks H3 and H4 call. All five were verified by injecting a violation of each and
+  confirming a non-zero exit, plus one contract break:
+  G1 establishment identity in illness-derived output · G2 a safety verdict in any string ·
+  G3 the synthetic flag on every pounds-denominated payload · G4 reversal evidence and human
+  confirmation on every high-consequence action · G5 recalls sorted above model scores.
+  The build refuses to write at all if any check fails. _(R9, guardrail)_
 - [ ] **4.2** Scaffold React + Vite, `base: '/sentinel-52/'`, hash routing. _(T4)_
 - [ ] **4.3** `CurrentRiskView` _(R1)_
 - [ ] **4.4** `AlertQueue`, recalls pinned above model scores _(R2)_
@@ -160,10 +167,16 @@ is ours.
 
 Graded artifacts under deliverable 2.
 
-- [ ] **H1** On edit of `analysis/scripts/fsis_categories.py`, run `04_validate_categories.py`.
-- [ ] **H2** On schema change in any build script, regenerate `data/DATA_DICTIONARY.md`.
-- [ ] **H3** On edit of any `analysis/scripts/*.py`, re-run the app-data contract test.
-- [ ] **H4** On any commit touching the decision layer, run the guardrail tests from 4.12.
+- [x] **H1** **Done.** `.kiro/hooks/h1-validate-category-rebuild.json`.
+- [x] **H2** **Done.** `.kiro/hooks/h2-regenerate-data-dictionary.json`, an agent hook rather than
+  a command: deciding whether an edit actually changed a schema, and describing a new column
+  honestly, is not something a script can do.
+- [x] **H3** **Done.** `.kiro/hooks/h3-app-data-contract.json`.
+- [x] **H4** **Done.** `.kiro/hooks/h4-decision-layer-guardrails.json`. Kiro has no git-commit
+  trigger, so it fires on edit instead, which is strictly earlier and therefore safer. All four
+  matchers were tested against eleven real paths to confirm each fires on what it should and on
+  nothing else. **Open Kiro's hooks panel and confirm all four load before relying on them** — a
+  hook that fails to load fails silently, which is the class of problem these exist to prevent.
 
 ---
 
@@ -179,6 +192,25 @@ Everything from Phase 1 onward is intended to be built through Kiro from this sp
 - **(manual)** `analysis/scripts/05c_calibration.py` — reliability tables and figure. Written by hand
   on 2026-10-26, before Kiro was set up on this machine.
 - **(manual)** `analysis/scripts/05d_ablation.py` — leave-one-group-out ablation. Same reason.
+- **(manual)** `analysis/scripts/11_fetch_noaa.py` — NOAA climate layer. Written by hand. The first
+  version used the daily-summaries endpoint and silently truncated at exactly 60,000 records per
+  state, which was caught only from repeated round numbers in the output; it was rewritten to a
+  bounded, deterministically chosen station panel on GSOM monthly data.
+- **(manual)** `analysis/scripts/13_fetch_vulnerability.py` — CDC/ATSDR SVI and Census ACS. Written
+  by hand because both endpoints had to be probed live: the SVI CSV layout and the Census API's
+  habit of returning an HTML error page rather than JSON for a bad key.
+- **(manual)** `analysis/scripts/14_build_synthetic_inventory.py` — seeded synthetic lot generator.
+  Written by hand.
+- **(manual)** `analysis/scripts/17_build_app_data.py` and `.kiro/hooks/*.json` — the app data
+  contract, the five guardrails and the four hooks. Written by hand on 2026-10-27, by an explicit
+  team decision to hand-build Phase 4 rather than drive it through Kiro, given the time remaining.
+  Recorded here because the alternative was to leave the reader to infer it.
+- **(manual)** `analysis/scripts/16_decision_layer.py` — the decision layer. Written by hand over
+  several rounds of correction, each prompted by reading the output rather than the code: the first
+  version gave holding no cost at all, which made a conservative policy look free; the second
+  hardcoded a capacity-matched threshold that used 28% of capacity; the third hardcoded the scorer
+  and was then run by `run_all.py` at the one horizon where that scorer is the worse calibrated.
+- **(manual)** `analysis/run_all.py` — repeatedly, as scripts were added.
 - **(manual)** `analysis/scripts/12_fetch_fsis_recalls.py` — FSIS recall fetcher. Written by hand
   because the endpoint, field schema and establishment-mark format had to be probed against the live
   API first, and the mark-extraction regex was validated against observed strings before the script

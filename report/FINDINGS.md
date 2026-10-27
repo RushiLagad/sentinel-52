@@ -138,6 +138,12 @@ Also worth reporting: at 3 months, dropping the CFU enumeration group **improves
 
 **Read the caveats below before quoting any number here.** Every poundage is simulated.
 
+**Independently reproduced, 2026-10-27.** This table was produced twice, from two separate builds of
+`data/processed` on two machines, and every figure matched to the digit: lot counts, precision,
+recall, pounds, meals, the dominance relation, and all four disparity values. The h3 *ablation*
+verdicts do shift between those same two builds (Finding 2), which is why none are quoted here. The
+decision layer does not shift.
+
 **Reproduced.** This table was produced twice, on two machines and two separate builds of
 `data/processed` (Linux/Python 3.13 and Windows/Python 3.12, 2026-10-27), and every figure below
 matched to the digit: all sixteen counts, all eight rates, all four meal totals, the dominance

@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "H4 Guardrails on the decision layer",
+      "description": "The five guardrails this project cannot breach: no establishment identifier in any illness-derived output (the FSIS licence forbids associating samples with illness), no safety verdict on any food or plant, a synthetic flag on every pounds-denominated payload, reversal evidence and human confirmation on every high-consequence recommendation, and recalls sorted above model scores. The spec asked for this on commit; Kiro has no git-commit trigger, so it runs on edit instead, which is strictly earlier and therefore safer.",
+      "trigger": "PostFileSave",
+      "matcher": "analysis[/\\\\]scripts[/\\\\](16_decision_layer|17_build_app_data)\\.py$|app[/\\\\]public[/\\\\]data[/\\\\].*\\.json$",
+      "action": {
+        "type": "command",
+        "command": "python analysis/scripts/17_build_app_data.py --check --out app/public/data"
+      },
+      "timeout": 120,
+      "enabled": true
+    }
+  ]
+}

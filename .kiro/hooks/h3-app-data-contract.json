@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "H3 Re-run the app data contract test",
+      "description": "The app reads fixed key names out of app/public/data/*.json and computes nothing itself. Renaming a field in an analysis script without renaming it in the builder produces a blank panel rather than an error, which is the failure mode most likely to survive to submission. Any edit under analysis/scripts re-runs the contract test, which checks that every payload still has the keys its component reads.",
+      "trigger": "PostFileSave",
+      "matcher": "analysis[/\\\\]scripts[/\\\\].*\\.py$",
+      "action": {
+        "type": "command",
+        "command": "python analysis/scripts/17_build_app_data.py --check --out app/public/data"
+      },
+      "timeout": 120,
+      "enabled": true
+    }
+  ]
+}

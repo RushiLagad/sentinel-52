@@ -1,0 +1,400 @@
+{
+ "meta": {
+  "produced_by": "analysis/scripts/17_build_app_data.py",
+  "generated_utc": "2026-10-27T17:44:50+00:00",
+  "schema_version": "1.0.0",
+  "payload": "scenarios",
+  "sources": [
+   {
+    "file": "analysis/outputs/decision_layer_h3.json",
+    "sha256_8": "0bda86be",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t20_scenarios_h3.csv",
+    "sha256_8": "a7c475da",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t21_equity_by_svi_quartile_h3.csv",
+    "sha256_8": "28024418",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t22_frontier_h3.csv",
+    "sha256_8": "b490e6c7",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t23_lot_actions_h3.csv",
+    "sha256_8": "91857195",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/early_warning_summary_h3.json",
+    "sha256_8": "c63735e9",
+    "modified_utc": "2026-10-27T17:28:05+00:00"
+   },
+   {
+    "file": "analysis/outputs/calibration_h3.json",
+    "sha256_8": "2fb741fc",
+    "modified_utc": "2026-10-27T17:28:06+00:00"
+   },
+   {
+    "file": "analysis/outputs/early_warning_test_scores_h3.parquet",
+    "sha256_8": "193b4332",
+    "modified_utc": "2026-10-27T17:28:01+00:00"
+   },
+   {
+    "file": "analysis/outputs/hazard_first_look.json",
+    "sha256_8": "00e2408b",
+    "modified_utc": "2026-10-27T17:29:43+00:00"
+   },
+   {
+    "file": "analysis/outputs/key_numbers.json",
+    "sha256_8": "a8ff9386",
+    "modified_utc": "2026-10-27T17:29:45+00:00"
+   },
+   {
+    "file": "data/fsis_recalls/fsis_recalls_poultry_salmonella.csv",
+    "sha256_8": "40d572b1",
+    "modified_utc": "2026-10-26T22:10:17+00:00"
+   }
+  ],
+  "synthetic": true,
+  "synthetic_note": "Lots, pounds, destinations and shelf life are simulated by 14_build_synthetic_inventory.py. Risk scores, FSIS categories and outcomes are real. No figure here measures a real food bank.",
+  "horizon_months": 3,
+  "scorer": "projection",
+  "scorer_rationale": "A hold-or-divert decision acts on an absolute probability rather than on a ranking, so the scorer is chosen by expected calibration error at this horizon and not by AUROC. Which scorer that is changes with the horizon: the projection is far better calibrated at h3 (ECE 0.0056 against 0.0213) and worse at h6 (0.0092 against 0.0049).",
+  "threshold_caveat": "hold_at and divert_at are thresholds on an absolute probability, so they are horizon-specific and do not transfer. The same 0.05 means a different thing against a 3-month outcome than against a 6-month one, and the scenario ranking is not horizon-robust: re-running at another horizon can reverse which scenario dominates."
+ },
+ "scenarios": [
+  {
+   "scenario": "rule_based_category",
+   "label": "Rule-based (status quo): hold anything from a Category 2 or 3 plant",
+   "lots": 1880,
+   "lots_unscored": 376,
+   "hold_at": null,
+   "divert_at": null,
+   "review_capacity_per_week": null,
+   "cook_capacity_lbs_per_week": null,
+   "food_security_weight": 0.0,
+   "n_distribute_now": 1165,
+   "n_prioritize": 7,
+   "n_hold_for_review": 708,
+   "n_divert": 0,
+   "precision": 0.3051,
+   "recall": 1.0,
+   "tp": 216,
+   "fp": 492,
+   "fn": 0,
+   "tn": 1172,
+   "pounds_distributed": 2027295.0,
+   "pounds_held": 1224285.9,
+   "pounds_diverted": 0.0,
+   "pounds_discarded": 143439.0,
+   "avoidable_loss_lbs": 130199.0,
+   "avoidable_loss_meals": 108499,
+   "exposure_lbs": 0.0,
+   "exposure_meals": 0,
+   "holds_per_week_required": 13.36,
+   "review_capacity_exceeded_by": null,
+   "pounds_are_synthetic": true
+  },
+  {
+   "scenario": "conservative",
+   "label": "Conservative: hold on weak signals",
+   "lots": 1880,
+   "lots_unscored": 376,
+   "hold_at": 0.05,
+   "divert_at": 0.3,
+   "review_capacity_per_week": null,
+   "cook_capacity_lbs_per_week": 12000.0,
+   "food_security_weight": 0.0,
+   "n_distribute_now": 1558,
+   "n_prioritize": 11,
+   "n_hold_for_review": 192,
+   "n_divert": 119,
+   "precision": 0.2797,
+   "recall": 0.4028,
+   "tp": 87,
+   "fp": 224,
+   "fn": 129,
+   "tn": 1440,
+   "pounds_distributed": 2703728.2,
+   "pounds_held": 320746.0,
+   "pounds_diverted": 227106.7,
+   "pounds_discarded": 42221.1,
+   "avoidable_loss_lbs": 36635.3,
+   "avoidable_loss_meals": 30529,
+   "exposure_lbs": 255655.2,
+   "exposure_meals": 213046,
+   "holds_per_week_required": 3.62,
+   "review_capacity_exceeded_by": null,
+   "pounds_are_synthetic": true
+  },
+  {
+   "scenario": "capacity_matched",
+   "label": "Capacity-matched: hold threshold derived from review capacity",
+   "lots": 1880,
+   "lots_unscored": 376,
+   "hold_at": 0.01,
+   "divert_at": 0.3,
+   "review_capacity_per_week": 6.0,
+   "cook_capacity_lbs_per_week": 12000.0,
+   "food_security_weight": 0.0,
+   "n_distribute_now": 1466,
+   "n_prioritize": 51,
+   "n_hold_for_review": 244,
+   "n_divert": 119,
+   "precision": 0.2424,
+   "recall": 0.4074,
+   "tp": 88,
+   "fp": 275,
+   "fn": 128,
+   "tn": 1389,
+   "pounds_distributed": 2603894.9,
+   "pounds_held": 420579.3,
+   "pounds_diverted": 227106.7,
+   "pounds_discarded": 61956.7,
+   "avoidable_loss_lbs": 56370.9,
+   "avoidable_loss_meals": 46975,
+   "exposure_lbs": 254542.7,
+   "exposure_meals": 212118,
+   "holds_per_week_required": 4.6,
+   "review_capacity_exceeded_by": 0.8,
+   "pounds_are_synthetic": true
+  },
+  {
+   "scenario": "food_security_weighted",
+   "label": "Food-security weighted: supply to high-need counties protected",
+   "lots": 1880,
+   "lots_unscored": 376,
+   "hold_at": 0.01,
+   "divert_at": 0.3,
+   "review_capacity_per_week": 6.0,
+   "cook_capacity_lbs_per_week": 12000.0,
+   "food_security_weight": 1.0,
+   "n_distribute_now": 1475,
+   "n_prioritize": 51,
+   "n_hold_for_review": 244,
+   "n_divert": 110,
+   "precision": 0.2486,
+   "recall": 0.4074,
+   "tp": 88,
+   "fp": 266,
+   "fn": 128,
+   "tn": 1398,
+   "pounds_distributed": 2619897.5,
+   "pounds_held": 422844.2,
+   "pounds_diverted": 208839.2,
+   "pounds_discarded": 55990.6,
+   "avoidable_loss_lbs": 50404.8,
+   "avoidable_loss_meals": 42004,
+   "exposure_lbs": 254542.7,
+   "exposure_meals": 212118,
+   "holds_per_week_required": 4.6,
+   "review_capacity_exceeded_by": 0.8,
+   "pounds_are_synthetic": true
+  }
+ ],
+ "frontier": [
+  {
+   "hold_at": 0.02,
+   "divert_at": 0.05,
+   "recall": 0.412,
+   "precision": 0.2405,
+   "pounds_distributed": 2608514.4,
+   "pounds_discarded": 96967.1,
+   "avoidable_loss_meals": 61095,
+   "exposure_meals": 210851,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.04,
+   "divert_at": 0.1,
+   "recall": 0.4028,
+   "precision": 0.2727,
+   "pounds_distributed": 2689330.3,
+   "pounds_discarded": 57495.1,
+   "avoidable_loss_meals": 42397,
+   "exposure_meals": 213046,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.06,
+   "divert_at": 0.15,
+   "recall": 0.4028,
+   "precision": 0.2979,
+   "pounds_distributed": 2727942.2,
+   "pounds_discarded": 23696.4,
+   "avoidable_loss_meals": 18010,
+   "exposure_meals": 213046,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.08,
+   "divert_at": 0.2,
+   "recall": 0.4028,
+   "precision": 0.3346,
+   "pounds_distributed": 2774568.6,
+   "pounds_discarded": 12817.4,
+   "avoidable_loss_meals": 8944,
+   "exposure_meals": 213046,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.1,
+   "divert_at": 0.25,
+   "recall": 0.4028,
+   "precision": 0.3783,
+   "pounds_distributed": 2831528.7,
+   "pounds_discarded": 16219.3,
+   "avoidable_loss_meals": 8861,
+   "exposure_meals": 213046,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.12,
+   "divert_at": 0.3,
+   "recall": 0.3657,
+   "precision": 0.3762,
+   "pounds_distributed": 2869175.9,
+   "pounds_discarded": 17335.1,
+   "avoidable_loss_meals": 9791,
+   "exposure_meals": 225988,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.14,
+   "divert_at": 0.35,
+   "recall": 0.3657,
+   "precision": 0.4093,
+   "pounds_distributed": 2908962.6,
+   "pounds_discarded": 20665.7,
+   "avoidable_loss_meals": 12566,
+   "exposure_meals": 225988,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.16,
+   "divert_at": 0.4,
+   "recall": 0.3611,
+   "precision": 0.4062,
+   "pounds_distributed": 2912461.9,
+   "pounds_discarded": 19510.6,
+   "avoidable_loss_meals": 11604,
+   "exposure_meals": 228904,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.18,
+   "divert_at": 0.45,
+   "recall": 0.3611,
+   "precision": 0.4333,
+   "pounds_distributed": 2931302.5,
+   "pounds_discarded": 19193.4,
+   "avoidable_loss_meals": 10378,
+   "exposure_meals": 228904,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.2,
+   "divert_at": 0.5,
+   "recall": 0.3611,
+   "precision": 0.4699,
+   "pounds_distributed": 2951245.0,
+   "pounds_discarded": 19193.4,
+   "avoidable_loss_meals": 10378,
+   "exposure_meals": 228904,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.22,
+   "divert_at": 0.55,
+   "recall": 0.3194,
+   "precision": 0.4539,
+   "pounds_distributed": 2970642.4,
+   "pounds_discarded": 11166.1,
+   "avoidable_loss_meals": 6098,
+   "exposure_meals": 238857,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.24,
+   "divert_at": 0.6,
+   "recall": 0.3194,
+   "precision": 0.4929,
+   "pounds_distributed": 2986491.6,
+   "pounds_discarded": 6210.0,
+   "avoidable_loss_meals": 3705,
+   "exposure_meals": 238857,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.26,
+   "divert_at": 0.65,
+   "recall": 0.3194,
+   "precision": 0.5074,
+   "pounds_distributed": 2993243.4,
+   "pounds_discarded": 6210.0,
+   "avoidable_loss_meals": 3705,
+   "exposure_meals": 238857,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.28,
+   "divert_at": 0.7,
+   "recall": 0.3194,
+   "precision": 0.5227,
+   "pounds_distributed": 2999010.1,
+   "pounds_discarded": 5094.2,
+   "avoidable_loss_meals": 2775,
+   "exposure_meals": 238857,
+   "pounds_are_synthetic": true
+  },
+  {
+   "hold_at": 0.3,
+   "divert_at": 0.75,
+   "recall": 0.3148,
+   "precision": 0.5714,
+   "pounds_distributed": 3024474.2,
+   "pounds_discarded": 5094.2,
+   "avoidable_loss_meals": 2775,
+   "exposure_meals": 240323,
+   "pounds_are_synthetic": true
+  }
+ ],
+ "dominated": [
+  {
+   "dominated": "capacity_matched",
+   "by": "food_security_weighted",
+   "why": "food_security_weighted reaches recall 0.4074 against 0.4074 while destroying 4,971 fewer meals"
+  }
+ ],
+ "controls": [
+  {
+   "id": "hold_at",
+   "label": "Hold threshold",
+   "min": 0.02,
+   "max": 0.3,
+   "step": 0.02,
+   "note": "a probability, so it does not transfer between horizons"
+  },
+  {
+   "id": "review_capacity_per_week",
+   "label": "Reviews per week",
+   "min": 1,
+   "max": 20,
+   "step": 1
+  },
+  {
+   "id": "food_security_weight",
+   "label": "Protect high-need supply",
+   "min": 0.0,
+   "max": 1.0,
+   "step": 0.25
+  }
+ ],
+ "frontier_note": "Not a recommended operating point. The curve is not convex, and choosing on it is a judgement about whose risk counts."
+}

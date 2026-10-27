@@ -1,0 +1,416 @@
+{
+ "meta": {
+  "produced_by": "analysis/scripts/17_build_app_data.py",
+  "generated_utc": "2026-10-27T17:44:50+00:00",
+  "schema_version": "1.0.0",
+  "payload": "alerts",
+  "sources": [
+   {
+    "file": "analysis/outputs/decision_layer_h3.json",
+    "sha256_8": "0bda86be",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t20_scenarios_h3.csv",
+    "sha256_8": "a7c475da",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t21_equity_by_svi_quartile_h3.csv",
+    "sha256_8": "28024418",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t22_frontier_h3.csv",
+    "sha256_8": "b490e6c7",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t23_lot_actions_h3.csv",
+    "sha256_8": "91857195",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/early_warning_summary_h3.json",
+    "sha256_8": "c63735e9",
+    "modified_utc": "2026-10-27T17:28:05+00:00"
+   },
+   {
+    "file": "analysis/outputs/calibration_h3.json",
+    "sha256_8": "2fb741fc",
+    "modified_utc": "2026-10-27T17:28:06+00:00"
+   },
+   {
+    "file": "analysis/outputs/early_warning_test_scores_h3.parquet",
+    "sha256_8": "193b4332",
+    "modified_utc": "2026-10-27T17:28:01+00:00"
+   },
+   {
+    "file": "analysis/outputs/hazard_first_look.json",
+    "sha256_8": "00e2408b",
+    "modified_utc": "2026-10-27T17:29:43+00:00"
+   },
+   {
+    "file": "analysis/outputs/key_numbers.json",
+    "sha256_8": "a8ff9386",
+    "modified_utc": "2026-10-27T17:29:45+00:00"
+   },
+   {
+    "file": "data/fsis_recalls/fsis_recalls_poultry_salmonella.csv",
+    "sha256_8": "40d572b1",
+    "modified_utc": "2026-10-26T22:10:17+00:00"
+   },
+   {
+    "file": "analysis/outputs/burden_weighting.json",
+    "sha256_8": "15a40f68",
+    "modified_utc": "2026-10-26T16:52:06+00:00"
+   }
+  ]
+ },
+ "alerts": [
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-10-17",
+   "title": "Kayem Foods Inc. Recalls Meat and Poultry Products Due to Possible Temperature Abuse",
+   "risk_level": "High - Class I",
+   "reason": "Processing Defect",
+   "establishment_marks": "M9520|P20935A",
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/kayem-foods-inc--recalls-meat-and-poultry-products-due-possible-temperature-abuse",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-10-06",
+   "title": "FSIS Issues Public Health Alert for Ineligible Chicken Vienna-Style Sausage Products Illegally Imported From Jamaica",
+   "risk_level": "Public Health Alert",
+   "reason": "Import Violation",
+   "establishment_marks": null,
+   "states": "Alabama; Florida; Georgia; Maryland; Texas",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/fsis-issues-public-health-alert-ineligible-chicken-vienna-style-sausage-products",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-09-25",
+   "title": "Sempio Food Services Inc. Recalls Ready-To-Eat Chicken Stew Products Imported Without the Benefit of Import Reinspection",
+   "risk_level": "High - Class I",
+   "reason": "Import Violation",
+   "establishment_marks": null,
+   "states": "Florida; Georgia; Illinois; Maryland; New Jersey; New York; Pennsylvania; Virginia",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/sempio-food-services-inc--recalls-ready-eat-chicken-stew-products-imported-without",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-08-26",
+   "title": "Shanghai Ravioli Corporation Recalls Not Ready-To-Eat Frozen Buffalo Chicken Products Produced Without the Benefit of Inspection",
+   "risk_level": "High - Class I",
+   "reason": "Produced Without Benefit of Inspection",
+   "establishment_marks": "18004",
+   "states": "Maine; Massachusetts; New Hampshire; Rhode Island; Vermont",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/shanghai-ravioli-corporation-recalls-not-ready-eat-frozen-buffalo-chicken-products",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-08-17",
+   "title": "Indus Foods, LLC DBA Gangothri Foods Recalls Ready-To-Eat Pickled Goat and Chicken Products Produced Without Benefit of Inspection",
+   "risk_level": "High - Class I",
+   "reason": "Produced Without Benefit of Inspection",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/indus-foods-llc-dba-gangothri-foods-recalls-ready-eat-pickled-goat-and-chicken",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-08-08",
+   "title": "FSIS Issues Public Health Alert for Various Meat and Poultry Products Containing FDA-Regulated Jalape\u00f1os That Have Been Recalled Due To Possible Salmonella Contamination",
+   "risk_level": "Public Health Alert",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/fsis-issues-public-health-alert-various-meat-and-poultry-products-containing-fda-0",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-07-31",
+   "title": "Ukrop's Homestyle Foods Recalls Spaghetti and Chicken Products Due to Possible Foreign Matter Contamination",
+   "risk_level": "High - Class I",
+   "reason": "Product Contamination",
+   "establishment_marks": "19979",
+   "states": "North Carolina; Virginia; West Virginia",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/ukrops-homestyle-foods-recalls-spaghetti-and-chicken-products-due-possible-foreign",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-07-30",
+   "title": "FSIS Issues Public Health Alert for Chicken Salad Product that May Be Contaminated with Listeria",
+   "risk_level": "Public Health Alert",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Oregon; Washington",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/fsis-issues-public-health-alert-chicken-salad-product-may-be-contaminated-listeria",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-07-23",
+   "title": "BCI Foods, Inc. Recalls Chicken Noodle Soup Product Imported without the Benefit of Import Reinspection",
+   "risk_level": "High - Class I",
+   "reason": "Import Violation",
+   "establishment_marks": "142",
+   "states": "Oklahoma",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/bci-foods-inc--recalls-chicken-noodle-soup-product-imported-without-benefit-import",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-06-25",
+   "title": "FSIS Issues Public Health Alert for Boneless Chicken Breast Product Due to Misbranding and Undeclared Allergens",
+   "risk_level": "Public Health Alert",
+   "reason": "Misbranding; Unreported Allergens",
+   "establishment_marks": null,
+   "states": "Alabama; Alaska; Idaho; Illinois; Indiana; Kentucky; Tennessee; Oregon; Washington",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/fsis-issues-public-health-alert-boneless-chicken-breast-product-due-misbranding-and",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-06-25",
+   "title": "FSIS Issues Public Health Alert for Ready-To-Eat Chicken Caesar Wrap Products That May Be Contaminated With Listeria",
+   "risk_level": "Public Health Alert",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Minnesota; Wisconsin",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/fsis-issues-public-health-alert-ready-eat-chicken-caesar-wrap-products-may-be",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-04-30",
+   "title": "FSIS Issues Public Health Alert for Various Meat and Poultry Products Containing FDA-Regulated Dairy Products That Have Been Recalled Due to Possible Salmonella Contamination",
+   "risk_level": "Public Health Alert",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/fsis-issues-public-health-alert-various-meat-and-poultry-products-containing-fda",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-04-06",
+   "title": "FSIS Retracts Public Health Alert for Frozen, Ready-to-Eat Chicken Nuggets Due to Updated Laboratory Result",
+   "risk_level": "Public Health Alert",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/fsis-issues-public-health-alert-frozen-dinosaur-shaped-ready-eat-chicken-nuggets-due",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-03-13",
+   "title": "FSIS Issues Public Health Alert For Frozen Ready-To-Eat Turkey Stuffed Pastry Products Due To Misbranding",
+   "risk_level": "Public Health Alert",
+   "reason": "Misbranding",
+   "establishment_marks": null,
+   "states": "Midwest",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/fsis-issues-public-health-alert-frozen-ready-eat-turkey-stuffed-pastry-products-due",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-03-03",
+   "title": "Ajinomoto Foods North America, Inc. Expands Recall for Chicken and Pork Fried Rice, Ramen, and Shu Mai Products Due to Possible Foreign Matter Contamination",
+   "risk_level": "High - Class I",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/ajinomoto-foods-north-america-inc--expands-recall-chicken-and-pork-fried-rice-ramen",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-02-19",
+   "title": "Ajinomoto Foods North America, Inc. Recalls Chicken Fried Rice Products Due to Possible Foreign Matter Contamination",
+   "risk_level": "High - Class I",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/ajinomoto-foods-north-america-inc--recalls-chicken-fried-rice-products-due-0",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2026-01-16",
+   "title": "Suzanna\u2019s Kitchen Recalls Ready-To-Eat Grilled Chicken Breast Fillet Products due to Possible Listeria Contamination",
+   "risk_level": "High - Class I",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Alabama; Florida; Georgia; Missouri; New Hampshire; North Carolina; Ohio",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/suzannas-kitchen-recalls-ready-eat-grilled-chicken-breast-fillet-products-due",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2025-12-12",
+   "title": "Suzanna\u2019s Kitchen Recalls Fully Cooked Breaded Chicken Products Due to Misbranding and an Undeclared Allergen",
+   "risk_level": "High - Class I",
+   "reason": "Misbranding; Unreported Allergens",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/suzannas-kitchen-recalls-fully-cooked-breaded-chicken-products-due-misbranding-and",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2025-11-04",
+   "title": "Brazilian Taste Recalls Frozen Chicken and Beef Croquette Products Due to Misbranding and an Undeclared Allergen",
+   "risk_level": "High - Class I",
+   "reason": "Misbranding; Unreported Allergens",
+   "establishment_marks": "45640",
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/brazilian-taste-recalls-frozen-chicken-and-beef-croquette-products-due-misbranding",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2025-10-25",
+   "title": "Hormel Foods Corporation Recalls Ready-To-Eat Frozen Chicken Products Due to Possible Foreign Matter Contamination",
+   "risk_level": "High - Class I",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/hormel-foods-corporation-recalls-ready-eat-frozen-chicken-products-due-possible",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2025-10-04",
+   "title": "Foster Poultry Farms, LLC Recalls Chicken Corn Dog and Ground Turkey on a Stick Products Due To Possible Extraneous Matter Contamination",
+   "risk_level": "High - Class I",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/foster-poultry-farms-llc-recalls-chicken-corn-dog-and-ground-turkey-a-stick-products",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2025-09-19",
+   "title": "FSIS Issues Public Health Alert for Ready-To-Eat Turkey Wrap Product Due To Possible Listeria Contamination",
+   "risk_level": "Public Health Alert",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/fsis-issues-public-health-alert-ready-eat-turkey-wrap-product-due-possible-listeria",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2025-09-15",
+   "title": "Quality Poultry & Seafood, Inc. Recalls Various Catfish Fillet Products Produced Without Benefit of Inspection",
+   "risk_level": "High - Class I",
+   "reason": "Produced Without Benefit of Inspection",
+   "establishment_marks": null,
+   "states": "Louisiana",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/quality-poultry-seafood-inc--recalls-various-catfish-fillet-products-produced",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2025-07-17",
+   "title": "Kayem Foods Inc. Recalls Ready-To-Eat Chicken Sausage Products Due to Possible Foreign Matter Contamination",
+   "risk_level": "High - Class I",
+   "reason": "Product Contamination",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/kayem-foods-inc--recalls-ready-eat-chicken-sausage-products-due-possible-foreign",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "recall",
+   "rank_group": 0,
+   "date": "2025-07-02",
+   "title": "Kraft Heinz Foods Company Recalls Turkey Bacon Products Due to Possible Listeria Contamination",
+   "risk_level": "High - Class I",
+   "reason": "Product Contamination; Unfit for Human Consumption",
+   "establishment_marks": null,
+   "states": "Nationwide",
+   "url": "http://www.fsis.usda.gov/recalls-alerts/kraft-heinz-foods-company-recalls-turkey-bacon-products-due-possible-listeria",
+   "why_pinned": "a recall is a fact FSIS has already published, not a forecast"
+  },
+  {
+   "kind": "model",
+   "rank_group": 1,
+   "date": "2026-03-28",
+   "establishment_id": 8371,
+   "product_class": "comminuted_turkey",
+   "score": 0.5391,
+   "category": "2",
+   "title": "Elevated 3-month risk score for establishment 8371",
+   "why_not_pinned": "a model score is a forecast and sorts below published fact"
+  },
+  {
+   "kind": "model",
+   "rank_group": 1,
+   "date": "2026-03-28",
+   "establishment_id": 5333,
+   "product_class": "chicken_parts",
+   "score": 0.5266,
+   "category": "2",
+   "title": "Elevated 3-month risk score for establishment 5333",
+   "why_not_pinned": "a model score is a forecast and sorts below published fact"
+  },
+  {
+   "kind": "model",
+   "rank_group": 1,
+   "date": "2026-03-28",
+   "establishment_id": 2477,
+   "product_class": "chicken_carcass",
+   "score": 0.3498,
+   "category": "2",
+   "title": "Elevated 3-month risk score for establishment 2477",
+   "why_not_pinned": "a model score is a forecast and sorts below published fact"
+  },
+  {
+   "kind": "model",
+   "rank_group": 1,
+   "date": "2026-03-28",
+   "establishment_id": 2251,
+   "product_class": "chicken_carcass",
+   "score": 0.2501,
+   "category": "2",
+   "title": "Elevated 3-month risk score for establishment 2251",
+   "why_not_pinned": "a model score is a forecast and sorts below published fact"
+  }
+ ]
+}

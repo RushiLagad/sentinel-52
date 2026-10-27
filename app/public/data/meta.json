@@ -1,0 +1,88 @@
+{
+ "schema_version": "1.0.0",
+ "generated_utc": "2026-10-27T17:44:50+00:00",
+ "horizon_months": 3,
+ "scorer": "projection",
+ "sources": [
+  {
+   "file": "analysis/outputs/decision_layer_h3.json",
+   "sha256_8": "0bda86be",
+   "modified_utc": "2026-10-27T17:33:34+00:00"
+  },
+  {
+   "file": "analysis/outputs/t20_scenarios_h3.csv",
+   "sha256_8": "a7c475da",
+   "modified_utc": "2026-10-27T17:33:34+00:00"
+  },
+  {
+   "file": "analysis/outputs/t21_equity_by_svi_quartile_h3.csv",
+   "sha256_8": "28024418",
+   "modified_utc": "2026-10-27T17:33:34+00:00"
+  },
+  {
+   "file": "analysis/outputs/t22_frontier_h3.csv",
+   "sha256_8": "b490e6c7",
+   "modified_utc": "2026-10-27T17:33:34+00:00"
+  },
+  {
+   "file": "analysis/outputs/t23_lot_actions_h3.csv",
+   "sha256_8": "91857195",
+   "modified_utc": "2026-10-27T17:33:34+00:00"
+  },
+  {
+   "file": "analysis/outputs/early_warning_summary_h3.json",
+   "sha256_8": "c63735e9",
+   "modified_utc": "2026-10-27T17:28:05+00:00"
+  },
+  {
+   "file": "analysis/outputs/calibration_h3.json",
+   "sha256_8": "2fb741fc",
+   "modified_utc": "2026-10-27T17:28:06+00:00"
+  },
+  {
+   "file": "analysis/outputs/early_warning_test_scores_h3.parquet",
+   "sha256_8": "193b4332",
+   "modified_utc": "2026-10-27T17:28:01+00:00"
+  },
+  {
+   "file": "analysis/outputs/hazard_first_look.json",
+   "sha256_8": "00e2408b",
+   "modified_utc": "2026-10-27T17:29:43+00:00"
+  },
+  {
+   "file": "analysis/outputs/key_numbers.json",
+   "sha256_8": "a8ff9386",
+   "modified_utc": "2026-10-27T17:29:45+00:00"
+  },
+  {
+   "file": "data/fsis_recalls/fsis_recalls_poultry_salmonella.csv",
+   "sha256_8": "40d572b1",
+   "modified_utc": "2026-10-26T22:10:17+00:00"
+  },
+  {
+   "file": "analysis/outputs/burden_weighting.json",
+   "sha256_8": "15a40f68",
+   "modified_utc": "2026-10-26T16:52:06+00:00"
+  }
+ ],
+ "files": [
+  "actions.json",
+  "alerts.json",
+  "burden.json",
+  "current_risk.json",
+  "equity.json",
+  "evidence.json",
+  "scenarios.json",
+  "meta.json"
+ ],
+ "restrictions": [
+  "FSIS sampling data cannot be used to identify foodborne illness outbreaks, to associate samples with outbreaks, or to determine whether two or more samples are causally related. Every join between FSIS sampling and CDC NORS illness data in this project is made at serotype and year, never at establishment level.",
+  "Nothing here is a regulatory determination, an outbreak declaration, or a statement that any food, lot or establishment is safe or unsafe.",
+  "No action is executed automatically. Hold and divert require explicit human confirmation."
+ ],
+ "synthetic_payloads": [
+  "scenarios.json",
+  "actions.json",
+  "equity.json"
+ ]
+}

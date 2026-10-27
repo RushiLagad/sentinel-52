@@ -1,0 +1,404 @@
+{
+ "meta": {
+  "produced_by": "analysis/scripts/17_build_app_data.py",
+  "generated_utc": "2026-10-27T17:44:50+00:00",
+  "schema_version": "1.0.0",
+  "payload": "evidence",
+  "sources": [
+   {
+    "file": "analysis/outputs/decision_layer_h3.json",
+    "sha256_8": "0bda86be",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t20_scenarios_h3.csv",
+    "sha256_8": "a7c475da",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t21_equity_by_svi_quartile_h3.csv",
+    "sha256_8": "28024418",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t22_frontier_h3.csv",
+    "sha256_8": "b490e6c7",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/t23_lot_actions_h3.csv",
+    "sha256_8": "91857195",
+    "modified_utc": "2026-10-27T17:33:34+00:00"
+   },
+   {
+    "file": "analysis/outputs/early_warning_summary_h3.json",
+    "sha256_8": "c63735e9",
+    "modified_utc": "2026-10-27T17:28:05+00:00"
+   },
+   {
+    "file": "analysis/outputs/calibration_h3.json",
+    "sha256_8": "2fb741fc",
+    "modified_utc": "2026-10-27T17:28:06+00:00"
+   },
+   {
+    "file": "analysis/outputs/early_warning_test_scores_h3.parquet",
+    "sha256_8": "193b4332",
+    "modified_utc": "2026-10-27T17:28:01+00:00"
+   },
+   {
+    "file": "analysis/outputs/hazard_first_look.json",
+    "sha256_8": "00e2408b",
+    "modified_utc": "2026-10-27T17:29:43+00:00"
+   },
+   {
+    "file": "analysis/outputs/key_numbers.json",
+    "sha256_8": "a8ff9386",
+    "modified_utc": "2026-10-27T17:29:45+00:00"
+   },
+   {
+    "file": "data/fsis_recalls/fsis_recalls_poultry_salmonella.csv",
+    "sha256_8": "40d572b1",
+    "modified_utc": "2026-10-26T22:10:17+00:00"
+   }
+  ],
+  "horizon_months": 3,
+  "scorer": "projection"
+ },
+ "model": {
+  "metrics": [
+   {
+    "scorer": "currently Category 2 (flag)",
+    "auroc": 0.853,
+    "avg_precision": 0.136,
+    "recall_top10pct": 0.348,
+    "precision_top10pct": 0.128,
+    "brier": null
+   },
+   {
+    "scorer": "trailing 52-week rate",
+    "auroc": 0.923,
+    "avg_precision": 0.308,
+    "recall_top10pct": 0.68,
+    "precision_top10pct": 0.251,
+    "brier": null
+   },
+   {
+    "scorer": "positives to spare (fewest first)",
+    "auroc": 0.937,
+    "avg_precision": 0.291,
+    "recall_top10pct": 0.756,
+    "precision_top10pct": 0.279,
+    "brier": null
+   },
+   {
+    "scorer": "binomial projection",
+    "auroc": 0.947,
+    "avg_precision": 0.456,
+    "recall_top10pct": 0.798,
+    "precision_top10pct": 0.294,
+    "brier": 0.0256
+   },
+   {
+    "scorer": "logistic regression",
+    "auroc": 0.933,
+    "avg_precision": 0.42,
+    "recall_top10pct": 0.753,
+    "precision_top10pct": 0.278,
+    "brier": 0.0268
+   },
+   {
+    "scorer": "gradient boosting, no projection feature",
+    "auroc": 0.949,
+    "avg_precision": 0.402,
+    "recall_top10pct": 0.789,
+    "precision_top10pct": 0.291,
+    "brier": 0.0274
+   },
+   {
+    "scorer": "gradient boosting",
+    "auroc": 0.956,
+    "avg_precision": 0.445,
+    "recall_top10pct": 0.82,
+    "precision_top10pct": 0.302,
+    "brier": 0.0276
+   }
+  ],
+  "bootstrap_ci": {
+   "auroc_proj": {
+    "lo": 0.933,
+    "median": 0.946,
+    "hi": 0.957
+   },
+   "auroc_lr": {
+    "lo": 0.919,
+    "median": 0.932,
+    "hi": 0.945
+   },
+   "auroc_gb": {
+    "lo": 0.946,
+    "median": 0.956,
+    "hi": 0.962
+   },
+   "ap_proj": {
+    "lo": 0.395,
+    "median": 0.458,
+    "hi": 0.523
+   },
+   "ap_lr": {
+    "lo": 0.357,
+    "median": 0.42,
+    "hi": 0.491
+   },
+   "ap_gb": {
+    "lo": 0.387,
+    "median": 0.447,
+    "hi": 0.504
+   },
+   "d_auroc_gb": {
+    "lo": 0.001,
+    "median": 0.009,
+    "hi": 0.018
+   },
+   "d_ap_gb": {
+    "lo": -0.045,
+    "median": -0.009,
+    "hi": 0.025
+   },
+   "d_auroc_lr": {
+    "lo": -0.025,
+    "median": -0.014,
+    "hi": -0.001
+   },
+   "d_ap_lr": {
+    "lo": -0.078,
+    "median": -0.037,
+    "hi": 0.006
+   }
+  },
+  "bootstrap_establishments": 582,
+  "task": {
+   "train_rows": 40552,
+   "train_positive_pct": 4.86,
+   "train_last_window_end": "2022-09-24",
+   "test_rows": 17343,
+   "test_positive_pct": 3.71,
+   "test_window_ends": [
+    "2024-01-27",
+    "2026-03-28"
+   ],
+   "test_units": 805,
+   "test_new_failures": 644
+  },
+  "cat2_flag": {
+   "flagged_pct": 23.5,
+   "precision": 0.145,
+   "recall": 0.915
+  },
+  "by_class": [
+   {
+    "product_class": "chicken_carcass",
+    "rows": 4617,
+    "new_failures": 109,
+    "base_pct": 2.36,
+    "auroc_projection": 0.932,
+    "auroc_gb": 0.953,
+    "ap_projection": 0.294,
+    "ap_gb": 0.333
+   },
+   {
+    "product_class": "chicken_parts",
+    "rows": 10779,
+    "new_failures": 420,
+    "base_pct": 3.9,
+    "auroc_projection": 0.952,
+    "auroc_gb": 0.954,
+    "ap_projection": 0.461,
+    "ap_gb": 0.463
+   },
+   {
+    "product_class": "comminuted_chicken",
+    "rows": 590,
+    "new_failures": 72,
+    "base_pct": 12.2,
+    "auroc_projection": 0.917,
+    "auroc_gb": 0.948,
+    "ap_projection": 0.691,
+    "ap_gb": 0.727
+   },
+   {
+    "product_class": "comminuted_turkey",
+    "rows": 538,
+    "new_failures": 41,
+    "base_pct": 7.62,
+    "auroc_projection": 0.927,
+    "auroc_gb": 0.923,
+    "ap_projection": 0.454,
+    "ap_gb": 0.392
+   }
+  ],
+  "interval_note": "bootstrap_ci is a MODEL-level interval over resampled establishments. The per-unit interval shown beside a single establishment in current_risk.json is a Jeffreys interval on that unit's own 52-week count; they answer different questions and must not be presented as the same thing."
+ },
+ "calibration": {
+  "scorer": "projection",
+  "horizon_months": 3,
+  "reliability": [
+   {
+    "bin": 0,
+    "mean_pred": 0.0,
+    "observed": 0.0035,
+    "n": 1735,
+    "gap": 0.0035
+   },
+   {
+    "bin": 1,
+    "mean_pred": 0.0,
+    "observed": 0.0,
+    "n": 1734,
+    "gap": -0.0
+   },
+   {
+    "bin": 2,
+    "mean_pred": 0.0,
+    "observed": 0.0,
+    "n": 1734,
+    "gap": -0.0
+   },
+   {
+    "bin": 3,
+    "mean_pred": 0.0,
+    "observed": 0.0,
+    "n": 1734,
+    "gap": -0.0
+   },
+   {
+    "bin": 4,
+    "mean_pred": 0.0,
+    "observed": 0.0006,
+    "n": 1735,
+    "gap": 0.0005
+   },
+   {
+    "bin": 5,
+    "mean_pred": 0.0002,
+    "observed": 0.0017,
+    "n": 1734,
+    "gap": 0.0015
+   },
+   {
+    "bin": 6,
+    "mean_pred": 0.0014,
+    "observed": 0.0029,
+    "n": 1734,
+    "gap": 0.0015
+   },
+   {
+    "bin": 7,
+    "mean_pred": 0.008,
+    "observed": 0.0144,
+    "n": 1734,
+    "gap": 0.0064
+   },
+   {
+    "bin": 8,
+    "mean_pred": 0.0472,
+    "observed": 0.0479,
+    "n": 1734,
+    "gap": 0.0007
+   },
+   {
+    "bin": 9,
+    "mean_pred": 0.3423,
+    "observed": 0.3003,
+    "n": 1735,
+    "gap": -0.042
+   }
+  ],
+  "ece": 0.0056,
+  "brier": 0.0256,
+  "all_scorers": {
+   "projection": {
+    "ece": 0.0056,
+    "brier": 0.0256
+   },
+   "gb": {
+    "ece": 0.0213,
+    "brier": 0.0276
+   }
+  },
+  "selection": {
+   "reason": "auto: lower expected calibration error at h3 (projection 0.0056, gb 0.0213)",
+   "ece": {
+    "projection": 0.0056,
+    "gb": 0.0213
+   }
+  }
+ },
+ "sources": [
+  {
+   "file": "analysis/outputs/decision_layer_h3.json",
+   "sha256_8": "0bda86be",
+   "modified_utc": "2026-10-27T17:33:34+00:00"
+  },
+  {
+   "file": "analysis/outputs/t20_scenarios_h3.csv",
+   "sha256_8": "a7c475da",
+   "modified_utc": "2026-10-27T17:33:34+00:00"
+  },
+  {
+   "file": "analysis/outputs/t21_equity_by_svi_quartile_h3.csv",
+   "sha256_8": "28024418",
+   "modified_utc": "2026-10-27T17:33:34+00:00"
+  },
+  {
+   "file": "analysis/outputs/t22_frontier_h3.csv",
+   "sha256_8": "b490e6c7",
+   "modified_utc": "2026-10-27T17:33:34+00:00"
+  },
+  {
+   "file": "analysis/outputs/t23_lot_actions_h3.csv",
+   "sha256_8": "91857195",
+   "modified_utc": "2026-10-27T17:33:34+00:00"
+  },
+  {
+   "file": "analysis/outputs/early_warning_summary_h3.json",
+   "sha256_8": "c63735e9",
+   "modified_utc": "2026-10-27T17:28:05+00:00"
+  },
+  {
+   "file": "analysis/outputs/calibration_h3.json",
+   "sha256_8": "2fb741fc",
+   "modified_utc": "2026-10-27T17:28:06+00:00"
+  },
+  {
+   "file": "analysis/outputs/early_warning_test_scores_h3.parquet",
+   "sha256_8": "193b4332",
+   "modified_utc": "2026-10-27T17:28:01+00:00"
+  },
+  {
+   "file": "analysis/outputs/hazard_first_look.json",
+   "sha256_8": "00e2408b",
+   "modified_utc": "2026-10-27T17:29:43+00:00"
+  },
+  {
+   "file": "analysis/outputs/key_numbers.json",
+   "sha256_8": "a8ff9386",
+   "modified_utc": "2026-10-27T17:29:45+00:00"
+  },
+  {
+   "file": "data/fsis_recalls/fsis_recalls_poultry_salmonella.csv",
+   "sha256_8": "40d572b1",
+   "modified_utc": "2026-10-26T22:10:17+00:00"
+  }
+ ],
+ "documentation": [
+  "data/PROVENANCE.md",
+  "data/DATA_DICTIONARY.md",
+  "docs/CHALLENGE_BRIEF.md",
+  "report/FINDINGS.md"
+ ],
+ "restrictions": [
+  "FSIS sampling data cannot be used to identify foodborne illness outbreaks, to associate samples with outbreaks, or to determine whether two or more samples are causally related. Every join between FSIS sampling and CDC NORS illness data in this project is made at serotype and year, never at establishment level.",
+  "Nothing here is a regulatory determination, an outbreak declaration, or a statement that any food, lot or establishment is safe or unsafe.",
+  "No action is executed automatically. Hold and divert require explicit human confirmation."
+ ]
+}

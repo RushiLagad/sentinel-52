@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "H1 Validate the category rebuild",
+      "description": "fsis_categories.py reconstructs the FSIS Category 1/2/3/NA rating from raw samples, and every downstream result depends on it matching FSIS's own postings (currently 99.75% across 2,764 posted rows, zero false Category 3). Breaking it silently would invalidate the analysis without failing anything, so editing it re-runs the validation against all three posted windows immediately.",
+      "trigger": "PostFileSave",
+      "matcher": "analysis[/\\\\]scripts[/\\\\]fsis_categories\\.py$",
+      "action": {
+        "type": "command",
+        "command": "python analysis/scripts/04_validate_categories.py --data data/processed --posted-dir data/validation --out analysis/outputs"
+      },
+      "timeout": 180,
+      "enabled": true
+    }
+  ]
+}
