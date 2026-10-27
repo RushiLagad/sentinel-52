@@ -34,6 +34,9 @@ S = ROOT / "scripts"
 REPO = ROOT.parent                      # repository root; data/ lives there, outputs/ stays under analysis/
 RAW, PROC, VALID = str(REPO / "data" / "raw"), str(REPO / "data" / "processed"), str(REPO / "data" / "validation")
 MANIFEST = str(REPO / "data" / "MANIFEST.json")
+DECISION_H = "3"                        # the decision layer's horizon; see the comment at its call
+VULN = REPO / "data" / "vulnerability" / "vulnerability_county.csv"
+INV = REPO / "data" / "inventory"
 
 NO_DATA = """
 data/raw is empty, so there is nothing to build.
@@ -102,6 +105,11 @@ def main() -> None:
     run(str(S / "03_profile.py"), "--data", PROC, "--out", "outputs")
     run(str(S / "04_validate_categories.py"), "--data", PROC, "--posted-dir", VALID, "--out", "outputs")
     hs = [h.strip() for h in a.horizons.split(",") if h.strip()]
+    # The decision layer needs this horizon's scores, so make sure it gets built
+    # even if the caller did not ask for it.
+    if DECISION_H not in hs:
+        hs.append(DECISION_H)
+        print(f"added horizon {DECISION_H} to the loop: the decision layer runs at it")
     for h in hs:
         run(str(S / "05_early_warning_baseline.py"), "--data", PROC, "--out", "outputs", "--horizon", h)
         run(str(S / "05c_calibration.py"), "--out", "outputs", "--horizon", h)
@@ -110,6 +118,28 @@ def main() -> None:
     run(str(S / "06_hazard_first_look.py"), "--data", PROC, "--out", "outputs")
     run(str(S / "07_figures.py"), "--data", PROC, "--out", "outputs")
     run(str(S / "08_key_numbers.py"), "--data", PROC, "--out", "outputs")
+
+    # The decision layer needs the county vulnerability file, which comes from
+    # 13_fetch_vulnerability.py and needs the network. Skipped with a reason
+    # rather than failing the run, so the FSIS analysis above still completes
+    # for anyone who cannot reach svi.cdc.gov.
+    if VULN.exists():
+        run(str(S / "14_build_synthetic_inventory.py"), "--data", PROC,
+            "--vulnerability", str(VULN), "--out", str(INV))
+        # Pinned to 3 months, NOT to hs[0]. The decision is made inside a lot's
+        # perishability window, which is weeks, so the nearest forecast horizon
+        # is the right one. Using hs[0] silently ran this at 6 months whenever
+        # --horizons started with 6, which is the default.
+        run(str(S / "16_decision_layer.py"),
+            "--lots", str(INV / "lots_synthetic.csv"),
+            "--scores", f"outputs/early_warning_test_scores_h{DECISION_H}.parquet",
+            "--out", "outputs", "--horizon", DECISION_H)
+    else:
+        print(f"\nSkipping the decision layer: {VULN} is not there.")
+        print("  Build it first, which needs network access to svi.cdc.gov:")
+        print(f"      python scripts/13_fetch_vulnerability.py --out {VULN.parent}")
+        print("  Everything above this line is complete and does not depend on it.")
+
     print(f"\nDone. Tables and figures are in {ROOT / 'outputs'}, tidy data in {PROC}.")
 
 

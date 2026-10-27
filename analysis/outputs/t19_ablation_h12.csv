@@ -1,11 +1,11 @@
-dropped,n_features_dropped,auroc,d_auroc,avg_precision,d_avg_precision,auroc_change_distinguishable_from_zero,d_auroc_lo,d_auroc_hi
-sampling_history,13,0.8398,-0.0118,0.4481,-0.0144,True,-0.0191,-0.0021
-serotype_detail,4,0.8485,-0.003,0.458,-0.0044,False,-0.0091,0.0024
-other_pathogens,2,0.8492,-0.0023,0.4641,0.0016,False,-0.0128,0.0081
-projection,1,0.8495,-0.0021,0.4394,-0.023,False,-0.0073,0.0032
-standard_position,4,0.8508,-0.0007,0.4596,-0.0028,False,-0.0041,0.0036
-ALL_beyond_fsis_core,20,0.8509,-0.0006,0.4697,0.0072,False,-0.0145,0.0138
-seasonality,1,0.8519,0.0004,0.461,-0.0015,False,-0.0023,0.0033
-establishment_profile,5,0.8521,0.0005,0.4608,-0.0017,False,-0.0089,0.0105
-followup_program,2,0.8529,0.0014,0.465,0.0025,False,-0.0015,0.0045
-product_class,5,0.8539,0.0024,0.4624,-0.0001,False,-0.0007,0.0064
+dropped,n_features_dropped,auroc,d_auroc,avg_precision,d_avg_precision,auroc_change_distinguishable_from_zero,verdict,d_auroc_lo,d_auroc_hi
+sampling_history,13,0.8398,-0.0118,0.4481,-0.0144,True,carries signal,-0.0191,-0.0021
+serotype_detail,4,0.8485,-0.003,0.458,-0.0044,False,within noise,-0.0091,0.0024
+other_pathogens,2,0.8492,-0.0023,0.4641,0.0016,False,within noise,-0.0128,0.0081
+projection,1,0.8495,-0.0021,0.4394,-0.023,False,within noise,-0.0073,0.0032
+standard_position,4,0.8508,-0.0007,0.4596,-0.0028,False,within noise,-0.0041,0.0036
+ALL_beyond_fsis_core,20,0.8509,-0.0006,0.4697,0.0072,False,within noise,-0.0145,0.0138
+seasonality,1,0.8519,0.0004,0.461,-0.0015,False,within noise,-0.0023,0.0033
+establishment_profile,5,0.8521,0.0005,0.4608,-0.0017,False,within noise,-0.0089,0.0105
+followup_program,2,0.8529,0.0014,0.465,0.0025,False,within noise,-0.0015,0.0045
+product_class,5,0.8539,0.0024,0.4624,-0.0001,False,within noise,-0.0007,0.0064

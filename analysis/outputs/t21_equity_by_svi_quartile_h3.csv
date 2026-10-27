@@ -1,0 +1,17 @@
+svi_quartile,scenario,lots,pounds_offered,pounds_distributed,pounds_withheld,withheld_pct,share_of_all_distribution_pct,pounds_are_synthetic
+Q1 least vulnerable,rule_based_category,471,830288.5,518247.1,312041.4,37.58,25.56,True
+Q2,rule_based_category,631,1086128.1,650858.8,435269.3,40.08,32.1,True
+Q3,rule_based_category,398,679431.8,447028.9,232402.9,34.21,22.05,True
+Q4 most vulnerable,rule_based_category,380,655732.5,411160.2,244572.3,37.3,20.28,True
+Q1 least vulnerable,conservative,471,830288.5,691613.4,138675.1,16.7,25.58,True
+Q2,conservative,631,1086128.1,870264.6,215863.5,19.87,32.19,True
+Q3,conservative,398,679431.8,582753.5,96678.3,14.23,21.55,True
+Q4 most vulnerable,conservative,380,655732.5,559096.7,96635.8,14.74,20.68,True
+Q1 least vulnerable,capacity_matched,471,830288.5,669009.4,161279.1,19.42,25.69,True
+Q2,capacity_matched,631,1086128.1,844336.4,241791.7,22.26,32.43,True
+Q3,capacity_matched,398,679431.8,559928.6,119503.2,17.59,21.5,True
+Q4 most vulnerable,capacity_matched,380,655732.5,530620.5,125112.0,19.08,20.38,True
+Q1 least vulnerable,food_security_weighted,471,830288.5,669009.4,161279.1,19.42,25.54,True
+Q2,food_security_weighted,631,1086128.1,844336.4,241791.7,22.26,32.23,True
+Q3,food_security_weighted,398,679431.8,560733.7,118698.1,17.47,21.4,True
+Q4 most vulnerable,food_security_weighted,380,655732.5,545818.0,109914.5,16.76,20.83,True

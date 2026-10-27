@@ -63,30 +63,59 @@ The gaps are not equal. Ranked by marks at risk against effort:
 - [ ] **2.1** `15_risk_model.py`: extend the existing early-warning features with climate, serotype
   burden, recall history and destination vulnerability. _(T2, R8)_
 - [x] **2.2** **Done.** `05c_calibration.py` emits reliability tables and a figure for both scorers at
-  horizons 3, 6 and 12. Result worth carrying into the report: the projection is the **worse**
-  calibrated of the two (ECE 0.0092 against 0.0045), under-stating risk across the lower deciles and
-  over-stating it at the top, and it emits exactly zero for 74 test rows of which 2 failed.
-  _(T2, R8.2)_
+  horizons 3, 6 and 12. The result worth carrying into the report is that **which scorer is better
+  calibrated depends on the horizon**, and an earlier version of this note got that wrong by quoting
+  only h6:
+  - **h6**: gradient boosting wins. ECE 0.0049 against the projection's 0.0092; GB's top decile
+    predicts 0.4342 against 0.4227 observed, which is close to exact.
+  - **h3**: the projection wins, and not narrowly. ECE 0.0056 against GB's 0.0213, and GB
+    over-predicts its top decile badly — 0.4369 predicted against 0.3032 observed, a 44% overshoot.
+  - **h12**: neither is good. Both near ECE 0.019, both over-predicting the top decile.
+
+  The projection also emits exactly zero for 74 test rows at h6, of which 2 failed. This horizon
+  dependence is what decides the scorer in 2.4 and in `16_decision_layer.py`. _(T2, R8.2)_
 - [x] **2.3** **Ablation done** for the sources we currently hold: `05d_ablation.py`, leave-one-group-out
   over ten source groups, ΔAUROC and ΔAP with establishment-clustered bootstrap intervals, at horizons
   3, 6 and 12. Groups whose effect is within noise are kept in the table and labelled. **Extend `GROUPS`
   in that script when climate, recalls, SVI and food access land in Phase 1** — the table grows without
   any other change. _(T2 marginal value, T5 ablation, R8.4)_
-- [ ] **2.4** Confirm the transparent projection stays the default scorer and the gap to the
-  integrated model is reported with both intervals. _(R8.1)_
+- [x] **2.4** **Done, and the reason is calibration rather than preference for transparency.** The
+  projection is the default scorer in `16_decision_layer.py`. A hold-or-divert decision acts on an
+  absolute probability, not on a ranking, so calibration matters more than the AUROC gap — and at the
+  3-month horizon the decision layer runs on, the projection is the better calibrated scorer by a
+  factor of four (2.2). The gap to the integrated model is reported with establishment-clustered
+  bootstrap intervals in `early_warning_summary_h*.json`: at h6, d_auroc_gb median +0.008
+  (95% 0.000 to 0.016) and d_ap_gb median +0.003 (−0.036 to 0.041), so the integrated model's
+  advantage in average precision is not distinguishable from zero. `--scorer gb` switches it for
+  comparison. _(R8.1)_
 
 ## Phase 3: the decision layer (T3, days 3-4)
 
-- [ ] **3.1** `16_decision_layer.py`: map score plus constraints to the four actions. _(T3, R4)_
-- [ ] **3.2** Implement the three named scenarios: conservative, capacity-matched,
-  food-security weighted. _(T3 three-scenario minimum, R3.3)_
-- [ ] **3.3** Compare every scenario against the rule-based policy (hold anything Category 2 or 3).
+- [x] **3.1** **Done.** `16_decision_layer.py` maps score plus constraints to the four actions.
+  Lots join to scores with a backward as-of join on `window_end <= received_date`, so a lot only
+  knows what was published before it arrived; a score older than `--max-score-age-days` counts as no
+  score rather than as low risk. Shelf life gates holding, and diversion goes to a cooked-meal
+  channel rather than to a bin, which is the actor-specific move that makes the health-versus-loss
+  tension resolvable at all. 80% of lots are scorable, median score age 19 days. _(T3, R4)_
+- [x] **3.2** **Done, with one correction worth keeping.** The capacity-matched scenario derives its
+  threshold from review capacity instead of carrying a hardcoded one, because a scenario called
+  capacity-matched that uses 28% of capacity is mislabelled. Having fixed that, it turns out to be
+  **dominated**: filling the review queue buys +0.4 points of recall for 54% more food destroyed,
+  since each extra hold consumes shelf life some lots do not have. The script reports dominance
+  relations rather than picking a winner — and dominance is **not horizon-robust**: at h3
+  `capacity_matched` loses to `food_security_weighted`, at h6 it wins. That is a property of the
+  run, so the report must name the horizon with any such claim. _(T3 three-scenario minimum, R3.3)_
+- [x] **3.3** Compare every scenario against the rule-based policy (hold anything Category 2 or 3).
   _(T3 rule-based comparison, R3.4)_
-- [ ] **3.4** Equity objective: hold and divert rates by destination SVI quartile, reported in both
+- [x] **3.4** Equity objective: hold and divert rates by destination SVI quartile, reported in both
   directions. _(T3 equity objective, R6)_
-- [ ] **3.5** Food loss: pounds held, diverted, discarded, and avoidable loss from false alarms,
-  expressed in the same units as missed risk where possible. _(challenge question, R7)_
-- [ ] **3.6** Mark hold and divert high-consequence, with the evidence that would reverse them.
+- [x] **3.5** **Done.** Loss arises from two mechanical causes, both derived from the simulated shelf
+  life, with no spoilage rate assumed: a review hold that leaves too little shelf life to distribute,
+  and diverted pounds beyond the cooked channel's capacity. Both error types are reported in meals at
+  1.2 lb/meal. "Missed risk" was renamed **exposure** — pounds distributed uncooked from plants whose
+  sampling later deteriorated — because the original name implied an illness count that the FSIS
+  licence forbids us to claim. _(challenge question, R7)_
+- [x] **3.6** Mark hold and divert high-consequence, with the evidence that would reverse them.
   _(T3 human review, R4.4)_
 
 ## Phase 4: the app, through Kiro (T4, days 4-6)

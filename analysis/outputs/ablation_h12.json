@@ -31,7 +31,8 @@
     "median": -0.0141,
     "hi": 0.0112
    },
-   "auroc_change_distinguishable_from_zero": true
+   "auroc_change_distinguishable_from_zero": true,
+   "verdict": "carries signal"
   },
   {
    "dropped": "standard_position",
@@ -50,7 +51,8 @@
     "median": -0.0025,
     "hi": 0.0132
    },
-   "auroc_change_distinguishable_from_zero": false
+   "auroc_change_distinguishable_from_zero": false,
+   "verdict": "within noise"
   },
   {
    "dropped": "projection",
@@ -69,7 +71,8 @@
     "median": -0.0225,
     "hi": -0.0033
    },
-   "auroc_change_distinguishable_from_zero": false
+   "auroc_change_distinguishable_from_zero": false,
+   "verdict": "within noise"
   },
   {
    "dropped": "serotype_detail",
@@ -88,7 +91,8 @@
     "median": -0.0045,
     "hi": 0.019
    },
-   "auroc_change_distinguishable_from_zero": false
+   "auroc_change_distinguishable_from_zero": false,
+   "verdict": "within noise"
   },
   {
    "dropped": "other_pathogens",
@@ -107,7 +111,8 @@
     "median": 0.0013,
     "hi": 0.0279
    },
-   "auroc_change_distinguishable_from_zero": false
+   "auroc_change_distinguishable_from_zero": false,
+   "verdict": "within noise"
   },
   {
    "dropped": "followup_program",
@@ -126,7 +131,8 @@
     "median": 0.003,
     "hi": 0.012
    },
-   "auroc_change_distinguishable_from_zero": false
+   "auroc_change_distinguishable_from_zero": false,
+   "verdict": "within noise"
   },
   {
    "dropped": "establishment_profile",
@@ -145,7 +151,8 @@
     "median": -0.0004,
     "hi": 0.0238
    },
-   "auroc_change_distinguishable_from_zero": false
+   "auroc_change_distinguishable_from_zero": false,
+   "verdict": "within noise"
   },
   {
    "dropped": "seasonality",
@@ -164,7 +171,8 @@
     "median": -0.0007,
     "hi": 0.0079
    },
-   "auroc_change_distinguishable_from_zero": false
+   "auroc_change_distinguishable_from_zero": false,
+   "verdict": "within noise"
   },
   {
    "dropped": "product_class",
@@ -183,7 +191,8 @@
     "median": 0.0004,
     "hi": 0.0117
    },
-   "auroc_change_distinguishable_from_zero": false
+   "auroc_change_distinguishable_from_zero": false,
+   "verdict": "within noise"
   },
   {
    "dropped": "ALL_beyond_fsis_core",
@@ -202,7 +211,8 @@
     "median": 0.0056,
     "hi": 0.0458
    },
-   "auroc_change_distinguishable_from_zero": false
+   "auroc_change_distinguishable_from_zero": false,
+   "verdict": "within noise"
   }
  ]
 }

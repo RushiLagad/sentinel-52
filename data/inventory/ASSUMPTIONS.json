@@ -1,0 +1,61 @@
+{
+ "WARNING": "SIMULATED DATA. Not operational. Every row has is_synthetic = True.",
+ "seed": 7,
+ "deterministic": "same seed and same input data reproduce this file exactly",
+ "actor": "regional food bank serving AR",
+ "window": [
+  "2025-07-01",
+  "2026-06-30"
+ ],
+ "lots": 1880,
+ "total_pounds": 3251580.9,
+ "establishments_sourced_from": 52,
+ "supplier_panel_size": 52,
+ "suppliers_per_class": 12,
+ "median_lots_per_supplier": 33.0,
+ "destination_counties": 33,
+ "destinations_weighted_by_vulnerability": true,
+ "real_components": [
+  "establishment identity, name, number, state, county, HACCP size",
+  "product classes, matching the FSIS standards",
+  "AR counties and their FIPS codes",
+  "SVI and population, where the vulnerability file was supplied"
+ ],
+ "simulated_components": [
+  "which establishment each lot came from",
+  "arrival dates and arrival rate",
+  "lot weights",
+  "shelf life",
+  "destination county for each lot"
+ ],
+ "parameters": {
+  "lots_per_week_mean": 35.0,
+  "arrival_process": "Poisson per week, uniform day within the week",
+  "lot_weight": "lognormal, median by product class, sigma 0.45",
+  "median_lot_lb": {
+   "chicken_carcass": 1400,
+   "chicken_parts": 1200,
+   "comminuted_chicken": 1800,
+   "comminuted_turkey": 1800,
+   "turkey_carcass": 1600
+  },
+  "shelf_life_days_nominal": {
+   "chicken_carcass": 10,
+   "chicken_parts": 10,
+   "comminuted_chicken": 120,
+   "comminuted_turkey": 120,
+   "turkey_carcass": 150
+  },
+  "shelf_life_variation": "normal, mean 1.0, sd 0.12 of nominal, floor 2 days",
+  "sourcing_weight": "recent routine sampling volume per establishment and product class, used as a proxy for throughput because FSIS does not publish production volume",
+  "destination_weight": "county population times (0.5 + SVI overall percentile)"
+ },
+ "known_distortions": [
+  "Sampling volume is an imperfect proxy for throughput. FSIS samples by risk and by programme, not in proportion to production, so high-sampled plants are over-represented.",
+  "The supplier panel takes the highest-volume establishments in each product class, so it over-represents large plants. Category 3 concentrates in very small plants (25.4 percent against 6.7 percent for large), so this panel understates how often a real food bank would face a high-risk source.",
+  "Product classes are given equal total weight so that the turkey standards appear at all. Real poultry volume is overwhelmingly chicken, so the product mix here is deliberately unrepresentative, in exchange for exercising every standard.",
+  "A real food bank receives most product through distributors and retail rescue, not directly from slaughter establishments. Direct sourcing is a simplification that makes the establishment-to-lot link tractable.",
+  "Lot weights and shelf lives are plausible operating values, not measurements.",
+  "Destination weighting assumes a food bank distributes toward need. Real allocation is constrained by agency networks, storage and transport, none of which are modelled."
+ ]
+}
