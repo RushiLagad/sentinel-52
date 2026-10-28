@@ -16,7 +16,7 @@ npm run test       # 17 tests: the four guardrails against the data, and the ren
 npm run check      # the Python contract check, same guardrails, on the built data
 ```
 
-Requires Node 20 or newer. The data files are built by
+Requires Node 22.12 or newer (the test tooling's floor; the Pages workflow uses 22). The data files are built by
 `python analysis/scripts/17_build_app_data.py --out app/public/data` after `run_all.py`; they are
 committed, so the app builds on a clean clone without running the pipeline.
 
