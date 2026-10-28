@@ -6,6 +6,9 @@
 Rushikesh Lagad (University of Arkansas) · Sambhavi Patel (University of Arkansas) ·
 Naisargi Modha (Northeastern University)
 
+**Live application: https://rushilagad.github.io/sentinel-52/** · evidence behind every number:
+`report/FINDINGS.md` · read this first if you are new: `docs/HANDOFF.md`
+
 ---
 
 ## The decision this tool supports
@@ -48,7 +51,20 @@ All recomputed from the public FSIS files, with the full argument and caveats in
 routine positivity has been flat since FY2021 while the serotype mix shifted hard toward Infantis
 (3.5% → 36.1% of serotyped chicken isolates), and 86.2% of chicken Infantis isolates are resistant to
 three or more drug classes against 3.3% for the Kentucky it displaced. FSIS's own FY2022-2026
-indicator is above its baseline rather than 10% below it.
+indicator is above its baseline rather than 10% below it — 5.78% in FY2026 against a recomputed
+4.20% baseline and a 3.80% target.
+
+**And the result the decision layer exists to show:** the status quo is not wrong, it is
+unexecutable, and it pays in food. Holding anything from a Category 2 or 3 plant catches every case
+in this supply base — recall 1.000 — by holding 38% of incoming lots, which is 13.4 reviews a week
+against a modelled capacity of 6, and by destroying 108,499 meals of edible food, 91% of it from
+plants that never deteriorated. A threshold policy catches 40% of the same risk for a quarter of the
+loss. Our argument is feasibility, not accuracy. Every pounds and meals figure rests on a
+**simulated** inventory and is labelled so; every risk figure is real. Reproduced to the digit on two
+independent builds.
+
+The FSIS category rebuild that all of this stands on agrees with three official postings on 99.75%
+of 2,764 rows, with zero false Category 3s.
 
 ---
 
@@ -127,7 +143,8 @@ core. Outputs land in `analysis/outputs/`:
 | `ablation_h{3,6,12}.json`, `t19_*` | Leave-one-group-out, establishment-clustered bootstrap |
 | `hazard_first_look.json` | Serotype, resistance and enumeration layer |
 | `burden_weighting.json`, `t16`–`t17` | Serotype prevalence against illness burden |
-| `t1`–`t19` CSVs | The tables behind each figure |
+| `decision_layer_h3.json`, `t20`–`t23` | Four policies costed in shared units, equity by SVI quartile, the frontier, and one action per lot with reversal evidence |
+| `t1`–`t23` CSVs | The tables behind each figure |
 | `figures/` | Figures used in the report |
 
 ### Pipeline stages
@@ -151,11 +168,20 @@ Layers beyond FSIS, each fetched by its own script and cached under `data/`:
 | Script | Source | Why |
 |---|---|---|
 | `09_fetch_nors.py` | CDC NORS (public Socrata endpoint) | Human illness burden by serotype |
-| `10_burden_weighting.py`, `10b_*` | — | Weight serotype prevalence by burden, not count |
+| `10_burden_weighting.py`, `10b_figure_prevalence_vs_burden.py` | — | Weight serotype prevalence by burden, not count; fig5 |
 | `11_fetch_noaa.py` | NOAA NCEI CDO v2, GSOM monthly | Environmental conditions; needs `NOAA_CDO_TOKEN` |
 | `12_fetch_fsis_recalls.py` | FSIS Recall & PHA API | Recalls traceable to an establishment mark |
 | `13_fetch_vulnerability.py` | CDC/ATSDR SVI 2022, Census ACS | Population vulnerability; ACS needs `CENSUS_API_KEY` |
 | `14_build_synthetic_inventory.py` | — | Synthetic food-bank lot inventory; **no real inventory data exists** |
+
+The decision layer and the deliverables built from everything above:
+
+| Script | Does |
+|---|---|
+| `16_decision_layer.py` | Score plus review capacity, cooked-channel capacity and shelf life → one of four actions per lot; four scenarios costed in meals; equity by SVI quartile; the frontier; dominance; reversal evidence. Scorer chosen per horizon by measured calibration. |
+| `17_build_app_data.py` | The JSON the app reads, with the four guardrails enforced at build time (`--check`) |
+| `18_figure_system_map.py` | The One Health system map, `fig6` |
+| `19_build_data_dictionary.py` | `data/DATA_DICTIONARY.md` across all 18 built tables; refuses to invent a description |
 
 To rerun a single stage, each script takes explicit paths, for example:
 
