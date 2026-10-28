@@ -1,6 +1,3 @@
-# NOT ACTIVE. This file does nothing where it sits.
-# When the app exists, move it to .github/workflows/deploy-pages.yml and enable
-# Settings > Pages > Source > GitHub Actions. Until then there is nothing to build.
 
 name: Deploy app to GitHub Pages
 

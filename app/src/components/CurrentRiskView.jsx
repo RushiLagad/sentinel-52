@@ -17,7 +17,7 @@ export default function CurrentRiskView({ risk, names, onPick, picked }) {
     if (supplierOnly) r = r.filter((u) => u.is_supplier);
     if (q) { const s = q.toLowerCase(); r = r.filter((u) => String(u.establishment_id).includes(s) || (names[u.establishment_id] || "").toLowerCase().includes(s)); }
     const cmp = (a, b) => { const x = a[sort.k] ?? -1, y = b[sort.k] ?? -1; return x < y ? -1 : x > y ? 1 : 0; };
-    return [...r].sort((a, b) => cmp(a, b) * -sort.d);   // d = -1 means descending
+    return [...r].sort((a, b) => cmp(a, b) * sort.d);    // d = -1 flips ascending to descending
   }, [risk, cls, supplierOnly, q, sort, names]);
   const th = (k, label, num) => (
     <th className={num ? "num" : ""} onClick={() => setSort((s) => ({ k, d: s.k === k ? -s.d : -1 }))} style={{ cursor: "pointer" }}>

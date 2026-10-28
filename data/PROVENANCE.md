@@ -331,7 +331,64 @@ failed fetches.
 
 ---
 
-## 10. Simulated lot inventory  — NOT OBSERVED DATA
+## 10. CDC/ATSDR Social Vulnerability Index, and the Census join that failed
+
+| Field | Value |
+|---|---|
+| **Source** | CDC/ATSDR Social Vulnerability Index (SVI) 2022, county level |
+| **URL** | `https://svi.cdc.gov/Documents/Data/2022/csv/states_counties/SVI_2022_US_county.csv` |
+| **Access date** | 2026-10-27 |
+| **Licence** | US federal government public domain. No key, no registration. |
+| **Geographic coverage** | 3,144 US counties; 0 with a suppressed overall score |
+| **Time coverage** | A single 2022 release. Static across the sampling window. |
+| **Update frequency** | Roughly every two years |
+| **Variables kept** | `RPL_THEMES` as `svi_overall`, the four theme ranks, county population |
+| **Fetched by** | `analysis/scripts/13_fetch_vulnerability.py` |
+| **Cached at** | `data/vulnerability/svi_county.csv`, `data/vulnerability/vulnerability_county.csv`, `data/vulnerability/FETCH_INFO.json` |
+
+### Decision value
+
+This is the dataset that turns a food-safety tool into a One Health one. The same contamination
+event is not equally costly everywhere: a household with no alternative food source bears a missed
+signal differently from one with three grocery stores. SVI is how the decision layer weighs that.
+It drives three things: the destination-county draw in the simulated inventory (§11), the equity
+check in `16_decision_layer.py` (hold and divert rates by SVI quartile, in both directions), and
+the food-security-weighted scenario, which requires a stronger signal before withholding from the
+most vulnerable quartile.
+
+### Transformations applied
+
+- Column rename only. `RPL_*` percentile ranks are carried through unchanged; `-999` (CDC's
+  suppression code) is replaced with a blank so it can never be read as a very low score.
+- FIPS codes zero-padded to five characters for the join to `establishments.fips_code` and to
+  destination counties.
+- Quartiles of `svi_overall` are computed once over the simulated destinations in the decision
+  layer and held fixed across scenarios, so every policy is measured against the same bins.
+
+### What was attempted and did not land
+
+The script also tries the **US Census ACS 5-year** API for population and, through it, the
+**USDA food-access** measures that requirement R6.1 asks for alongside SVI. The Census API key was
+rejected on every attempt (the key must be activated through a link in Census's confirmation
+email). `FETCH_INFO.json` records the failure and the exact response. So `vulnerability_county.csv`
+is SVI alone, and **the food-access layer is not in this project.** This is stated in
+`report/FINDINGS.md` and in the application rather than quietly dropped.
+
+### Known limitations
+
+- SVI is a percentile rank within the United States: it measures relative, not absolute,
+  deprivation, and a county at the 90th percentile in Arkansas is not comparable in absolute terms
+  to one at the 90th percentile in another state.
+- County is a coarse proxy for a food bank's service area. A food bank serves parts of counties, and
+  vulnerability varies within them.
+- SVI theme 3 (`svi_minority_status`) is carried through because CDC publishes it as part of the
+  composite. It is not used on its own as a criterion for any decision in this project, and the
+  equity check runs on `svi_overall` only.
+- Static. SVI 2022 does not move across the FY2014–FY2026 sampling window.
+
+---
+
+## 11. Simulated lot inventory  — NOT OBSERVED DATA
 
 > **This dataset is generated, not collected.** It exists because the brief requires decisions for a
 > supply-chain actor, and decisions need lots, weights, perishability and destinations. A food bank's

@@ -51,8 +51,9 @@ The gaps are not equal. Ranked by marks at risk against effort:
   `data/inventory/ASSUMPTIONS.json` and PROVENANCE section 10.
   The panel joins to 101 real establishment-by-product postings, 18 of them Category 3, so the
   decision layer acts on real risk signal. _(T1)_
-- [ ] **1.5** Extend `data/PROVENANCE.md` with all four, including the synthetic generator's
+- [x] **1.5** Extend `data/PROVENANCE.md` with all four, including the synthetic generator's
   assumptions stated as assumptions. _(T1, deliverable 4)_
+  **Done.** `data/PROVENANCE.md` now has eleven dataset sections: FSIS ×6, NORS, recalls, NOAA, **SVI (§10, new)**, and the simulated inventory last (§11). The SVI section records the Census ACS failure and states that the USDA food-access layer is not in the project, rather than leaving R6.1 to look satisfied.
 - [x] **1.6** **Done.** `19_build_data_dictionary.py` regenerates it across all 18 built tables, not
   just the seven FSIS ones: the four outside layers, the simulated inventory, and the decision
   layer's own outputs. Three things worth keeping: it resolves the organism-prefix rename that
@@ -70,7 +71,8 @@ The gaps are not equal. Ranked by marks at risk against effort:
   refuse to draw. Establishment-to-illness is drawn as a crossed dashed link with the reason on it,
   rather than being silently absent, so a reader who looks for it finds it labelled.
   _(T1, explicitly required)_
-- [ ] **1.8** Write the decision statement into the README. Draft is in `requirements.md`. _(T1)_
+- [x] **1.8** Write the decision statement into the README. Draft is in `requirements.md`. _(T1)_
+  **Done** on 2026-10-27, when the README was rewritten: the decision statement is quoted verbatim from `requirements.md` so the two cannot drift, with the food-bank rationale above it and the what-this-is-not line beneath.
 
 ## Phase 2: model completeness (T2, days 2-3)
 
