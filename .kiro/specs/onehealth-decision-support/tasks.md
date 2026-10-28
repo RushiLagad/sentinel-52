@@ -53,7 +53,16 @@ The gaps are not equal. Ranked by marks at risk against effort:
   decision layer acts on real risk signal. _(T1)_
 - [ ] **1.5** Extend `data/PROVENANCE.md` with all four, including the synthetic generator's
   assumptions stated as assumptions. _(T1, deliverable 4)_
-- [ ] **1.6** Regenerate `data/DATA_DICTIONARY.md`. _(deliverable 4)_
+- [x] **1.6** **Done.** `19_build_data_dictionary.py` regenerates it across all 18 built tables, not
+  just the seven FSIS ones: the four outside layers, the simulated inventory, and the decision
+  layer's own outputs. Three things worth keeping: it resolves the organism-prefix rename that
+  `02_build_tables.py` applies, so `sal_isolates.ampicillin_mic` finds the dictionary's
+  `salmonella_ampicillin_mic` rather than reading as undocumented; it distinguishes three
+  provenances rather than two, since the MPI directory, the demographic file, the category workbooks
+  and the cecal files carry **no FSIS dictionary of their own**, so those columns are FSIS's but the
+  wording is ours and is labelled as such; and it **refuses to invent a description** — an unknown
+  column is written out as UNDOCUMENTED and `--check` exits non-zero while any remain, which is what
+  hook H2 relies on. Wired into `run_all.py`, so it cannot drift from the tables it documents. _(deliverable 4)_
 - [x] **1.7** **Done.** `18_figure_system_map.py` draws it as `fig6_one_health_system_map.png`, in the
   same palette and pixel convention as `07_figures.py` so the figures read as one set. Three things
   the figure is responsible for: which domain each dataset belongs to, which two arrows carry the
@@ -135,20 +144,32 @@ The gaps are not equal. Ranked by marks at risk against effort:
   G3 the synthetic flag on every pounds-denominated payload · G4 reversal evidence and human
   confirmation on every high-consequence action · G5 recalls sorted above model scores.
   The build refuses to write at all if any check fails. _(R9, guardrail)_
-- [ ] **4.2** Scaffold React + Vite, `base: '/sentinel-52/'`, hash routing. _(T4)_
-- [ ] **4.3** `CurrentRiskView` _(R1)_
-- [ ] **4.4** `AlertQueue`, recalls pinned above model scores _(R2)_
-- [ ] **4.5** `ScenarioBuilder` with the trade-off frontier _(R3)_
-- [ ] **4.6** `RecommendedActionPanel` with counterfactual and cost _(R4)_
-- [ ] **4.7** `EvidencePanel` with interval, calibration and sources _(R5)_
-- [ ] **4.8** `EquityView` _(R6)_
-- [ ] **4.9** `ConfirmHighConsequence` blocking dialog _(R4.4)_
-- [ ] **4.10** `SyntheticBadge` on every pounds-denominated figure _(design: honest inventory)_
-- [ ] **4.11** Palette through the dataviz validator, light and dark _(R10)_
-- [ ] **4.12** Guardrail tests: no establishment-illness join, no "safe"/"unsafe" verdict, synthetic
+- [x] **4.2** Scaffold React + Vite, `base: '/sentinel-52/'`, hash routing. _(T4)_
+  **Done.** React 18 + Vite 5, `base: '/sentinel-52/'`, hash routing with the active section tracked by IntersectionObserver. Builds in ~1s to 175 kB of JS.
+- [x] **4.3** `CurrentRiskView` _(R1)_
+  **Done.** Sortable, filterable, with the Jeffreys interval and the calibration band per row; clicking a row filters the action panel to that plant.
+- [x] **4.4** `AlertQueue`, recalls pinned above model scores _(R2)_
+  **Done.** Published recalls pinned in rank group 0 above model items, with the recovered establishment marks and the caveat that marks are recoverable for only about a third of notices.
+- [x] **4.5** `ScenarioBuilder` with the trade-off frontier _(R3)_
+  **Done.** Threshold slider snaps to the precomputed sweep; SVG frontier with the two error types in shared units; four scenario cards with dominance called out and `NOT EXECUTABLE` where holds exceed capacity. Capacity and the food-security weight vary through the named scenarios and the page says so.
+- [x] **4.6** `RecommendedActionPanel` with counterfactual and cost _(R4)_
+  **Done.** Driver, cost in pounds and community, the opposite action with its cost, reversal evidence, and the discard reason where the lot is lost.
+- [x] **4.7** `EvidencePanel` with interval, calibration and sources _(R5)_
+  **Done.** Metrics with bootstrap intervals, reliability diagram on a log scale, scorer-selection reason, burden by serotype with the single-outbreak flag at 80%, FSIS WGS resistance, every source with its hash, and the restriction in full.
+- [x] **4.8** `EquityView` _(R6)_
+  **Done.** Quartile table for the selected scenario, disparity stated in both directions, and a visible notice rather than a footnote when it runs against high-need counties.
+- [x] **4.9** `ConfirmHighConsequence` blocking dialog _(R4.4)_
+  **Done.** Blocking dialog on hold and divert. Confirming records an acknowledgement in the page and executes nothing, and the dialog says so.
+- [x] **4.10** `SyntheticBadge` on every pounds-denominated figure _(design: honest inventory)_
+  **Done.** `SyntheticBadge` beside every pounds or meals figure; which payloads are simulated is read from `meta.json`, not hardcoded, and the render test fails if a card with lb or meals lacks the badge.
+- [x] **4.11** Palette through the dataviz validator, light and dark _(R10)_
+  **Done.** Blue, orange, violet, green — all six validator checks pass in light and dark. Orange and green deliberately non-adjacent. Gray never a series.
+- [x] **4.12** Guardrail tests: no establishment-illness join, no "safe"/"unsafe" verdict, synthetic
   flags present, confirmation unskippable _(design: testing)_
-- [ ] **4.13** Move `docs/pages-workflow-for-later.yml` into `.github/workflows/` **only after**
+  **Done.** 17 vitest tests: G1–G4 against the shipped JSON, the data contract, and the rendered UI (no verdict words outside the restriction, badge coverage, the dialog executes nothing).
+- [x] **4.13** Move `docs/pages-workflow-for-later.yml` into `.github/workflows/` **only after**
   `npm run build` succeeds locally, and set Pages source to GitHub Actions. _(deliverable 3)_
+  **Done.** `npm run build` succeeds; workflow moved to `.github/workflows/deploy-pages.yml`. **Rushi: Settings → Pages → Source → GitHub Actions**, once.
 
 ## Phase 5: report and team science (T5, days 6-7)
 

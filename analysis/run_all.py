@@ -119,6 +119,10 @@ def main() -> None:
     run(str(S / "07_figures.py"), "--data", PROC, "--out", "outputs")
     run(str(S / "08_key_numbers.py"), "--data", PROC, "--out", "outputs")
     run(str(S / "18_figure_system_map.py"), "--out", "outputs")
+    # Regenerated every run so it cannot drift from the tables it documents.
+    # Exits non-zero if any column lacks a description, which fails the run
+    # rather than shipping a dictionary with holes in it.
+    run(str(S / "19_build_data_dictionary.py"), "--repo", str(REPO))
 
     # The decision layer needs the county vulnerability file, which comes from
     # 13_fetch_vulnerability.py and needs the network. Skipped with a reason

@@ -1,7 +1,7 @@
 {
  "meta": {
   "produced_by": "analysis/scripts/17_build_app_data.py",
-  "generated_utc": "2026-10-27T17:44:50+00:00",
+  "generated_utc": "2026-10-28T17:13:46+00:00",
   "schema_version": "1.0.0",
   "payload": "burden",
   "sources": [
@@ -18,7 +18,116 @@
   ],
   "joined_at": "serotype and year only, never establishment"
  },
- "serotypes": [],
+ "serotypes": [
+  {
+   "serotype": "Enteritidis",
+   "outbreaks": 62,
+   "illnesses": 2121,
+   "hospitalizations": 204,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 27.0,
+   "in_fsis_kpi": true
+  },
+  {
+   "serotype": "Reading",
+   "outbreaks": 4,
+   "illnesses": 384,
+   "hospitalizations": 135,
+   "deaths": 1,
+   "pct_hosp_from_largest_row": 98.5,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "I 4,[5],12:i:-",
+   "outbreaks": 7,
+   "illnesses": 141,
+   "hospitalizations": 34,
+   "deaths": 1,
+   "pct_hosp_from_largest_row": 47.1,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Infantis",
+   "outbreaks": 5,
+   "illnesses": 214,
+   "hospitalizations": 31,
+   "deaths": 1,
+   "pct_hosp_from_largest_row": 80.6,
+   "in_fsis_kpi": true
+  },
+  {
+   "serotype": "Heidelberg",
+   "outbreaks": 7,
+   "illnesses": 130,
+   "hospitalizations": 27,
+   "deaths": 1,
+   "pct_hosp_from_largest_row": 37.0,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Typhimurium",
+   "outbreaks": 1,
+   "illnesses": 85,
+   "hospitalizations": 22,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 100.0,
+   "in_fsis_kpi": true
+  },
+  {
+   "serotype": "Braenderup",
+   "outbreaks": 3,
+   "illnesses": 90,
+   "hospitalizations": 18,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 88.9,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Thompson",
+   "outbreaks": 5,
+   "illnesses": 174,
+   "hospitalizations": 17,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 41.2,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Saintpaul",
+   "outbreaks": 1,
+   "illnesses": 70,
+   "hospitalizations": 12,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 100.0,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Hadar",
+   "outbreaks": 2,
+   "illnesses": 51,
+   "hospitalizations": 12,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 66.7,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "Blockley",
+   "outbreaks": 2,
+   "illnesses": 146,
+   "hospitalizations": 10,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 70.0,
+   "in_fsis_kpi": false
+  },
+  {
+   "serotype": "unspecified",
+   "outbreaks": 4,
+   "illnesses": 23,
+   "hospitalizations": 4,
+   "deaths": 0,
+   "pct_hosp_from_largest_row": 50.0,
+   "in_fsis_kpi": false
+  }
+ ],
  "resistance_by_serotype": [
   {
    "species": "chicken",

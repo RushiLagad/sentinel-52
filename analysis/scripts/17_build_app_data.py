@@ -409,7 +409,11 @@ def main() -> int:
     if bw_path.exists():
         S[bw_path.name] = src(bw_path, ROOT)
         bw = json.loads(bw_path.read_text())
-        serotypes = bw.get("by_serotype", bw.get("serotypes", []))
+        # The key 10_burden_weighting.py actually writes. It carries
+        # pct_hosp_from_largest_row, which is what R5.5 needs to flag a figure
+        # that rests on a single outbreak.
+        serotypes = bw.get("top_serotypes_by_hospitalizations",
+                           bw.get("by_serotype", bw.get("serotypes", [])))
     burden = {"meta": meta("burden", [v for k, v in S.items() if "burden" in k or "hazard" in k],
                            joined_at="serotype and year only, never establishment"),
               "serotypes": serotypes,

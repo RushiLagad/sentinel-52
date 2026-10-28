@@ -167,7 +167,15 @@ python scripts/06_hazard_first_look.py --data ../data/processed --out outputs
 
 ## Running the application
 
-See `app/README.md`. *(In development.)*
+```bash
+cd app && npm install && npm run build      # or: npm run dev
+npm test                                    # the guardrails, against the data the app ships
+```
+
+Deployed to GitHub Pages on every push to `main` by `.github/workflows/deploy-pages.yml`. One
+page, six sections — current risk, alerts, scenarios, actions, equity, evidence — mapped to
+requirements R1–R6 in `app/README.md`. The app computes nothing: every number comes from
+`app/public/data/*.json`, built by `17_build_app_data.py` from the same outputs the report uses.
 
 ---
 
@@ -200,7 +208,10 @@ carries a header saying what was AI-drafted and what has actually been tested ag
 
 The written report is the team's own work. AI was used for code, figures, tables and docstrings.
 
-*(Substantial manual changes to Kiro-generated code to be disclosed here as they occur.)*
+**Disclosure.** The React UI under `app/src/` and its tests were written by Claude (Anthropic) on
+2026-10-28 from the Kiro spec, not through Kiro, because the Kiro track for the app had not started
+with four days to the deadline. The specs, steering, hooks and the app data contract
+(`17_build_app_data.py`) are Kiro's. Details in `app/README.md`.
 
 ---
 
