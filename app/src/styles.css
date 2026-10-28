@@ -104,3 +104,28 @@ footer { color: var(--muted); font-size: 0.82rem; margin-top: 2rem; }
 @media (max-width: 640px) { input[type="range"] { width: 100%; } .kv { grid-template-columns: 1fr; } .kv dt { margin-top: 0.3rem; } .grid.two, .grid.three { grid-template-columns: 1fr; } .topbar nav { flex-basis: 100%; } }
 main, .topbar { overflow-x: clip; }
 .table-wrap { max-width: 100%; }
+
+/* receiving desk */
+.desk-head { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; align-items: flex-start; justify-content: space-between; }
+.desk-find { position: relative; min-width: 260px; flex: 0 1 320px; }
+.desk-find input { width: 100%; }
+.desk-matches { position: absolute; z-index: 6; left: 0; right: 0; margin: 0.2rem 0 0; padding: 0.2rem 0; list-style: none; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+.desk-matches li { padding: 0.35rem 0.6rem; cursor: pointer; font-size: 0.88rem; }
+.desk-matches li:hover { background: var(--surface-2); }
+.decision { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1rem; border: 1px solid var(--line); border-left-width: 6px; border-radius: 10px; padding: 1rem 1.1rem; margin-top: 0.6rem; background: var(--surface-2); }
+.decision-distribute_now { border-left-color: var(--c1); }
+.decision-prioritize { border-left-color: var(--c4); }
+.decision-hold_for_review { border-left-color: var(--c3); }
+.decision-divert { border-left-color: var(--c2); }
+.decision-eyebrow { margin-bottom: 0.3rem; }
+.decision-verb { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+.decision-distribute_now .decision-verb { color: var(--c1); }
+.decision-prioritize .decision-verb { color: var(--c4); }
+.decision-hold_for_review .decision-verb { color: var(--c3); }
+.decision-divert .decision-verb { color: var(--c2); }
+.decision-why { font-size: 1.05rem; color: var(--ink); margin: 0.35rem 0 0.6rem; }
+.decision-lot { color: var(--ink-2); font-size: 0.92rem; line-height: 1.6; }
+.decision-side { display: grid; gap: 0.6rem; align-content: start; }
+.decision-side .stat .v { font-size: 1.25rem; }
+.desk-actions { display: flex; flex-wrap: wrap; gap: 0.5rem 0.7rem; align-items: center; margin-top: 0.8rem; }
+@media (max-width: 760px) { .decision { grid-template-columns: 1fr; } .decision-verb { font-size: 1.5rem; } }

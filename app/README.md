@@ -29,11 +29,12 @@ app uses hash routing (`#/risk`, `#/scenarios`, …) so deep links survive a sta
 
 ## What is on the page, and which requirement each part answers
 
-Everything is one page with six sections. The requirement numbers refer to
+Everything is one page with seven sections. The first is the one the tool exists for; the other six are the evidence behind it. The requirement numbers refer to
 `.kiro/specs/onehealth-decision-support/requirements.md`.
 
 | Section | Component | Requirement | What it shows |
 |---|---|---|---|
+| Receiving desk | `ReceivingDesk` | R4, R5 | The landing view. A lot is in front of you: the call in large type, the one-sentence reason, the plant's score, category and 52-week counts, the calibration band, what the lot weighs and whom it feeds, the opposite action with its cost, and what would reverse the call. Acknowledge, and the next lot needing a decision comes up. Works a queue; executes nothing. |
 | Current risk | `CurrentRiskView` | R1 | Every plant-and-product unit with its score, FSIS category, 52-week rate with a Jeffreys interval, and the calibration band it falls in — "of units scored like this, X% went on to elevated risk". Click a row to filter the actions below to that plant. |
 | Alerts | `AlertQueue` | R2 | Recalls and public health alerts FSIS has already published, pinned above anything the model produces. Facts above forecasts. |
 | Scenarios | `ScenarioBuilder` + `Frontier` | R3 | The hold-threshold slider over the precomputed sweep, the frontier between avoidable loss and exposure in shared units (meals), and the four named scenarios with their dominance relations. Review capacity and the food-security weight vary through the named scenarios, which is where they were precomputed. |

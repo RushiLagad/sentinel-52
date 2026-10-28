@@ -25,7 +25,8 @@ describe("rendered app", () => {
   it("loads and renders every section", async () => {
     const { container } = render(<App />);
     await waitFor(() => expect(container.querySelector("#risk table tbody tr")).toBeTruthy(), { timeout: 10000 });
-    for (const id of ["risk", "alerts", "scenarios", "actions", "equity", "evidence"]) expect(container.querySelector(`#${id}`), id).toBeTruthy();
+    expect(container.querySelector("#desk .decision-verb")?.textContent).toBeTruthy();
+    for (const id of ["desk", "risk", "alerts", "scenarios", "actions", "equity", "evidence"]) expect(container.querySelector(`#${id}`), id).toBeTruthy();
   });
 
   it("never renders a safety verdict outside the restriction sentence", async () => {
