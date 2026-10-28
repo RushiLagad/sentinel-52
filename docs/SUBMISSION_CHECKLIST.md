@@ -25,52 +25,52 @@ fix landing at 16:01 CT ends the entry.
 
 ## The six deliverables
 
-- [ ] **1. Reproducible analysis notebooks and scripts** — preprocessing, integration, modeling,
+- [ ] **1. Reproducible analysis notebooks and scripts**: preprocessing, integration, modeling,
       evaluation and **scenario analysis**.
       *FSIS pipeline complete, validated at 99.75%, reproducing in about three minutes. NORS outcome
       layer added. Missing: climate, recalls, vulnerability, calibration, ablation, scenarios.*
 
-- [ ] **2. Kiro artifacts** — specs, prompts, steering files, hooks. **Disclose substantial manual
+- [ ] **2. Kiro artifacts**: specs, prompts, steering files, hooks. **Disclose substantial manual
       edits to Kiro-generated code.**
       *Steering written. Spec rewritten against the real brief at
       `.kiro/specs/onehealth-decision-support/`; the superseded `watchlist-app` spec is kept
       deliberately. Hooks not yet configured.*
 
-- [ ] **3. Decision-support web application** — runnable, with build and deployment instructions.
+- [ ] **3. Decision-support web application**: runnable, with build and deployment instructions.
       React recommended.
       *Not started. No longer blocked: fully specified, with the five required components named.*
 
-- [ ] **4. Data dictionary and provenance** — per dataset: source, access date, licence, geographic
+- [ ] **4. Data dictionary and provenance**: per dataset: source, access date, licence, geographic
       and time coverage, update frequency, transformations, limitations, **and decision value**.
       *Complete for FSIS and NORS. Four datasets still to add.*
 
-- [ ] **5. PDF report** — methods, task outputs, **answers to the ten report questions**, metrics,
+- [ ] **5. PDF report**: methods, task outputs, **answers to the ten report questions**, metrics,
       figures, scenarios, limitations, team science statement.
       *Outline only. Written by the team, not by AI.*
 
-- [ ] **6. README and requirements** — setup and every dependency for analysis and application.
+- [ ] **6. README and requirements**: setup and every dependency for analysis and application.
       *Covers the analysis. App dependencies to follow.*
 
 ---
 
 ## The five required tasks
 
-- [ ] **T1 Define the system and data layer** — actor, decision, One Health system map, aligned
+- [ ] **T1 Define the system and data layer**: actor, decision, One Health system map, aligned
       datasets, data dictionary, provenance, decision statement.
       *Actor chosen (regional food bank, justified in the spec). Map and three datasets outstanding.*
-- [ ] **T2 Build and validate a risk model** — transparent baseline, integrated model, time-aware
+- [ ] **T2 Build and validate a risk model**: transparent baseline, integrated model, time-aware
       validation, discrimination **and calibration**, uncertainty, **marginal value of added data**.
       *Baseline, integrated model, time-aware validation, bootstrap uncertainty and Brier scores done,
       with a gradient-boosting reliability table. Missing: reliability for the projection scorer, a
       reliability figure, and the leave-one-source-out ablation.*
-- [ ] **T3 Convert predictions to decisions** — feasible actions, constraints, **food-security or
+- [ ] **T3 Convert predictions to decisions**: feasible actions, constraints, **food-security or
       equity objective**, comparison against a rule-based policy, **three or more scenarios**, human
       review for high-consequence actions.
       *Rule-based comparison exists. Everything else outstanding.*
-- [ ] **T4 Build the app with Kiro** — current-risk view, alert queue, scenario builder,
+- [ ] **T4 Build the app with Kiro**: current-risk view, alert queue, scenario builder,
       recommended-action panel, evidence panel with uncertainty.
       *Specified, not built.*
-- [ ] **T5 Team science** — roles, two added datasets, ablation, a decision changed by another
+- [ ] **T5 Team science**: roles, two added datasets, ablation, a decision changed by another
       discipline, the next dataset or partner.
       *Outstanding. Capture the cross-discipline decision as it happens, not retrospectively.*
 

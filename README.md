@@ -1,6 +1,6 @@
 # Sentinel-52
 
-**NAFSI Hub Student Data Challenge, Fall 2026 — SENS-D track**
+**NAFSI Hub Student Data Challenge, Fall 2026, SENS-D track**
 *Proactive Decision-Making Tool for Food Supply & Safety*
 
 Rushikesh Lagad (University of Arkansas) · Sambhavi Patel (University of Arkansas) ·
@@ -14,8 +14,8 @@ Naisargi Modha (Northeastern University)
 ## The decision this tool supports
 
 The brief asks us to pick one supply-chain actor and help them make a real decision. We picked a
-**regional food bank**, because the brief's three secondary objectives — preserving food
-availability, supporting food security, minimizing avoidable food loss — are a food bank's mission
+**regional food bank**, because the brief's three secondary objectives (preserving food
+availability, supporting food security, minimizing avoidable food loss) are a food bank's mission
 rather than side constraints, and they are in daily, direct tension with protecting health. Discard a
 pallet of chicken on a weak signal and people with no alternative go without; distribute it on a
 missed signal and the people harmed are the least able to absorb harm.
@@ -31,7 +31,8 @@ incoming pallet can be traced to the plant that produced it, and that plant has 
 history.
 
 **This is not** a regulatory determination, an outbreak declaration, or a safety verdict on any food,
-establishment or shipment. It reorders attention and surfaces evidence for a human decision.
+establishment or shipment. It ranks what to look at first and shows the evidence behind each
+recommendation, so that a person can decide.
 
 Full reasoning, requirements and design: `.kiro/specs/onehealth-decision-support/`.
 The brief as published: `docs/CHALLENGE_BRIEF.md`.
@@ -51,17 +52,17 @@ All recomputed from the public FSIS files, with the full argument and caveats in
 routine positivity has been flat since FY2021 while the serotype mix shifted hard toward Infantis
 (3.5% → 36.1% of serotyped chicken isolates), and 86.2% of chicken Infantis isolates are resistant to
 three or more drug classes against 3.3% for the Kentucky it displaced. FSIS's own FY2022-2026
-indicator is above its baseline rather than 10% below it — 5.78% in FY2026 against a recomputed
+indicator is above its baseline rather than 10% below it: 5.78% in FY2026 against a recomputed
 4.20% baseline and a 3.80% target.
 
-**And the result the decision layer exists to show:** the status quo is not wrong, it is
-unexecutable, and it pays in food. Holding anything from a Category 2 or 3 plant catches every case
-in this supply base — recall 1.000 — by holding 38% of incoming lots, which is 13.4 reviews a week
+**The result the decision layer exists to show** is that the status quo cannot actually be run,
+and that approximating it costs food. Holding anything from a Category 2 or 3 plant catches every
+case in this supply base (recall 1.000), but only by holding 38% of incoming lots, which is 13.4 reviews a week
 against a modelled capacity of 6, and by destroying 108,499 meals of edible food, 91% of it from
 plants that never deteriorated. A threshold policy catches 40% of the same risk for a quarter of the
-loss. Our argument is feasibility, not accuracy. Every pounds and meals figure rests on a
-**simulated** inventory and is labelled so; every risk figure is real. Reproduced to the digit on two
-independent builds.
+loss. The argument for the tool is feasibility rather than accuracy. Every pounds and meals figure
+rests on a **simulated** inventory and is labelled so; every risk figure is real. The numbers
+reproduce to the digit on two independent builds.
 
 The FSIS category rebuild that all of this stands on agrees with three official postings on 99.75%
 of 2,764 rows, with zero false Category 3s.
@@ -104,8 +105,8 @@ FSIS landing pages, if you would rather navigate than use the URL list:
 | 3 × establishment directory CSVs | [Meat, Poultry and Egg Product Inspection Directory](https://www.fsis.usda.gov/inspection/establishments/meat-poultry-and-egg-product-inspection-directory) · [on data.gov](https://catalog.data.gov/dataset/fsis-meat-poultry-and-egg-inspection-directory-by-establishment-number) |
 
 **`--download` is a convenience and it may fail.** As of 2026-10-27 the FSIS CDN returns HTTP 403 to
-automated requests, even though the files are unchanged and still public at the URLs in the manifest
-— verified in a browser the same day. The script reports this and points you back to the manual
+automated requests, even though the files are unchanged and still public at the URLs in the manifest,
+which we verified in a browser the same day. The script reports this and points you back to the manual
 route. The SHA-256 check is identical either way, so a manual download is not a weaker provenance
 claim than an automated one.
 
@@ -117,7 +118,7 @@ names which files differ and continues.
 
 ## Reproducing the analysis
 
-Requires Python 3.12 or newer. **Install the requirements before anything else** — `02_build_tables.py`
+Requires Python 3.12 or newer. **Install the requirements before anything else.** `02_build_tables.py`
 reads two `.xlsx` files and fails on a bare interpreter that has pandas but not `openpyxl`.
 
 ```bash
@@ -158,7 +159,7 @@ core. Outputs land in `analysis/outputs/`:
 | `04_validate_categories.py` | Compare the rebuild against FSIS's posted ratings |
 | `05_early_warning_baseline.py` | Who fails next: baselines vs models, strict time split |
 | `05b_watchlist_comparison.py` | Watch lists compared at equal size, plus lead time |
-| `05c_calibration.py` | Reliability curves, ECE and Brier — are the scores believable numbers |
+| `05c_calibration.py` | Reliability curves, ECE and Brier: whether the scores are believable as probabilities |
 | `05d_ablation.py` | Leave-one-group-out: which feature families actually carry the signal |
 | `06_hazard_first_look.py` | Serotype, resistance, enumeration, and the 2024 proposed standard |
 | `07_figures.py`, `08_key_numbers.py` | Figures, and every headline number in one JSON |
@@ -168,11 +169,11 @@ Layers beyond FSIS, each fetched by its own script and cached under `data/`:
 | Script | Source | Why |
 |---|---|---|
 | `09_fetch_nors.py` | CDC NORS (public Socrata endpoint) | Human illness burden by serotype |
-| `10_burden_weighting.py`, `10b_figure_prevalence_vs_burden.py` | — | Weight serotype prevalence by burden, not count; fig5 |
+| `10_burden_weighting.py`, `10b_figure_prevalence_vs_burden.py` | (derived) | Weight serotype prevalence by burden, not count; fig5 |
 | `11_fetch_noaa.py` | NOAA NCEI CDO v2, GSOM monthly | Environmental conditions; needs `NOAA_CDO_TOKEN` |
 | `12_fetch_fsis_recalls.py` | FSIS Recall & PHA API | Recalls traceable to an establishment mark |
 | `13_fetch_vulnerability.py` | CDC/ATSDR SVI 2022, Census ACS | Population vulnerability; ACS needs `CENSUS_API_KEY` |
-| `14_build_synthetic_inventory.py` | — | Synthetic food-bank lot inventory; **no real inventory data exists** |
+| `14_build_synthetic_inventory.py` | (generated) | Synthetic food-bank lot inventory; **no real inventory data exists** |
 
 The decision layer and the deliverables built from everything above:
 
@@ -199,8 +200,8 @@ npm test                                    # the guardrails, against the data t
 ```
 
 Deployed to GitHub Pages on every push to `main` by `.github/workflows/deploy-pages.yml`. One
-page, six sections — current risk, alerts, scenarios, actions, equity, evidence — mapped to
-requirements R1–R6 in `app/README.md`. The app computes nothing: every number comes from
+page, seven sections (receiving desk, current risk, alerts, scenarios, actions, equity, evidence)
+mapped to requirements R1 to R6 in `app/README.md`. The app computes nothing: every number comes from
 `app/public/data/*.json`, built by `17_build_app_data.py` from the same outputs the report uses.
 
 ---
@@ -229,15 +230,18 @@ Developed with **Kiro** (AWS agentic IDE). Kiro specs, steering files and hooks 
 are submitted as part of this work.
 
 The analysis pipeline under `analysis/scripts/` was drafted with Claude (Anthropic) from 2026-10-09
-onwards, then reviewed and run end to end against the real source files by the team. Each script
+onward, then reviewed and run end to end against the real source files by the team. Each script
 carries a header saying what was AI-drafted and what has actually been tested against live data.
 
 The written report is the team's own work. AI was used for code, figures, tables and docstrings.
 
-**Disclosure.** The React UI under `app/src/` and its tests were written by Claude (Anthropic) on
-2026-10-28 from the Kiro spec, not through Kiro, because the Kiro track for the app had not started
-with four days to the deadline. The specs, steering, hooks and the app data contract
-(`17_build_app_data.py`) are Kiro's. Details in `app/README.md`.
+**Disclosure.** The `.kiro/` artifacts are in Kiro's format and were loaded in Kiro, but they were
+not generated by it. The specs, the steering file, the hooks, `17_build_app_data.py` and the React
+UI under `app/src/` were written with Claude (Anthropic) between 2026-10-26 and 2026-10-28, by a
+team decision to hand-build Phase 4 given the time remaining. The full list, with dates and
+reasons, is the manual-change log at the end of
+`.kiro/specs/onehealth-decision-support/tasks.md`. We record this rather than let a reader infer
+that Kiro produced it.
 
 ---
 

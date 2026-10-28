@@ -67,16 +67,16 @@ The supporting evidence, all recomputed from the public FSIS files in this repo:
 
 ## Repository layout
 
-- `analysis/` — the Python pipeline. `run_all.py` runs scripts 01 to 08 in order and rebuilds
+- `analysis/`: the Python pipeline. `run_all.py` runs scripts 01 to 08 in order and rebuilds
   everything from `data/raw` in about three minutes.
-- `analysis/scripts/fsis_categories.py` — rebuilds FSIS Category 1/2/3/NA from raw samples. Validated
+- `analysis/scripts/fsis_categories.py`: rebuilds FSIS Category 1/2/3/NA from raw samples. Validated
   at 99.75% against three official postings. Treat this module as load-bearing; change it only with a
   re-run of `04_validate_categories.py`.
-- `data/` — `MANIFEST.json` (SHA-256 of all 31 source files), `PROVENANCE.md`, `DATA_DICTIONARY.md`,
+- `data/`: `MANIFEST.json` (SHA-256 of all 31 source files), `PROVENANCE.md`, `DATA_DICTIONARY.md`,
   `raw/` (not committed), `processed/` (not committed, rebuildable), `validation/` (three FSIS postings).
-- `app/` — the decision-support web application. React, deployed to GitHub Pages.
-- `report/` — figures and the report source. The PDF is a required deliverable.
-- `.kiro/` — specs, steering and hooks. These are themselves graded submission artifacts, so keep them
+- `app/`: the decision-support web application. React, deployed to GitHub Pages.
+- `report/`: figures and the report source. The PDF is a required deliverable.
+- `.kiro/`: specs, steering and hooks. These are themselves graded submission artifacts, so keep them
   current rather than tidying them up at the end.
 
 ## Conventions

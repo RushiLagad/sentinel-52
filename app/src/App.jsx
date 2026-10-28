@@ -50,7 +50,7 @@ export default function App() {
     <>
       <header className="topbar">
         <h1>Sentinel-52</h1>
-        <span className="muted small">a regional food bank's view of FSIS-regulated poultry · reorders attention, does not adjudicate</span>
+        <span className="muted small">decision support for a regional food bank receiving FSIS-regulated poultry</span>
         <nav>{SECTIONS.map(([id, label]) => <a key={id} href={`#/${id}`} className={route === id ? "active" : ""}>{label}</a>)}</nav>
         <span className="spacer" />
         <button className="theme-btn" onClick={() => setTheme(theme === "dark" ? "light" : "dark")}>{theme === "dark" ? "light" : "dark"} mode</button>

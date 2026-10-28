@@ -2,7 +2,7 @@
 
 Every column of every table this project builds. Regenerate with `python scripts/19_build_data_dictionary.py --repo ..` from `analysis/`.
 
-Descriptions marked *(FSIS)* are taken verbatim from the dictionary FSIS ships inside the raw sampling files. Those marked *(FSIS column, described by this project)* are FSIS's columns from source files that carry no dictionary of their own — the MPI directory, the demographic file, the category workbooks and the NARMS cecal files — so the column is FSIS's and the wording is ours. Those marked *(derived)* are created by this project. A column this file cannot describe is written out as UNDOCUMENTED rather than given a plausible gloss; `--check` fails while any remain.
+Descriptions marked *(FSIS)* are taken verbatim from the dictionary FSIS ships inside the raw sampling files. Those marked *(FSIS column, described by this project)* are FSIS's columns from source files that carry no dictionary of their own (the MPI directory, the demographic file, the category workbooks and the NARMS cecal files), so the column is FSIS's and the wording is ours. Those marked *(derived)* are created by this project. A column this file cannot describe is written out as UNDOCUMENTED rather than given a plausible gloss; `--check` fails while any remain.
 
 Source, licence, coverage and known limitations for every dataset are in `PROVENANCE.md`. Anything denominated in pounds or meals rests on the **simulated** inventory described below.
 

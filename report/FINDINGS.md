@@ -2,7 +2,7 @@
 
 **This file is source material for the report, not a draft of it.** The report narrative is the
 team's own work. What follows is the claim, the numbers behind it, where each number comes from, and
-— most importantly — what the evidence does *not* support, so nobody overstates it under deadline.
+and, most importantly, what the evidence does *not* support, so nobody overstates it under deadline.
 
 Every figure here traces to a named file in `analysis/outputs/`. If a number is not in one of those
 files, it does not go in the report.
@@ -76,7 +76,7 @@ Dropping the binomial projection costs more AUROC than dropping the entire sampl
 | Dropped | ΔAUROC 3mo | ΔAUROC 6mo | 12mo |
 |---|---|---|---|
 | Binomial projection | −0.0095 | −0.0075 | −0.0021 (noise) |
-| Sampling history | — | −0.0067 | −0.0120 |
+| Sampling history | n/a | −0.0067 | −0.0120 |
 | Everything beyond FSIS core | −0.0074 | −0.0074 | −0.0013 (noise) |
 
 Everything beyond basic sampling and category position buys under 0.01 AUROC in total.
@@ -111,7 +111,7 @@ literally zero is never defensible and needs a floor.
 
 ---
 
-## Finding 3: Serotype detail adds nothing predictive, and that is the point
+## Finding 3: Serotype detail adds nothing predictive, which is itself informative
 
 **Table:** `t19_ablation_h6.csv`
 
@@ -130,7 +130,7 @@ Also worth reporting: at 3 months, dropping the CFU enumeration group **improves
 
 ---
 
-## Finding 4: The status quo is not wrong. It is unexecutable, and it pays in food.
+## Finding 4: The status quo cannot actually be run, and approximating it costs food
 
 **Table:** `t20_scenarios_h3.csv` · **JSON:** `decision_layer_h3.json`
 **Frontier:** `t22_frontier_h3.csv` · **Equity:** `t21_equity_by_svi_quartile_h3.csv`
@@ -161,7 +161,7 @@ feeds straight into recall. Run at h6, the conservative policy reaches recall 0.
 62,042 meals; at h3 it reaches 0.403 and destroys 30,529. h3 is better on both axes at once.
 
 The scorer is therefore *not* hardcoded. `16_decision_layer.py` reads `calibration_h{H}.json` and
-takes whichever scorer has the lower expected calibration error at the horizon it is run at —
+takes whichever scorer has the lower expected calibration error at the horizon it is run at:
 the projection at h3 (ECE 0.0056 against 0.0222), gradient boosting at h6 (0.0092 against 0.0045).
 An earlier version hardcoded the projection and `run_all.py` then ran it at h6, which used the
 worse-calibrated scorer at that horizon. Both are fixed.
@@ -180,11 +180,11 @@ Four policies on the same 1,880 simulated lots from 52 real establishments, 3.25
 
 The status quo catches everything in this supply base. It does so by holding 38% of incoming lots,
 which is **13.4 reviews a week against a modelled capacity of 6**, and by destroying 108,499 meals
-of edible food — 91% of its discard comes from plants that never went on to elevated risk.
+of edible food, and 91% of that discard comes from plants that never went on to elevated risk.
 
 ### Three things follow
 
-**1. The argument for the tool is feasibility, not accuracy.** We are not claiming to out-predict
+**1. The argument for the tool is feasibility rather than accuracy.** We are not claiming to out-predict
 the FSIS category. On this supply base the category rule has perfect recall. The claim is that it
 cannot be run at the capacity a food bank actually has, and that what it costs to approximate it by
 holding everything is measured in meals.
@@ -192,7 +192,7 @@ holding everything is measured in meals.
 **2. Review capacity is not the binding constraint. Shelf life is.** Setting the threshold to fill
 the review queue to capacity *loses to* the simpler conservative threshold: +0.4 points of recall
 for 54% more food destroyed, because every extra hold consumes shelf life that some lots do not
-have. `16_decision_layer.py` reports this as a dominance relation rather than burying it —
+have. `16_decision_layer.py` reports this as a dominance relation rather than burying it:
 `capacity_matched` is dominated by `food_security_weighted`, which reaches identical recall while
 destroying 4,971 fewer meals. Using capacity because it is there is the wrong instinct.
 

@@ -1,4 +1,4 @@
-# Report scaffold — the ten questions, with their evidence
+# Report scaffold: the ten questions, with their evidence
 
 **The prose in the PDF is written by the team.** This file is not draft text. It is, for each
 question the brief requires, what the question asks, where the evidence is, and the one or two
@@ -20,11 +20,11 @@ not verbatim. Someone reads the original against it line by line first.
 **Evidence:** README "The decision this tool supports"; `requirements.md` §Decision statement;
 `fig6_one_health_system_map.png`.
 
-- Actor: a regional Arkansas food bank. Why: the brief's three secondary objectives — availability,
-  food security, avoidable loss — are its mission, not side constraints, and they collide daily with
+- Actor: a regional Arkansas food bank. Why: the brief's three secondary objectives (availability,
+  food security, avoidable loss) are its mission, not side constraints, and they collide daily with
   protecting health.
-- Decision: per lot, within its perishability window — distribute now / prioritize / hold for review
-  / divert to the cooked-meal channel.
+- Decision: per lot, within its perishability window. Distribute now, prioritize, hold for review,
+  or divert to the cooked-meal channel.
 - Horizon: 3 months. Two reasons, in `FINDINGS.md` Finding 4: the perishability window is short, and
   80% of lots have a usable score at h3 against 64% at h6, so h3 wins on recall and on food loss
   simultaneously.
@@ -49,7 +49,7 @@ not verbatim. Someone reads the original against it line by line first.
 
 - Added: NOAA GSOM climate (§9), FSIS recalls (§8), CDC/ATSDR SVI (§10), and the simulated
   inventory (§11, labelled).
-- Impact on the *risk model*: none distinguishable from noise at h6 — only sampling history, the
+- Impact on the *risk model*: none distinguishable from noise at h6. Only sampling history, the
   projection, and all-beyond-core-together move AUROC. **Say this plainly; it is the honest result
   and it is why 2.1 was reframed.**
 - Impact on the *decision*: this is where they matter. SVI drives the equity check and the
@@ -66,7 +66,7 @@ not verbatim. Someone reads the original against it line by line first.
   unit-months, 644 new failures, base rate 3.71%.
 - Scorers: binomial projection (transparent baseline) against logistic and gradient boosting.
 - Scorer choice is by measured calibration at the horizon, not AUROC: projection ECE 0.0056 vs GB
-  0.0213 at h3. (At h6 the order flips — 0.0092 vs 0.0049. Name the horizon on every claim.)
+  0.0213 at h3. (At h6 the order flips: 0.0092 vs 0.0049. Name the horizon on every claim.)
 
 ## Q5. Performance against the baseline
 
@@ -75,7 +75,7 @@ not verbatim. Someone reads the original against it line by line first.
 - Rule-based baseline (Category 2 flag), full panel, h3: recall 0.915, precision 0.145, flags 23.5%
   of units. At h6: recall 0.813, precision 0.219.
 - Projection vs GB, h6: AUROC 0.917 vs 0.925; ΔAUROC median +0.008 (95% CI 0.000–0.016); ΔAP +0.003
-  (−0.036 to 0.041) — **not distinguishable from zero**. Establishment-clustered bootstrap, 578
+  (−0.036 to 0.041), which is **not distinguishable from zero**. Establishment-clustered bootstrap, 578
   plants resampled whole.
 - Equal-size comparison: a projection list the size of the Category 2 list reaches recall 87.7% vs
   81.3% at the same precision.
@@ -103,10 +103,10 @@ the app.
 
 - Disparity check, withheld share most- minus least-vulnerable quartile: rule-based −0.28,
   conservative −1.96, capacity-matched −0.34, food-security-weighted −2.66 points.
-- Food-security weighting cuts loss by 4,971 meals at identical recall — but only because the
+- Food-security weighting cuts loss by 4,971 meals at identical recall, but only because the
   protected destinations are not fed by the riskiest plants here. Where they overlap, the trade is
   real. The tool shows the gap; it does not optimise it away (R6.5).
-- Divert means the cooked channel, not the bin — the actor-specific move that makes the conflict
+- Divert means the cooked channel, not the bin. It is the actor-specific move that makes the conflict
   resolvable at all. This belongs in this section.
 
 ## Q8. An end-to-end scenario
@@ -125,8 +125,8 @@ review makes the loss mechanism concrete.
 **Evidence:** task 5.1 (roles) and 5.2 (a decision changed by another discipline), which are open.
 
 Two institutions, three disciplines. **5.2 has to be recorded as it happened, not reconstructed.**
-If a decision was changed by someone else's discipline — the actor choice, the cooked-channel
-framing, the serotype-only join, the h3 pin — write down who raised it and what changed. If nobody
+If a decision was changed by someone else's discipline (the actor choice, the cooked-channel
+framing, the serotype-only join, the h3 pin), write down who raised it and what changed. If nobody
 wrote it down yet, do that today.
 
 ## Q10. What the tool can and can never claim, and what deployment would require
@@ -146,7 +146,7 @@ confirmation does something; and FSIS data fresher than the quarterly posting la
 
 ---
 
-## Limitations (task 5.5) — the list, for the team to write up
+## Limitations (task 5.5): the list, for the team to write up
 
 All documented already; this is where each lives.
 
@@ -165,7 +165,7 @@ All documented already; this is where each lives.
     enumeration absent after 2026-04-28 and for turkey carcasses; the publication lag.
 11. The FSIS CDN now refuses automated download; reproduction is manual + hash check.
 
-## Next dataset or partner (task 5.3) — candidates, team decides
+## Next dataset or partner (task 5.3): candidates, team decides
 
 - **USDA Food Access Research Atlas**: the half of R6.1 that did not land. Lowest effort, highest
   relevance to the equity objective.
@@ -176,7 +176,8 @@ All documented already; this is where each lives.
 
 ## AI assistance disclosure (for the PDF)
 
-Kiro: specs, steering, hooks, `17_build_app_data.py` and its guardrails. Claude: the analysis
-pipeline (from 2026-10-09), scripts 09–19, and — disclosed in `app/README.md` — the React UI and
-its tests on 2026-10-28, from the Kiro spec, because the Kiro track for the app had not started with
-four days left. The report prose is the team's.
+Kiro did not generate code in this repository; the `.kiro/` artifacts are in its format and were
+loaded in it. Claude (Anthropic): the analysis pipeline from 2026-10-09, scripts 09 to 19, the
+specs, steering and hooks, `17_build_app_data.py`, and the React UI and its tests. The
+manual-change log in `tasks.md` has every file with a date and reason. The report prose is the
+team's, except where the header of `REPORT.md` says otherwise.

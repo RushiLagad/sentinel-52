@@ -36,7 +36,7 @@ The gaps are not equal. Ranked by marks at risk against effort:
   _(T1, brief-required)_
 - [x] **1.2** **Done.** `12_fetch_fsis_recalls.py` against `fsis.usda.gov/fsis/api/recall/v/1`, no key
   needed. Emits all recalls and a poultry-or-Salmonella subset, with risk level, class, reason,
-  outbreak flag and states. **Run it to populate `data/fsis_recalls/`** — the container this was
+  outbreak flag and states. **Run it to populate `data/fsis_recalls/`.** The container this was
   written in cannot reach fsis.usda.gov, so the cache is not committed yet.
   Known limitation, documented in PROVENANCE: `field_establishment` is a company name, not an
   establishment number. Numbers come from USDA marks in the product text and are recoverable for only
@@ -61,7 +61,7 @@ The gaps are not equal. Ranked by marks at risk against effort:
   `salmonella_ampicillin_mic` rather than reading as undocumented; it distinguishes three
   provenances rather than two, since the MPI directory, the demographic file, the category workbooks
   and the cecal files carry **no FSIS dictionary of their own**, so those columns are FSIS's but the
-  wording is ours and is labelled as such; and it **refuses to invent a description** — an unknown
+  wording is ours and is labelled as such; and it **refuses to invent a description**: an unknown
   column is written out as UNDOCUMENTED and `--check` exits non-zero while any remain, which is what
   hook H2 relies on. Wired into `run_all.py`, so it cannot drift from the tables it documents. _(deliverable 4)_
 - [x] **1.7** **Done.** `18_figure_system_map.py` draws it as `fig6_one_health_system_map.png`, in the
@@ -85,7 +85,7 @@ The gaps are not equal. Ranked by marks at risk against effort:
   - **h6**: gradient boosting wins. ECE 0.0049 against the projection's 0.0092; GB's top decile
     predicts 0.4342 against 0.4227 observed, which is close to exact.
   - **h3**: the projection wins, and not narrowly. ECE 0.0056 against GB's 0.0213, and GB
-    over-predicts its top decile badly — 0.4369 predicted against 0.3032 observed, a 44% overshoot.
+    over-predicts its top decile badly: 0.4369 predicted against 0.3032 observed, a 44% overshoot.
   - **h12**: neither is good. Both near ECE 0.019, both over-predicting the top decile.
 
   The projection also emits exactly zero for 74 test rows at h6, of which 2 failed. This horizon
@@ -93,11 +93,11 @@ The gaps are not equal. Ranked by marks at risk against effort:
 - [x] **2.3** **Ablation done** for the sources we currently hold: `05d_ablation.py`, leave-one-group-out
   over ten source groups, ΔAUROC and ΔAP with establishment-clustered bootstrap intervals, at horizons
   3, 6 and 12. Groups whose effect is within noise are kept in the table and labelled. **Extend `GROUPS`
-  in that script when climate, recalls, SVI and food access land in Phase 1** — the table grows without
+  in that script when climate, recalls, SVI and food access land in Phase 1.** The table grows without
   any other change. _(T2 marginal value, T5 ablation, R8.4)_
 - [x] **2.4** **Done, and the reason is calibration rather than preference for transparency.** The
   projection is the default scorer in `16_decision_layer.py`. A hold-or-divert decision acts on an
-  absolute probability, not on a ranking, so calibration matters more than the AUROC gap — and at the
+  absolute probability, not on a ranking, so calibration matters more than the AUROC gap, and at the
   3-month horizon the decision layer runs on, the projection is the better calibrated scorer by a
   factor of four (2.2). The gap to the integrated model is reported with establishment-clustered
   bootstrap intervals in `early_warning_summary_h*.json`: at h6, d_auroc_gb median +0.008
@@ -118,7 +118,7 @@ The gaps are not equal. Ranked by marks at risk against effort:
   capacity-matched that uses 28% of capacity is mislabelled. Having fixed that, it turns out to be
   **dominated**: filling the review queue buys +0.4 points of recall for 54% more food destroyed,
   since each extra hold consumes shelf life some lots do not have. The script reports dominance
-  relations rather than picking a winner — and dominance is **not horizon-robust**: at h3
+  relations rather than picking a winner, and dominance is **not horizon-robust**: at h3
   `capacity_matched` loses to `food_security_weighted`, at h6 it wins. That is a property of the
   run, so the report must name the horizon with any such claim. _(T3 three-scenario minimum, R3.3)_
 - [x] **3.3** Compare every scenario against the rule-based policy (hold anything Category 2 or 3).
@@ -128,8 +128,8 @@ The gaps are not equal. Ranked by marks at risk against effort:
 - [x] **3.5** **Done.** Loss arises from two mechanical causes, both derived from the simulated shelf
   life, with no spoilage rate assumed: a review hold that leaves too little shelf life to distribute,
   and diverted pounds beyond the cooked channel's capacity. Both error types are reported in meals at
-  1.2 lb/meal. "Missed risk" was renamed **exposure** — pounds distributed uncooked from plants whose
-  sampling later deteriorated — because the original name implied an illness count that the FSIS
+  1.2 lb/meal. "Missed risk" was renamed **exposure** (pounds distributed uncooked from plants whose
+  sampling later deteriorated) because the original name implied an illness count that the FSIS
   licence forbids us to claim. _(challenge question, R7)_
 - [x] **3.6** Mark hold and divert high-consequence, with the evidence that would reverse them.
   _(T3 human review, R4.4)_
@@ -165,7 +165,7 @@ The gaps are not equal. Ranked by marks at risk against effort:
 - [x] **4.10** `SyntheticBadge` on every pounds-denominated figure _(design: honest inventory)_
   **Done.** `SyntheticBadge` beside every pounds or meals figure; which payloads are simulated is read from `meta.json`, not hardcoded, and the render test fails if a card with lb or meals lacks the badge.
 - [x] **4.11** Palette through the dataviz validator, light and dark _(R10)_
-  **Done.** Blue, orange, violet, green — all six validator checks pass in light and dark. Orange and green deliberately non-adjacent. Gray never a series.
+  **Done.** Blue, orange, violet, green; all six validator checks pass in light and dark. Orange and green deliberately non-adjacent. Gray never a series.
 - [x] **4.12** Guardrail tests: no establishment-illness join, no "safe"/"unsafe" verdict, synthetic
   flags present, confirmation unskippable _(design: testing)_
   **Done.** 17 vitest tests: G1–G4 against the shipped JSON, the data contract, and the rendered UI (no verdict words outside the restriction, badge coverage, the dialog executes nothing).
@@ -203,7 +203,7 @@ Graded artifacts under deliverable 2.
 - [x] **H4** **Done.** `.kiro/hooks/h4-decision-layer-guardrails.json`. Kiro has no git-commit
   trigger, so it fires on edit instead, which is strictly earlier and therefore safer. All four
   matchers were tested against eleven real paths to confirm each fires on what it should and on
-  nothing else. **Open Kiro's hooks panel and confirm all four load before relying on them** — a
+  nothing else. **Open Kiro's hooks panel and confirm all four load before relying on them.** A
   hook that fails to load fails silently, which is the class of problem these exist to prevent.
 
 ---
@@ -215,31 +215,37 @@ through `10`, `data/PROVENANCE.md`, `data/DATA_DICTIONARY.md`, `docs/CHALLENGE_B
 superseded `.kiro/specs/watchlist-app/` spec, and this spec.
 
 Everything from Phase 1 onward is intended to be built through Kiro from this spec. Entries below as
-`**(manual)** <file> — <what and why>`.
+`**(manual)** <file>: <what and why>`.
 
-- **(manual)** `analysis/scripts/05c_calibration.py` — reliability tables and figure. Written by hand
+- **(manual)** `analysis/scripts/05c_calibration.py`: reliability tables and figure. Written by hand
   on 2026-10-26, before Kiro was set up on this machine.
-- **(manual)** `analysis/scripts/05d_ablation.py` — leave-one-group-out ablation. Same reason.
-- **(manual)** `analysis/scripts/11_fetch_noaa.py` — NOAA climate layer. Written by hand. The first
+- **(manual)** `analysis/scripts/05d_ablation.py`: leave-one-group-out ablation. Same reason.
+- **(manual)** `analysis/scripts/11_fetch_noaa.py`: NOAA climate layer. Written by hand. The first
   version used the daily-summaries endpoint and silently truncated at exactly 60,000 records per
   state, which was caught only from repeated round numbers in the output; it was rewritten to a
   bounded, deterministically chosen station panel on GSOM monthly data.
-- **(manual)** `analysis/scripts/13_fetch_vulnerability.py` — CDC/ATSDR SVI and Census ACS. Written
+- **(manual)** `analysis/scripts/13_fetch_vulnerability.py`: CDC/ATSDR SVI and Census ACS. Written
   by hand because both endpoints had to be probed live: the SVI CSV layout and the Census API's
   habit of returning an HTML error page rather than JSON for a bad key.
-- **(manual)** `analysis/scripts/14_build_synthetic_inventory.py` — seeded synthetic lot generator.
+- **(manual)** `analysis/scripts/14_build_synthetic_inventory.py`: seeded synthetic lot generator.
   Written by hand.
-- **(manual)** `analysis/scripts/17_build_app_data.py` and `.kiro/hooks/*.json` — the app data
+- **(manual)** `analysis/scripts/17_build_app_data.py` and `.kiro/hooks/*.json`: the app data
   contract, the five guardrails and the four hooks. Written by hand on 2026-10-27, by an explicit
   team decision to hand-build Phase 4 rather than drive it through Kiro, given the time remaining.
   Recorded here because the alternative was to leave the reader to infer it.
-- **(manual)** `analysis/scripts/16_decision_layer.py` — the decision layer. Written by hand over
+- **(manual)** `analysis/scripts/16_decision_layer.py`: the decision layer. Written by hand over
   several rounds of correction, each prompted by reading the output rather than the code: the first
   version gave holding no cost at all, which made a conservative policy look free; the second
   hardcoded a capacity-matched threshold that used 28% of capacity; the third hardcoded the scorer
   and was then run by `run_all.py` at the one horizon where that scorer is the worse calibrated.
-- **(manual)** `analysis/run_all.py` — repeatedly, as scripts were added.
-- **(manual)** `analysis/scripts/12_fetch_fsis_recalls.py` — FSIS recall fetcher. Written by hand
+- **(manual)** `analysis/run_all.py`: repeatedly, as scripts were added.
+- **(manual)** `app/src/`, `app/tests/`, `app/package.json`: the React application and its 17
+  tests. Written with Claude on 2026-10-28 from this spec, because the Kiro track for 4.2 to 4.12
+  had not started with four days left. Disclosed in `app/README.md` and the root README.
+- **(manual)** `analysis/scripts/18_figure_system_map.py`, `19_build_data_dictionary.py`,
+  `docs/HANDOFF.md`, `report/OUTLINE.md`, `report/REPORT.md` (Q1, Q4, Q5, Q10): written with
+  Claude on 2026-10-27 and 2026-10-28.
+- **(manual)** `analysis/scripts/12_fetch_fsis_recalls.py`: FSIS recall fetcher. Written by hand
   because the endpoint, field schema and establishment-mark format had to be probed against the live
   API first, and the mark-extraction regex was validated against observed strings before the script
   was written. The regex self-test cases in that session are reproduced as assertions in the

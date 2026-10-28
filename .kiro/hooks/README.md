@@ -19,7 +19,7 @@ test suite would catch on its own.
 Kiro's documented hook schema is `{"version": "v1", "hooks": [{name, trigger, matcher, action}]}`
 in `.kiro/hooks/*.json`. These use the `PostFileSave` trigger from Kiro's own documented example.
 Kiro's hook-types page also lists the same event as **File Save**, so if a future version does not
-recognise `PostFileSave`, change the `trigger` field in all four files to `FileSave` — nothing else
+recognise `PostFileSave`, change the `trigger` field in all four files to `FileSave`; nothing else
 needs to change.
 
 Open Kiro's hooks panel and confirm all four appear and are enabled before relying on them. A hook

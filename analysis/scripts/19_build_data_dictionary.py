@@ -331,7 +331,7 @@ def describe(col: str, fsis: dict[str, str], prefix: str = "") -> tuple[str, boo
         if len(t) > MAXLEN:
             t = t[:MAXLEN].rsplit(" ", 1)[0] + " … *(full text in `data_dictionary_primary.csv` / `data_dictionary_secondary.csv`)*"
         return f"{t} *(FSIS)*", True
-    return "**UNDOCUMENTED — a human must describe this column; this script will not invent one**", False
+    return "**UNDOCUMENTED: a human must describe this column; this script will not invent one**", False
 
 
 def main() -> int:
@@ -352,8 +352,8 @@ def main() -> int:
         "",
         "Descriptions marked *(FSIS)* are taken verbatim from the dictionary FSIS ships inside the raw "
         "sampling files. Those marked *(FSIS column, described by this project)* are FSIS's columns "
-        "from source files that carry no dictionary of their own — the MPI directory, the demographic "
-        "file, the category workbooks and the NARMS cecal files — so the column is FSIS's and the "
+        "from source files that carry no dictionary of their own (the MPI directory, the demographic "
+        "file, the category workbooks and the NARMS cecal files), so the column is FSIS's and the "
         "wording is ours. Those marked *(derived)* are created by this project. "
         "A column this file cannot describe is written out as UNDOCUMENTED rather than given a "
         "plausible gloss; `--check` fails while any remain.",

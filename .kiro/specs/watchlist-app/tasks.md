@@ -101,7 +101,7 @@ Submission item 2 lists hooks as a graded artifact, so these belong in `.kiro/ho
 
 ## Manual-change log
 
-Nothing yet. Entries go here as `**(manual)** <file> — <what and why>`.
+Nothing yet. Entries go here as `**(manual)** <file>: <what and why>`.
 
 Already written by hand before Kiro came into the project, and disclosed for completeness: the whole
 of `analysis/scripts/01` through `10`, `data/PROVENANCE.md`, `data/DATA_DICTIONARY.md`, and this spec.
