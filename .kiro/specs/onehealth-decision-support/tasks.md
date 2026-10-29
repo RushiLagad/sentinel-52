@@ -178,9 +178,20 @@ The gaps are not equal. Ranked by marks at risk against effort:
 The report is the team's own writing. Kiro and Claude generate code, figures and tables; the narrative
 is ours.
 
-- [ ] **5.1** Document roles across the three of us. _(T5)_
-- [ ] **5.2** Record a **decision changed by another discipline** as it happens, not retrofitted.
+- [x] **5.1** Document roles across the three of us. _(T5)_
+  **Done, recorded 2026-10-29.** Rushikesh Lagad (UARK): planning and implementation, including the FSIS
+  pipeline, model and validation, decision layer, application, data and provenance. Sambhavi Patel
+  (UARK): the actor choice and the cooked-channel meaning of divert. Naisargi Modha (Northeastern): the
+  serotype-only join constraint and the three-month horizon. Written up in Q9 of `report/REPORT.md`.
+- [x] **5.2** Record a **decision changed by another discipline** as it happens, not retrofitted.
   Capture it in the moment or it will be invented later, which would be dishonest. _(T5)_
+  **Done, recorded 2026-10-29 from the team's own account.** Four decisions changed by someone other
+  than the implementer: (1) the food bank as actor, proposed by Sambhavi against an earlier regulator
+  framing; (2) divert as the cooked-meal channel rather than discard, Sambhavi; (3) no establishment-level
+  join to illness data, Naisargi, now guardrail G1; (4) the three-month horizon matched to the
+  perishability window, Naisargi, later confirmed by the 80% against 64% coverage figures. Full account in
+  Q9 of `report/REPORT.md`. Honest caveat: these were written down on 2026-10-29, not on the day each
+  happened; the date each was acted on is visible in the commit history.
 - [ ] **5.3** Name the next dataset or partner we would add. _(T5)_
 - [ ] **5.4** Answer the ten report questions in `docs/CHALLENGE_BRIEF.md`. _(deliverable 5)_
 - [ ] **5.5** Limitations section: synthetic inventory, NORS outbreak-only bias, no establishment-level
