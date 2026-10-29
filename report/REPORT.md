@@ -3,7 +3,7 @@
 **NAFSI Hub Student Data Challenge, Fall 2026, SENS-D track.**
 Rushikesh Lagad (University of Arkansas), Sambhavi Patel (University of Arkansas), Naisargi Modha (Northeastern University).
 
-> **DRAFT STATUS. Sections Q1, Q4, Q5 and Q10 below were drafted by Claude (Anthropic) on 2026-10-28
+> **DRAFT STATUS. Sections Q1, Q4, Q5, Q8 and Q10 below were drafted by Claude (Anthropic) on 2026-10-28
 > from `report/OUTLINE.md`, `report/FINDINGS.md` and the analysis outputs, at the team's request, so
 > that writing would start from complete, cited paragraphs rather than from notes. The team's own
 > policy (`docs/SUBMISSION_CHECKLIST.md`) is that the report is the team's writing. Two ways to honour
@@ -80,7 +80,16 @@ Everything above is a prototype in the organizers' sense: not a regulatory deter
 *To be written.*
 
 ## Q8. An end-to-end scenario
-*To be written: walk one real lot through the receiving desk.*
+
+Three lots from the receiving desk, taken as they appear in `analysis/outputs/t23_lot_actions_h3.csv` under the conservative scenario. The plants, their sampling histories, categories and scores are real. The lots themselves, their weights, dates and destination counties, are simulated, and carry that mark in the application.
+
+**The lot the tool was built for.** On 5 March 2026 a pallet of comminuted turkey arrives, 4,608 pounds, bound for Pulaski County. The mark of inspection gives establishment 8371, Prestage Foods. The desk shows the call in large type: send it to the cooked-meal channel. The reason is one sentence: the plant's projection is at or above the divert threshold. Behind it, the evidence. FSIS currently rates the plant Category 2. In the last 52 weeks, 8 of 60 routine samples were positive. The projection puts the probability of the plant entering Category 3 within three months at 0.79, and the score is five days old. Of plants scored at that level historically, about 30 percent did go on to Category 3. The lot has 124 days of shelf life, so there is no time pressure pushing the call either way. The desk states what the call costs: 4,608 pounds leave direct distribution to Pulaski County and go to a partner that cooks. It states the other choice: distribute now, which keeps the pounds in the pantry network and accepts the signal above. And it states what would reverse the call: the projection falling below 0.30, FSIS posting a Category 1 rating, or a clean 52-week window at the plant. Because divert is high-consequence, a dialog blocks until a person has read all of that and acknowledges it. Acknowledging changes nothing in the world. It records that a person read the call, and the next lot needing a decision comes up.
+
+**The lot that shows what a hold costs.** On 3 February 2026 a pallet of chicken parts arrives from Case Farms, establishment 750, 2,621 pounds for Faulkner County. The plant is also Category 2, with 6 of 52 samples positive, but the projection is 0.08, far below the divert line and just above the conservative scenario's hold line of 0.05. The call is hold for review. The lot has nine days of shelf life. Review takes seven days, and getting a released lot through the pantry network takes three. Nine is less than ten. Under this policy the hold destroys the food, and the desk says so in the record: lost, shelf life exhausted by the review hold. Nobody discarded anything on purpose. This is the mechanism by which a conservative policy, which looks free when you count only what it catches, destroys 30,529 meals on this supply base, and it is why the frontier in Q6 is not convex. A weak signal on a fresh lot is a decision between distributing it and losing it; holding it is not actually available.
+
+**The same plant, eight months earlier.** On 12 July 2025 a smaller pallet of comminuted turkey arrived from the same Prestage plant, 1,454 pounds for Yell County. The most recent score for that plant and product was 350 days old, far past the 120-day staleness limit, so the desk treated the lot as unscored and distributed it with the gap named: no recent sampling for this plant and product. It did not treat an old score as a current one, and it did not treat the absence of a score as low risk. It said what it did not know. By March 2026 the same plant had 8 positives in 60 and a projection of 0.79, and the tool caught it. Whether it would have caught it earlier with fresher sampling is exactly the question the limitations section is honest about.
+
+Those three lots are the project. A strong signal with time to act becomes a diversion that keeps the food in the system. A weak signal on a perishable lot is a choice the tool makes visible rather than a hold it pretends is free. And a missing score is reported as missing. Every number in them is in the application, and a reader can find each lot by its identifier on the receiving desk.
 
 ## Q9. The effect of team science on the work
 *To be written from tasks 5.1 and 5.2.*
