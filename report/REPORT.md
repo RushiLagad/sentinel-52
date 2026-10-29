@@ -3,7 +3,7 @@
 **NAFSI Hub Student Data Challenge, Fall 2026, SENS-D track.**
 Rushikesh Lagad (University of Arkansas), Sambhavi Patel (University of Arkansas), Naisargi Modha (Northeastern University).
 
-> **DRAFT STATUS. Sections Q1, Q4, Q5, Q8, Q9 and Q10 below were drafted by Claude (Anthropic) on 2026-10-28
+> **DRAFT STATUS. Sections Q1 to Q10 and the limitations below were drafted by Claude (Anthropic) on 2026-10-28
 > from `report/OUTLINE.md`, `report/FINDINGS.md` and the analysis outputs, at the team's request, so
 > that writing would start from complete, cited paragraphs rather than from notes. The team's own
 > policy (`docs/SUBMISSION_CHECKLIST.md`) is that the report is the team's writing. Two ways to honour
@@ -68,16 +68,60 @@ Everything above is a prototype in the organizers' sense: not a regulatory deter
 ---
 
 ## Q2. The role of each core dataset
-*To be written. Evidence and numbers in `report/OUTLINE.md`.*
+
+Five FSIS datasets and one CDC dataset carry the project. Each is documented in `data/PROVENANCE.md` with its source, access date, licence, coverage, the transformations we applied and the limitations we know about, and every column of every table we built from them is in `data/DATA_DICTIONARY.md`. Here is what each one does.
+
+**FSIS establishment-specific raw poultry sampling, FY2014 to FY2026.** The backbone. 325,123 laboratory samples with 37,685 Salmonella positives across 1,409 establishments that were ever sampled, each sample carrying the plant, the product class, the date, the result, and for positives the serotype, the whole-genome resistance calls and, from 2022, the enumeration. Every risk score, every 52-week count and every outcome label in the project comes from this file. Thirteen fiscal-year archives, 62 MB, verified against SHA-256 hashes in `data/MANIFEST.json` before anything is built.
+
+**FSIS Salmonella performance-standard categories.** The posted Category 1, 2, 3 and NA ratings. We use them twice. They are the status-quo signal a food bank would act on today, and so the rule-based baseline. And they are the validation target: before modelling anything we rebuilt the categories from the raw samples and checked the rebuild against three official postings, which agree on 99.75 percent of 2,764 rows with zero false Category 3s. A tool that could not reproduce FSIS's own rating would have no business forecasting it.
+
+**FSIS NARMS cecal sampling.** 72,151 cecal samples at slaughter with resistance detail. This is the animal-health context for the serotype story in Finding 1, and the reason we can say that the serotype FSIS finds most often is not the one that sends people to hospital.
+
+**The Meat, Poultry and Egg Product Inspection Directory and the establishment demographic file.** 8,188 establishments, active and inactive, with location, HACCP size, slaughter and processing flags, and the county FIPS code. This is the join from the number on a pallet's mark of inspection to a real plant, and from the plant to a county.
+
+**CDC NORS, from the public Socrata endpoint.** The human-illness layer. Outbreaks, illnesses, hospitalisations and deaths by IFSAC food category and serotype. The brief permits a public CDC human-illness dataset in place of PulseNet, and NORS is one. It enters the project at serotype and year only. We did not use the NORS file the organisers circulated, because it was restricted to the team and the public endpoint carries the same attribution field.
+
+The licence on the FSIS data forbids using it to identify outbreaks or associate samples with them. That shaped the design more than any single number: the illness layer never touches an establishment, and Q9 records whose objection made that a rule.
 
 ## Q3. The added datasets and their impact
-*To be written. Evidence and numbers in `report/OUTLINE.md`. Carries the 2.1 paragraph: the additions do not move the risk model, so they were used where they do matter, in the decision layer.*
 
-## Q6. Which errors are costly
-*To be written.*
+We added four layers beyond the core, one for each remaining One Health domain and one to make a decision possible at all.
+
+**NOAA NCEI climate, GSOM monthly.** Mean temperature, maximum temperature and precipitation for the 49 states and territories that hold FSIS-sampled poultry plants, averaged over a fixed panel of eight best-covered stations per state so the series is reproducible. The first version of the fetch used daily summaries and silently truncated at exactly 60,000 records per state; we caught it from the repeated round numbers in the output and rewrote it. The environment column of the system map.
+
+**FSIS recalls and public health alerts.** Every poultry-or-Salmonella notice from the FSIS recall API, with the establishment mark recovered from the notice text where it is present. It is present for 206 of 563 notices, 36.6 percent, so a plant with no linked recall may simply be unresolvable. In the application, published recalls are pinned above anything the model produces, because a recall is a fact and a score is a forecast.
+
+**CDC/ATSDR Social Vulnerability Index 2022.** County-level percentile ranks for all 3,144 US counties. This is what turns a food-safety tool into a One Health one: it is how the decision layer weighs who bears the consequence of a missed signal or a withheld pallet. The USDA food-access layer that requirement R6.1 asks for alongside it did not land, because the Census API key was rejected on every attempt, and we say so rather than let the requirement look satisfied.
+
+**A simulated lot inventory.** A food bank's receiving log is not public data and we have none, so `14_build_synthetic_inventory.py` generates one from a seeded procedure: 1,880 lots over 52 weeks from 52 real plants, with weights, shelf lives and Arkansas destination counties drawn by stated rules. Every row carries `is_synthetic = True` and every figure derived from it carries a SIMULATED mark in the application. Without it there is no lot to decide about.
+
+**What they did to the risk model: nothing we can distinguish from noise.** This is the honest result and it changed the design. The leave-one-group-out ablation at six months, with establishment-clustered bootstrap intervals, finds only three groups that move AUROC beyond noise: the plant's own sampling history, the transparent projection, and all of the additions taken together. Serotype detail, the other pathogens FSIS tests, follow-up sampling, establishment profile, seasonality and product class are each within noise (`analysis/outputs/t19_ablation_h6.csv`). Month of year is already in that list and does not help, so our prior is that monthly climate would not either, and we did not spend the remaining time proving it.
+
+So the plan to fold climate, burden, recalls and vulnerability into the risk model as features was dropped, and the four layers went where they do change the answer: the decision layer. Recalls rank above forecasts in the alert queue. SVI drives the equity check and the food-security-weighted scenario. Illness burden weights which serotypes matter in the hazard view, at serotype level. The inventory is the thing being decided about. A longer feature table would have looked more impressive and said less; we tested whether the additions helped the model, they did not, and we used them where they help the decision.
+
+## Q6. Which errors are costly: false alarms against missed risk
+
+The two errors have to be in the same unit before they can be weighed against each other, so the decision layer reports both in meals at 1.2 pounds per meal. Avoidable loss is food destroyed from plants that did not go on to elevated risk: the cost of a false alarm, and a real loss. Exposure is food distributed uncooked from plants whose sampling later did deteriorate. Exposure is not a count of illnesses and must not be read as one; the FSIS data cannot attribute illness to a plant and we do not. It was called "missed risk" in an earlier version and renamed because that name implied a claim we cannot make.
+
+On this supply base the status quo is the extreme case. Holding anything from a Category 2 or 3 plant catches every case, recall 1.000, and does so by holding 38 percent of incoming lots, which is 13.4 reviews a week against a modelled capacity of 6, and by destroying 108,499 meals of edible food, 91 percent of it from plants that never deteriorated (`analysis/outputs/t20_scenarios_h3.csv`). The conservative threshold policy catches 40 percent of the same risk and destroys 30,529 meals. That is the trade, and neither end of it is free.
+
+Food is lost by two mechanisms, both mechanical and both derived from the simulated shelf life rather than from an assumed spoilage rate. A review hold consumes shelf life, and a lot that comes out of review with fewer days left than it takes to move through the pantry network is lost even though nobody discarded it. And diverted pounds beyond the cooked-meal channel's capacity are discarded. The first mechanism is what makes a conservative policy expensive, and Q8's second lot is an example of it.
+
+The frontier between the two errors is not convex (`analysis/outputs/t22_frontier_h3.csv`). As the hold threshold rises from 0.02 to 0.10, avoidable loss falls from 61,095 meals to 8,861 while exposure barely moves, from 210,851 to 213,046. Then loss rises again, to 12,566 meals at 0.14, because raising the divert threshold pushes lots back into holds, where shelf life kills them. By 0.30 loss is down to 2,775 meals and exposure is up to 240,323. There is no point on that curve that is simply best. Choosing between 60,000 meals destroyed and 30,000 more meals of exposure is a judgement about whose risk counts, and the application shows the curve rather than picking a point on it.
+
+One more result that surprised us. Setting the hold threshold to fill the review queue to capacity, which sounds like the sensible operational choice, loses to the simpler conservative threshold: 0.4 more points of recall for 54 percent more food destroyed, because every extra hold eats shelf life some lots do not have. Review capacity is not the binding constraint. Shelf life is.
 
 ## Q7. Where food safety and food security conflict
-*To be written.*
+
+Every withheld pallet has a destination, and the destinations are not equal. The decision layer joins each simulated lot's destination county to CDC/ATSDR SVI 2022 and reports, for every policy, how much food is withheld from the most vulnerable quartile of counties against the least, with the result stated whichever way it comes out (`analysis/outputs/t21_equity_by_svi_quartile_h3.csv`).
+
+Under the conservative policy the withheld share is 14.7 percent of pounds in the most vulnerable quartile against 16.7 percent in the least, a gap of minus 1.96 points: holds fall slightly harder on low-need counties, which on this simulated supply base is luck rather than design. Under the rule-based status quo the gap is minus 0.28 points, no material difference. Under the capacity-matched policy it is minus 0.34.
+
+The food-security-weighted scenario is the one that acts on the conflict directly. It requires a stronger signal before withholding from the most vulnerable quartile, raising the hold threshold there by the weight and the divert threshold by half of it. The gap moves to minus 2.66 points, and the scenario destroys 4,971 fewer meals than the capacity-matched policy at identical recall, so on this data it dominates. We want to be careful about why. It is close to free here because the counties being protected are not the ones supplied by the riskiest plants. Where those overlap, protecting supply to high-need counties means accepting more exposure in exactly the places least able to absorb it, and the trade becomes real. The tool is built to show that gap on the scenario screen, not to optimise it away, and requirement R6.5 forbids it from doing so silently. The human chooses.
+
+Two design choices made this conflict tractable rather than binary. Divert means the cooked-meal channel, so a withheld pallet is usually still food for someone; discard is the overflow, not the default. And the equity view reports the disparity in both directions, so a policy that happens to favour high-need counties is reported as plainly as one that harms them. Both choices came from outside the implementation, and Q9 says from whom.
+
+The limit is the one R6.1 points at: vulnerability here is county-level SVI alone, static and relative. The USDA food-access measure that would show where a withheld pallet has no substitute did not land. That is the first thing we would add.
 
 ## Q8. An end-to-end scenario
 
@@ -108,7 +152,22 @@ The pattern across all four is the same. The person closest to the data would ha
 These decisions are also logged, with dates, in the manual-change log and task 5.2 of `.kiro/specs/onehealth-decision-support/tasks.md`. We recorded them on 2026-10-29 from the team's own account rather than reconstructing them from the code afterwards.
 
 ## Limitations
-*To be written from the list in `report/OUTLINE.md`.*
+
+Each of these is documented at the place it arises; this collects them.
+
+1. **The inventory is simulated.** Lots, weights, shelf lives and destinations come from a seeded generator, not a food bank. Every pounds and meals figure rests on it. The ranking, the error rates and the direction of the equity effect do not depend on the simulation's scale; the absolute pounds depend on it entirely.
+2. **The decision layer's metrics describe a policy on 52 plants, not the model on 578.** The status quo's recall of 1.000 is a property of that narrow supply base. On the full panel at three months the Category 2 flag scores recall 0.915 and precision 0.145.
+3. **Thresholds are horizon-specific and the scenario ranking is not horizon-robust.** A hold threshold is an absolute probability and means something different against a three-month outcome than a six-month one. At three months the capacity-matched policy is dominated by the food-security-weighted one; at six months the dominance runs the other way. Every such claim names its horizon.
+4. **The three-month ablation verdicts are unstable between builds** and are not quoted. Six-month ablation and three-month decision-layer outputs reproduce to the digit on two machines.
+5. **No establishment-level illness link, by licence and by construction.** Burden enters at serotype and year. NORS is outbreak-only and under-attributes; a serotype's burden can rest on a single event, and the application flags any figure where more than 80 percent of hospitalisations come from one outbreak.
+6. **Food access is not in.** Vulnerability is county-level SVI 2022 alone: static, relative not absolute, and coarse for a service area that is part of a county. The Census key was rejected.
+7. **The aminoglycoside gene heuristic overcalls.** It agrees with FSIS whole-genome resistance calls on 99.8 to 99.9 percent for beta-lactam, tetracycline, sulfonamide and phenicol, but only 62.3 percent for aminoglycoside. Every published resistance figure uses the FSIS calls, not the heuristic.
+8. **Recall marks are recoverable for 36.6 percent of relevant notices.** A plant with no linked recall may be unresolvable rather than clear.
+9. **The category rebuild infers one rule FSIS does not document**, how a borderline count rounds. It matches 99.75 percent of posted rows, and the mismatches are listed per window in `analysis/outputs/category_mismatches_*.csv`.
+10. **The establishment directory is a 2026 snapshot applied to earlier years.** Plants that changed hands or size are described as they are now.
+11. **Enumeration is absent after 2026-04-28 and for turkey carcasses**, and the posting lag means the newest FSIS data is a quarter old. The median score a lot is matched to is 19 days old; a plant unsampled for 120 days is treated as unscored, not as low risk.
+12. **The FSIS CDN refuses automated download** as of 2026-10-27. Reproduction is manual download plus an identical SHA-256 check, documented in the README.
+13. **Predicting which plants fail is largely arithmetic.** The transparent projection carries the signal and the integrated model's advantage is not distinguishable from zero. We regard that as a finding, not a shortfall, but a reader expecting a modelling achievement should know it.
 
 ## Team science statement
 *To be written.*
