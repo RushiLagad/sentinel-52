@@ -31,7 +31,7 @@ export default function ReceivingDesk({ actions, risk, names }) {
   // The lot carries the plant's 52-week counts as of the score it was given; the
   // current-risk unit carries them as of the latest window. When the plant has
   // dropped out of the latest window the lot's own counts still stand.
-  const ratePct = unit ? fmtPct(unit.observed_rate_52w) : (lot.n52 ? fmtPct(lot.pos52 / lot.n52) : "—");
+  const ratePct = unit ? fmtPct(unit.observed_rate_52w) : (lot.n52 ? fmtPct(lot.pos52 / lot.n52) : "n/a");
   return (
     <section className="panel desk" id="desk">
       <div className="desk-head">
@@ -59,7 +59,7 @@ export default function ReceivingDesk({ actions, risk, names }) {
         <div className="decision-side">
           <div className="stat"><span className="v">{fmt3(lot.projection)}</span><span className="k">probability this plant enters Category 3 within 3 months{lot.score_age_days != null ? ` · score ${lot.score_age_days}d old` : ""}{lot.scored === false ? " · no recent sampling" : ""}</span></div>
           <div className="stat"><span className="v">Cat {lot.category ?? "NA"}</span><span className="k">FSIS category now</span></div>
-          <div className="stat"><span className="v">{lot.pos52 ?? "—"} / {lot.n52 ?? "—"}</span><span className="k">positives / samples, last 52 weeks ({ratePct})</span></div>
+          <div className="stat"><span className="v">{lot.pos52 ?? "n/a"} / {lot.n52 ?? "n/a"}</span><span className="k">positives / samples, last 52 weeks ({ratePct})</span></div>
           {unit?.calibration_band
             ? <div className="stat"><span className="v">{fmtPct(unit.calibration_band.observed)}</span><span className="k">of plants scored like this went on to Category 3 (n={unit.calibration_band.n})</span></div>
             : <div className="stat"><span className="v muted">not in the latest window</span><span className="k">this plant and product were not scored in the window ending {risk.meta.window_end}; the figures above are as of the lot's own score</span></div>}
@@ -70,7 +70,7 @@ export default function ReceivingDesk({ actions, risk, names }) {
         <div className="card">
           <b>The other choice</b>
           <p>{actionLabel[lot.alternative_action]}. {lot.high_consequence ? <>Keeps {fmtLbs(lot.pounds)} <SyntheticBadge /> in direct distribution to {lot.dest_county} and accepts the signal above.</> : <>Withholds {fmtLbs(lot.pounds)} <SyntheticBadge /> from {lot.dest_county} on a signal the policy judged too weak.</>}</p>
-          {lot.discarded && <p className="notice small">Under this policy the lot is lost — {lot.discard_reason}.</p>}
+          {lot.discarded && <p className="notice small">Under this policy the lot is lost: {lot.discard_reason}.</p>}
         </div>
         <div className="card">
           <b>What would change this call</b>
@@ -80,8 +80,8 @@ export default function ReceivingDesk({ actions, risk, names }) {
 
       <div className="desk-actions">
         {lot.high_consequence
-          ? <button className="danger" onClick={() => setConfirming(true)}>{acks.has(lot.lot_id) ? "Reviewed — open again" : "Review and acknowledge"}</button>
-          : <button className="primary" onClick={next}>Noted — next lot</button>}
+          ? <button className="danger" onClick={() => setConfirming(true)}>{acks.has(lot.lot_id) ? "Reviewed. Open again" : "Review and acknowledge"}</button>
+          : <button className="primary" onClick={next}>Noted, next lot</button>}
         <button className="ghost" onClick={() => setI(Math.max(0, i - 1))} disabled={i === 0}>Previous</button>
         <button className="ghost" onClick={() => setI(Math.min(lots.length - 1, i + 1))} disabled={i === lots.length - 1}>Next</button>
         <button className="ghost" onClick={next}>Next needing a decision</button>

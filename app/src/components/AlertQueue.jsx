@@ -17,9 +17,9 @@ export default function AlertQueue({ alerts, names }) {
                   <tr key={i}>
                     <td className="mono small">{a.date}</td>
                     <td>{a.kind === "recall" ? <span className="badge pin">RECALL</span> : <span className="badge cat">{a.kind}</span>} {a.url ? <a href={a.url} target="_blank" rel="noreferrer">{a.title}</a> : a.title}{a.risk_level ? <div className="small muted">{a.risk_level} · {a.reason}</div> : null}</td>
-                    <td className="mono small">{a.establishment_marks || (a.establishment_id != null ? `${names[a.establishment_id] || ""} #${a.establishment_id}` : "—")}</td>
-                    <td className="small">{a.states || a.product_class || "—"}</td>
-                    <td className="small muted">{a.why_pinned || a.why || "—"}</td>
+                    <td className="mono small">{a.establishment_marks || (a.establishment_id != null ? `${names[a.establishment_id] || ""} #${a.establishment_id}` : "n/a")}</td>
+                    <td className="small">{a.states || a.product_class || "n/a"}</td>
+                    <td className="small muted">{a.why_pinned || a.why || "n/a"}</td>
                   </tr>
                 ))}
               </tbody>

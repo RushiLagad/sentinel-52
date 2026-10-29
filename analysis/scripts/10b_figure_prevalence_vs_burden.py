@@ -7,8 +7,7 @@
 
 Both quantities are shown as a share of the four serotypes plotted, because the
 two underlying denominators are different things (serotyped isolates in FSIS
-sampling; outbreak-associated hospitalizations in NORS) and cannot share an axis
-honestly. Normalising to the plotted four makes the ORDERING comparable, which is
+sampling; outbreak-associated hospitalizations in NORS) and cannot share a raw axis. Normalising to the plotted four makes the ORDERING comparable, which is
 the claim. It does not make the levels comparable, and the figure says so.
 
 Usage:

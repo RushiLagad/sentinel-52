@@ -50,8 +50,8 @@ not verbatim. Someone reads the original against it line by line first.
 - Added: NOAA GSOM climate (§9), FSIS recalls (§8), CDC/ATSDR SVI (§10), and the simulated
   inventory (§11, labelled).
 - Impact on the *risk model*: none distinguishable from noise at h6. Only sampling history, the
-  projection, and all-beyond-core-together move AUROC. **Say this plainly; it is the honest result
-  and it is why 2.1 was reframed.**
+  projection, and all-beyond-core-together move AUROC. **Say this directly; it is the result,
+  and it is the reason 2.1 was reframed.**
 - Impact on the *decision*: this is where they matter. SVI drives the equity check and the
   food-security scenario; recalls are pinned above forecasts in the alert queue; the inventory is
   what makes a decision exist at all.
@@ -106,7 +106,7 @@ the app.
 - Food-security weighting cuts loss by 4,971 meals at identical recall, but only because the
   protected destinations are not fed by the riskiest plants here. Where they overlap, the trade is
   real. The tool shows the gap; it does not optimise it away (R6.5).
-- Divert means the cooked channel, not the bin. It is the actor-specific move that makes the conflict
+- Divert means the cooked channel, not the bin. It is the move specific to this actor that makes the conflict
   resolvable at all. This belongs in this section.
 
 ## Q8. An end-to-end scenario
@@ -153,7 +153,7 @@ All documented already; this is where each lives.
 1. Inventory is simulated (§11). Every pounds and meals figure rests on it.
 2. NORS is outbreak-only and under-attributes; burden figures can rest on a single event
    (`pct_hosp_from_largest_row`, flagged above 80%).
-3. No establishment-level illness link, by licence and by construction.
+3. No establishment-level illness link, by licence and by design of the code.
 4. Food access not in; SVI alone, county-level, static, relative (§10).
 5. The h3 ablation verdicts are unstable between builds; only h6 is quoted.
 6. Thresholds are horizon-specific; dominance flips between h3 and h6.

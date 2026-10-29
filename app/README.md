@@ -55,8 +55,8 @@ Enforced twice: in Python when the data is built, and in `tests/` against the fi
 - **G3** Every pounds- or meals-denominated payload carries `synthetic: true` and is declared in
   `meta.json`.
 - **G4** Every high-consequence recommendation carries reversal evidence, requires human
-  confirmation, and offers the opposite action. Hold and divert are exactly the high-consequence
-  set.
+  confirmation, and offers the opposite action. Hold and divert are the high-consequence set, with nothing
+  else in it.
 
 Nothing in the app executes an action. Confirming in the dialog records that a person has read the
 recommendation and does nothing else.

@@ -51,7 +51,7 @@ export default function CurrentRiskView({ risk, names, onPick, picked }) {
                   <td className="num">{fmtPct(u.observed_rate_52w)}</td>
                   <td className="num muted">{fmtPct(u.rate_interval_95?.lo)}–{fmtPct(u.rate_interval_95?.hi)}</td>
                   <td className="num muted">{u.samples_52w} / {u.positives_52w}</td>
-                  <td className="small">{u.calibration_band ? <>of units scored like this, <b>{fmtPct(u.calibration_band.observed)}</b> went on to elevated risk (predicted {fmtPct(u.calibration_band.mean_predicted)}, n={u.calibration_band.n})</> : "—"}</td>
+                  <td className="small">{u.calibration_band ? <>of units scored like this, <b>{fmtPct(u.calibration_band.observed)}</b> went on to elevated risk (predicted {fmtPct(u.calibration_band.mean_predicted)}, n={u.calibration_band.n})</> : "n/a"}</td>
                 </tr>
               );
             })}

@@ -4,7 +4,7 @@
 
 Sentinel-52 is the decision-support web application required by item 3 of the SENS-D submission.
 
-It supports one decision, stated plainly: **given a limited number of establishment-months you can
+It supports one decision: **given a limited number of establishment-months you can
 inspect, which ones should they be?** FSIS and processors cannot sample everywhere. The posted
 Salmonella categories tell you who is failing *now*. This application tells you who is on track to
 fail *next*, and what you give up by watching a shorter list.
@@ -190,7 +190,7 @@ This requirement exists because the two rankings disagree. In FSIS chicken sampl
 16.6 percent of serotyped isolates and carries zero outbreak-associated hospitalizations in NORS over
 2014 to 2023. Infantis is 36.1 percent and carries 31. Enteritidis is 22.8 percent and carries 184.
 Prevalence in the supply is not a proxy for harm, so a tool that ranks on positivity alone
-misallocates attention by construction.
+will misallocate attention no matter how well it is built.
 
 ### Acceptance criteria
 

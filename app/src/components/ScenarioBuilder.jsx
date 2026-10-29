@@ -35,7 +35,7 @@ export default function ScenarioBuilder({ scenarios, equity, selected, onSelect 
       <Frontier points={pts} selectedIndex={fi} onSelect={setFi} />
       <p className="small muted">The curve is not convex: loss falls and then rises as the threshold climbs, because raising the divert threshold pushes lots back into holds, where shelf life kills them. There is no clean optimum, and which point to stand on is a judgement about whose risk counts.</p>
 
-      <h3>Named scenarios — review capacity and the food-security weight live here</h3>
+      <h3>Named scenarios. Review capacity and the food-security weight live here</h3>
       <div className="grid two">
         {scenarios.scenarios.map((s) => {
           const e = q4(s.scenario);
@@ -53,7 +53,7 @@ export default function ScenarioBuilder({ scenarios, equity, selected, onSelect 
                 <dt>distributed</dt><dd>{fmtLbs(s.pounds_distributed)} <SyntheticBadge /></dd>
                 <dt>destroyed, from plants that did not deteriorate</dt><dd><b>{fmtInt(s.avoidable_loss_meals)}</b> meals <SyntheticBadge /></dd>
                 <dt>uncooked, from plants that did</dt><dd>{fmtInt(s.exposure_meals)} meals <SyntheticBadge /></dd>
-                <dt>share reaching most-vulnerable quartile</dt><dd>{e ? `${e.share_of_all_distribution_pct}%` : "—"} <SyntheticBadge /></dd>
+                <dt>share reaching most-vulnerable quartile</dt><dd>{e ? `${e.share_of_all_distribution_pct}%` : "n/a"} <SyntheticBadge /></dd>
               </dl>
             </div>
           );

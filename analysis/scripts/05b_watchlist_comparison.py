@@ -5,7 +5,7 @@
 # -----------------------------------------------------------------------------
 """Fair comparison of watch lists, and how much warning each one gives.
 
-FSIS's own Category 2 is already a warning list. The honest question is whether
+FSIS's own Category 2 is already a warning list. The fair question is whether
 a projection does better AT THE SAME LIST SIZE, and what a shorter list costs.
 
 Reads the monthly panel written by 05_early_warning_baseline.py.

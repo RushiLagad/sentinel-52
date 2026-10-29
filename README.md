@@ -95,7 +95,7 @@ both resolve `data/` relative to the repository, so they work from any directory
 exits non-zero if any file is missing, and refuses to report success at all if it cannot find the
 manifest.
 
-FSIS landing pages, if you would rather navigate than use the URL list:
+FSIS landing pages, if you would rather browse than use the URL list:
 
 | Files | Page |
 |---|---|

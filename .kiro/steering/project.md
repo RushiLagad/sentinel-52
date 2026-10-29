@@ -51,8 +51,8 @@ The supporting evidence, all recomputed from the public FSIS files in this repo:
 
 ## How to be useful here
 
-- **Do not inflate results.** This team would rather report a small effect honestly than a large one
-  loosely. Always give the uncertainty next to the point estimate, and say plainly when a difference
+- **Do not inflate results.** This team would rather report a small effect with its interval than a large one
+  loosely. Always give the uncertainty next to the point estimate, and say outright when a difference
   is within noise. If a model barely beats a baseline, say so and keep the baseline.
 - **Prefer the transparent method.** A plant manager or an FSIS district has to act on this. Arithmetic
   anyone can audit beats a model nobody can question, unless the model is clearly better and the
@@ -120,7 +120,7 @@ percent of chicken-attributed hospitalizations. For turkey they are not: the fra
 capture 6.8 percent, and the highest-burden turkey serotype, Reading, is on neither the framework
 list nor the FY2022-26 indicator.
 
-State that asymmetry honestly in both directions. The chicken finding supports FSIS's choices and
+State that asymmetry in both directions. The chicken finding supports FSIS's choices and
 should be reported as such; a critique that only reports the turkey half would be selective.
 
 Reading's 135 hospitalizations are 98.5 percent from one 2017 multistate raw-turkey outbreak.
@@ -230,4 +230,4 @@ from zero). Report it. A source that hurts is a result.
 
 Implication for Phase 1: month-of-year is already within noise, so NOAA climate may add little to this
 particular outcome. It is still required by the brief and still goes in. Report its marginal value
-honestly rather than implying it helped.
+as measured rather than implying it helped.

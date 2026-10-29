@@ -262,7 +262,7 @@ regardless of its health consequence.
 Serotypes whose burden comes more than 80 percent from a single outbreak are labelled as such on
 every screen that uses them. Reading is at 98.5 percent, Typhimurium at 100 percent, Infantis at 80.6
 percent. Enteritidis, at 27.0 percent across 62 outbreaks, is the only poultry serotype whose burden
-figure rests on a broad base, and that is worth saying plainly rather than burying.
+figure rests on a broad base, and that needs saying up front rather than burying.
 
 ### The constraint that shapes every join
 

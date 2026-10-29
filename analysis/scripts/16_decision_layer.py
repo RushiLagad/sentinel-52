@@ -146,7 +146,7 @@ def reversal_evidence(row: pd.Series, scorer: str) -> str:
 def attach_scores(lots: pd.DataFrame, scores: pd.DataFrame, max_age_days: int) -> pd.DataFrame:
     """As-of backward join: a lot can only know what was published before it arrived.
 
-    This is the honest join and it is not the convenient one. Using the score
+    This is the correct join and it is not the convenient one. Using the score
     from the window that *contains* the receipt date would leak information the
     food bank could not have had, and would flatter every metric below.
     """
@@ -303,8 +303,8 @@ def score_policy(d: pd.DataFrame, name: str, cfg: dict) -> dict:
     #   deteriorate. This is NOT a count of illnesses and must never be reported
     #   as one. FSIS data cannot attribute illness to an establishment, and this
     #   project does not. It is the quantity of food that went out uncooked from
-    #   plants that a better-aimed policy would have caught, which is the honest
-    #   thing the number measures.
+    #   plants that a better-aimed policy would have caught, which is what
+    #   the number actually measures.
     avoidable_loss_lbs = float(d.loc[d["discarded"] & ~y, "pounds"].sum())
     exposure_lbs = float(d.loc[~acted & y, "pounds"].sum())
 

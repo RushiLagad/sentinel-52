@@ -21,13 +21,13 @@ export default function ConfirmHighConsequence({ lot, onClose, onAcknowledge }) 
         <dl className="kv">
           <dt>Driving signal</dt><dd>{lot.driver}</dd>
           <dt>What it costs</dt><dd>{fmtLbs(lot.pounds)} <SyntheticBadge /> destined for {lot.dest_county} ({lot.svi_quartile})</dd>
-          <dt>Would reverse it</dt><dd>{lot.reversal_evidence || "—"}</dd>
-          <dt>The opposite action</dt><dd>{actionLabel[lot.alternative_action]} — keeps {fmtLbs(lot.pounds)} <SyntheticBadge /> in direct distribution and accepts the signal above.</dd>
+          <dt>Would reverse it</dt><dd>{lot.reversal_evidence || "n/a"}</dd>
+          <dt>The opposite action</dt><dd>{actionLabel[lot.alternative_action]}: keeps {fmtLbs(lot.pounds)} <SyntheticBadge /> in direct distribution and accepts the signal above.</dd>
         </dl>
         <p className="notice">This confirms that a person has read the recommendation. It does not hold, divert, or move anything. No action in this tool is ever executed automatically.</p>
         <div className="actions">
           <button className="ghost" onClick={onClose}>Back</button>
-          <button className="danger" onClick={() => { onAcknowledge(lot.lot_id); onClose(); }}>I have read this — record my acknowledgement</button>
+          <button className="danger" onClick={() => { onAcknowledge(lot.lot_id); onClose(); }}>I have read this. Record my acknowledgement</button>
         </div>
       </div>
     </div>

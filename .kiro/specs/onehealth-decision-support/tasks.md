@@ -162,7 +162,7 @@ The gaps are not equal. Ranked by marks at risk against effort:
   **Done.** Quartile table for the selected scenario, disparity stated in both directions, and a visible notice rather than a footnote when it runs against high-need counties.
 - [x] **4.9** `ConfirmHighConsequence` blocking dialog _(R4.4)_
   **Done.** Blocking dialog on hold and divert. Confirming records an acknowledgement in the page and executes nothing, and the dialog says so.
-- [x] **4.10** `SyntheticBadge` on every pounds-denominated figure _(design: honest inventory)_
+- [x] **4.10** `SyntheticBadge` on every pounds-denominated figure _(design: synthetic inventory)_
   **Done.** `SyntheticBadge` beside every pounds or meals figure; which payloads are simulated is read from `meta.json`, not hardcoded, and the render test fails if a card with lb or meals lacks the badge.
 - [x] **4.11** Palette through the dataviz validator, light and dark _(R10)_
   **Done.** Blue, orange, violet, green; all six validator checks pass in light and dark. Orange and green deliberately non-adjacent. Gray never a series.
@@ -184,13 +184,13 @@ is ours.
   (UARK): the actor choice and the cooked-channel meaning of divert. Naisargi Modha (Northeastern): the
   serotype-only join constraint and the three-month horizon. Written up in Q9 of `report/REPORT.md`.
 - [x] **5.2** Record a **decision changed by another discipline** as it happens, not retrofitted.
-  Capture it in the moment or it will be invented later, which would be dishonest. _(T5)_
+  Capture it in the moment or it will get made up after the fact. _(T5)_
   **Done, recorded 2026-10-29 from the team's own account.** Four decisions changed by someone other
   than the implementer: (1) the food bank as actor, proposed by Sambhavi against an earlier regulator
   framing; (2) divert as the cooked-meal channel rather than discard, Sambhavi; (3) no establishment-level
   join to illness data, Naisargi, now guardrail G1; (4) the three-month horizon matched to the
   perishability window, Naisargi, later confirmed by the 80% against 64% coverage figures. Full account in
-  Q9 of `report/REPORT.md`. Honest caveat: these were written down on 2026-10-29, not on the day each
+  Q9 of `report/REPORT.md`. Caveat: these were written down on 2026-10-29, not on the day each
   happened; the date each was acted on is visible in the commit history.
 - [ ] **5.3** Name the next dataset or partner we would add. _(T5)_
 - [ ] **5.4** Answer the ten report questions in `docs/CHALLENGE_BRIEF.md`. _(deliverable 5)_
@@ -209,7 +209,7 @@ Graded artifacts under deliverable 2.
 - [x] **H1** **Done.** `.kiro/hooks/h1-validate-category-rebuild.json`.
 - [x] **H2** **Done.** `.kiro/hooks/h2-regenerate-data-dictionary.json`, an agent hook rather than
   a command: deciding whether an edit actually changed a schema, and describing a new column
-  honestly, is not something a script can do.
+  accurately, is not something a script can do.
 - [x] **H3** **Done.** `.kiro/hooks/h3-app-data-contract.json`.
 - [x] **H4** **Done.** `.kiro/hooks/h4-decision-layer-guardrails.json`. Kiro has no git-commit
   trigger, so it fires on edit instead, which is strictly earlier and therefore safer. All four

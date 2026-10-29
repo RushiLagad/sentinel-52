@@ -246,7 +246,7 @@ The FSIS attachment is a 20-row schema sample rather than a dataset, and contain
 ### Decision value
 
 A recall is a fact about product already in commerce, not a prediction. In the decision layer a recall
-touching held stock outranks any model score, which is why it sits at the top of the alert queue
+touching held stock outranks any model score, so it sits at the top of the alert queue
 rather than being folded into a risk number.
 
 ### Transformations applied
@@ -320,14 +320,14 @@ failed fetches.
 - **Panel depth is uneven, and one case matters.** Every major poultry state has the full 8 stations:
   GA, AR, AL, NC, CA, TX and MS, together 54 percent of routine sampling. But **Delaware, 2.3 percent
   of routine sampling across 8 plants on Delmarva, has only 2 stations**, and Maryland has 4. Any
-  state-level climate effect is measured least precisely in exactly that broiler region. States with
+  state-level climate effect is measured least precisely in that same broiler region. States with
   thin panels that do not matter for poultry: Hawaii 1, Rhode Island 1, Puerto Rico 1, Connecticut 2,
   New Hampshire 3.
 - A state-level monthly covariate is coarse against an establishment-level weekly process. It cannot
   capture conditions at a plant, only the broad seasonal environment around it.
 - **Prior expectation, recorded before the result:** `05d_ablation.py` already finds month-of-year
   within noise for this outcome, so climate may well add little. The brief requires the source, not
-  that the source helps. Report its marginal value honestly either way.
+  that the source helps. Report its marginal value either way.
 
 ---
 
@@ -433,7 +433,7 @@ product class with normal variation. Destination: Arkansas county, weighted by p
 
 Full parameter list in `data/inventory/ASSUMPTIONS.json`.
 
-### Known distortions, stated rather than hidden
+### Known distortions
 
 - **Sampling volume is a proxy for throughput, and an imperfect one.** FSIS samples by risk and
   programme, not in proportion to production, so heavily sampled plants are over-represented.

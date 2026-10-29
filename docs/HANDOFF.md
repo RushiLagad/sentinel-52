@@ -60,7 +60,7 @@ Full reasoning: `.kiro/specs/onehealth-decision-support/{requirements,design,tas
 2. **The inventory is simulated.** There is no real food-bank inventory anywhere in this project.
    `14_build_synthetic_inventory.py` generates it from a seeded procedure. Every row carries
    `is_synthetic = True`, every pounds- or meals-denominated payload is declared in
-   `app/public/data/meta.json`, and the app must badge every such figure. A reader who believes
+   `app/public/data/meta.json`, and the app must badge every such figure. Anyone who believes
    those pounds are real has been misled.
 3. **Nothing is a safety verdict.** No output says any food, lot or establishment is safe or unsafe.
    This tool ranks what to look at first and shows the evidence. A person decides.
@@ -133,7 +133,7 @@ should take priority over 4.2.
 | 5 | 5.1–5.7 | Report. **5.7 is the highest-value hour anyone can spend** and needs no code. |
 
 Task 5.2, "record a decision changed by another discipline **as it happens, not retrofitted**",
-is time-sensitive by construction. If one has happened and nobody wrote it down, it is gone.
+is time-sensitive by its nature. If one has happened and nobody wrote it down, it is gone.
 
 ---
 
@@ -152,7 +152,7 @@ for the Kentucky it displaced (FSIS WGS calls, FY2024–26). FSIS's own FY2022�
 horizon only three feature groups are distinguishable from noise: sampling history (−0.0073 AUROC),
 the projection (−0.0064), and everything-beyond-core together (−0.0066). Serotype detail, other
 pathogens, follow-up program, establishment profile, seasonality and product class are all within
-noise. **This is why 2.1 was reframed**: climate, burden, recalls and vulnerability go into the
+noise. **That is the reason 2.1 was reframed**: climate, burden, recalls and vulnerability go into the
 *decision layer*, where they weigh consequence and equity, not into the risk model, where they do
 not move AUROC. "We tested whether these helped and they didn't, so we used them where they do" is
 a stronger answer than a longer feature table.
@@ -215,7 +215,7 @@ those overlap the trade would be real, so the frontier is shown rather than opti
 Developed with **Kiro** (AWS agentic IDE), signed in through IAM Identity Center. Kiro specs,
 steering files and hooks in `.kiro/` are themselves graded artifacts, 15% of the score.
 
-**Provenance, stated plainly:** Kiro did not generate the code in this repository. The `.kiro/`
+**Provenance:** Kiro did not generate the code in this repository. The `.kiro/`
 artifacts are in Kiro's format and were loaded in Kiro, but they, `17_build_app_data.py`, and the
 React application were written with Claude (Anthropic) between 2026-10-26 and 2026-10-28, by a team
 decision to hand-build Phase 4 given the time remaining. The manual-change log at the end of
@@ -234,7 +234,7 @@ the organism-prefix rename that `02_build_tables.py` applies (`sal_isolates.ampi
 dictionary's `salmonella_ampicillin_mic`), and **refuses to invent a description**: an unknown
 column is written out as UNDOCUMENTED and `--check` exits non-zero while any remain.
 
-63 columns still need honest descriptions, concentrated in `cecal.parquet` (14) and
+63 columns still need accurate descriptions, concentrated in `cecal.parquet` (14) and
 `establishments.parquet` (34). They are real FSIS columns whose text is not in
 `data_dictionary_primary.csv` or `_secondary.csv`, so they have to be written from the source files
 or flagged for a human. That is the next piece of work.

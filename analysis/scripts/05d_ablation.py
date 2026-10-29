@@ -15,7 +15,7 @@ row of this table answers "was it worth pulling this in?". New sources
 (NOAA climate, FSIS recalls, SVI, food access) slot into GROUPS when they land
 and the table extends without changing anything else.
 
-Honesty notes built in:
+Reporting rules built in:
   * Deltas are reported with establishment-clustered bootstrap intervals, because
     consecutive month-end rows for one plant are not independent.
   * A group whose interval straddles zero is reported as such and stays in the
@@ -152,7 +152,7 @@ def main() -> None:
             "d_auroc_ci": d_auc,
             "avg_precision": round(float(apr), 4), "d_avg_precision": round(float(apr - ap_full), 4),
             "d_avg_precision_ci": d_ap,
-            # the interval straddling zero is the honest read, not a p-value
+            # an interval straddling zero is the read here, not a p-value
             "auroc_change_distinguishable_from_zero": not (d_auc["lo"] <= 0 <= d_auc["hi"]),
         }
         # "distinguishable" alone is ambiguous: dropping a group can measurably HELP,

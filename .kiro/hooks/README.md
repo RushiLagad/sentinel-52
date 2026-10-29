@@ -11,7 +11,7 @@ artifact, so everything configured for this project is in the repo rather than o
 | `h4-decision-layer-guardrails.json` | an edit to the decision layer or any built payload | re-runs the five guardrails |
 
 Each one guards a failure that would otherwise be silent. H1 and H3 both catch breakage that
-produces wrong output rather than an error; H4 guards the licence and honesty constraints that no
+produces wrong output rather than an error; H4 guards the licence and disclosure rules that no
 test suite would catch on its own.
 
 ## Verifying they load

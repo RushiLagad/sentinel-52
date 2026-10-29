@@ -65,7 +65,7 @@ export default function App() {
         <EquityView equity={data.equity} selected={scenario} />
         <EvidencePanel evidence={data.evidence} burden={data.burden} meta={meta} />
         <footer>
-          Data built {meta.generated_utc} by <code>17_build_app_data.py</code>, schema {meta.schema_version}. Sources listed under Evidence with file hashes. Provenance in <code>data/PROVENANCE.md</code>, every column in <code>data/DATA_DICTIONARY.md</code>. NAFSI Hub Student Data Challenge, Fall 2026, SENS-D — Sentinel-52.
+          Data built {meta.generated_utc} by <code>17_build_app_data.py</code>, schema {meta.schema_version}. Sources listed under Evidence with file hashes. Provenance in <code>data/PROVENANCE.md</code>, every column in <code>data/DATA_DICTIONARY.md</code>. NAFSI Hub Student Data Challenge, Fall 2026, SENS-D. Team Sentinel-52.
         </footer>
       </main>
     </>

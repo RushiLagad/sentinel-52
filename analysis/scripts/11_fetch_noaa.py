@@ -45,7 +45,7 @@ and we make none.
 Prior expectation, worth stating before the result arrives: the ablation in
 `05d_ablation.py` already finds month-of-year within noise for this outcome, so
 climate may well add little. The brief requires the source; it does not require
-the source to help. Report the marginal value honestly either way.
+the source to help. Report the marginal value as measured either way.
 
 Usage:
   python scripts/11_fetch_noaa.py --data data/processed --out data/noaa

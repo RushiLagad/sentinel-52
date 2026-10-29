@@ -51,7 +51,7 @@ analysis/scripts/
   17      app data build -> app/public/data/*.json            [new]
 ```
 
-### The honest problem: there is no real inventory
+### The problem: there is no real inventory
 
 A food bank's lot-level inventory is not public data and we have none. Task 1 permits "actor-specific
 operational data" but we cannot obtain it inside a week.
@@ -89,7 +89,7 @@ The NOAA token is per-user and must not be committed. `11_fetch_noaa.py` reads i
 The existing pipeline already shows a month-of-year range in routine positivity. If climate adds
 nothing beyond month-of-year, the ablation will say so, and that is a legitimate result to report
 rather than a failure to hide. Including a required dataset and reporting that its marginal value is
-small is honest; including it and implying it helped is not.
+small is fine; including it and implying it helped is not.
 
 ---
 
@@ -140,8 +140,8 @@ score + interval
 ```
 
 **Objective.** Not a single scalar. The scenario builder exposes a frontier across three quantities
-that genuinely conflict: risk caught, food distributed, and distribution reaching high-need areas.
-Collapsing those into one number would hide exactly the trade-off the brief asks us to surface.
+that pull against each other: risk caught, food distributed, and distribution reaching high-need areas.
+Collapsing those into one number would hide the very trade-off the brief asks us to surface.
 
 **Equity check.** For any policy, compare hold and divert rates across SVI quartiles of destination
 service area. Report the disparity whichever direction it runs, including no disparity.

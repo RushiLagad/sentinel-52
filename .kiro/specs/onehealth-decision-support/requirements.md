@@ -101,7 +101,7 @@ and food discarded as well as in risk caught.
    - **Conservative**: hold on weak signals. High recall, high food loss.
    - **Capacity-matched**: queue length matched to actual review capacity.
    - **Food-security weighted**: distribution to high-need areas protected, holds concentrated
-     elsewhere, with the risk this accepts stated plainly.
+     elsewhere, with the risk this accepts written down.
 4. THE SYSTEM SHALL compare every scenario against the **rule-based policy**: hold anything from a
    Category 2 or 3 establishment. That is the status quo and the baseline to beat.
 5. THE SYSTEM SHALL display the trade-off as a frontier, not a single recommended operating point,
@@ -207,7 +207,7 @@ the communities that can least replace it.
 3. THE SYSTEM SHALL use time-aware validation: training strictly before the test window.
 4. THE SYSTEM SHALL report an **ablation** giving the marginal contribution of each added source
    (climate, serotype burden, vulnerability, recalls) over the FSIS-only baseline.
-5. WHERE an added source does not improve performance THE SYSTEM SHALL report that honestly and the
+5. WHERE an added source does not improve performance THE SYSTEM SHALL report that as found and the
    source SHALL remain in the ablation table rather than being quietly dropped.
 
 ---

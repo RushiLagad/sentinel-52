@@ -207,7 +207,7 @@ def jeffreys(k: int, n: int) -> tuple[float, float]:
 
     The default scorer is a binomial projection, so the unit's own uncertainty is
     binomial and can be stated exactly rather than borrowed from the model-level
-    bootstrap. R5.2 asks for an interval on the score; this is the honest one to
+    bootstrap. R5.2 asks for an interval on the score; this is the right one to
     show beside a single establishment.
     """
     if n <= 0:

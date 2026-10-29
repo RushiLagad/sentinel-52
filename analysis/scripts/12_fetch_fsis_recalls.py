@@ -14,8 +14,8 @@ Endpoint: https://www.fsis.usda.gov/fsis/api/recall/v/1
 No key, no registration. Returns the full set as one JSON array (about 2,000
 records, roughly 13 MB).
 
-The join problem, stated plainly
---------------------------------
+The join problem
+----------------
 `field_establishment` holds **company names**, not establishment numbers, so it
 does not join to our panel. Establishment numbers appear instead inside the
 product text, as USDA marks of inspection: "EST. P-50784", "EST. 18004",

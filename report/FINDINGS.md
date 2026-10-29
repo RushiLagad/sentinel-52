@@ -2,7 +2,7 @@
 
 **This file is source material for the report, not a draft of it.** The report narrative is the
 team's own work. What follows is the claim, the numbers behind it, where each number comes from, and
-and, most importantly, what the evidence does *not* support, so nobody overstates it under deadline.
+and, above all, what the evidence does *not* support, so nobody overstates it under deadline.
 
 Every figure here traces to a named file in `analysis/outputs/`. If a number is not in one of those
 files, it does not go in the report.
@@ -106,7 +106,7 @@ literally zero is never defensible and needs a floor.
 - **It does not mean the model is well calibrated everywhere.** Both scorers deviate at very low
   probabilities. That band happens not to drive decisions, which is a reason to say so explicitly
   rather than to ignore it.
-- **The honest framing is a caveat, not a reversal:** keep the transparent scorer, report that it is
+- **The right framing is a caveat, not a reversal:** keep the transparent scorer, report that it is
   the less well calibrated of the two, and either floor it or recalibrate it.
 
 ---
@@ -141,7 +141,7 @@ Also worth reporting: at 3 months, dropping the CFU enumeration group **improves
 **Independently reproduced, 2026-10-27.** This table was produced twice, from two separate builds of
 `data/processed` on two machines, and every figure matched to the digit: lot counts, precision,
 recall, pounds, meals, the dominance relation, and all four disparity values. The h3 *ablation*
-verdicts do shift between those same two builds (Finding 2), which is why none are quoted here. The
+verdicts do shift between those same two builds (Finding 2), so none are quoted here. The
 decision layer does not shift.
 
 **Reproduced.** This table was produced twice, on two machines and two separate builds of

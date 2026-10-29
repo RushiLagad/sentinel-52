@@ -17,7 +17,7 @@ Why simulate at all
 The brief asks us to convert risk predictions into decisions for a supply-chain
 actor. Decisions need something to act on: lots, quantities, perishability,
 destinations. A food bank's lot-level inventory is not public and cannot be
-obtained in a week. The honest options were to skip Task 3 entirely or to
+obtained in a week. The options were to skip Task 3 entirely or to
 simulate the inventory from a documented procedure and say so loudly. We chose
 the second.
 
