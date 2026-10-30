@@ -41,9 +41,10 @@ The gaps are not equal. Ranked by marks at risk against effort:
   Known limitation, documented in PROVENANCE: `field_establishment` is a company name, not an
   establishment number. Numbers come from USDA marks in the product text and are recoverable for only
   36.6 percent of relevant recalls (206 of 563). _(T1, brief-required)_
-- [ ] **1.3** `13_fetch_vulnerability.py`. CDC/ATSDR SVI by county, and USDA food-access measures.
-  Both public, both documented. _(T1, team-added, satisfies the vulnerability and food-security
-  requirement)_
+- [x] **1.3** **Partly done.** `13_fetch_vulnerability.py` pulls CDC/ATSDR SVI 2022 for all 3,144
+  counties and it drives the equity table and the food-security-weighted scenario. The USDA
+  food-access layer did not land: the Census API key was rejected on every attempt. Recorded as a
+  limitation in the report rather than left looking satisfied. _(T1, team-added)_
 - [x] **1.4** **Done.** `14_build_synthetic_inventory.py`, deterministic given `--seed`. Actor is a
   regional Arkansas food bank. Supplier panel is stratified **per product class** so all five FSIS
   standards appear; taking the top plants overall gave an almost pure chicken panel and left turkey
@@ -76,8 +77,12 @@ The gaps are not equal. Ranked by marks at risk against effort:
 
 ## Phase 2: model completeness (T2, days 2-3)
 
-- [ ] **2.1** `15_risk_model.py`: extend the existing early-warning features with climate, serotype
-  burden, recall history and destination vulnerability. _(T2, R8)_
+- [x] **2.1** **Dropped on evidence, 2026-10-27.** The six-month ablation (`05d_ablation.py`) found
+  serotype detail, other pathogens, follow-up sampling, establishment profile, seasonality and product
+  class each within noise; only sampling history and the projection carry signal. Adding climate,
+  burden, recalls and vulnerability as model features would have lengthened the feature table without
+  changing the ranking, so the four layers went into the decision layer instead, where they change the
+  answer. The reasoning is in Q3 of the report. _(T2, R8)_
 - [x] **2.2** **Done.** `05c_calibration.py` emits reliability tables and a figure for both scorers at
   horizons 3, 6 and 12. The result worth carrying into the report is that **which scorer is better
   calibrated depends on the horizon**, and an earlier version of this note got that wrong by quoting
@@ -192,11 +197,18 @@ is ours.
   perishability window, Naisargi, later confirmed by the 80% against 64% coverage figures. Full account in
   Q9 of `report/REPORT.md`. Caveat: these were written down on 2026-10-29, not on the day each
   happened; the date each was acted on is visible in the commit history.
-- [ ] **5.3** Name the next dataset or partner we would add. _(T5)_
-- [ ] **5.4** Answer the ten report questions in `docs/CHALLENGE_BRIEF.md`. _(deliverable 5)_
-- [ ] **5.5** Limitations section: synthetic inventory, NORS outbreak-only bias, no establishment-level
-  illness attribution, public NORS ending 2023 against FSIS running to FY2026. _(deliverable 5)_
-- [ ] **5.6** Final README pass: judges must reproduce everything from it alone. _(deliverable 6)_
+- [ ] **5.3** Name the next dataset or partner we would add. Candidates in `report/OUTLINE.md`; the
+  team science statement in `report/REPORT.md` has the slot. _(T5)_
+- [x] **5.4** **Drafted.** All ten answers are in `report/REPORT.md`, in brief order, with seven
+  figures placed and every number pointing at its output file. `report/build_pdf.py` builds
+  `report/REPORT.pdf` (pandoc and xelatex); `--final` drops the draft banner. Still open: the team
+  science statement needs two disciplines and the 5.3 pick, and the team decides whether to keep the
+  AI-drafted narrative with the disclosure as written or rewrite it. _(deliverable 5)_
+- [x] **5.5** **Done.** Thirteen limitations in `report/REPORT.md`, each tied to the place it arises.
+  _(deliverable 5)_
+- [ ] **5.6** Final README pass: judges must reproduce everything from it alone. Fresh-clone
+  reproduction verified 2026-10-29 (pipeline, app build, 17 tests). Redo once more after the last
+  content push, and add the PDF build line. _(deliverable 6)_
 - [ ] **5.7** Verify the original Google Doc against `docs/CHALLENGE_BRIEF.md` line by line. That file
   is a summary, not the organizers' words. _(correctness)_
 

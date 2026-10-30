@@ -7,7 +7,7 @@ Rushikesh Lagad (University of Arkansas) · Sambhavi Patel (University of Arkans
 Naisargi Modha (Northeastern University)
 
 **Live application: https://rushilagad.github.io/sentinel-52/** · evidence behind every number:
-`report/FINDINGS.md` · read this first if you are new: `docs/HANDOFF.md`
+`report/FINDINGS.md` · the report: `report/REPORT.md` and `report/REPORT.pdf` · read this first if you are new: `docs/HANDOFF.md`
 
 ---
 
@@ -183,6 +183,7 @@ The decision layer and the deliverables built from everything above:
 | `17_build_app_data.py` | The JSON the app reads, with the four guardrails enforced at build time (`--check`) |
 | `18_figure_system_map.py` | The One Health system map, `fig6` |
 | `19_build_data_dictionary.py` | `data/DATA_DICTIONARY.md` across all 18 built tables; refuses to invent a description |
+| `20_figure_decision_layer.py` | The frontier (`fig7`) and the scenario cost comparison (`fig8`), drawn from `t20` and `t22` so they cannot disagree with the tables |
 
 To rerun a single stage, each script takes explicit paths, for example:
 
@@ -203,6 +204,20 @@ Deployed to GitHub Pages on every push to `main` by `.github/workflows/deploy-pa
 page, seven sections (receiving desk, current risk, alerts, scenarios, actions, equity, evidence)
 mapped to requirements R1 to R6 in `app/README.md`. The app computes nothing: every number comes from
 `app/public/data/*.json`, built by `17_build_app_data.py` from the same outputs the report uses.
+
+---
+
+## The report
+
+`report/REPORT.md` is the source and `report/REPORT.pdf` is built from it:
+
+```bash
+python report/build_pdf.py --final       # needs pandoc and xelatex; drops the draft banner
+```
+
+The figures it embeds are copied from `analysis/outputs/figures/` into `report/figures/` so the PDF
+builds without rerunning the pipeline. `report/FINDINGS.md` carries the longer argument behind each
+headline number.
 
 ---
 

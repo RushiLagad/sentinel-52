@@ -11,9 +11,23 @@ Rushikesh Lagad (University of Arkansas), Sambhavi Patel (University of Arkansas
 > disclosure (Q10 and the README) to say the narrative was AI-drafted and team-edited. Do one or the
 > other. Every number below traces to a named file and none was computed for this draft.**
 
-Live application: https://rushilagad.github.io/sentinel-52/ · Repository: https://github.com/RushiLagad/sentinel-52
+Live application: https://rushilagad.github.io/sentinel-52/
+Repository: https://github.com/RushiLagad/sentinel-52
 
----
+
+## How it was built, in brief
+
+Everything in this report is produced by `analysis/run_all.py` from the raw FSIS files and the public endpoints named in `data/PROVENANCE.md`, and every number quoted below names the output file it comes from. The pipeline has four parts.
+
+**Data.** Thirteen fiscal-year archives of FSIS establishment-specific raw poultry sampling (325,123 samples, FY2014 to FY2026), the FSIS performance-standard category postings, NARMS cecal sampling, the inspection directory and the establishment demographic file, and CDC NORS from its public endpoint. Added to those: NOAA monthly climate, the FSIS recall API, CDC/ATSDR SVI 2022, and a seeded synthetic lot inventory. Raw files are verified against SHA-256 hashes before anything is built.
+
+**Model.** The unit is a plant and product class on FSIS's own 52-week window; the outcome is entry into Category 3 within a horizon of 3, 6 or 12 months. The category rebuild was validated against three official postings first. Three scorers are compared, a transparent binomial projection, logistic regression and gradient boosting, on a time-ordered split (train through September 2022, test from January 2024). Validation reports AUROC and average precision with establishment-clustered bootstrap intervals, reliability and expected calibration error per scorer, lead time, watch-list comparison at equal list size, and a leave-one-group-out ablation.
+
+**Decision layer.** Each simulated lot is matched to the most recent score available on its receiving date (never a later one, and none older than 120 days), then assigned one of four actions under a policy: distribute now, prioritize, hold for review, or divert to the cooked-meal channel. Four policies are costed in the same units, meals at 1.2 lb each, with the two loss mechanisms derived from shelf life and cooked-channel capacity rather than assumed. The scorer is picked per horizon by measured calibration.
+
+**Application.** A React app reads one JSON file built from those outputs, with four guardrails enforced at build time and in 17 tests: no safe/unsafe language, no establishment beside a burden figure, every simulated quantity marked, and every high-consequence action behind an acknowledgement that shows the evidence that would reverse it.
+
+Reproduction instructions, including the manual download that the FSIS content network now requires, are in the README. The decision layer reproduced to the digit on two machines.
 
 ## Q1. The decision-maker and the decision horizon
 
@@ -27,46 +41,6 @@ The forecast horizon is three months. Two reasons, one about the decision and on
 
 The tool ranks what to look at first and puts a cost on each choice. It is not a regulatory determination, not an outbreak declaration, and not a statement that any food, lot or plant is safe or unsafe.
 
----
-
-## Q4. The modeled outcome
-
-The unit is a plant and product class, one of the five FSIS Salmonella performance standards, observed on the 52-week moving window FSIS itself uses. The outcome is entry into FSIS Category 3 within the forecast horizon: the point at which FSIS's own rating says a plant has exceeded its standard. We chose that outcome rather than a positivity rate because it is the status quo signal a food bank would otherwise act on, so the comparison to the baseline is on equal terms.
-
-The category rebuild underneath this was validated before anything was modeled. Recomputing Category 1, 2, 3 and NA from the raw samples agrees with three official FSIS postings on 99.75 percent of 2,764 posted rows with zero false Category 3s (`analysis/outputs/category_validation.json`). The one rule FSIS does not document, how a borderline count rounds, was inferred empirically and is stated as such in the limitations.
-
-Validation is time-aware. Training runs through September 2022; the test period begins in January 2024 and runs forward, so no window in the test set overlaps any window the models saw. At three months the test set holds 17,343 unit-months with 644 new Category 3 entries, a base rate of 3.71 percent (`analysis/outputs/early_warning_summary_h3.json`).
-
-Three scorers were compared. The transparent baseline is a binomial projection: given the plant's current positive count and its sampling rate, the probability it crosses the Category 3 line within the horizon. Logistic regression and gradient boosting add sampling history, position against the standard, serotype detail, enumeration, the other pathogens FSIS tests, follow-up sampling, establishment profile, seasonality and product class. A leave-one-group-out ablation with establishment-clustered bootstrap intervals tested whether any of those additions carried signal (`analysis/outputs/t19_ablation_h6.csv`).
-
-Which scorer the decision layer uses is chosen by measured calibration at the horizon it runs at, not by discrimination. A hold-or-divert decision acts on an absolute probability, so a score that ranks well but says 0.44 when the truth is 0.30 is the wrong score to act on. At three months the projection is far better calibrated than gradient boosting, expected calibration error 0.0056 against 0.0213, with the projection's top decile predicting 34.2 percent against 30.0 percent observed and gradient boosting's predicting 43.7 percent against 30.3 (`analysis/outputs/calibration_h3.json`). At six months the order reverses, 0.0092 against 0.0049. The decision layer reads the calibration file and picks, rather than carrying a hardcoded choice. Earlier in the project it did carry one, and the pipeline then ran it at the wrong horizon; that bug is why the choice is now data-driven.
-
----
-
-## Q5. Performance against the baseline
-
-The required rule-based baseline is the one a food bank would use today: treat anything from a Category 2 or Category 3 plant as suspect. On the full panel at three months that flag reaches recall 0.915 and precision 0.145 while flagging 23.5 percent of all units (`analysis/outputs/early_warning_summary_h3.json`). It is a good detector and a poor allocator.
-
-Against it, at six months, the projection scores AUROC 0.917 and gradient boosting 0.925. The difference is real but small: the establishment-clustered bootstrap over 578 plants resampled whole gives a median gain of 0.008 AUROC with a 95 percent interval from 0.000 to 0.016, and a median gain in average precision of 0.003 with an interval from minus 0.036 to plus 0.041, which is not distinguishable from zero (`analysis/outputs/early_warning_summary_h6.json`). We report that alongside the gain, because the ablation explains it. Only three feature groups move AUROC beyond noise at six months: sampling history, the projection itself, and all of the additions taken together. Serotype detail, the other pathogens, follow-up sampling, establishment profile, seasonality and product class are each within noise (`t19_ablation_h6.csv`). The transparent baseline carries the signal.
-
-Where the model earns its place is in allocation, not accuracy. A projection watch list the same size as the Category 2 list reaches recall 87.7 percent against the flag's 81.3 at equal precision; a list one tenth the size of the rated population reaches precision 41.5 percent at recall 66.0 (`analysis/outputs/watchlist_comparison_h6.json`). Lead time is usable: 86 percent of new Category 3 entries were on the top-10 percent list a month before they entered, and 62.6 percent three months before.
-
-The three-month ablation verdicts are not reported because they are not stable. Two builds of the same data on two machines flipped `standard_position` between "carries signal" and "within noise", a consequence of 644 positives against 979 at six months and correspondingly wider intervals. The six-month ablation reproduces to the digit across machines, and the decision layer's outputs at three months reproduce to the digit as well. We quote what reproduces.
-
----
-
-## Q10. What the tool can and can never claim, and what deployment would require
-
-The tool can say which plants are on a deteriorating sampling trajectory, how far ahead that is visible, how well calibrated the number is, and what each policy for acting on it costs in shared units. Those claims rest on real public data and on results reproduced independently on two builds.
-
-It can never say that any food, lot or plant is safe or unsafe. No output uses those words about anything, the application's test suite fails if one appears, and the only sentence in the whole system that contains them is the restriction that says we never use them. It can never link a plant to an illness. The FSIS data licence forbids using the sampling data to associate samples with outbreaks, and this project is built to respect that: every join between FSIS sampling and CDC NORS illness data is made at serotype and year, no code constructs an establishment-level link, the One Health system map draws that arrow crossed out with the reason on it, and the app data build fails if an establishment identifier appears beside a burden figure. It can never report a real poundage. A food bank's lot-level inventory is not public and we have none, so the inventory is generated by a seeded procedure, every row carries `is_synthetic = True`, and every pounds or meals figure in the application carries a SIMULATED mark that the build enforces. The ranking, the error rates and the direction of the equity effect do not depend on the simulation's scale; the absolute pounds depend on it entirely. And the quantity we call exposure, food distributed uncooked from plants whose sampling later deteriorated, is not a count of illnesses and must never be read as one. It was renamed from "missed risk" for exactly that reason.
-
-Deployment would need five things this prototype does not have. Real inventory with lot-level provenance, under agreement with a food bank, which would turn every simulated figure into a measurement. A cooked-meal partner with a stated capacity, so that diversion is a real channel and discard is a measured overflow rather than a modelled one. The USDA food-access layer that requirement R6.1 asks for alongside SVI, which did not land because the Census API key was rejected, so equity is currently judged on county-level SVI alone. A review workflow in which acknowledging a high-consequence recommendation does something, with the evidence that would reverse it attached, where today it records only that a person read it. And FSIS data fresher than the quarterly posting cycle; the median score a lot is matched to is 19 days old, and a lot whose plant has not been sampled within 120 days is treated as unscored rather than as low risk.
-
-Everything above is a prototype in the organizers' sense: not a regulatory determination, not an outbreak declaration, and not a substitute for epidemiologic investigation.
-
----
-
 ## Q2. The role of each core dataset
 
 Five FSIS datasets and one CDC dataset carry the project. Each is documented in `data/PROVENANCE.md` with its source, access date, licence, coverage, the transformations we applied and the limitations we know about, and every column of every table we built from them is in `data/DATA_DICTIONARY.md`. Here is what each one does.
@@ -75,11 +49,17 @@ Five FSIS datasets and one CDC dataset carry the project. Each is documented in 
 
 **FSIS Salmonella performance-standard categories.** The posted Category 1, 2, 3 and NA ratings. We use them twice. They are the status-quo signal a food bank would act on today, and so the rule-based baseline. And they are the validation target: before modelling anything we rebuilt the categories from the raw samples and checked the rebuild against three official postings, which agree on 99.75 percent of 2,764 rows with zero false Category 3s. A tool that could not reproduce FSIS's own rating would have no business forecasting it.
 
+
+![Routine positivity by fiscal year and product class; the shift of the chicken serotype mix toward Infantis; and the share of Infantis isolates resistant to three or more drug classes by FSIS sequence-based calls. Built by 07_figures.py from t1, t2b and t13.](figures/fig1_positivity_serotypes_resistance.png)
+
 **FSIS NARMS cecal sampling.** 72,151 cecal samples at slaughter with resistance detail. This is the animal-health context for the serotype story in Finding 1, and what lets us say that the serotype FSIS finds most often is not the one that sends people to hospital.
 
 **The Meat, Poultry and Egg Product Inspection Directory and the establishment demographic file.** 8,188 establishments, active and inactive, with location, HACCP size, slaughter and processing flags, and the county FIPS code. This is the join from the number on a pallet's mark of inspection to a real plant, and from the plant to a county.
 
 **CDC NORS, from the public Socrata endpoint.** The human-illness layer. Outbreaks, illnesses, hospitalisations and deaths by IFSAC food category and serotype. The brief permits a public CDC human-illness dataset in place of PulseNet, and NORS is one. It enters the project at serotype and year only. We did not use the NORS file the organisers circulated, because it was restricted to the team and the public endpoint carries the same attribution field.
+
+
+![Serotype share of FSIS chicken isolates against share of NORS poultry outbreak hospitalisations, the four serotypes normalised so the ordering is comparable. Joined at serotype and year only. Built by 10b_figure_prevalence_vs_burden.py from t17.](figures/fig5_prevalence_vs_burden.png)
 
 The licence on the FSIS data forbids using it to identify outbreaks or associate samples with them. That shaped the design more than any single number: the illness layer never touches an establishment, and Q9 records whose objection made that a rule.
 
@@ -99,6 +79,35 @@ We added four layers beyond the core, one for each remaining One Health domain a
 
 So the plan to fold climate, burden, recalls and vulnerability into the risk model as features was dropped, and the four layers went where they do change the answer: the decision layer. Recalls rank above forecasts in the alert queue. SVI drives the equity check and the food-security-weighted scenario. Illness burden weights which serotypes matter in the hazard view, at serotype level. The inventory is the thing being decided about. A longer feature table would have looked more impressive and said less; we tested whether the additions helped the model, they did not, and we used them where they help the decision.
 
+![The One Health system map. Each dataset sits in its domain; the arrows that carry the argument are drawn; the establishment-to-illness arrow is drawn crossed out because the FSIS licence forbids it and no code in the repository constructs it. Built by 18_figure_system_map.py.](figures/fig6_one_health_system_map.png)
+
+## Q4. The modeled outcome
+
+The unit is a plant and product class, one of the five FSIS Salmonella performance standards, observed on the 52-week moving window FSIS itself uses. The outcome is entry into FSIS Category 3 within the forecast horizon: the point at which FSIS's own rating says a plant has exceeded its standard. We chose that outcome rather than a positivity rate because it is the status quo signal a food bank would otherwise act on, so the comparison to the baseline is on equal terms.
+
+The category rebuild underneath this was validated before anything was modeled. Recomputing Category 1, 2, 3 and NA from the raw samples agrees with three official FSIS postings on 99.75 percent of 2,764 posted rows with zero false Category 3s (`analysis/outputs/category_validation.json`). The one rule FSIS does not document, how a borderline count rounds, was inferred empirically and is stated as such in the limitations.
+
+Validation is time-aware. Training runs through September 2022; the test period begins in January 2024 and runs forward, so no window in the test set overlaps any window the models saw. At three months the test set holds 17,343 unit-months with 644 new Category 3 entries, a base rate of 3.71 percent (`analysis/outputs/early_warning_summary_h3.json`).
+
+Three scorers were compared. The transparent baseline is a binomial projection: given the plant's current positive count and its sampling rate, the probability it crosses the Category 3 line within the horizon. Logistic regression and gradient boosting add sampling history, position against the standard, serotype detail, enumeration, the other pathogens FSIS tests, follow-up sampling, establishment profile, seasonality and product class. A leave-one-group-out ablation with establishment-clustered bootstrap intervals tested whether any of those additions carried signal (`analysis/outputs/t19_ablation_h6.csv`).
+
+Which scorer the decision layer uses is chosen by measured calibration at the horizon it runs at, not by discrimination. A hold-or-divert decision acts on an absolute probability, so a score that ranks well but says 0.44 when the truth is 0.30 is the wrong score to act on. At three months the projection is far better calibrated than gradient boosting, expected calibration error 0.0056 against 0.0213, with the projection's top decile predicting 34.2 percent against 30.0 percent observed and gradient boosting's predicting 43.7 percent against 30.3 (`analysis/outputs/calibration_h3.json`). At six months the order reverses, 0.0092 against 0.0049. The decision layer reads the calibration file and picks, rather than carrying a hardcoded choice. Earlier in the project it did carry one, and the pipeline then ran it at the wrong horizon; that bug is why the choice is now data-driven.
+
+![Reliability at the three-month horizon for both scorers, predicted against observed by decile, with ECE and Brier. The projection is the better-calibrated scorer at this horizon and is the one the decision layer uses. Built by 05c_calibration.py from t18.](figures/fig4_reliability_h3.png)
+
+## Q5. Performance against the baseline
+
+The required rule-based baseline is the one a food bank would use today: treat anything from a Category 2 or Category 3 plant as suspect. On the full panel at three months that flag reaches recall 0.915 and precision 0.145 while flagging 23.5 percent of all units (`analysis/outputs/early_warning_summary_h3.json`). It is a good detector and a poor allocator.
+
+Against it, at six months, the projection scores AUROC 0.917 and gradient boosting 0.925. The difference is real but small: the establishment-clustered bootstrap over 578 plants resampled whole gives a median gain of 0.008 AUROC with a 95 percent interval from 0.000 to 0.016, and a median gain in average precision of 0.003 with an interval from minus 0.036 to plus 0.041, which is not distinguishable from zero (`analysis/outputs/early_warning_summary_h6.json`). We report that alongside the gain, because the ablation explains it. Only three feature groups move AUROC beyond noise at six months: sampling history, the projection itself, and all of the additions taken together. Serotype detail, the other pathogens, follow-up sampling, establishment profile, seasonality and product class are each within noise (`t19_ablation_h6.csv`). The transparent baseline carries the signal.
+
+Where the model earns its place is in allocation, not accuracy. A projection watch list the same size as the Category 2 list reaches recall 87.7 percent against the flag's 81.3 at equal precision; a list one tenth the size of the rated population reaches precision 41.5 percent at recall 66.0 (`analysis/outputs/watchlist_comparison_h6.json`). Lead time is usable: 86 percent of new Category 3 entries were on the top-10 percent list a month before they entered, and 62.6 percent three months before.
+
+
+![Who fails and how early. Share of rated pairs in Category 3 by plant size; how many months ahead new Category 3 entries were already on the top-10 percent watch list; and AUROC by scorer at six months with 95 percent establishment-clustered intervals. Built by 07_figures.py.](figures/fig2_who_fails_and_how_early.png)
+
+The three-month ablation verdicts are not reported because they are not stable. Two builds of the same data on two machines flipped `standard_position` between "carries signal" and "within noise", a consequence of 644 positives against 979 at six months and correspondingly wider intervals. The six-month ablation reproduces to the digit across machines, and the decision layer's outputs at three months reproduce to the digit as well. We quote what reproduces.
+
 ## Q6. Which errors are costly: false alarms against missed risk
 
 The two errors have to be in the same unit before they can be weighed against each other, so the decision layer reports both in meals at 1.2 pounds per meal. Avoidable loss is food destroyed from plants that did not go on to elevated risk: the cost of a false alarm, and a real loss. Exposure is food distributed uncooked from plants whose sampling later did deteriorate. Exposure is not a count of illnesses and must not be read as one; the FSIS data cannot attribute illness to a plant and we do not. It was called "missed risk" in an earlier version and renamed because that name implied a claim we cannot make.
@@ -109,6 +118,9 @@ Food is lost by two mechanisms, both mechanical and both derived from the simula
 
 The frontier between the two errors is not convex (`analysis/outputs/t22_frontier_h3.csv`). As the hold threshold rises from 0.02 to 0.10, avoidable loss falls from 61,095 meals to 8,861 while exposure barely moves, from 210,851 to 213,046. Then loss rises again, to 12,566 meals at 0.14, because raising the divert threshold pushes lots back into holds, where shelf life kills them. By 0.30 loss is down to 2,775 meals and exposure is up to 240,323. There is no point on that curve that is simply best. Choosing between 60,000 meals destroyed and 30,000 more meals of exposure is a judgement about whose risk counts, and the application shows the curve rather than picking a point on it.
 
+
+![The frontier at three months: pounds distributed uncooked against recall as the hold threshold sweeps from 0.02 to 0.30, with the four named scenarios placed on it. Pounds are synthetic; recall and precision are measured on the FSIS test period. Built by 20_figure_decision_layer.py from t20 and t22.](figures/fig7_frontier_h3.png)
+
 One more result that surprised us. Setting the hold threshold to fill the review queue to capacity, which sounds like the sensible operational choice, loses to the simpler conservative threshold: 0.4 more points of recall for 54 percent more food destroyed, because every extra hold eats shelf life some lots do not have. Review capacity is not the binding constraint. Shelf life is.
 
 ## Q7. Where food safety and food security conflict
@@ -118,6 +130,9 @@ Every withheld pallet has a destination, and the destinations are not equal. The
 Under the conservative policy the withheld share is 14.7 percent of pounds in the most vulnerable quartile against 16.7 percent in the least, a gap of minus 1.96 points: holds fall slightly harder on low-need counties, which on this simulated supply base is luck rather than design. Under the rule-based status quo the gap is minus 0.28 points, no material difference. Under the capacity-matched policy it is minus 0.34.
 
 The food-security-weighted scenario is the one that acts on the conflict directly. It requires a stronger signal before withholding from the most vulnerable quartile, raising the hold threshold there by the weight and the divert threshold by half of it. The gap moves to minus 2.66 points, and the scenario destroys 4,971 fewer meals than the capacity-matched policy at identical recall, so on this data it dominates. The reason matters. It is close to free here because the counties being protected are not the ones supplied by the riskiest plants. Where those overlap, protecting supply to high-need counties means accepting more exposure in the places least able to absorb it, and the trade becomes real. The tool is built to show that gap on the scenario screen, not to optimise it away, and requirement R6.5 forbids it from doing so silently. The human chooses.
+
+
+![What each scenario costs at three months, in thousands of meals: food destroyed from plants that did not deteriorate (left) and food distributed uncooked from plants that did (right). The status quo has no exposure because it holds everything from a Category 2 or 3 plant, and destroys the most food doing it. Built by 20_figure_decision_layer.py from t20.](figures/fig8_scenario_costs_h3.png)
 
 Two design choices made this conflict tractable rather than binary. Divert means the cooked-meal channel, so a withheld pallet is usually still food for someone; discard is the overflow, not the default. And the equity view reports the disparity in both directions, so a policy that happens to favour high-need counties is reported in the same terms as one that harms them. Both choices came from outside the implementation, and Q9 says from whom.
 
@@ -151,6 +166,16 @@ The pattern across all four is the same. The person closest to the data would ha
 
 These decisions are also logged, with dates, in the manual-change log and task 5.2 of `.kiro/specs/onehealth-decision-support/tasks.md`. We recorded them on 2026-10-29 from the team's own account rather than reconstructing them from the code afterwards.
 
+## Q10. What the tool can and can never claim, and what deployment would require
+
+The tool can say which plants are on a deteriorating sampling trajectory, how far ahead that is visible, how well calibrated the number is, and what each policy for acting on it costs in shared units. Those claims rest on real public data and on results reproduced independently on two builds.
+
+It can never say that any food, lot or plant is safe or unsafe. No output uses those words about anything, the application's test suite fails if one appears, and the only sentence in the whole system that contains them is the restriction that says we never use them. It can never link a plant to an illness. The FSIS data licence forbids using the sampling data to associate samples with outbreaks, and this project is built to respect that: every join between FSIS sampling and CDC NORS illness data is made at serotype and year, no code constructs an establishment-level link, the One Health system map draws that arrow crossed out with the reason on it, and the app data build fails if an establishment identifier appears beside a burden figure. It can never report a real poundage. A food bank's lot-level inventory is not public and we have none, so the inventory is generated by a seeded procedure, every row carries `is_synthetic = True`, and every pounds or meals figure in the application carries a SIMULATED mark that the build enforces. The ranking, the error rates and the direction of the equity effect do not depend on the simulation's scale; the absolute pounds depend on it entirely. And the quantity we call exposure, food distributed uncooked from plants whose sampling later deteriorated, is not a count of illnesses and must never be read as one. It was renamed from "missed risk" for exactly that reason.
+
+Deployment would need five things this prototype does not have. Real inventory with lot-level provenance, under agreement with a food bank, which would turn every simulated figure into a measurement. A cooked-meal partner with a stated capacity, so that diversion is a real channel and discard is a measured overflow rather than a modelled one. The USDA food-access layer that requirement R6.1 asks for alongside SVI, which did not land because the Census API key was rejected, so equity is currently judged on county-level SVI alone. A review workflow in which acknowledging a high-consequence recommendation does something, with the evidence that would reverse it attached, where today it records only that a person read it. And FSIS data fresher than the quarterly posting cycle; the median score a lot is matched to is 19 days old, and a lot whose plant has not been sampled within 120 days is treated as unscored rather than as low risk.
+
+Everything above is a prototype in the organizers' sense: not a regulatory determination, not an outbreak declaration, and not a substitute for epidemiologic investigation.
+
 ## Limitations
 
 Each of these is documented at the place it arises; this collects them.
@@ -170,7 +195,9 @@ Each of these is documented at the place it arises; this collects them.
 13. **Predicting which plants fail is largely arithmetic.** The transparent projection carries the signal and the integrated model's advantage is not distinguishable from zero. We regard that as a finding, not a shortfall, but a reader expecting a modelling achievement should know it.
 
 ## Team science statement
-*To be written by the team, in the first person, in a few sentences. Q9 has the content; this is the short version the brief asks for separately.*
+
+We are three graduate students at two universities and in three fields: animal science with a focus on bioinformatics and genomics, [Sambhavi's discipline], and [Naisargi's discipline]. One of us built the pipeline, the model, the decision layer and the application. The other two decided what it was for. The actor, the meaning of divert, the refusal to link a plant to an illness, and the choice of the three-month horizon all came from outside the implementation, and each is recorded in Q9 with the reasoning that was given at the time. The datasets we added changed the decision layer, not the risk model, and we report the ablation that says so. The next thing we would add is [5.3 pick]. Roles, with dates, are in the manual-change log in `.kiro/specs/onehealth-decision-support/tasks.md`.
 
 ## AI assistance disclosure
-*To be written. Must state, consistently with the manual-change log in `.kiro/specs/onehealth-decision-support/tasks.md`: Kiro did not generate code in this repository; the `.kiro/` artifacts are in its format and were loaded in it. Claude (Anthropic) was used for the analysis pipeline, scripts 09 to 19, the specs, steering and hooks, `17_build_app_data.py`, the React UI and its tests, and, if the drafted sections are kept as drafted, the narrative of this report. The team reviewed, ran and is responsible for all of it.*
+
+Kiro did not generate code in this repository. The `.kiro/` specs, steering files and hooks are written in Kiro's format and were loaded in Kiro, but every file in `.kiro/` was written by the team with Claude (Anthropic), and the manual-change log in `.kiro/specs/onehealth-decision-support/tasks.md` records what was changed by hand and when. Claude was used, under the team's direction, for the analysis pipeline (scripts 01 to 20), `17_build_app_data.py`, the React application and its tests, the data dictionary generator, the provenance file, and the first draft of the narrative in this report, which the team then edited. Every number in this report was computed by the pipeline, not by a language model, and every one names its source file. The team ran the pipeline on two machines, reviewed every output, and is responsible for all of it.

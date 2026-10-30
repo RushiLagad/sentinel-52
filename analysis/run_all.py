@@ -139,6 +139,7 @@ def main() -> None:
             "--lots", str(INV / "lots_synthetic.csv"),
             "--scores", f"outputs/early_warning_test_scores_h{DECISION_H}.parquet",
             "--out", "outputs", "--horizon", DECISION_H)
+        run(str(S / "20_figure_decision_layer.py"), "--out", "outputs", "--horizon", DECISION_H)
     else:
         print(f"\nSkipping the decision layer: {VULN} is not there.")
         print("  Build it first, which needs network access to svi.cdc.gov:")

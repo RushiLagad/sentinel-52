@@ -102,38 +102,46 @@ identical input produce byte-identical output; we checked.
 
 ## 5. What is done
 
-**Phase 1, data (6 of 8).** FSIS pipeline (scripts 01–08) validated: the Category 1/2/3/NA rebuild
-agrees with three official FSIS postings on **99.75% of 2,764 rows with zero false Category 3s**.
-NORS burden (09, 10), NOAA GSOM climate (11), FSIS recalls (12), SVI (13, partial), synthetic
-inventory (14), the One Health system map figure (18).
+**Phase 1, data (8 of 8).** FSIS pipeline (scripts 01 to 08) validated: the Category 1/2/3/NA
+rebuild agrees with three official FSIS postings on **99.75% of 2,764 rows with zero false
+Category 3s**. NORS burden (09, 10), NOAA GSOM climate (11), FSIS recalls (12), SVI (13; the USDA
+food-access layer did not land, Census key rejected), synthetic inventory (14), provenance,
+data dictionary (19, regenerated every run, fails on an undocumented column), decision statement
+in the README, the One Health system map (18).
 
-**Phase 2, model (3 of 4).** Calibration (05c) and leave-one-group-out ablation with
-establishment-clustered bootstrap (05d), at horizons 3, 6 and 12.
+**Phase 2, model (4 of 4).** Calibration (05c) and leave-one-group-out ablation with
+establishment-clustered bootstrap (05d) at horizons 3, 6 and 12. 2.1 was dropped on the ablation's
+evidence and the added layers went into the decision layer instead.
 
-**Phase 3, decision layer (6 of 6).** `16_decision_layer.py`. Complete and independently
-reproduced on two machines.
+**Phase 3, decision layer (6 of 6).** `16_decision_layer.py`, reproduced to the digit on two
+machines. Frontier and scenario-cost figures from `20_figure_decision_layer.py`.
 
-**Phase 4, app (1 of 13).** `17_build_app_data.py` and `app/public/data/*.json` only.
+**Phase 4, app (13 of 13).** React 18 + Vite, seven sections, 17 tests, live on GitHub Pages at
+https://rushilagad.github.io/sentinel-52/ and redeployed on every push to `main`.
 
-**Hooks: all four.** `.kiro/hooks/h1`–`h4`.
+**Phase 5, report.** All ten questions and the limitations drafted in `report/REPORT.md` with seven
+figures; `report/build_pdf.py` builds `report/REPORT.pdf`. 5.1 and 5.2 recorded from the team's
+own account.
+
+**Hooks: all four.** `.kiro/hooks/h1` to `h4`.
 
 ---
 
 ## 6. What is left, and where the risk is
 
-**The app is the whole risk.** Twelve of the twenty-four open items are Phase 4, they carry a large
-share of the operational-relevance score, and **not one line has been written.** Nothing else
-should take priority over 4.2.
+Nothing left needs code. What is left needs the team's words and decisions, and a final push
+before **Monday 2026-11-02, 16:00 Central**.
 
-| Phase | Open | Notes |
+| Item | Who | What |
 |---|---|---|
-| 1 | 1.3, 1.5, 1.6, 1.8 | 1.6 is half-built; see §8 |
-| 2 | 2.1 | Reframed; see §7, finding 2 |
-| 4 | **4.2–4.13** | Nothing started. Start at 4.2 and stop for review before building components. |
-| 5 | 5.1–5.7 | Report. **5.7 is the highest-value hour anyone can spend** and needs no code. |
+| Q9 and team science statement | Sambhavi, Naisargi | Each names her discipline in her own words; two bracketed slots in `report/REPORT.md` |
+| 5.3 | Team | Pick the next dataset or partner; candidates in `report/OUTLINE.md`; one bracketed slot in the team science statement |
+| AI disclosure | Team | Either keep the AI-drafted narrative and the disclosure as written, or rewrite sections in your own voice and change the disclosure to match. Then remove the DRAFT STATUS banner (`build_pdf.py --final` does it for the PDF; delete it from the markdown too) |
+| 5.7 | Sambhavi, Naisargi | Check `docs/CHALLENGE_BRIEF.md` against the organizers' original document line by line |
+| 5.6 | Rushi | One more fresh-clone reproduction after the last content push, then tick it |
+| Submit | Rushi | Rebuild the PDF, commit, push, confirm Pages is green, confirm the deadline form |
 
-Task 5.2, "record a decision changed by another discipline **as it happens, not retrofitted**",
-is time-sensitive by its nature. If one has happened and nobody wrote it down, it is gone.
+Everything in this table is a decision or a check, not a build. Do not start new analysis.
 
 ---
 
@@ -225,16 +233,3 @@ README and `app/README.md` say the same. Do not write anything that implies othe
 `.kiro/steering/project.md` is `inclusion: always` and carries the hard rules.
 
 ---
-
-## 10. State of 1.6, which is mid-flight
-
-`analysis/scripts/19_build_data_dictionary.py` exists in draft but **is not yet committed**. It
-regenerates `data/DATA_DICTIONARY.md` across all 18 built tables, resolves FSIS descriptions through
-the organism-prefix rename that `02_build_tables.py` applies (`sal_isolates.ampicillin_mic` is the
-dictionary's `salmonella_ampicillin_mic`), and **refuses to invent a description**: an unknown
-column is written out as UNDOCUMENTED and `--check` exits non-zero while any remain.
-
-63 columns still need accurate descriptions, concentrated in `cecal.parquet` (14) and
-`establishments.parquet` (34). They are real FSIS columns whose text is not in
-`data_dictionary_primary.csv` or `_secondary.csv`, so they have to be written from the source files
-or flagged for a human. That is the next piece of work.
