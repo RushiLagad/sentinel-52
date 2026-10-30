@@ -197,13 +197,16 @@ is ours.
   perishability window, Naisargi, later confirmed by the 80% against 64% coverage figures. Full account in
   Q9 of `report/REPORT.md`. Caveat: these were written down on 2026-10-29, not on the day each
   happened; the date each was acted on is visible in the commit history.
-- [ ] **5.3** Name the next dataset or partner we would add. Candidates in `report/OUTLINE.md`; the
-  team science statement in `report/REPORT.md` has the slot. _(T5)_
+- [x] **5.3** **Done, 2026-10-30.** Next addition: a real receiving log from a regional food bank,
+  under agreement, with lot-level provenance. Chosen over the USDA food-access layer because it is the
+  one addition that turns every simulated pounds figure into a measurement and tests whether the two
+  loss mechanisms (shelf life consumed by review holds, cooked-channel overflow) are the real ones.
+  Stated in the team science statement of `report/REPORT.md`. _(T5)_
 - [x] **5.4** **Drafted.** All ten answers are in `report/REPORT.md`, in brief order, with seven
   figures placed and every number pointing at its output file. `report/build_pdf.py` builds
-  `report/REPORT.pdf` (pandoc and xelatex); `--final` drops the draft banner. Still open: the team
-  science statement needs two disciplines and the 5.3 pick, and the team decides whether to keep the
-  AI-drafted narrative with the disclosure as written or rewrite it. _(deliverable 5)_
+  `report/REPORT.pdf` (pandoc and xelatex); `--final` drops the draft banner. Team science statement and
+  AI disclosure written 2026-10-30; the team kept the AI-drafted narrative, edited, and the
+  disclosure says so. Draft banner removed. _(deliverable 5)_
 - [x] **5.5** **Done.** Thirteen limitations in `report/REPORT.md`, each tied to the place it arises.
   _(deliverable 5)_
 - [ ] **5.6** Final README pass: judges must reproduce everything from it alone. Fresh-clone

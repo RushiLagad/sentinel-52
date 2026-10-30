@@ -3,16 +3,9 @@
 **NAFSI Hub Student Data Challenge, Fall 2026, SENS-D track.**
 Rushikesh Lagad (University of Arkansas), Sambhavi Patel (University of Arkansas), Naisargi Modha (Northeastern University).
 
-> **DRAFT STATUS. Sections Q1 to Q10 and the limitations below were drafted by Claude (Anthropic) on 2026-10-28
-> from `report/OUTLINE.md`, `report/FINDINGS.md` and the analysis outputs, at the team's request, so
-> that writing would start from complete, cited paragraphs rather than from notes. The team's own
-> policy (`docs/SUBMISSION_CHECKLIST.md`) is that the report is the team's writing. Two ways to honour
-> that: rewrite these sections in your own words before submission, or keep them and change the AI
-> disclosure (Q10 and the README) to say the narrative was AI-drafted and team-edited. Do one or the
-> other. Every number below traces to a named file and none was computed for this draft.**
+Live application: <https://rushilagad.github.io/sentinel-52/>
 
-Live application: https://rushilagad.github.io/sentinel-52/
-Repository: https://github.com/RushiLagad/sentinel-52
+Repository: <https://github.com/RushiLagad/sentinel-52>
 
 
 ## How it was built, in brief
@@ -152,7 +145,7 @@ Those three lots are the project. A strong signal with time to act becomes a div
 
 ## Q9. The effect of team science on the work
 
-We are three people at two universities. Rushikesh Lagad (University of Arkansas, animal science with a focus on bioinformatics and genomics) planned the project and did the implementation: the FSIS pipeline, the model and its validation, the decision layer, the application, and the data and provenance work. Sambhavi Patel (University of Arkansas, [her discipline, in her words]) and Naisargi Modha (Northeastern University, [her discipline, in her words]) shaped what got built, and four of the decisions that define the project came from them rather than from the person writing the code. We record those here because the brief asks for it, and because without them this would be a different and worse tool.
+We are three people at two universities. Rushikesh Lagad (University of Arkansas, animal science with a focus on bioinformatics and genomics) planned the project and did the implementation: the FSIS pipeline, the model and its validation, the decision layer, the application, and the data and provenance work. Sambhavi Patel (University of Arkansas, microbiome bioinformatics) and Naisargi Modha (Northeastern University, microbiome bioinformatics) shaped what got built, and four of the decisions that define the project came from them rather than from the person writing the code. We record those here because the brief asks for it, and because without them this would be a different and worse tool.
 
 **The actor.** The early framing aimed the tool at a regulator deciding where to send inspectors. That is the natural reading of the FSIS data if you come at it from the data side. Sambhavi proposed the regional food bank instead. Her argument was that the brief's three secondary objectives, food availability, food security and avoidable food loss, are side constraints for a processor or a retailer but are the actual mission of a food bank, and that a food bank is where the tension the brief asks about is lived every day. We rewrote the spec around that. Every requirement in `.kiro/specs/onehealth-decision-support/requirements.md` follows from it.
 
@@ -196,7 +189,7 @@ Each of these is documented at the place it arises; this collects them.
 
 ## Team science statement
 
-We are three graduate students at two universities and in three fields: animal science with a focus on bioinformatics and genomics, [Sambhavi's discipline], and [Naisargi's discipline]. One of us built the pipeline, the model, the decision layer and the application. The other two decided what it was for. The actor, the meaning of divert, the refusal to link a plant to an illness, and the choice of the three-month horizon all came from outside the implementation, and each is recorded in Q9 with the reasoning that was given at the time. The datasets we added changed the decision layer, not the risk model, and we report the ablation that says so. The next thing we would add is [5.3 pick]. Roles, with dates, are in the manual-change log in `.kiro/specs/onehealth-decision-support/tasks.md`.
+We are three graduate students at two universities. One of us works in animal science with a focus on bioinformatics and genomics; the other two work in microbiome bioinformatics, one at Arkansas and one at Northeastern, and came to the problem from the food bank's side and from the public-health side rather than from the FSIS data. One of us built the pipeline, the model, the decision layer and the application. The other two decided what it was for. The actor, the meaning of divert, the refusal to link a plant to an illness, and the choice of the three-month horizon all came from outside the implementation, and each is recorded in Q9 with the reasoning that was given at the time. The datasets we added changed the decision layer, not the risk model, and we report the ablation that says so. The next thing we would add is a real receiving log from a regional food bank, under agreement, with lot-level provenance. It is the one addition that turns every simulated pounds and meals figure in this report into a measurement, and it would tell us whether the loss mechanisms we derived from shelf life and cooked-channel capacity are the ones that operate in practice. Roles, with dates, are in the manual-change log in `.kiro/specs/onehealth-decision-support/tasks.md`.
 
 ## AI assistance disclosure
 

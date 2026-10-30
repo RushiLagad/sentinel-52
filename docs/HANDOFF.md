@@ -134,12 +134,12 @@ before **Monday 2026-11-02, 16:00 Central**.
 
 | Item | Who | What |
 |---|---|---|
-| Q9 and team science statement | Sambhavi, Naisargi | Each names her discipline in her own words; two bracketed slots in `report/REPORT.md` |
-| 5.3 | Team | Pick the next dataset or partner; candidates in `report/OUTLINE.md`; one bracketed slot in the team science statement |
-| AI disclosure | Team | Either keep the AI-drafted narrative and the disclosure as written, or rewrite sections in your own voice and change the disclosure to match. Then remove the DRAFT STATUS banner (`build_pdf.py --final` does it for the PDF; delete it from the markdown too) |
 | 5.7 | Sambhavi, Naisargi | Check `docs/CHALLENGE_BRIEF.md` against the organizers' original document line by line |
 | 5.6 | Rushi | One more fresh-clone reproduction after the last content push, then tick it |
-| Submit | Rushi | Rebuild the PDF, commit, push, confirm Pages is green, confirm the deadline form |
+| Submit | Rushi | Commit, push, confirm Pages is green, confirm the deadline form |
+
+Settled 2026-10-30: disciplines in Q9, the 5.3 pick (a real food bank receiving log), the AI
+disclosure (narrative AI-drafted and team-edited, stated as such), and the draft banner is gone.
 
 Everything in this table is a decision or a check, not a build. Do not start new analysis.
 
