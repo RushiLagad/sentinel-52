@@ -110,7 +110,8 @@ data dictionary (19, regenerated every run, fails on an undocumented column), de
 in the README, the One Health system map (18).
 
 **Phase 2, model (4 of 4).** Calibration (05c) and leave-one-group-out ablation with
-establishment-clustered bootstrap (05d) at horizons 3, 6 and 12. 2.1 was dropped on the ablation's
+establishment-clustered bootstrap (05d) at horizons 3, 6 and 12, plus the added-data ablation (05e,
+Sambhavi) that measures climate and linked recalls against the full model. 2.1 was dropped on that
 evidence and the added layers went into the decision layer instead.
 
 **Phase 3, decision layer (6 of 6).** `16_decision_layer.py`, reproduced to the digit on two

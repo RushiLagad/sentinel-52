@@ -109,6 +109,20 @@ literally zero is never defensible and needs a floor.
 - **The right framing is a caveat, not a reversal:** keep the transparent scorer, report that it is
   the less well calibrated of the two, and either floor it or recalibrate it.
 
+### The team-added layers, measured (added 2026-11-01)
+
+`05e_added_data_ablation.py` (Sambhavi) adds the added layers to the full 05d model at h6, same
+split, same clustered bootstrap (`analysis/outputs/t19b_added_data_ablation_h6.csv`):
+
+| Added to the full model | AUROC | change | 95% interval |
+|---|---|---|---|
+| NOAA climate, trailing 3 months + anomaly | 0.9192 | -0.0034 | -0.0065 to -0.0001 |
+| Linked FSIS recalls, prior 24 months (141 notices, 126 plants) | 0.9234 | +0.0008 | -0.0003 to +0.0020 |
+| both | 0.9197 | -0.0029 | -0.0060 to +0.0004 |
+
+Climate adds noise; recalls do nothing distinguishable. This is the measurement behind the Q3
+claim that the added layers belong in the decision layer, not the risk model.
+
 ---
 
 ## Finding 3: Serotype detail adds nothing predictive, which is itself informative

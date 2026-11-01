@@ -114,6 +114,11 @@ def main() -> None:
         run(str(S / "05_early_warning_baseline.py"), "--data", PROC, "--out", "outputs", "--horizon", h)
         run(str(S / "05c_calibration.py"), "--out", "outputs", "--horizon", h)
         run(str(S / "05d_ablation.py"), "--data", PROC, "--out", "outputs", "--horizon", h)
+        # The brief asks for the marginal value of the data the team added, which
+        # 05d does not test. Needs data/noaa and data/fsis_recalls, both committed.
+        if (REPO / "data" / "noaa" / "noaa_state_month.csv").exists():
+            run(str(S / "05e_added_data_ablation.py"), "--data", PROC,
+                "--raw-data", str(REPO / "data"), "--out", "outputs", "--horizon", h)
     run(str(S / "05b_watchlist_comparison.py"), "--data", PROC, "--out", "outputs", "--horizon", hs[0])
     run(str(S / "06_hazard_first_look.py"), "--data", PROC, "--out", "outputs")
     run(str(S / "07_figures.py"), "--data", PROC, "--out", "outputs")

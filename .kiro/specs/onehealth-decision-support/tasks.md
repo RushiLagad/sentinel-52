@@ -197,6 +197,11 @@ is ours.
   perishability window, Naisargi, later confirmed by the 80% against 64% coverage figures. Full account in
   Q9 of `report/REPORT.md`. Caveat: these were written down on 2026-10-29, not on the day each
   happened; the date each was acted on is visible in the commit history.
+  (5) Added 2026-11-01, recorded the day it happened: Sambhavi held that the brief's "ablation
+  showing the effect of the added data" is not satisfied by inferring from month-of-year that
+  climate would not help, and wrote `05e_added_data_ablation.py` on branch
+  `05e-added-data-ablation` (commit 3e1e669, 2026-10-31). Reviewed and merged 2026-11-01 with one
+  correction to the recall mark join. Result in Q3: climate slightly hurts, recalls within noise.
 - [x] **5.3** **Done, 2026-10-30.** Next addition: a real receiving log from a regional food bank,
   under agreement, with lot-level provenance. Chosen over the USDA food-access layer because it is the
   one addition that turns every simulated pounds figure into a measurement and tests whether the two
@@ -276,3 +281,7 @@ Everything from Phase 1 onward is intended to be built through Kiro from this sp
   API first, and the mark-extraction regex was validated against observed strings before the script
   was written. The regex self-test cases in that session are reproduced as assertions in the
   docstring's limitation note.
+- **(manual)** `analysis/scripts/05e_added_data_ablation.py`: written by Sambhavi Patel with Claude
+  on 2026-10-31 on a branch; reviewed 2026-11-01, when the establishment mark join was corrected
+  (the directory stores grants as 'M795B+P795B' and notices sometimes carry the bare number), and
+  merged. Wired into `run_all.py` after 05d. Reported in Q3 and Q9.

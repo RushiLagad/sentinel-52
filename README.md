@@ -142,10 +142,11 @@ core. Outputs land in `analysis/outputs/`:
 | `early_warning_summary_h{3,6,12}.json` | Baselines vs models, by forecast horizon |
 | `calibration_h{3,6,12}.json`, `t18_*` | Reliability tables, ECE and Brier for both scorers |
 | `ablation_h{3,6,12}.json`, `t19_*` | Leave-one-group-out, establishment-clustered bootstrap |
+| `ablation_added_h{3,6,12}.json`, `t19b_*` | Marginal value of the team-added layers (NOAA climate, FSIS recalls) added to the full model |
 | `hazard_first_look.json` | Serotype, resistance and enumeration layer |
 | `burden_weighting.json`, `t16`–`t17` | Serotype prevalence against illness burden |
 | `decision_layer_h3.json`, `t20`–`t23` | Four policies costed in shared units, equity by SVI quartile, the frontier, and one action per lot with reversal evidence |
-| `t1`–`t23` CSVs | The tables behind each figure |
+| `t1`–`t23` and `t19b` CSVs | The tables behind each figure |
 | `figures/` | Figures used in the report |
 
 ### Pipeline stages
@@ -161,6 +162,7 @@ core. Outputs land in `analysis/outputs/`:
 | `05b_watchlist_comparison.py` | Watch lists compared at equal size, plus lead time |
 | `05c_calibration.py` | Reliability curves, ECE and Brier: whether the scores are believable as probabilities |
 | `05d_ablation.py` | Leave-one-group-out: which feature families actually carry the signal |
+| `05e_added_data_ablation.py` | Adds the team's own layers (NOAA climate, linked FSIS recalls) to the full model and measures what they change, with the same clustered bootstrap |
 | `06_hazard_first_look.py` | Serotype, resistance, enumeration, and the 2024 proposed standard |
 | `07_figures.py`, `08_key_numbers.py` | Figures, and every headline number in one JSON |
 
