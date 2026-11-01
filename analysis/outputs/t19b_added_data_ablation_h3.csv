@@ -1,0 +1,4 @@
+comparison,reference,auroc,d_auroc,d_auroc_lo,d_auroc_hi,avg_precision,d_avg_precision,d_ap_lo,d_ap_hi,distinguishable_from_zero
+add_noaa_climate,05d_full_model,0.9527,0.0001,-0.0018,0.002,0.4257,-0.008,-0.024,0.0081,False
+add_fsis_recalls,05d_full_model,0.9558,0.0033,0.0018,0.0051,0.4523,0.0186,0.0022,0.0341,True
+add_both,05d_full_model,0.9547,0.0022,0.0006,0.0039,0.434,0.0004,-0.0151,0.0156,True

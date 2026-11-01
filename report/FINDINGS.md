@@ -114,14 +114,18 @@ literally zero is never defensible and needs a floor.
 `05e_added_data_ablation.py` (Sambhavi) adds the added layers to the full 05d model at h6, same
 split, same clustered bootstrap (`analysis/outputs/t19b_added_data_ablation_h6.csv`):
 
-| Added to the full model | AUROC | change | 95% interval |
+| Added to the full model (h6, full model AUROC 0.9221) | AUROC | change | 95% interval |
 |---|---|---|---|
-| NOAA climate, trailing 3 months + anomaly | 0.9192 | -0.0034 | -0.0065 to -0.0001 |
-| Linked FSIS recalls, prior 24 months (141 notices, 126 plants) | 0.9234 | +0.0008 | -0.0003 to +0.0020 |
-| both | 0.9197 | -0.0029 | -0.0060 to +0.0004 |
+| NOAA climate, trailing 3 months + anomaly | 0.9191 | -0.0030 | -0.0065 to +0.0004 |
+| Linked FSIS recalls, prior 24 months (141 notices, 126 plants) | 0.9230 | +0.0009 | -0.0005 to +0.0026 |
+| both | 0.9189 | -0.0032 | -0.0067 to +0.0001 |
 
-Climate adds noise; recalls do nothing distinguishable. This is the measurement behind the Q3
-claim that the added layers belong in the decision layer, not the risk model.
+Both within noise at six months; climate leans negative on every build (a second build put its
+interval at -0.0065 to -0.0001). At twelve months all three are within noise. At three months,
+recalls show +0.0033 (interval +0.0018 to +0.0051) on this build; three-month ablation verdicts are
+not quoted as findings because they have flipped between builds, but this is the one added layer
+worth retesting. This is the measurement behind the Q3 claim that the added layers belong in the
+decision layer, not the risk model.
 
 ---
 

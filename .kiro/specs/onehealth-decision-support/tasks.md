@@ -201,7 +201,8 @@ is ours.
   showing the effect of the added data" is not satisfied by inferring from month-of-year that
   climate would not help, and wrote `05e_added_data_ablation.py` on branch
   `05e-added-data-ablation` (commit 3e1e669, 2026-10-31). Reviewed and merged 2026-11-01 with one
-  correction to the recall mark join. Result in Q3: climate slightly hurts, recalls within noise.
+  correction to the recall mark join. Result in Q3: both within noise at h6, climate leaning negative; recalls show a small
+  distinguishable gain at h3 on one build, flagged as the layer to retest.
 - [x] **5.3** **Done, 2026-10-30.** Next addition: a real receiving log from a regional food bank,
   under agreement, with lot-level provenance. Chosen over the USDA food-access layer because it is the
   one addition that turns every simulated pounds figure into a measurement and tests whether the two

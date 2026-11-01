@@ -1,0 +1,60 @@
+{
+ "horizon_months": 12,
+ "seed": 7,
+ "bootstrap_resamples": 300,
+ "train_cut": "2021-12-31",
+ "test_start": "2024-01-01",
+ "added_feature_coverage": {
+  "tavg_3m": 0.9745,
+  "tmax_3m": 0.9745,
+  "prcp_3m": 0.9745,
+  "tavg_anom_3m": 0.9745,
+  "recalls_24m": 1.0,
+  "any_recall_24m": 1.0
+ },
+ "dropped_no_signal": [
+  "cfu_ge10_share"
+ ],
+ "base_auroc": 0.8515,
+ "rows": [
+  {
+   "comparison": "add_noaa_climate",
+   "reference": "05d_full_model",
+   "auroc": 0.8532,
+   "d_auroc": 0.0017,
+   "d_auroc_lo": -0.0033,
+   "d_auroc_hi": 0.007,
+   "avg_precision": 0.457,
+   "d_avg_precision": -0.0054,
+   "d_ap_lo": -0.0171,
+   "d_ap_hi": 0.0075,
+   "distinguishable_from_zero": false
+  },
+  {
+   "comparison": "add_fsis_recalls",
+   "reference": "05d_full_model",
+   "auroc": 0.8513,
+   "d_auroc": -0.0002,
+   "d_auroc_lo": -0.0031,
+   "d_auroc_hi": 0.0035,
+   "avg_precision": 0.4569,
+   "d_avg_precision": -0.0055,
+   "d_ap_lo": -0.0122,
+   "d_ap_hi": 0.0032,
+   "distinguishable_from_zero": false
+  },
+  {
+   "comparison": "add_both",
+   "reference": "05d_full_model",
+   "auroc": 0.8522,
+   "d_auroc": 0.0007,
+   "d_auroc_lo": -0.0043,
+   "d_auroc_hi": 0.0067,
+   "avg_precision": 0.4555,
+   "d_avg_precision": -0.0069,
+   "d_ap_lo": -0.0188,
+   "d_ap_hi": 0.0059,
+   "distinguishable_from_zero": false
+  }
+ ]
+}
