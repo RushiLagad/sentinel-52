@@ -2,14 +2,14 @@
  "horizon_months": 3,
  "scorer": "projection",
  "scorer_selection": {
-  "reason": "auto: lower expected calibration error at h3 (projection 0.0056, gb 0.0213)",
+  "reason": "the projection has the lower expected calibration error at 3 months (0.0056 for the projection, 0.0213 for gradient boosting)",
   "ece": {
    "projection": 0.0056,
    "gb": 0.0213
   }
  },
- "scorer_rationale": "A hold-or-divert decision acts on an absolute probability rather than on a ranking, so the scorer is chosen by expected calibration error at this horizon and not by AUROC. Which scorer that is changes with the horizon: the projection is far better calibrated at h3 (ECE 0.0056 against 0.0213) and worse at h6 (0.0092 against 0.0049).",
- "threshold_caveat": "hold_at and divert_at are thresholds on an absolute probability, so they are horizon-specific and do not transfer. The same 0.05 means a different thing against a 3-month outcome than against a 6-month one, and the scenario ranking is not horizon-robust: re-running at another horizon can reverse which scenario dominates.",
+ "scorer_rationale": "A hold-or-divert decision acts on an absolute probability rather than on a ranking, so the scorer is chosen by expected calibration error at this horizon and not by AUROC. Which scorer that is changes with the horizon: the projection is far better calibrated at three months (ECE 0.0056 against 0.0213) and worse at six months (0.0092 against 0.0049).",
+ "threshold_caveat": "The hold and divert thresholds are absolute probabilities, so they belong to one horizon and do not transfer. The same 0.05 means a different thing against a 3-month outcome than against a 6-month one, and the scenario ranking does not carry across horizons: re-running at another horizon can reverse which scenario dominates.",
  "lbs_per_meal": 1.2,
  "pounds_are_synthetic": true,
  "synthetic_note": "lots, pounds, destinations and shelf life are simulated by 14_build_synthetic_inventory.py. Risk scores, FSIS categories and outcomes are real. No pounds figure here measures a real food bank.",
@@ -157,7 +157,7 @@
   {
    "dominated": "capacity_matched",
    "by": "food_security_weighted",
-   "why": "food_security_weighted reaches recall 0.4074 against 0.4074 while destroying 4,971 fewer meals"
+   "why": "Food-security weighted reaches recall 0.4074 against 0.4074 while destroying 4,971 fewer meals"
   }
  ],
  "equity": [

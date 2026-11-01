@@ -437,8 +437,10 @@ def main() -> int:
             if {"projection", "gb"} <= set(e):
                 a.scorer = min(("projection", "gb"), key=lambda k: e[k])
                 scorer_choice = {
-                    "reason": (f"auto: lower expected calibration error at h{H} "
-                               f"(projection {e['projection']:.4f}, gb {e['gb']:.4f})"),
+                    "reason": (f"{'the projection' if a.scorer == 'projection' else 'gradient boosting'} "
+                               f"has the lower expected calibration error at {H} months "
+                               f"({e['projection']:.4f} for the projection, {e['gb']:.4f} for "
+                               f"gradient boosting)"),
                     "ece": e}
         if a.scorer == "auto":
             a.scorer = "projection"
@@ -540,7 +542,7 @@ def main() -> int:
                          or mb["exposure_meals"] < ma["exposure_meals"])):
                 dominated.append({
                     "dominated": a_name, "by": b_name,
-                    "why": (f"{b_name} reaches recall {mb['recall']} against "
+                    "why": (f"{SCENARIOS[b_name]['label'].split(':')[0]} reaches recall {mb['recall']} against "
                             f"{ma['recall']} while destroying "
                             f"{ma['avoidable_loss_meals'] - mb['avoidable_loss_meals']:,} "
                             f"fewer meals"),
@@ -576,13 +578,13 @@ def main() -> int:
                              "than on a ranking, so the scorer is chosen by expected calibration "
                              "error at this horizon and not by AUROC. Which scorer that is "
                              "changes with the horizon: the projection is far better calibrated "
-                             "at h3 (ECE 0.0056 against 0.0213) and worse at h6 (0.0092 against "
-                             "0.0049)."),
-        "threshold_caveat": ("hold_at and divert_at are thresholds on an absolute probability, so "
-                             "they are horizon-specific and do not transfer. The same 0.05 means a "
+                             "at three months (ECE 0.0056 against 0.0213) and worse at six "
+                             "months (0.0092 against 0.0049)."),
+        "threshold_caveat": ("The hold and divert thresholds are absolute probabilities, so they "
+                             "belong to one horizon and do not transfer. The same 0.05 means a "
                              "different thing against a 3-month outcome than against a 6-month "
-                             "one, and the scenario ranking is not horizon-robust: re-running at "
-                             "another horizon can reverse which scenario dominates."),
+                             "one, and the scenario ranking does not carry across horizons: "
+                             "re-running at another horizon can reverse which scenario dominates."),
         "lbs_per_meal": LBS_PER_MEAL,
         "pounds_are_synthetic": True,
         "synthetic_note": ("lots, pounds, destinations and shelf life are simulated by "

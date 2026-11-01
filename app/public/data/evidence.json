@@ -236,7 +236,7 @@
     "ap_gb": 0.392
    }
   ],
-  "interval_note": "bootstrap_ci is a MODEL-level interval over resampled establishments. The per-unit interval shown beside a single establishment in current_risk.json is a Jeffreys interval on that unit's own 52-week count; they answer different questions and must not be presented as the same thing."
+  "interval_note": "This is a model-level interval over resampled establishments. The interval shown beside a single establishment in the current-risk table is a Jeffreys interval on that unit's own 52-week count; they answer different questions and are not the same thing."
  },
  "calibration": {
   "scorer": "projection",
@@ -326,7 +326,7 @@
    }
   },
   "selection": {
-   "reason": "auto: lower expected calibration error at h3 (projection 0.0056, gb 0.0213)",
+   "reason": "the projection has the lower expected calibration error at 3 months (0.0056 for the projection, 0.0213 for gradient boosting)",
    "ece": {
     "projection": 0.0056,
     "gb": 0.0213

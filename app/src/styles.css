@@ -91,8 +91,13 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .modal { background: var(--surface); color: var(--ink); border-radius: 10px; max-width: 640px; width: 100%; padding: 1.1rem 1.2rem; border: 1px solid var(--line); }
 .modal h2 { margin-bottom: 0.5rem; }
 .modal .actions { display: flex; gap: 0.6rem; justify-content: flex-end; margin-top: 1rem; }
-.kv { display: grid; grid-template-columns: max-content 1fr; gap: 0.2rem 0.8rem; font-size: 0.9rem; }
-.kv dt { color: var(--muted); } .kv dd { margin: 0; }
+.kv { display: grid; grid-template-columns: minmax(7rem, 11rem) minmax(0, 1fr); gap: 0.3rem 0.8rem; font-size: 0.9rem; align-items: baseline; }
+.kv dt { color: var(--muted); min-width: 0; overflow-wrap: anywhere; } .kv dd { margin: 0; min-width: 0; overflow-wrap: anywhere; }
+.kv dd .badge { margin-left: 0.3rem; }
+.card { min-width: 0; }
+.card > b:first-child { display: block; margin-bottom: 0.2rem; }
+.grid.scenarios { grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); }
+.grid.stats { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 
 svg text { font-family: var(--sans); }
 .chart { width: 100%; max-width: 760px; height: auto; display: block; }
@@ -101,7 +106,7 @@ svg text { font-family: var(--sans); }
 .legend .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; vertical-align: -1px; margin-right: 0.3rem; }
 .sources li { font-size: 0.85rem; }
 footer { color: var(--muted); font-size: 0.82rem; margin-top: 2rem; }
-@media (max-width: 640px) { input[type="range"] { width: 100%; } .kv { grid-template-columns: 1fr; } .kv dt { margin-top: 0.3rem; } .grid.two, .grid.three { grid-template-columns: 1fr; } .topbar nav { flex-basis: 100%; } }
+@media (max-width: 640px) { input[type="range"] { width: 100%; } .kv { grid-template-columns: 1fr; } .grid.scenarios, .grid.stats { grid-template-columns: 1fr; } .kv dt { margin-top: 0.3rem; } .grid.two, .grid.three { grid-template-columns: 1fr; } .topbar nav { flex-basis: 100%; } }
 main, .topbar { overflow-x: clip; }
 .table-wrap { max-width: 100%; }
 

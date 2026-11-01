@@ -1,5 +1,7 @@
 // R2. Recalls and public health alerts FSIS has already published are facts;
 // model scores are forecasts. Facts are pinned above forecasts, always.
+import { classLabel } from "../lib/format.js";
+
 export default function AlertQueue({ alerts, names }) {
   const groups = [...new Set(alerts.alerts.map((a) => a.rank_group))].sort();
   return (
@@ -15,11 +17,11 @@ export default function AlertQueue({ alerts, names }) {
               <tbody>
                 {alerts.alerts.filter((a) => a.rank_group === g).map((a, i) => (
                   <tr key={i}>
-                    <td className="mono small">{a.date}</td>
+                    <td className="mono small" style={{ whiteSpace: "nowrap" }}>{a.date}</td>
                     <td>{a.kind === "recall" ? <span className="badge pin">RECALL</span> : <span className="badge cat">{a.kind}</span>} {a.url ? <a href={a.url} target="_blank" rel="noreferrer">{a.title}</a> : a.title}{a.risk_level ? <div className="small muted">{a.risk_level} · {a.reason}</div> : null}</td>
-                    <td className="mono small">{a.establishment_marks || (a.establishment_id != null ? `${names[a.establishment_id] || ""} #${a.establishment_id}` : "n/a")}</td>
-                    <td className="small">{a.states || a.product_class || "n/a"}</td>
-                    <td className="small muted">{a.why_pinned || a.why || "n/a"}</td>
+                    <td className="mono small">{(a.establishment_marks && a.establishment_marks.split("|").join(", ")) || (a.establishment_id != null ? `${names[a.establishment_id] || ""} #${a.establishment_id}` : "n/a")}</td>
+                    <td className="small">{a.states || classLabel(a.product_class) || "n/a"}</td>
+                    <td className="small muted">{a.why_pinned || a.why || (a.kind === "model" ? "among the 25 highest scores in the latest window and a supplier to this food bank; a forecast, not a finding" : "n/a")}</td>
                   </tr>
                 ))}
               </tbody>

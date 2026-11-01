@@ -1,5 +1,5 @@
 import SyntheticBadge from "./SyntheticBadge.jsx";
-import { fmtInt, fmtLbs } from "../lib/format.js";
+import { fmtInt, fmtLbs, scenarioLabel } from "../lib/format.js";
 
 // R6. Whether the policy quietly takes food away from the communities least
 // able to replace it. The disparity is stated whichever way it comes out, and
@@ -11,10 +11,10 @@ export default function EquityView({ equity, selected }) {
   return (
     <section className="panel" id="equity">
       <h2>Food security and equity <SyntheticBadge /></h2>
-      <p className="lede">Destination counties by CDC/ATSDR SVI quartile, for the scenario selected above (<b>{selected}</b>).</p>
+      <p className="lede">Destination counties by CDC/ATSDR SVI quartile, for the scenario selected above (<b>{scenarioLabel(selected)}</b>).</p>
       {d && (
         <div className={against ? "notice" : "finding"}>
-          <b>Disparity check:</b> withheld share is <b>{d.withheld_pct_most_vulnerable}%</b> in the most vulnerable quartile against <b>{d.withheld_pct_least_vulnerable}%</b> in the least, a difference of <b>{d.difference_pct_points > 0 ? "+" : ""}{d.difference_pct_points} points</b>. {d.direction}.
+          <b>Disparity check:</b> withheld share is <b>{d.withheld_pct_most_vulnerable}%</b> in the most vulnerable quartile against <b>{d.withheld_pct_least_vulnerable}%</b> in the least, a difference of <b>{d.difference_pct_points > 0 ? "+" : ""}{d.difference_pct_points} points</b>. {d.direction ? d.direction.charAt(0).toUpperCase() + d.direction.slice(1) : ""}.
           {against && <> This policy reduces supply to high-need counties more than to others. That is shown here on the scenario screen, not in a footnote, and it is not corrected automatically.</>}
         </div>
       )}

@@ -27,7 +27,7 @@ export default function CurrentRiskView({ risk, names, onPick, picked }) {
   return (
     <section className="panel" id="risk">
       <h2>Current risk</h2>
-      <p className="lede">{risk.units.length} plant-and-product units scored at the {risk.meta.horizon_months}-month horizon, window ending {risk.meta.window_end}. Scorer: <code>{risk.meta.scorer}</code>, chosen by measured calibration. {risk.meta.suppliers} units are this food bank's suppliers.</p>
+      <p className="lede">{risk.units.length} plant-and-product units scored at the {risk.meta.horizon_months}-month horizon, window ending {risk.meta.window_end}. Scorer: {risk.meta.scorer === "projection" ? "the binomial projection" : "gradient boosting"}, chosen by measured calibration. {risk.meta.suppliers} units are this food bank's suppliers.</p>
       <div className="controls">
         <label>Product <select value={cls} onChange={(e) => setCls(e.target.value)}><option value="all">all</option>{classes.map((c) => <option key={c} value={c}>{classLabel(c)}</option>)}</select></label>
         <label><input type="checkbox" checked={supplierOnly} onChange={(e) => setSupplierOnly(e.target.checked)} /> suppliers only</label>
@@ -37,7 +37,7 @@ export default function CurrentRiskView({ risk, names, onPick, picked }) {
       <div className="table-wrap">
         <table>
           <thead><tr>
-            <th>Plant</th><th>Product</th>{th("category", "FSIS category")}{th("score", "Score", true)}{th("observed_rate_52w", "52-wk rate", true)}<th className="num">95% interval</th><th className="num">n / pos</th><th>Calibration band</th>
+            <th>Plant</th><th>Product</th>{th("category", "FSIS category")}{th("score", "Score", true)}{th("observed_rate_52w", "52-week rate", true)}<th className="num">95% interval</th><th className="num">n / pos</th><th>Calibration band</th>
           </tr></thead>
           <tbody>
             {rows.map((u) => {

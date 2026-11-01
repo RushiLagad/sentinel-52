@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import SyntheticBadge from "./SyntheticBadge.jsx";
 import ConfirmHighConsequence from "./ConfirmHighConsequence.jsx";
-import { fmtLbs, fmt3, fmtPct, actionLabel, classLabel } from "../lib/format.js";
+import { fmtLbs, fmt3, fmtPct, actionLabel, classLabel, scenarioLabel } from "../lib/format.js";
 
 // The landing view, and the reason the app exists. A pallet is in front of you;
 // here is the call, why, what it costs, what the other choice costs, and what
@@ -37,7 +37,7 @@ export default function ReceivingDesk({ actions, risk, names }) {
       <div className="desk-head">
         <div>
           <h2>Receiving desk</h2>
-          <p className="lede">{pending} of {lots.filter((l) => l.high_consequence).length} lots still need a human decision · {acks.size} reviewed this session · scenario <b>{actions.meta.default_scenario}</b></p>
+          <p className="lede">{pending} of {lots.filter((l) => l.high_consequence).length} lots still need a human decision · {acks.size} reviewed this session · scenario <b>{scenarioLabel(actions.meta.default_scenario)}</b></p>
         </div>
         <div className="desk-find">
           <input type="search" placeholder="lot id or plant" value={q} onChange={(e) => setQ(e.target.value)} aria-label="find a lot" />

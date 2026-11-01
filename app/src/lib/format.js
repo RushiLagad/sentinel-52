@@ -11,3 +11,7 @@ export const actionLabel = {
   divert: "Divert to cooked-meal channel",
 };
 export const classLabel = (c) => (c || "").replace(/_/g, " ");
+
+// Scenario ids are keys in 16_decision_layer.py; people read these.
+export const SCENARIO_LABEL = { rule_based_category: "Rule-based (status quo)", conservative: "Conservative", capacity_matched: "Capacity-matched", food_security_weighted: "Food-security weighted" };
+export const scenarioLabel = (id) => SCENARIO_LABEL[id] || id;

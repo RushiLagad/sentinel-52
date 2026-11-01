@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import SyntheticBadge from "./SyntheticBadge.jsx";
 import ConfirmHighConsequence from "./ConfirmHighConsequence.jsx";
-import { fmtLbs, fmt3, actionLabel, classLabel } from "../lib/format.js";
+import { fmtLbs, fmt3, actionLabel, classLabel, fmtInt, scenarioLabel } from "../lib/format.js";
 
 // R4. One recommended action per lot, the one-sentence reason, what it costs,
 // the opposite action with its cost, and (for hold and divert) a blocking
@@ -23,7 +23,7 @@ export default function RecommendedActionPanel({ actions, picked }) {
   return (
     <section className="panel" id="actions">
       <h2>Recommended actions <SyntheticBadge /></h2>
-      <p className="lede">{actions.lots.length} simulated lots under the <b>{actions.meta.default_scenario}</b> scenario: {Object.entries(counts).map(([k, v]) => `${v} ${k.replace(/_/g, " ")}`).join(" · ")}. {picked ? <>Showing lots from the plant selected under Current risk. </> : null}Nothing here is executed by this tool.</p>
+      <p className="lede">{fmtInt(actions.lots.length)} simulated lots under the <b>{scenarioLabel(actions.meta.default_scenario)}</b> scenario: {Object.entries(counts).map(([k, v]) => `${fmtInt(v)} ${k.replace(/_/g, " ")}`).join(", ")}. {picked ? <>Showing lots from the plant selected under Current risk. </> : null}Nothing here is executed by this tool.</p>
       <div className="controls">
         <label>Show <select value={filter} onChange={(e) => setFilter(e.target.value)}>
           <option value="high_consequence">high-consequence only</option><option value="all">all</option>
@@ -55,7 +55,7 @@ export default function RecommendedActionPanel({ actions, picked }) {
             <dl className="kv">
               <dt>Because</dt><dd>{lot.driver}</dd>
               <dt>Costs</dt><dd>{fmtLbs(lot.pounds)} <SyntheticBadge /> for {lot.dest_county} ({lot.svi_quartile}); {lot.days_left} days of shelf life left</dd>
-              <dt>Evidence</dt><dd>FSIS Cat {lot.category ?? "NA"} · 52-wk {lot.pos52 ?? "n/a"} positives of {lot.n52 ?? "n/a"} · score {fmt3(lot.projection)}{lot.score_age_days != null ? ` (${lot.score_age_days} days old)` : ""}{lot.scored === false ? " · no recent sampling" : ""}</dd>
+              <dt>Evidence</dt><dd>FSIS Category {lot.category ?? "NA"}; {lot.pos52 ?? "n/a"} positives of {lot.n52 ?? "n/a"} in 52 weeks; score {fmt3(lot.projection)}{lot.score_age_days != null ? ` (${lot.score_age_days} days old)` : ""}{lot.scored === false ? " · no recent sampling" : ""}</dd>
               <dt>The other choice</dt><dd>{actionLabel[lot.alternative_action]}: {lot.high_consequence ? `keeps ${fmtLbs(lot.pounds)} in direct distribution and accepts the signal above` : `withholds ${fmtLbs(lot.pounds)} from ${lot.dest_county} on a signal the policy judged too weak`} <SyntheticBadge /></dd>
               {lot.high_consequence && <><dt>Would reverse it</dt><dd>{lot.reversal_evidence}</dd></>}
               {lot.discarded && <><dt>Under this policy</dt><dd>lost: {lot.discard_reason}</dd></>}

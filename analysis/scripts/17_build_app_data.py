@@ -376,11 +376,11 @@ def main() -> int:
                   "bootstrap_establishments": ew.get("bootstrap_establishments"),
                   "task": ew.get("task", {}), "cat2_flag": ew.get("cat2_flag", {}),
                   "by_class": ew.get("by_class", []),
-                  "interval_note": ("bootstrap_ci is a MODEL-level interval over resampled "
-                                    "establishments. The per-unit interval shown beside a single "
-                                    "establishment in current_risk.json is a Jeffreys interval on "
+                  "interval_note": ("This is a model-level interval over resampled "
+                                    "establishments. The interval shown beside a single "
+                                    "establishment in the current-risk table is a Jeffreys interval on "
                                     "that unit's own 52-week count; they answer different "
-                                    "questions and must not be presented as the same thing.")},
+                                    "questions and are not the same thing.")},
         "calibration": {"scorer": scorer, "horizon_months": int(H),
                         "reliability": rel,
                         "ece": cal.get("scorers", {}).get(scorer, {}).get("ece"),

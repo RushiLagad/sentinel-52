@@ -24,7 +24,7 @@ export default function ScenarioBuilder({ scenarios, equity, selected, onSelect 
         <label>hold at <input type="range" min={0} max={pts.length - 1} step={1} value={fi} onChange={(e) => setFi(Number(e.target.value))} /> <b className="mono">{p.hold_at}</b> (divert at {p.divert_at})</label>
         <span className="small muted">{scenarios.controls?.find((c) => c.id === "hold_at")?.note}</span>
       </div>
-      <div className="grid three">
+      <div className="grid stats">
         <div className="card stat"><span className="v">{fmt3(p.recall)}</span><span className="k">recall</span></div>
         <div className="card stat"><span className="v">{fmt3(p.precision)}</span><span className="k">precision</span></div>
         <div className="card stat"><span className="v">{fmtLbs(p.pounds_distributed)}</span><span className="k">distributed <SyntheticBadge /></span></div>
@@ -36,24 +36,24 @@ export default function ScenarioBuilder({ scenarios, equity, selected, onSelect 
       <p className="small muted">The curve is not convex: loss falls and then rises as the threshold climbs, because raising the divert threshold pushes lots back into holds, where shelf life kills them. There is no clean optimum, and which point to stand on is a judgement about whose risk counts.</p>
 
       <h3>Named scenarios. Review capacity and the food-security weight live here</h3>
-      <div className="grid two">
+      <div className="grid scenarios">
         {scenarios.scenarios.map((s) => {
           const e = q4(s.scenario);
           const dom = dominatedBy[s.scenario];
           return (
             <div key={s.scenario} className={"card" + (selected === s.scenario ? " selected" : "")} onClick={() => onSelect(s.scenario)} style={{ cursor: "pointer" }}>
               <b>{s.label}</b>
-              {dom && <div className="notice small"><b>Dominated</b> by {dom.by}: {dom.why}. Not a trade-off, just worse.</div>}
+              {dom && <div className="notice small"><b>Dominated.</b> {dom.why}. Not a trade-off, just worse.</div>}
               <dl className="kv small" style={{ marginTop: "0.4rem" }}>
-                <dt>thresholds</dt><dd>{s.hold_at == null ? "FSIS category rule" : `hold ≥ ${s.hold_at}, divert ≥ ${s.divert_at}`}</dd>
-                <dt>review capacity</dt><dd>{s.review_capacity_per_week == null ? "unlimited" : `${s.review_capacity_per_week} / week`} · needs <b>{s.holds_per_week_required?.toFixed(1)}</b> / week{s.review_capacity_exceeded_by > 1 ? <span className="badge hc" style={{ marginLeft: 6 }}>NOT EXECUTABLE</span> : null}</dd>
+                <dt>thresholds</dt><dd>{s.hold_at == null ? "FSIS category rule" : `hold at ${s.hold_at}, divert at ${s.divert_at}`}</dd>
+                <dt>review capacity</dt><dd>{s.review_capacity_per_week == null ? "unlimited" : `${s.review_capacity_per_week} a week`}; needs <b>{s.holds_per_week_required?.toFixed(1)}</b> a week{s.review_capacity_exceeded_by > 1 ? <span className="badge hc" style={{ marginLeft: 6 }}>NOT EXECUTABLE</span> : null}</dd>
                 <dt>food-security weight</dt><dd>{s.food_security_weight}</dd>
                 <dt>precision / recall</dt><dd>{fmt3(s.precision)} / {fmt3(s.recall)}</dd>
-                <dt>actions</dt><dd>{s.n_distribute_now} distribute · {s.n_prioritize} prioritize · {s.n_hold_for_review} hold · {s.n_divert} divert</dd>
+                <dt>actions</dt><dd>{fmtInt(s.n_distribute_now)} distribute, {s.n_prioritize} prioritize, {s.n_hold_for_review} hold, {s.n_divert} divert</dd>
                 <dt>distributed</dt><dd>{fmtLbs(s.pounds_distributed)} <SyntheticBadge /></dd>
-                <dt>destroyed, from plants that did not deteriorate</dt><dd><b>{fmtInt(s.avoidable_loss_meals)}</b> meals <SyntheticBadge /></dd>
-                <dt>uncooked, from plants that did</dt><dd>{fmtInt(s.exposure_meals)} meals <SyntheticBadge /></dd>
-                <dt>share reaching most-vulnerable quartile</dt><dd>{e ? `${e.share_of_all_distribution_pct}%` : "n/a"} <SyntheticBadge /></dd>
+                <dt>meals lost, plants that did not deteriorate</dt><dd><b>{fmtInt(s.avoidable_loss_meals)}</b> <SyntheticBadge /></dd>
+                <dt>meals out uncooked, plants that did</dt><dd>{fmtInt(s.exposure_meals)} <SyntheticBadge /></dd>
+                <dt>share to most-vulnerable quartile</dt><dd>{e ? `${e.share_of_all_distribution_pct}%` : "n/a"} <SyntheticBadge /></dd>
               </dl>
             </div>
           );

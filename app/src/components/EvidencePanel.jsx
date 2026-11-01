@@ -11,11 +11,11 @@ export default function EvidencePanel({ evidence, burden, meta }) {
   return (
     <section className="panel" id="evidence">
       <h2>Evidence and uncertainty</h2>
-      <p className="lede">Horizon {evidence.meta.horizon_months} months. Scorer <code>{c.scorer}</code>, chosen because {c.selection?.reason}.</p>
+      <p className="lede">Horizon {evidence.meta.horizon_months} months. Scorer in use: {c.scorer === "projection" ? "the binomial projection" : "gradient boosting"}, because {c.selection?.reason}.</p>
       <div className="grid two">
         <div>
           <h3>Model, on the full panel</h3>
-          <div className="table-wrap" style={{ maxHeight: 260 }}>
+          <div className="table-wrap" style={{ maxHeight: "none" }}>
             <table>
               <thead><tr><th>scorer</th><th className="num">AUROC</th><th className="num">avg precision</th><th className="num">recall @10%</th><th className="num">Brier</th></tr></thead>
               <tbody>{m.metrics.map((r) => <tr key={r.scorer}><td>{r.scorer}</td><td className="num">{fmt3(r.auroc)}</td><td className="num">{fmt3(r.avg_precision)}</td><td className="num">{fmt3(r.recall_top10pct)}</td><td className="num">{r.brier == null ? "n/a" : fmt3(r.brier)}</td></tr>)}</tbody>
@@ -24,8 +24,8 @@ export default function EvidencePanel({ evidence, burden, meta }) {
           <dl className="kv small" style={{ marginTop: "0.5rem" }}>
             <dt>AUROC, projection</dt><dd>{rng("auroc_proj")}</dd>
             <dt>AUROC, gradient boosting</dt><dd>{rng("auroc_gb")}</dd>
-            <dt>Δ AUROC (gb − projection)</dt><dd>{rng("d_auroc_gb")}</dd>
-            <dt>Δ avg precision</dt><dd>{rng("d_ap_gb")}; the integrated model's advantage is not distinguishable from zero</dd>
+            <dt>AUROC gain, gradient boosting over projection</dt><dd>{rng("d_auroc_gb")}</dd>
+            <dt>avg precision gain</dt><dd>{rng("d_ap_gb")}; the integrated model's advantage is not distinguishable from zero</dd>
             <dt>interval</dt><dd>95%, {m.bootstrap_establishments} establishments resampled whole. {m.interval_note}</dd>
             <dt>test set</dt><dd>{m.task?.test_rows?.toLocaleString()} unit-months, {m.task?.test_new_failures} new Category 3 entries, base rate {m.task?.test_positive_pct}%</dd>
             <dt>Category 2 flag</dt><dd>recall {fmt3(m.cat2_flag?.recall)}, precision {fmt3(m.cat2_flag?.precision)}, flags {m.cat2_flag?.flagged_pct}% of units</dd>
@@ -42,7 +42,7 @@ export default function EvidencePanel({ evidence, burden, meta }) {
       {burden.serotypes?.length ? (
         <div className="table-wrap" style={{ maxHeight: 300 }}>
           <table>
-            <thead><tr><th>serotype</th><th className="num">outbreaks</th><th className="num">illnesses</th><th className="num">hospitalisations</th><th className="num">from a single outbreak</th><th>in FSIS KPI</th></tr></thead>
+            <thead><tr><th>serotype</th><th className="num">outbreaks</th><th className="num">illnesses</th><th className="num">hospitalisations</th><th className="num">from a single outbreak</th><th>FSIS indicator serotype</th></tr></thead>
             <tbody>{burden.serotypes.map((s) => (
               <tr key={s.serotype}><td>{s.serotype}</td><td className="num">{s.outbreaks}</td><td className="num">{s.illnesses}</td><td className="num">{s.hospitalizations}</td>
                 <td className="num">{s.pct_hosp_from_largest_row}%{s.pct_hosp_from_largest_row >= 80 ? <span className="badge hc" style={{ marginLeft: 6 }}>RESTS ON ONE EVENT</span> : null}</td>
