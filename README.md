@@ -9,6 +9,24 @@ Naisargi Modha (Northeastern University)
 **Live application: https://rushilagad.github.io/sentinel-52/** · evidence behind every number:
 `report/FINDINGS.md` · the report: `report/REPORT.md` and `report/REPORT.pdf` · read this first if you are new: `docs/HANDOFF.md`
 
+## Try it in three minutes
+
+1. Open the live app. The receiving desk shows the first lot that needs a person's decision, in large
+   type, with the reason and the evidence beside it.
+2. Type `SIM-7-001276` in the lot box. A comminuted turkey pallet from Prestage Foods: projection 0.79,
+   the call is to send it to the cooked-meal channel. Read what would reverse the call, then press
+   **Review and acknowledge**; the dialog shows the cost of the call and the other choice before it
+   lets you through. Nothing moves a pallet.
+3. Type `SIM-7-001115`. A chicken-parts pallet with nine days of shelf life and a weak signal: a hold
+   would destroy it, and the desk says so.
+4. Scroll to **Scenarios**. Drag the hold threshold and watch recall, food out and meals lost move;
+   the curve is not convex. Click a named scenario card; **Equity** below it re-reads for that policy
+   and reports the disparity whichever way it comes out.
+5. Open **Evidence**. Calibration by decile, the bootstrap intervals, the serotype burden table with
+   figures resting on a single outbreak flagged, and the file hash behind every number.
+
+Then `report/REPORT.pdf` answers the ten questions, and `analysis/run_all.py` rebuilds everything.
+
 ---
 
 ## The decision this tool supports

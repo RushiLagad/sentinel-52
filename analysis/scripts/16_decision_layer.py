@@ -363,6 +363,15 @@ def equity_table(d: pd.DataFrame, name: str) -> pd.DataFrame:
     t["withheld_pct"] = (100 * t["pounds_withheld"] / t["pounds_offered"]).round(2)
     t["share_of_all_distribution_pct"] = \
         (100 * t["pounds_distributed"] / t["pounds_distributed"].sum()).round(2)
+    # Food-security measures of the destination counties, pounds-weighted, when
+    # 13_fetch_vulnerability.py ran with a Census key. Absent otherwise, and the
+    # app and the report say so rather than showing a blank column.
+    for src_col, out_col in (("dest_snap_pct", "snap_households_pct"),
+                             ("dest_no_vehicle_pct", "no_vehicle_households_pct")):
+        if src_col in d.columns and d[src_col].notna().any():
+            w = d.dropna(subset=[src_col]).groupby("svi_quartile", observed=True)
+            t = t.merge(w.apply(lambda x: (x[src_col] * x["pounds"]).sum() / x["pounds"].sum())
+                        .round(2).rename(out_col).reset_index(), on="svi_quartile", how="left")
     t["pounds_are_synthetic"] = True
     return t
 

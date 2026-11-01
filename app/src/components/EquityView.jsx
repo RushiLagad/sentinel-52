@@ -6,6 +6,8 @@ import { fmtInt, fmtLbs, scenarioLabel } from "../lib/format.js";
 // nothing here optimises it away. The human chooses.
 export default function EquityView({ equity, selected }) {
   const rows = equity.quartiles.filter((r) => r.scenario === selected);
+  // ACS food-security columns exist only when 13_fetch_vulnerability.py ran with a Census key.
+  const hasAcs = rows.some((r) => r.snap_households_pct != null);
   const d = equity.disparity.find((x) => x.scenario === selected);
   const against = d && d.difference_pct_points > 1;
   return (
@@ -20,13 +22,14 @@ export default function EquityView({ equity, selected }) {
       )}
       <div className="table-wrap" style={{ maxHeight: 300 }}>
         <table>
-          <thead><tr><th>SVI quartile</th><th className="num">lots</th><th className="num">offered</th><th className="num">distributed</th><th className="num">withheld</th><th className="num">withheld %</th><th className="num">share of all distribution</th></tr></thead>
+          <thead><tr><th>SVI quartile</th><th className="num">lots</th><th className="num">offered</th><th className="num">distributed</th><th className="num">withheld</th><th className="num">withheld %</th><th className="num">share of all distribution</th>{hasAcs && <><th className="num">SNAP households</th><th className="num">no vehicle</th></>}</tr></thead>
           <tbody>
             {rows.map((r) => (
               <tr key={r.svi_quartile}>
                 <td>{r.svi_quartile}</td><td className="num">{fmtInt(r.lots)}</td>
                 <td className="num">{fmtLbs(r.pounds_offered)}</td><td className="num">{fmtLbs(r.pounds_distributed)}</td>
                 <td className="num">{fmtLbs(r.pounds_withheld)}</td><td className="num"><b>{r.withheld_pct}%</b></td><td className="num">{r.share_of_all_distribution_pct}%</td>
+                {hasAcs && <><td className="num">{r.snap_households_pct != null ? `${r.snap_households_pct}%` : "n/a"}</td><td className="num">{r.no_vehicle_households_pct != null ? `${r.no_vehicle_households_pct}%` : "n/a"}</td></>}
               </tr>
             ))}
           </tbody>

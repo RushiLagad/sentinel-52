@@ -399,9 +399,13 @@ def main() -> int:
     equity = {"meta": meta("equity", list(S.values()), synthetic=True, horizon_months=int(H)),
               "quartiles": json.loads(T21.to_json(orient="records")),
               "disparity": dec.get("disparity_check", []),
-              "note": ("Vulnerability is CDC/ATSDR SVI 2022 at county level. The USDA food-access "
-                       "layer is not in: the Census API key was rejected, so this is SVI alone. "
-                       "County is a coarse proxy for a service area.")}
+              "note": (("Vulnerability is CDC/ATSDR SVI 2022 at county level, with SNAP receipt and "
+                        "households without a vehicle from the Census ACS 5-year as the food-security "
+                        "measures. County is a coarse proxy for a service area.")
+                       if "snap_households_pct" in T21.columns else
+                       ("Vulnerability is CDC/ATSDR SVI 2022 at county level. The Census ACS "
+                        "food-security layer is not in: the Census API key was rejected, so this is SVI alone. "
+                        "County is a coarse proxy for a service area."))}
 
     # ---- burden: illness-derived, and therefore establishment-free --------
     bw_path = AO / "burden_weighting.json"

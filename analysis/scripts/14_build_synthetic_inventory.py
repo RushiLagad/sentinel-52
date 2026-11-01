@@ -137,7 +137,10 @@ def main() -> None:
         V = pd.read_csv(a.vulnerability, dtype={"fips": str})
         V = V[V["state"] == a.state] if "state" in V.columns else V
         dest = dest.assign(fips=dest["fips_code"].astype(str).str.extract(r"(\d{5})")[0])
-        dest = dest.merge(V[["fips", "svi_overall", "population"]], on="fips", how="left")
+        # The ACS food-security columns exist only when 13 ran with a Census key;
+        # carry them when present so the equity table can report them.
+        extra = [c for c in ("snap_pct", "no_vehicle_pct", "poverty_pct") if c in V.columns]
+        dest = dest.merge(V[["fips", "svi_overall", "population"] + extra], on="fips", how="left")
         used_vuln = dest["svi_overall"].notna().any()
     if not used_vuln:
         # fall back: all counties in the service state, equally likely
@@ -183,6 +186,8 @@ def main() -> None:
                 "dest_county": dst["county"],
                 "dest_fips": dst.get("fips", dst["fips_code"]),
                 "dest_svi_overall": (None if pd.isna(dst["svi_overall"]) else float(dst["svi_overall"])),
+                "dest_snap_pct": (None if pd.isna(dst.get("snap_pct", float("nan"))) else float(dst["snap_pct"])),
+                "dest_no_vehicle_pct": (None if pd.isna(dst.get("no_vehicle_pct", float("nan"))) else float(dst["no_vehicle_pct"])),
             })
 
     L = pd.DataFrame(rows)

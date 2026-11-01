@@ -136,6 +136,10 @@ DERIVED: dict[str, str] = {
     "dest_county": "SIMULATED destination county, drawn weighted by vulnerability within the service state.",
     "dest_fips": "FIPS code of that destination county.",
     "dest_svi_overall": "svi_overall of the destination county. Real SVI, attached to a simulated destination.",
+    "dest_snap_pct": "Share of households in the destination county receiving SNAP, ACS 5-year via 13_fetch_vulnerability.py. Blank when the Census key was not available.",
+    "dest_no_vehicle_pct": "Share of households in the destination county with no vehicle, ACS 5-year. Blank when the Census key was not available.",
+    "snap_households_pct": "Pounds-weighted mean of dest_snap_pct over the lots sent to that quartile. Present only when the ACS layer was fetched.",
+    "no_vehicle_households_pct": "Pounds-weighted mean of dest_no_vehicle_pct over the lots sent to that quartile. Present only when the ACS layer was fetched.",
 
     # ---- decision layer, built by 16_decision_layer.py
     "scenario": "Named policy: rule_based_category, conservative, capacity_matched or food_security_weighted.",
