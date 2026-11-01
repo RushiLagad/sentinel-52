@@ -1,14 +1,14 @@
 {
  "meta": {
   "produced_by": "analysis/scripts/17_build_app_data.py",
-  "generated_utc": "2026-10-28T17:13:46+00:00",
+  "generated_utc": "2026-11-01T23:35:34+00:00",
   "schema_version": "1.0.0",
   "payload": "burden",
   "sources": [
    {
     "file": "analysis/outputs/hazard_first_look.json",
     "sha256_8": "00e2408b",
-    "modified_utc": "2026-10-27T17:29:43+00:00"
+    "modified_utc": "2026-11-01T23:02:58+00:00"
    },
    {
     "file": "analysis/outputs/burden_weighting.json",
