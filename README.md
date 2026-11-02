@@ -7,7 +7,7 @@ Rushikesh Lagad (University of Arkansas) · Sambhavi Patel (University of Arkans
 Naisargi Modha (Northeastern University)
 
 **Live application: https://rushilagad.github.io/sentinel-52/** · evidence behind every number:
-`report/FINDINGS.md` · the report: `report/REPORT.md` and `report/REPORT.pdf` · read this first if you are new: `docs/HANDOFF.md`
+`report/FINDINGS.md` · the report: `report/REPORT.md` and `report/REPORT.pdf` · four-minute walkthrough: `video/sentinel-52-demo.mp4` · read this first if you are new: `docs/HANDOFF.md`
 
 ## Try it in three minutes
 
