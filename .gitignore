@@ -21,3 +21,6 @@ app/.vite/
 # OS
 .DS_Store
 Thumbs.db
+
+# Demo recordings live outside the repo
+video/

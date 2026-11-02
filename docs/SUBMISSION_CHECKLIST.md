@@ -1,8 +1,8 @@
 # Submission checklist
 
-Six deliverables from the Sens-D Submission Workspace (read 2026-10-24), five required tasks and the
+Six deliverables from the SENS-D Submission Workspace (read 2026-10-24), five required tasks and the
 evaluation weights from the challenge brief (published 2026-10-26, extracted in
-`docs/CHALLENGE_BRIEF.md`).
+`docs/CHALLENGE_BRIEF.md`). Status as of 2026-11-02, the submission day.
 
 **How submission works:** submit the **GitHub repository link** through the Submission Workspace. The
 README must let judges reproduce every result from its instructions alone.
@@ -17,62 +17,53 @@ README must let judges reproduce every result from its instructions alone.
 > "Do not push any changes to your repository after the submission deadline. Any push made after the
 > deadline will result in disqualification."
 
-The hub's team panel still displays "Deadline: November 1, 2026", contradicting both the Overview and
-the challenge record. **Work to November 1.** That removes the risk whichever is authoritative, and a
-fix landing at 16:01 CT ends the entry.
+The hub's team panel displayed "Deadline: November 1, 2026" for part of the challenge, contradicting
+both the Overview and the challenge record. The team worked to the earlier date where it could and
+submitted on the morning of November 2.
 
 ---
 
 ## The six deliverables
 
-- [ ] **1. Reproducible analysis notebooks and scripts**: preprocessing, integration, modeling,
-      evaluation and **scenario analysis**.
-      *FSIS pipeline complete, validated at 99.75%, reproducing in about three minutes. NORS outcome
-      layer added. Missing: climate, recalls, vulnerability, calibration, ablation, scenarios.*
-
-- [ ] **2. Kiro artifacts**: specs, prompts, steering files, hooks. **Disclose substantial manual
-      edits to Kiro-generated code.**
-      *Steering written. Spec rewritten against the real brief at
-      `.kiro/specs/onehealth-decision-support/`; the superseded `watchlist-app` spec is kept
-      deliberately. Hooks not yet configured.*
-
-- [ ] **3. Decision-support web application**: runnable, with build and deployment instructions.
-      React recommended.
-      *Not started. No longer blocked: fully specified, with the five required components named.*
-
-- [ ] **4. Data dictionary and provenance**: per dataset: source, access date, licence, geographic
-      and time coverage, update frequency, transformations, limitations, **and decision value**.
-      *Complete for FSIS and NORS. Four datasets still to add.*
-
-- [ ] **5. PDF report**: methods, task outputs, **answers to the ten report questions**, metrics,
-      figures, scenarios, limitations, team science statement.
-      *Outline only. Written by the team, not by AI.*
-
-- [ ] **6. README and requirements**: setup and every dependency for analysis and application.
-      *Covers the analysis. App dependencies to follow.*
+- [x] **1. Reproducible analysis notebooks and scripts**: `analysis/run_all.py` runs scripts 01 to
+      20: FSIS pipeline validated against three official postings (99.75 percent), NORS burden,
+      NOAA climate, FSIS recalls, SVI, synthetic inventory, model, calibration, two ablations,
+      decision layer with four scenarios, figures, data dictionary. Reproduced on two machines.
+- [x] **2. Kiro artifacts**: specs, steering and hooks under `.kiro/`. The manual-change log at the
+      end of `.kiro/specs/onehealth-decision-support/tasks.md` states what Kiro generated (the
+      Export CSV button and its test, 2026-11-01) and what was written by hand with Claude.
+- [x] **3. Decision-support web application**: React, seven sections covering the five required
+      views, 20 tests, four guardrails enforced in code, deployed to GitHub Pages on every push.
+      Build and run instructions in `app/README.md`.
+- [x] **4. Data dictionary and provenance**: `data/PROVENANCE.md` (every dataset: source, access
+      date, licence, coverage, update frequency, transformations, limitations, decision value) and
+      `data/DATA_DICTIONARY.md` (every column of every built table, regenerated on each run).
+- [x] **5. PDF report**: `report/REPORT.pdf`, built from `report/REPORT.md`. Methods, the ten
+      questions, metrics, seven figures, scenarios, limitations, team science statement, AI
+      disclosure.
+- [x] **6. README and requirements**: setup for analysis and app, manual data download with hash
+      verification, a three-minute judge's path through the live app.
 
 ---
 
 ## The five required tasks
 
-- [ ] **T1 Define the system and data layer**: actor, decision, One Health system map, aligned
-      datasets, data dictionary, provenance, decision statement.
-      *Actor chosen (regional food bank, justified in the spec). Map and three datasets outstanding.*
-- [ ] **T2 Build and validate a risk model**: transparent baseline, integrated model, time-aware
-      validation, discrimination **and calibration**, uncertainty, **marginal value of added data**.
-      *Baseline, integrated model, time-aware validation, bootstrap uncertainty and Brier scores done,
-      with a gradient-boosting reliability table. Missing: reliability for the projection scorer, a
-      reliability figure, and the leave-one-source-out ablation.*
-- [ ] **T3 Convert predictions to decisions**: feasible actions, constraints, **food-security or
-      equity objective**, comparison against a rule-based policy, **three or more scenarios**, human
-      review for high-consequence actions.
-      *Rule-based comparison exists. Everything else outstanding.*
-- [ ] **T4 Build the app with Kiro**: current-risk view, alert queue, scenario builder,
-      recommended-action panel, evidence panel with uncertainty.
-      *Specified, not built.*
-- [ ] **T5 Team science**: roles, two added datasets, ablation, a decision changed by another
-      discipline, the next dataset or partner.
-      *Outstanding. Capture the cross-discipline decision as it happens, not retrospectively.*
+- [x] **T1 Define the system and data layer**: regional food bank as actor; decision statement in
+      the README; One Health system map (`fig6`); five FSIS sources, CDC NORS, NOAA, FSIS recalls,
+      CDC/ATSDR SVI; dictionary and provenance.
+- [x] **T2 Build and validate a risk model**: binomial projection baseline, logistic and gradient
+      boosting; time-aware split; AUROC and average precision with establishment-clustered
+      bootstrap; reliability and ECE for both scorers at three horizons; leave-one-group-out
+      ablation of FSIS features (05d) and the marginal value of the team-added layers (05e).
+- [x] **T3 Convert predictions to decisions**: four actions with shelf-life and cooked-channel
+      constraints; equity by SVI quartile; rule-based baseline; four scenarios; frontier; human
+      acknowledgement with reversal evidence for every high-consequence call.
+- [x] **T4 Build the app with Kiro**: current risk, alert queue, scenario builder, recommended
+      actions, evidence with uncertainty, plus a receiving desk and equity view. Provenance of the
+      code is stated, not implied.
+- [x] **T5 Team science**: roles and dates in the manual-change log; two added datasets (four in
+      practice); ablation of their effect; five decisions changed by another discipline recorded in
+      Q9; next dataset named (a real food bank receiving log).
 
 ---
 
@@ -80,11 +71,11 @@ fix landing at 16:01 CT ends the entry.
 
 | Criterion | Weight | Where we stand |
 |---|---|---|
-| Data science rigor and validation | 25% | strongest |
-| Operational decision support | 25% | weakest, and worth the most alongside rigor |
-| One Health and multi-source integration | 20% | three required sources still missing |
-| Kiro implementation and usability | 15% | steering and spec in place, app not built |
-| Team science, reproducibility, communication | 15% | reproducibility strong, team science untouched |
+| Data science rigor and validation | 25% | strongest: validated rebuild, clustered intervals, calibration, two ablations, two-machine reproduction |
+| Operational decision support | 25% | strong: a real decision, costed scenarios, human review, live app |
+| One Health and multi-source integration | 20% | four domains with real data; the USDA food-access layer did not land (Census key) and is disclosed |
+| Kiro implementation and usability | 15% | specs, steering and hooks complete; one Kiro-generated feature; the rest hand-built and disclosed |
+| Team science, reproducibility, communication | 15% | strong: documented decisions, a teammate's branch merged, reproduction on two machines |
 
 ---
 
@@ -100,19 +91,20 @@ fix landing at 16:01 CT ends the entry.
 - No dataset under a redistribution restriction enters this repository.
 - No FSIS-to-illness join at establishment level, ever.
 
+All eight are enforced by `17_build_app_data.py --check` and the app's test suite, or by the
+absence of the restricted files from the tree.
+
 ---
 
-## Still open with the organizers
+## Resolved with the organizers' materials
 
-- **Whether the fall rules restrict AI assistance in the written report.** The spring briefs asked
-  teams not to use AI to write the report; the fall materials are silent while explicitly requiring
-  Kiro artifacts for code. We are treating the report as the team's own writing.
-- `docs/CHALLENGE_BRIEF.md` is an **extracted summary**, not the organizers' verbatim text. Someone
-  must check it against the Google Doc before the report is written.
+- **AI assistance in the written report.** The fall materials require Kiro artifacts for code and are
+  silent on the report. The narrative was AI-drafted and team-edited, and the report's AI disclosure
+  says so.
+- `docs/CHALLENGE_BRIEF.md` is an extracted summary, not the organizers' verbatim text. Two team
+  members read the report against the organizers' material before submission (task 5.7).
 
 ## Events
 
-- **Kiro tooling session: Monday 2026-10-26, 16:00 CT.** Attending.
-- Kickoff recording, which may carry requirement detail not in the brief:
-  https://www.youtube.com/watch?v=U7CTaK4WCEM
-- The USDA career panel on 2026-10-23 was not recorded.
+- Kiro tooling session, 2026-10-26, 16:00 CT: attended.
+- Kickoff recording: https://www.youtube.com/watch?v=U7CTaK4WCEM
