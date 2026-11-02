@@ -216,7 +216,7 @@ is ours.
 - [x] **5.5** **Done.** Thirteen limitations in `report/REPORT.md`, each tied to the place it arises.
   _(deliverable 5)_
 - [ ] **5.6** Final README pass: judges must reproduce everything from it alone. Fresh-clone
-  reproduction verified 2026-10-29 (pipeline, app build, 17 tests). Redo once more after the last
+  reproduction verified 2026-10-29 and again 2026-11-01 (pipeline, app build, 20 tests). Redo once more after the last
   content push, and add the PDF build line. _(deliverable 6)_
 - [ ] **5.7** Verify the original Google Doc against `docs/CHALLENGE_BRIEF.md` line by line. That file
   is a summary, not the organizers' words. _(correctness)_

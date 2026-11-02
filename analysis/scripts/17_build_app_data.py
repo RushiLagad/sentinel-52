@@ -75,8 +75,21 @@ CONTRACT: dict[str, set[str]] = {
 }
 
 
+BINARY = {".parquet", ".png", ".jpg", ".xlsx", ".zip", ".pdf"}
+
+
 def sha8(p: Path) -> str:
-    return hashlib.sha256(p.read_bytes()).hexdigest()[:8]
+    """First 8 hex of SHA-256, with CRLF folded to LF for text files.
+
+    Git stores these files with LF (.gitattributes) but a Windows checkout
+    writes CRLF, so hashing raw bytes gave a value nobody on another machine
+    could reproduce. Folding line endings makes the hash equal to the hash of
+    the committed file on every platform. Binary files are hashed as they are.
+    """
+    b = p.read_bytes()
+    if p.suffix.lower() not in BINARY:
+        b = b.replace(b"\r\n", b"\n")
+    return hashlib.sha256(b).hexdigest()[:8]
 
 
 def src(p: Path, root: Path) -> dict:

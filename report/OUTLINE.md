@@ -176,7 +176,7 @@ All documented already; this is where each lives.
 
 ## AI assistance disclosure (for the PDF)
 
-Kiro did not generate code in this repository; the `.kiro/` artifacts are in its format and were
+Kiro generated the Export CSV button and its test on 2026-11-01 and nothing else; the `.kiro/` artifacts are in its format and were
 loaded in it. Claude (Anthropic): the analysis pipeline from 2026-10-09, scripts 09 to 19, the
 specs, steering and hooks, `17_build_app_data.py`, and the React UI and its tests. The
 manual-change log in `tasks.md` has every file with a date and reason. The report prose is the

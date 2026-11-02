@@ -28,6 +28,9 @@ HEADER = r"""
 \usepackage{geometry}
 \geometry{letterpaper, margin=1in}
 \usepackage{pdflscape}
+\usepackage{url}
+\DeclareUrlCommand\codepath{\urlstyle{tt}}
+\Urlmuskip=0mu plus 1mu
 \usepackage{caption}
 \captionsetup{font=small, labelfont=bf, width=0.92\textwidth}
 \usepackage{float}
@@ -79,6 +82,15 @@ def main() -> int:
                 f"\\includegraphics[width=\\linewidth]{{{m.group(2)}}}\n"
                 f"\\caption{{{cap}}}\n\\end{{figure}}\n\\end{{landscape}}\n")
     md = re.sub(r"(?m)^!\[([^\]]*)\]\((figures/fig[12]_[^)]+)\)\n", landscape, md)
+    # Long paths and identifiers in inline code cannot break inside \texttt and
+    # run off the margin. Route them through \url-style typesetting, which breaks
+    # at / . _ and -, when they carry no characters \url cannot take.
+    def breakable(m: re.Match) -> str:
+        s = m.group(1)
+        if len(s) >= 14 and re.search(r"[/._-]", s) and not re.search(r"[\\{}%#\s]", s):
+            return "\\codepath{" + s + "}"
+        return m.group(0)
+    md = re.sub(r"`([^`\n]+)`", breakable, md)
 
     with tempfile.TemporaryDirectory() as td:
         tmp_md = Path(td) / "REPORT.md"
