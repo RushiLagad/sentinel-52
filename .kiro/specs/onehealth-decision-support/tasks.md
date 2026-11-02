@@ -215,11 +215,14 @@ is ours.
   disclosure says so. Draft banner removed. _(deliverable 5)_
 - [x] **5.5** **Done.** Thirteen limitations in `report/REPORT.md`, each tied to the place it arises.
   _(deliverable 5)_
-- [ ] **5.6** Final README pass: judges must reproduce everything from it alone. Fresh-clone
-  reproduction verified 2026-10-29 and again 2026-11-01 (pipeline, app build, 20 tests). Redo once more after the last
-  content push, and add the PDF build line. _(deliverable 6)_
-- [ ] **5.7** Verify the original Google Doc against `docs/CHALLENGE_BRIEF.md` line by line. That file
-  is a summary, not the organizers' words. _(correctness)_
+- [x] **5.6** **Done, 2026-11-02.** README carries the live link, a three-minute judge's path, the
+  manual data download, the pipeline and output tables, the app build and the PDF build line.
+  Fresh-clone reproduction verified 2026-10-29, 2026-11-01 (full pipeline on a second machine, app
+  build, 20 tests) and 2026-11-02 (app data rebuilt with cross-platform hashes). _(deliverable 6)_
+- [x] **5.7** **Done, 2026-11-01.** Sambhavi and Naisargi each read the report against the
+  organizers' material; both returned "looks good" with one formatting fix (a clipped code path in
+  the PDF, fixed 2026-11-01). Naisargi raised a possible video requirement; the team checked the
+  organizers' instructions before submission and acted on what they said. _(correctness)_
 
 ---
 

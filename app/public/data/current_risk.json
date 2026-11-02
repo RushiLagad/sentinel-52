@@ -1,43 +1,43 @@
 {
  "meta": {
   "produced_by": "analysis/scripts/17_build_app_data.py",
-  "generated_utc": "2026-11-01T23:35:34+00:00",
+  "generated_utc": "2026-11-02T16:56:18+00:00",
   "schema_version": "1.0.0",
   "payload": "current_risk",
   "sources": [
    {
     "file": "analysis/outputs/decision_layer_h3.json",
-    "sha256_8": "48ad6f08",
+    "sha256_8": "160d2097",
     "modified_utc": "2026-11-01T23:27:48+00:00"
    },
    {
     "file": "analysis/outputs/t20_scenarios_h3.csv",
-    "sha256_8": "a7c475da",
+    "sha256_8": "f5fa8c3a",
     "modified_utc": "2026-11-01T23:27:48+00:00"
    },
    {
     "file": "analysis/outputs/t21_equity_by_svi_quartile_h3.csv",
-    "sha256_8": "28024418",
+    "sha256_8": "7610f257",
     "modified_utc": "2026-11-01T23:27:48+00:00"
    },
    {
     "file": "analysis/outputs/t22_frontier_h3.csv",
-    "sha256_8": "b490e6c7",
+    "sha256_8": "d447acde",
     "modified_utc": "2026-11-01T23:27:48+00:00"
    },
    {
     "file": "analysis/outputs/t23_lot_actions_h3.csv",
-    "sha256_8": "91857195",
+    "sha256_8": "861bfc1d",
     "modified_utc": "2026-11-01T23:27:48+00:00"
    },
    {
     "file": "analysis/outputs/early_warning_summary_h3.json",
-    "sha256_8": "c63735e9",
+    "sha256_8": "9c7efd7d",
     "modified_utc": "2026-11-01T23:01:06+00:00"
    },
    {
     "file": "analysis/outputs/calibration_h3.json",
-    "sha256_8": "2fb741fc",
+    "sha256_8": "8ffa0332",
     "modified_utc": "2026-11-01T23:01:07+00:00"
    },
    {
@@ -47,17 +47,17 @@
    },
    {
     "file": "analysis/outputs/hazard_first_look.json",
-    "sha256_8": "00e2408b",
+    "sha256_8": "dac8a753",
     "modified_utc": "2026-11-01T23:02:58+00:00"
    },
    {
     "file": "analysis/outputs/key_numbers.json",
-    "sha256_8": "a8ff9386",
+    "sha256_8": "52aab50d",
     "modified_utc": "2026-11-01T23:03:00+00:00"
    },
    {
     "file": "data/fsis_recalls/fsis_recalls_poultry_salmonella.csv",
-    "sha256_8": "40d572b1",
+    "sha256_8": "b73bcd15",
     "modified_utc": "2026-10-26T22:10:17+00:00"
    },
    {
