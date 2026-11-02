@@ -19,6 +19,43 @@ export default function CurrentRiskView({ risk, names, onPick, picked }) {
     const cmp = (a, b) => { const x = a[sort.k] ?? -1, y = b[sort.k] ?? -1; return x < y ? -1 : x > y ? 1 : 0; };
     return [...r].sort((a, b) => cmp(a, b) * sort.d);    // d = -1 flips ascending to descending
   }, [risk, cls, supplierOnly, q, sort, names]);
+  // Export the rows as they currently stand, after filter and sort, with one
+  // column per column the table shows. Values are the raw numbers, not the
+  // formatted strings, so a spreadsheet reads them as numbers. No dependency:
+  // a Blob and an object URL are enough for a static host.
+  const CSV_COLUMNS = [
+    ["plant_name", (u) => names[u.establishment_id] || ""],
+    ["establishment_id", (u) => u.establishment_id],
+    ["product_class", (u) => u.product_class],
+    ["fsis_category", (u) => u.category ?? "NA"],
+    ["score", (u) => u.score],
+    ["observed_rate_52w", (u) => u.observed_rate_52w],
+    ["rate_interval_95_lo", (u) => u.rate_interval_95?.lo],
+    ["rate_interval_95_hi", (u) => u.rate_interval_95?.hi],
+    ["samples_52w", (u) => u.samples_52w],
+    ["positives_52w", (u) => u.positives_52w],
+    ["calibration_band_observed", (u) => u.calibration_band?.observed],
+    ["calibration_band_mean_predicted", (u) => u.calibration_band?.mean_predicted],
+    ["calibration_band_n", (u) => u.calibration_band?.n],
+  ];
+  const csvCell = (v) => {
+    if (v == null) return "";
+    const s = String(v);
+    return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;    // RFC 4180 quoting
+  };
+  const exportCsv = () => {
+    const header = CSV_COLUMNS.map(([name]) => name).join(",");
+    const body = rows.map((u) => CSV_COLUMNS.map(([, get]) => csvCell(get(u))).join(",")).join("\n");
+    const blob = new Blob([header + "\n" + body + "\n"], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `current_risk_h${risk.meta.horizon_months}_${risk.meta.window_end}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  };
   const th = (k, label, num) => (
     <th className={num ? "num" : ""} onClick={() => setSort((s) => ({ k, d: s.k === k ? -s.d : -1 }))} style={{ cursor: "pointer" }}>
       {label}{sort.k === k ? (sort.d < 0 ? " ↓" : " ↑") : ""}
@@ -33,6 +70,7 @@ export default function CurrentRiskView({ risk, names, onPick, picked }) {
         <label><input type="checkbox" checked={supplierOnly} onChange={(e) => setSupplierOnly(e.target.checked)} /> suppliers only</label>
         <label>Find <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="plant id or name" /></label>
         <span className="muted small">{rows.length} shown</span>
+        <button type="button" onClick={exportCsv}>Export CSV</button>
       </div>
       <div className="table-wrap">
         <table>
